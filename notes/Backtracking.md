@@ -95,9 +95,11 @@ void solve(Node n) {
 
 给个n，给出所有解
 初始解空间树如下
+
 ![](https://github.com/HongfeiXu/LeetCode/blob/master/images/CombinationSum.png?raw=true)
 
 **经过剪枝后的解空间树如下**
+
 ![](https://github.com/HongfeiXu/LeetCode/blob/master/images/CombinationSum_2.png?raw=true)
 
 [C++实现](https://github.com/HongfeiXu/LeetCode/blob/master/algorithms/cpp/CombinationSum.h)
