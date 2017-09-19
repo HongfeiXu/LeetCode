@@ -88,8 +88,8 @@ void solve(Node n) {
 ### 八皇后 N-Queens
 
 1.给个n，问有没有解；
-2.给个n，有几种解；([Leetcode N-Queens II])
-3.给个n，给出所有解；([Leetcode N-Queens])
+2.给个n，有几种解；([Leetcode N-Queens II](https://github.com/HongfeiXu/LeetCode/blob/master/algorithms/cpp/NQueens2.h))
+3.给个n，给出所有解；([Leetcode N-Queens](https://github.com/HongfeiXu/LeetCode/blob/master/algorithms/cpp/NQueens.h))
 
 ### LeetCode 39. Combination Sum
 
@@ -103,3 +103,8 @@ void solve(Node n) {
 [C++实现](https://github.com/HongfeiXu/LeetCode/blob/master/algorithms/cpp/CombinationSum.h)
 
 
+## Reference
+
+[回溯全集](https://segmentfault.com/a/1190000006121957)
+
+[Backtracking](https://www.cis.upenn.edu/~matuszek/cit594-2012/Pages/backtracking.html)
