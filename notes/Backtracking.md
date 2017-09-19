@@ -27,5 +27,5 @@ LeetCode 39. Combination Sum
 
 解空间树如下
 
-![](https://github.com/HongfeiXu/LeetCode/blob/master/images/CombinationSum.jpg?raw=true)
-![](https://github.com/HongfeiXu/LeetCode/blob/master/images/CombinationSum_2.jpg?raw=true)
+![](https://github.com/HongfeiXu/LeetCode/blob/master/images/CombinationSum.png?raw=true)
+![](https://github.com/HongfeiXu/LeetCode/blob/master/images/CombinationSum_2.png?raw=true)
