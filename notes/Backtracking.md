@@ -87,9 +87,9 @@ void solve(Node n) {
 
 ### 八皇后 N-Queens
 
-1.给个n，问有没有解；
-2.给个n，有几种解；([Leetcode N-Queens II](https://github.com/HongfeiXu/LeetCode/blob/master/algorithms/cpp/NQueens2.h))
-3.给个n，给出所有解；([Leetcode N-Queens](https://github.com/HongfeiXu/LeetCode/blob/master/algorithms/cpp/NQueens.h))
+1. 给个n，问有没有解；
+2. 给个n，有几种解；([Leetcode N-Queens II](https://github.com/HongfeiXu/LeetCode/blob/master/algorithms/cpp/NQueens2.h))
+3. 给个n，给出所有解；([Leetcode N-Queens](https://github.com/HongfeiXu/LeetCode/blob/master/algorithms/cpp/NQueens.h))
 
 ### LeetCode 39. Combination Sum
 
