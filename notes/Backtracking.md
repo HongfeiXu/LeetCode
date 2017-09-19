@@ -23,7 +23,9 @@
 
 ## 4. 例子
 
-LeetCode 39.Combination Sum
+LeetCode 39. Combination Sum
 
 解空间树如下
 
+![](https://github.com/HongfeiXu/LeetCode/blob/master/images/CombinationSum.jpg?raw=true)
+![](https://github.com/HongfeiXu/LeetCode/blob/master/images/CombinationSum_2.jpg?raw=true)
