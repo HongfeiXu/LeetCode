@@ -18,7 +18,6 @@ but this way is much slower.
 
 */
 
-
 #include <vector>
 #include <string>
 #include <algorithm>

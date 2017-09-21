@@ -4,12 +4,10 @@
 
 670. Maximum Swap
 
-data: 2017.9.16
-
+Related Topics: Array, Math
 
 Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. 
 Return the maximum valued number you could get.
-
 
 Approach #1: Sort and Compare to find the leftPos, rightPos and Swap [Accepted]
 
@@ -28,7 +26,6 @@ rightPos = 2
 swap()
 
 1993->9931
-
 
 Approach #3:  Greedy [Accepted]
 

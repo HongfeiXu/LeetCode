@@ -4,12 +4,11 @@
 
 402. Remove K Digits
 
-data: 2017.9.16
+Related Topics: Stack, Greedy
 
 Approach my:
 
 remove k digits to get smallest number == select number.length-k digits to get smallest number
-
 
 Approach Greedy using Stack(COOL):
 

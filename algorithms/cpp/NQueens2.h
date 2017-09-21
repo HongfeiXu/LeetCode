@@ -4,6 +4,8 @@
 
 52. N-Queens II
 
+Related Topics: Backtracking
+
 The n-queens puzzle is the problem of placing n queens on an n¡Án chessboard such that no two queens attack each other.
 
 Approach: Backtracking
