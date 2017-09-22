@@ -56,7 +56,7 @@ private:
 		for (int j = 0; j < n; j++)
 		{
 			matrix.push_back(j);
-			if(isValid(matrix))
+			if (isValid(matrix))
 				totalNQueensAux(i + 1, matrix, n);
 			matrix.pop_back();
 		}

@@ -4,7 +4,7 @@
 
 22. Generate Parentheses
 
-Given n pairs of parentheses, write a function to 
+Given n pairs of parentheses, write a function to
 generate all combinations of well-formed parentheses.
 
 方法都很新颖
@@ -15,9 +15,9 @@ Approach Recurisive:
 
 https://discuss.leetcode.com/topic/4485/concise-recursive-c-solution
 
-The idea is intuitive. Use two integers to count the remaining left parenthesis (n) 
+The idea is intuitive. Use two integers to count the remaining left parenthesis (n)
 and the right parenthesis (m) to be added. At each function call add a left parenthesis
-if n >0 and add a right parenthesis if m>0. 
+if n >0 and add a right parenthesis if m>0.
 Append the result and terminate recursive calls when both m and n are zero.
 
 初始时，可加入的左括号数目为n,可加入的右括号数目为0

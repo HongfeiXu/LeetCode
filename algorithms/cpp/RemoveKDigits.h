@@ -24,7 +24,6 @@ So, we need to remove digit with bigger number in higher position.
 
 using namespace std;
 
-
 class Solution {
 private:
 	// select k digit from digits, to form a minimum number by not change the order.
@@ -47,7 +46,7 @@ private:
 				{
 					result.push_back(i);
 					currentDigits.erase(currentDigits.begin(), currentDigits.begin() + firstAppear[i] + 1);
-					
+
 					// update firstAppear for currentDigits
 					firstAppear.assign(10, -1);
 					for (int i = currentDigits.size() - 1; i >= 0; i--)
@@ -74,7 +73,7 @@ public:
 		}
 
 		vector<int> minDigits = minNumber(digits, num.size() - k);
-		
+
 		// construct result, remember to skip leading zero
 		string result("");
 		unsigned j = 0;
@@ -95,7 +94,7 @@ public:
 	{
 		int digitsCnt = num.size() - k;
 		vector<char> stack;
-		
+
 		// k keeps track of how many characters we can remove
 		// if the previous character in stack is larger than the current one
 		// then removing it will get a smaller number
@@ -105,7 +104,7 @@ public:
 		if (num.empty() || digitsCnt == 0)
 			return string("0");
 		stack.push_back(num[0]);
-		for (unsigned i = 1; i < num.size(); i++)		
+		for (unsigned i = 1; i < num.size(); i++)
 		{
 			char c = stack.back();
 			while (num[i] < c && k > 0)
@@ -113,7 +112,7 @@ public:
 				stack.pop_back();
 				k--;
 				// if stack is empty, out while loop
-				if(stack.empty())
+				if (stack.empty())
 					break;
 				else
 					c = stack.back();

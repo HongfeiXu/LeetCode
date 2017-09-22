@@ -25,7 +25,7 @@ private:
 	{
 		if (digits.empty())
 		{
-			if(!word.empty())
+			if (!word.empty())
 				words.push_back(word);
 			return;
 		}

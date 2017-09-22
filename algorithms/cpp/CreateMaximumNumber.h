@@ -85,8 +85,8 @@ private:
 		digitStack.push_back(nums[0]);
 		for (int i = 1; i < nums.size(); i++)
 		{
-			while (!digitStack.empty() 
-				   && digitStack.back() < nums[i] 
+			while (!digitStack.empty()
+				   && digitStack.back() < nums[i]
 				   && digitsNeedRemove > 0)
 			{
 				digitStack.pop_back();
@@ -213,9 +213,7 @@ PrintVector(resutl);
 return 0;
 }
 
-
 7 3 8 2 5 6 4 4 0 6 5 7 6 2 0
 请按任意键继续. . .
-
 
 */

@@ -8,11 +8,10 @@ Related Topics: Array, Backtracking
 
 Approach Backtracking: Just like 22. Generate Parentheses
 
-
-to avoid duplicated combinations, 
+to avoid duplicated combinations,
 we use a variable called "begin" to control the start of the for-loop
 
-note that, there is another way to avoid duplicated combinations, 
+note that, there is another way to avoid duplicated combinations,
 sort this currCombine, and check if there is already a currCombine in combines.
 but this way is much slower.
 
@@ -24,7 +23,6 @@ but this way is much slower.
 #include <set>
 
 using namespace std;
-
 
 class Solution {
 private:
@@ -65,4 +63,3 @@ public:
 		return result;
 	}
 };
-

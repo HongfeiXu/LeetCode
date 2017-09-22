@@ -6,7 +6,7 @@
 
 Related Topics: Array, Math
 
-Given a non-negative integer, you could swap two digits at most once to get the maximum valued number. 
+Given a non-negative integer, you could swap two digits at most once to get the maximum valued number.
 Return the maximum valued number you could get.
 
 Approach #1: Sort and Compare to find the leftPos, rightPos and Swap [Accepted]
@@ -30,14 +30,14 @@ swap()
 Approach #3:  Greedy [Accepted]
 
 Intuition:
-At each digit of the input number in order, 
-if there is a larger digit that occurs later, 
+At each digit of the input number in order,
+if there is a larger digit that occurs later,
 we know that the best swap must occur with the digit we are currently considering.
 
 Algorithm:
 We will compute last[d] = i, the index i of the last occurrence of digit d (if it exists).
-Afterwards, when scanning the number from left to right, 
-if there is a larger digit in the future, we will swap it with the largest such digit; 
+Afterwards, when scanning the number from left to right,
+if there is a larger digit in the future, we will swap it with the largest such digit;
 if there are multiple such digits, we will swap it with the one that occurs the latest.
 
 see maximumSwap_v4(int num)
@@ -193,4 +193,3 @@ public:
 		return num;
 	}
 };
-
