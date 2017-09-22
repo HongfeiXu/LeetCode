@@ -16,7 +16,7 @@
 |017. Letter Combinations of a Phone Number|CPP|String, Backtracking|
 |020. Valid Parentheses |CPP    |String, Stack          |
 |022. Generate Parentheses|CPP  |String, Backtracking, DP|
-|026. Remove Duplicates from Sorted Array|CPP|Array     |[Cool]()		|
+|026. Remove Duplicates from Sorted Array|CPP|Array     |[Cool](https://github.com/HongfeiXu/LeetCode/blob/master/images/RemoveDuplicateFromSortedArray.png?raw=true)		|
 |027. Remove Element	|CPP	|Array					|				|
 |039. Combination Sum   |CPP    |Array, Backtracking    |
 |051. NQueens           |CPP    |Backtracking           |Wow			|
