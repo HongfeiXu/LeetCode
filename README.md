@@ -3,8 +3,7 @@
 ## Notes
 
 1. [Backtracking](https://github.com/HongfeiXu/LeetCode/blob/master/notes/Backtracking.md)
-
-
+2. [Largest Sum Contiguous Subarray](https://github.com/HongfeiXu/LeetCode/blob/master/notes/LargestSumContiguousSubarray.md)
 
 ## Progress
 
@@ -18,10 +17,15 @@
 |022. Generate Parentheses|CPP  |String, Backtracking, DP|				|
 |026. Remove Duplicates from Sorted Array|CPP|Array     |[Cool](https://github.com/HongfeiXu/LeetCode/blob/master/images/RemoveDuplicateFromSortedArray.png?raw=true)		|
 |027. Remove Element	|CPP	|Array					|				|
+|035. Search Insert Position|CPP|Array					|				|
 |039. Combination Sum   |CPP    |Array, Backtracking    |				|
 |051. NQueens           |CPP    |Backtracking           |Wow			|
 |052. NQueensII         |CPP    |Backtracking           |				|
 |088. Merge Sorted Array |CPP   |Array					|				|
+|118. Pascal's Triangle	|CPP	|Array					|				|
+|217. Contains Duplicate|CPP	|Array					|				|
+|219. Contains Duplicate II|CPP	|Array					|				|
+|283. Move Zeroes		|CPP	|Array					|				|
 |321. Create Maximum Number|CPP |DP, Greedy             |				|
 |402. Remove K Digits   |CPP    |Stack, Greedy          |				|
 |414. Third Maximum Number|CPP	|Array					|	COOL		|
@@ -32,13 +36,9 @@
 |485. Max Consecutive Ones|CPP  |Array                  |				|
 |532. K-diff Pairs in an Array|CPP|Array				|				|
 |605. Can Place Flowers |CPP    |Array                  |				|
-|661. Image Smoother	|CPP	|Array					|				|
 |628. Maximum Product of Three Numbers|CPP|Array		|				|
-|283. Move Zeroes		|CPP	|Array					|				|
-|217. Contains Duplicate|CPP	|Array					|				|
-|035. Search Insert Position|CPP|Array					|				|
-|219. Contains Duplicate II|CPP	|Array					|				|
-|118. Pascal's Triangle	|CPP	|Array					|				|
+|661. Image Smoother	|CPP	|Array					|				|
+|121. Best Time to Buy and Sell Stock|CPP|Array			|COOL			|
 
 ## Tips
 
