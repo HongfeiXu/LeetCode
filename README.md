@@ -8,7 +8,7 @@
 ## Progress
 
 | Problem | Answer | Tags | Comment|
-| ------- | ------ | ---- | ------ |
+| ----------- | ------ | ---- | ------ |
 |001. Two Sum           |CPP    |Array, Hash Table      |               |
 |015. 3Sum              |CPP    |Array                  |Cool           |
 |016. 3Sum Closest      |CPP    |Array                  |
@@ -28,7 +28,7 @@
 |283. Move Zeroes		|CPP	|Array					|				|
 |321. Create Maximum Number|CPP |DP, Greedy             |				|
 |402. Remove K Digits   |CPP    |Stack, Greedy          |				|
-|414. Third Maximum Number|CPP	|Array					|	COOL		|
+|414. Third Maximum Number|CPP	|Array					|COOL			|
 |670. Maximum Swap      |CPP    |Array, Math            |				|
 |674. Longest Continuous Increasing Subsequence|CPP|Array|				|
 |189. Rotate Array      |CPP    |Array                  |				|
@@ -39,6 +39,13 @@
 |628. Maximum Product of Three Numbers|CPP|Array		|				|
 |661. Image Smoother	|CPP	|Array					|				|
 |121. Best Time to Buy and Sell Stock|CPP|Array			|COOL			|
+|167. Two Sum II - Input array is sorted|CPP|Array		|COOL			|
+|169. Majority Element	|CPP	|Array					|COOL			|
+|268. Missing Number	|CPP	|Array, Math, Bit Manipulation|COOL		|
+|66. Plus One			|CPP	|Array					|				|
+|581. Shortest Unsorted Continuous Subarray|CPP|Array	|				|
+
+
 
 ## Tips
 
