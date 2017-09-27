@@ -64,6 +64,7 @@ public:
 			{
 				result.push_back((*secondNumIter).second);
 				result.push_back(i);
+				break;
 			}
 			num2Index[nums[i]] = i;
 		}
