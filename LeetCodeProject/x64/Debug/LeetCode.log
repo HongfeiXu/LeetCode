@@ -1,0 +1,4 @@
+﻿  main.cpp
+f:\vs2015 projects\leetcode\src\searchinsertposition.h(32): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  LeetCode.vcxproj -> F:\VS2015 Projects\LeetCode\x64\Debug\LeetCode.exe
+  LeetCode.vcxproj -> F:\VS2015 Projects\LeetCode\x64\Debug\LeetCode.pdb (Full PDB)

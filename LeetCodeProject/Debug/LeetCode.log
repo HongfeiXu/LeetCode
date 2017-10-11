@@ -1,0 +1,4 @@
+﻿  main.cpp
+f:\vs2015 projects\leetcode\src\shortestunsortedcontinuoussubarray.h(33): warning C4018: '<': signed/unsigned mismatch
+  LeetCode.vcxproj -> F:\VS2015 Projects\LeetCode\Debug\LeetCode.exe
+  LeetCode.vcxproj -> F:\VS2015 Projects\LeetCode\Debug\LeetCode.pdb (Full PDB)
