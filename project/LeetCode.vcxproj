@@ -159,6 +159,7 @@
     <ClInclude Include="src\LongestContinuousIncreasingSubsequence.h" />
     <ClInclude Include="src\MajorityElement.h" />
     <ClInclude Include="src\MaxConsecutiveOnes.h" />
+    <ClInclude Include="src\MaximumAverageSubarrayI.h" />
     <ClInclude Include="src\MaximumProductOfThreeNumbers.h" />
     <ClInclude Include="src\MaximumSwap.h" />
     <ClInclude Include="src\MergeSortedArray.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="src\NQueens.h" />
     <ClInclude Include="src\NQueens2.h" />
     <ClInclude Include="src\PascalsTriangle.h" />
+    <ClInclude Include="src\PascalsTriangle2.h" />
     <ClInclude Include="src\PlusOne.h" />
     <ClInclude Include="src\RemoveDuplicatesFromSortedArray.h" />
     <ClInclude Include="src\RemoveElement.h" />
@@ -183,9 +185,9 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\GitRepo\LeetCode\notes\Backtracking.md" />
-    <None Include="..\..\GitRepo\LeetCode\notes\LargestSumContiguousSubarray.md" />
-    <None Include="..\..\GitRepo\LeetCode\README.md" />
+    <None Include="..\notes\Backtracking.md" />
+    <None Include="..\notes\LargestSumContiguousSubarray.md" />
+    <None Include="..\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

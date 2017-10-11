@@ -138,6 +138,12 @@
     <ClInclude Include="src\ShortestUnsortedContinuousSubarray.h">
       <Filter>Header Files\Array</Filter>
     </ClInclude>
+    <ClInclude Include="src\MaximumAverageSubarrayI.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PascalsTriangle2.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -145,13 +151,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\GitRepo\LeetCode\notes\Backtracking.md">
+    <None Include="..\notes\Backtracking.md">
       <Filter>Notes</Filter>
     </None>
-    <None Include="..\..\GitRepo\LeetCode\README.md">
+    <None Include="..\notes\LargestSumContiguousSubarray.md">
       <Filter>Notes</Filter>
     </None>
-    <None Include="..\..\GitRepo\LeetCode\notes\LargestSumContiguousSubarray.md">
+    <None Include="..\README.md">
       <Filter>Notes</Filter>
     </None>
   </ItemGroup>
