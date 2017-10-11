@@ -44,7 +44,8 @@
 |268. Missing Number	|CPP	|Array, Math, Bit Manipulation|COOL		|
 |66. Plus One			|CPP	|Array					|				|
 |581. Shortest Unsorted Continuous Subarray|CPP|Array	|				|
-
+|119. Pascal's Triangle II|CPP	|Array					|				|
+|643. Maximum Average Subarray I|CPP|Array				|Sliding Window	|
 
 
 ## Tips
