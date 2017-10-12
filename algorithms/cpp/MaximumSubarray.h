@@ -27,6 +27,10 @@ now the connect between the sub problem & the original one becomes clearer:
 
 maxSubArray(A, i) = maxSubArray(A, i - 1) > 0 ? maxSubArray(A, i - 1) : 0 + A[i];
 
+Approach v3:
+
+Kadane Algorithm
+
 */
 
 #include <vector>
@@ -59,6 +63,18 @@ public:
 		{
 			dp[i] = (dp[i - 1] > 0 ? dp[i - 1] : 0) + nums[i];
 			maxSum = max(maxSum, dp[i]);
+		}
+		return maxSum;
+	}
+
+	int maxSubArray_v3(vector<int>& nums)
+	{
+		int maxSum = nums[0];
+		int currSum = nums[0];
+		for (int i = 1; i < nums.size(); i++)
+		{
+			currSum = max(currSum + nums[i], nums[i]);
+			maxSum = max(maxSum, currSum);
 		}
 		return maxSum;
 	}

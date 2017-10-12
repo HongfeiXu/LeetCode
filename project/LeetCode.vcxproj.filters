@@ -153,6 +153,15 @@
     <ClInclude Include="src\ArrayPartitionI.h">
       <Filter>Header Files\Array</Filter>
     </ClInclude>
+    <ClInclude Include="src\Non-decreasingArray.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ReshapeTheMatrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BestTimeToBuyAndSellStockII.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

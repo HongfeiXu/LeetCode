@@ -4,7 +4,7 @@
 #include <vector>
 #include "HelpFunc.h"
 
-#include "ArrayPartitionI.h"
+#include "BestTimeToBuyAndSellStockII.h"
 
 using namespace std;
 
@@ -13,12 +13,9 @@ int main()
 
 	Solution solution;
 	
-	vector<int> input { 1,4,3,2 };
+	vector<int> input { 1,2 };
 
-	cout << solution.arrayPairSum_Bucket(input) << endl;
-
-
-
+	cout << solution.maxProfit_v2(input) << endl;
 	
 	return 0;
 }

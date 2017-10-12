@@ -49,6 +49,9 @@
 |695. Max Area of Island|CPP	|Array, DFS				|COOL			|
 |53. Maximum Subarray	|CPP	|Array, DP				|				|
 |561. Array Partition I	|CPP	|Array, Bucket Sort		|COOL			|
+|665. Non-decreasing Array|CPP	|Array					|				|
+|566. Reshape the Matrix|CPP	|Array					|				|
+|122. Best Time to Buy and Sell Stock II|CPP|Array		|				|
 
 
 ## Tips

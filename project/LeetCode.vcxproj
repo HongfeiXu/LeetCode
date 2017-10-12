@@ -146,6 +146,7 @@
     <ClInclude Include="src\3SumCloset.h" />
     <ClInclude Include="src\ArrayPartitionI.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStock.h" />
+    <ClInclude Include="src\BestTimeToBuyAndSellStockII.h" />
     <ClInclude Include="src\CanPlaceFlowers.h" />
     <ClInclude Include="src\CombinationSum.h" />
     <ClInclude Include="src\ContainsDuplicate.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="src\MergeSortedArray.h" />
     <ClInclude Include="src\MissingNumber.h" />
     <ClInclude Include="src\MoveZeroes.h" />
+    <ClInclude Include="src\Non-decreasingArray.h" />
     <ClInclude Include="src\NQueens.h" />
     <ClInclude Include="src\NQueens2.h" />
     <ClInclude Include="src\PascalsTriangle.h" />
@@ -176,6 +178,7 @@
     <ClInclude Include="src\RemoveDuplicatesFromSortedArray.h" />
     <ClInclude Include="src\RemoveElement.h" />
     <ClInclude Include="src\RemoveKDigits.h" />
+    <ClInclude Include="src\ReshapeTheMatrix.h" />
     <ClInclude Include="src\RotateArray.h" />
     <ClInclude Include="src\SearchInsertPosition.h" />
     <ClInclude Include="src\ShortestUnsortedContinuousSubarray.h" />
