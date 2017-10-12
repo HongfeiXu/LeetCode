@@ -4,7 +4,7 @@
 #include <vector>
 #include "HelpFunc.h"
 
-#include "ShortestUnsortedContinuousSubarray.h"
+#include "ArrayPartitionI.h"
 
 using namespace std;
 
@@ -13,9 +13,11 @@ int main()
 
 	Solution solution;
 	
-	vector<int> input { 1,2,3,3,3 };
+	vector<int> input { 1,4,3,2 };
 
-	cout << solution.findUnsortedSubarray(input) << endl;
+	cout << solution.arrayPairSum_Bucket(input) << endl;
+
+
 
 	
 	return 0;

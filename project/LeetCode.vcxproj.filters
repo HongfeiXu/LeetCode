@@ -144,6 +144,15 @@
     <ClInclude Include="src\PascalsTriangle2.h">
       <Filter>Header Files\Array</Filter>
     </ClInclude>
+    <ClInclude Include="src\MaxAreaOfIsland.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MaximumSubarray.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ArrayPartitionI.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

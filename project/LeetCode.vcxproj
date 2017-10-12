@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="src\3Sum.h" />
     <ClInclude Include="src\3SumCloset.h" />
+    <ClInclude Include="src\ArrayPartitionI.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStock.h" />
     <ClInclude Include="src\CanPlaceFlowers.h" />
     <ClInclude Include="src\CombinationSum.h" />
@@ -158,9 +159,11 @@
     <ClInclude Include="src\LetterCombinationsOfAPhoneNumber.h" />
     <ClInclude Include="src\LongestContinuousIncreasingSubsequence.h" />
     <ClInclude Include="src\MajorityElement.h" />
+    <ClInclude Include="src\MaxAreaOfIsland.h" />
     <ClInclude Include="src\MaxConsecutiveOnes.h" />
     <ClInclude Include="src\MaximumAverageSubarrayI.h" />
     <ClInclude Include="src\MaximumProductOfThreeNumbers.h" />
+    <ClInclude Include="src\MaximumSubarray.h" />
     <ClInclude Include="src\MaximumSwap.h" />
     <ClInclude Include="src\MergeSortedArray.h" />
     <ClInclude Include="src\MissingNumber.h" />

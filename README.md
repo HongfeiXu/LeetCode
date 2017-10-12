@@ -46,6 +46,9 @@
 |581. Shortest Unsorted Continuous Subarray|CPP|Array	|				|
 |119. Pascal's Triangle II|CPP	|Array					|				|
 |643. Maximum Average Subarray I|CPP|Array				|Sliding Window	|
+|695. Max Area of Island|CPP	|Array, DFS				|COOL			|
+|53. Maximum Subarray	|CPP	|Array, DP				|				|
+|561. Array Partition I	|CPP	|Array, Bucket Sort		|COOL			|
 
 
 ## Tips
