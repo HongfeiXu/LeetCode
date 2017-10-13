@@ -267,7 +267,7 @@ Found Pattern at index 10
 
 ## Reference
 
-[Searching for Patterns | Set 2 (KMP Algorithm)](http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/)
+[Searching for Patterns | Set 2 (KMP Algorithm)](http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/)  
 [×Ö·û´®Æ¥ÅäµÄKMPËã·¨](http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html)  
 
 
