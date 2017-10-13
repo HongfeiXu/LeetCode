@@ -4,6 +4,7 @@
 
 1. [Backtracking](https://github.com/HongfeiXu/LeetCode/blob/master/notes/Backtracking.md)
 2. [Largest Sum Contiguous Subarray](https://github.com/HongfeiXu/LeetCode/blob/master/notes/LargestSumContiguousSubarray.md)
+3. [KMP](https://github.com/HongfeiXu/LeetCode/blob/master/notes/KMP.md)
 
 ## Progress
 

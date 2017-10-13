@@ -18,7 +18,7 @@ Output: Pattern found at index 0
         Pattern found at index 12
 ```
 
-![string matching](...)
+![string matching](https://github.com/HongfeiXu/LeetCode/blob/master/images/Pattern-Searching-2.png?raw=true)
 
 
 ## Naive Pattern Searching:
