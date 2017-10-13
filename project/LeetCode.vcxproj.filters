@@ -162,6 +162,9 @@
     <ClInclude Include="src\BestTimeToBuyAndSellStockII.h">
       <Filter>Header Files\Array</Filter>
     </ClInclude>
+    <ClInclude Include="src\RepeatedStringMatch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -176,6 +179,9 @@
       <Filter>Notes</Filter>
     </None>
     <None Include="..\README.md">
+      <Filter>Notes</Filter>
+    </None>
+    <None Include="..\notes\KMP.md">
       <Filter>Notes</Filter>
     </None>
   </ItemGroup>

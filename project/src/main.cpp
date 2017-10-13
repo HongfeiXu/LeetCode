@@ -4,7 +4,7 @@
 #include <vector>
 #include "HelpFunc.h"
 
-#include "BestTimeToBuyAndSellStockII.h"
+#include "RepeatedStringMatch.h"
 
 using namespace std;
 
@@ -13,9 +13,10 @@ int main()
 
 	Solution solution;
 	
-	vector<int> input { 1,2 };
+	string A("ba");
+	string B("ab");
 
-	cout << solution.maxProfit_v2(input) << endl;
+	cout << solution.repeatedStringMatch_v3(A, B) << endl;
 	
 	return 0;
 }

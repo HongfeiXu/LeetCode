@@ -178,6 +178,7 @@
     <ClInclude Include="src\RemoveDuplicatesFromSortedArray.h" />
     <ClInclude Include="src\RemoveElement.h" />
     <ClInclude Include="src\RemoveKDigits.h" />
+    <ClInclude Include="src\RepeatedStringMatch.h" />
     <ClInclude Include="src\ReshapeTheMatrix.h" />
     <ClInclude Include="src\RotateArray.h" />
     <ClInclude Include="src\SearchInsertPosition.h" />
@@ -192,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\notes\Backtracking.md" />
+    <None Include="..\notes\KMP.md" />
     <None Include="..\notes\LargestSumContiguousSubarray.md" />
     <None Include="..\README.md" />
   </ItemGroup>

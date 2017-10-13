@@ -8,7 +8,7 @@
 ## Progress
 
 | Problem | Answer | Tags | Comment|
-| ----------- | ------ | ---- | ------ |
+| ----------- |:------:| ---- | ------ |
 |001. Two Sum           |CPP    |Array, Hash Table      |               |
 |015. 3Sum              |CPP    |Array                  |Cool           |
 |016. 3Sum Closest      |CPP    |Array                  |
@@ -53,6 +53,18 @@
 |566. Reshape the Matrix|CPP	|Array					|				|
 |122. Best Time to Buy and Sell Stock II|CPP|Array		|				|
 
+
+>Array Easy: 2017.9.15 -- 2017.10.12
+
+| Problem | Answer | Tags | Comment|
+| ----------- | ------ | ---- | ------ |
+|686. Repeated String Match	| CPP			|String, KMP	|COOL		|
+
+
+Now, string!  
+Need to learn->
+1. **string matching**. DONE
+2. 
 
 ## Tips
 
