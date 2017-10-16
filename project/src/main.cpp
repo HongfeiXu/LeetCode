@@ -4,7 +4,7 @@
 #include <vector>
 #include "HelpFunc.h"
 
-#include "RepeatedStringMatch.h"
+#include "NextClosestTime.h"
 
 using namespace std;
 
@@ -13,26 +13,9 @@ int main()
 
 	Solution solution;
 	
-	string A("ba");
-	string B("ab");
+	string input("19:34");
 
-	cout << solution.repeatedStringMatch_v3(A, B) << endl;
+	cout << solution.nextClosestTime_v2(input) << endl;
 	
 	return 0;
 }
-
-/*
-
-.Q..
-...Q
-Q...
-..Q.
-
-..Q.
-Q...
-...Q
-.Q..
-
-请按任意键继续. . .
-
-*/

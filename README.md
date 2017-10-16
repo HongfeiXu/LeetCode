@@ -59,7 +59,8 @@
 
 | Problem | Answer | Tags | Comment|
 | ----------- | ------ | ---- | ------ |
-|686. Repeated String Match	| CPP			|String, KMP	|COOL		|
+|686. Repeated String Match	| CPP			|String, KMP	|COOL					|
+|681. Next Closest Time		|CPP			|String			|COOL,Simulation		|
 
 
 Now, string!  

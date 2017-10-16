@@ -163,7 +163,13 @@
       <Filter>Header Files\Array</Filter>
     </ClInclude>
     <ClInclude Include="src\RepeatedStringMatch.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NextClosestTime.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RepeatedSubstringPattern.h">
+      <Filter>Header Files\String</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

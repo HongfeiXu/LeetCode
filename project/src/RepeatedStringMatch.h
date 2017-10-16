@@ -53,18 +53,6 @@ using namespace std;
 
 class Solution {
 private:
-	int NaiveStringMatching(const string& T, const string& P)
-	{
-		for (int i = 0; i <= T.size() - P.size(); i++)
-		{
-			int j;
-			for (j = 0; j < P.size() && T[i + j] == P[j]; j++);
-			if (j == P.size())
-				return i;
-		}
-		return -1;
-	}
-
 	int KMPSearch(const char *pat, const char *txt)
 	{
 		int M = strlen(pat);
@@ -117,16 +105,11 @@ private:
 				lps[i] = len;
 				i++;
 			}
-			else // (pat[i] != pat[len])
+			else
 			{
-				// This is tricky. Consider the example.
-				// AAACAAAA and i = 7. The idea is similar 
-				// to search step.
 				if (len != 0)
 				{
 					len = lps[len - 1];
-					// Also, note that we do not increment
-					// i here
 				}
 				else
 				{
@@ -137,18 +120,16 @@ private:
 		}
 	}
 
-
 public:
 	int repeatedStringMatch(string A, string B)
 	{
 		string S("");
 		int q = 0;
 		for (; S.length() < B.length(); ++q, S.append(A));
-		if (NaiveStringMatching(S, B) != -1)
+		if (S.find(B) != string::npos)
 			return q;
-		if (NaiveStringMatching(S.append(A), B) != -1)
+		if ((S.append(B)).find(B) != string::npos)
 			return q + 1;
-
 		return -1;
 	}
 
