@@ -61,6 +61,7 @@
 | ----------- | ------ | ---- | ------ |
 |686. Repeated String Match	| CPP			|String, KMP	|COOL					|
 |681. Next Closest Time		|CPP			|String			|COOL,Simulation		|
+|459. Repeated Substring Pattern|CPP		|String			|						|
 
 
 Now, string!  

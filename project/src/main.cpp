@@ -4,18 +4,15 @@
 #include <vector>
 #include "HelpFunc.h"
 
-#include "NextClosestTime.h"
+#include "RepeatedSubstringPattern.h"
 
 using namespace std;
 
 int main()
 {
-
 	Solution solution;
-	
-	string input("19:34");
 
-	cout << solution.nextClosestTime_v2(input) << endl;
-	
+	cout << boolalpha <<solution.repeatedSubstringPattern(string("aaaaa")) << endl;
+
 	return 0;
 }
