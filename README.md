@@ -62,6 +62,11 @@
 |686. Repeated String Match	| CPP			|String, KMP	|COOL					|
 |681. Next Closest Time		|CPP			|String			|COOL,Simulation		|
 |459. Repeated Substring Pattern|CPP		|String			|						|
+|415. Add Strings			|CPP			|String			|Need Survey			|
+|43. Multiply Strings		|CPP			|String			|Need Survey			|
+|125. Valid Palindrome		|CPP			|String			|Need Survey			|
+|680. Valid Palindrom II	|CPP			|String			|						|	
+|38. Count and Say			|CPP			|String			|						|
 
 
 Now, string!  

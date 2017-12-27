@@ -2,17 +2,19 @@
 #include <ctime>
 #include <iostream>
 #include <vector>
+#include <iterator>
+
 #include "HelpFunc.h"
 
-#include "RepeatedSubstringPattern.h"
+#include "CountAndSay.h"
 
 using namespace std;
 
 int main()
 {
 	Solution solution;
-
-	cout << boolalpha <<solution.repeatedSubstringPattern(string("aaaaa")) << endl;
-
+	
+	cout << solution.countAndSay(6) << endl;
+	
 	return 0;
 }

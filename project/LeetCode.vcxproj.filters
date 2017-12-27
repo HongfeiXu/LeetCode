@@ -171,6 +171,21 @@
     <ClInclude Include="src\RepeatedSubstringPattern.h">
       <Filter>Header Files\String</Filter>
     </ClInclude>
+    <ClInclude Include="src\AddStrings.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MultiplyStrings.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ValidPalindrome.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ValidPalindromeII.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CountAndSay.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

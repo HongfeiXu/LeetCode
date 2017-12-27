@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="src\3Sum.h" />
     <ClInclude Include="src\3SumCloset.h" />
+    <ClInclude Include="src\AddStrings.h" />
     <ClInclude Include="src\ArrayPartitionI.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStock.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockII.h" />
@@ -151,6 +152,7 @@
     <ClInclude Include="src\CombinationSum.h" />
     <ClInclude Include="src\ContainsDuplicate.h" />
     <ClInclude Include="src\ContainsDuplicate2.h" />
+    <ClInclude Include="src\CountAndSay.h" />
     <ClInclude Include="src\CreateMaximumNumber.h" />
     <ClInclude Include="src\FindAllNumbersDisappearedInAnArray.h" />
     <ClInclude Include="src\GenerateParentheses.h" />
@@ -169,6 +171,7 @@
     <ClInclude Include="src\MergeSortedArray.h" />
     <ClInclude Include="src\MissingNumber.h" />
     <ClInclude Include="src\MoveZeroes.h" />
+    <ClInclude Include="src\MultiplyStrings.h" />
     <ClInclude Include="src\NextClosestTime.h" />
     <ClInclude Include="src\Non-decreasingArray.h" />
     <ClInclude Include="src\NQueens.h" />
@@ -188,6 +191,8 @@
     <ClInclude Include="src\ThirdMaximumNumber.h" />
     <ClInclude Include="src\TwoSum.h" />
     <ClInclude Include="src\TwoSum2.h" />
+    <ClInclude Include="src\ValidPalindrome.h" />
+    <ClInclude Include="src\ValidPalindromeII.h" />
     <ClInclude Include="src\ValidParentheses.h" />
   </ItemGroup>
   <ItemGroup>
