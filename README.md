@@ -54,7 +54,6 @@
 |566. Reshape the Matrix|CPP	|Array					|				|
 |122. Best Time to Buy and Sell Stock II|CPP|Array		|				|
 
-
 >Array Easy: 2017.9.15 -- 2017.10.12
 
 | Problem | Answer | Tags | Comment|
@@ -67,12 +66,23 @@
 |125. Valid Palindrome		|CPP			|String			|Need Survey			|
 |680. Valid Palindrom II	|CPP			|String			|						|	
 |38. Count and Say			|CPP			|String			|						|
-
+|657. Judge Route Circle	|CPP			|String			|						|
+|606. Construct String from Binary Tree|CPP	|String			|COOL					|
+|652. Find Duplicate Subtrees|CPP			|String			|COOL					|
+|13. Roman to Integer		|CPP			|String			|						|
+|14. Longest Common Prefix	|CPP			|String			|边界测试很重要！			|
+|541. Reverse String II		|CPP			|String			|						|
+|557. Reverse Words in a String III|CPP		|String			|						|
 
 Now, string!  
 Need to learn->
 1. **string matching**. DONE
-2. 
+
+
+| Problem | Answer | Tags | Comment|
+| ----------- | ------ | ---- | ------ |
+|733. Flood Fill			|CPP			|				|COOL					|
+
 
 ## Tips
 

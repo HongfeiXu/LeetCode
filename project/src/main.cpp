@@ -6,15 +6,14 @@
 
 #include "HelpFunc.h"
 
-#include "CountAndSay.h"
+#include "ReverseWordsInAStringIII.h"
 
 using namespace std;
 
 int main()
 {
-	Solution solution;
+	Solution_v2 solution;
+
+	cout << solution.reverseWords("hello,world,I,am,HongFei") << endl;
 	
-	cout << solution.countAndSay(6) << endl;
-	
-	return 0;
 }

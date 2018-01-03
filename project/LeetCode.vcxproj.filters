@@ -186,6 +186,33 @@
     <ClInclude Include="src\CountAndSay.h">
       <Filter>Header Files\String</Filter>
     </ClInclude>
+    <ClInclude Include="src\JudgeRouteCircle.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ConstructStringFromBinaryTree.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FindDuplicateSubtrees.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RomanToInteger.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FloodFill.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongestCommonPrefix.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ReverseString.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ReverseStringII.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ReverseWordsInAStringIII.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

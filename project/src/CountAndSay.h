@@ -48,7 +48,7 @@ public:
 
 		for (int i = 2; i <= n; ++i)
 		{
-			string tempResult;
+			string tempResult;	// 保存第i个序列
 			for (int j = 0; j < result.size(); )
 			{
 				int count = 1;
