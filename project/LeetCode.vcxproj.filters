@@ -213,6 +213,42 @@
     <ClInclude Include="src\ReverseWordsInAStringIII.h">
       <Filter>Header Files\String</Filter>
     </ClInclude>
+    <ClInclude Include="src\StudentAttendanceRecordI.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImplementStrStr.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CountBinarySubstrings.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DetectCaptial.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StringCompression.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LengthOfLastWord.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NumberOfSegmentsInAString.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AddBinaryh.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FindUniqueCharacterInAString.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RansomNote.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongestUncommonSubsequenceI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ReverseVowelsOfAString.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

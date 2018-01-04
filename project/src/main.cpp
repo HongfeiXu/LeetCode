@@ -6,14 +6,14 @@
 
 #include "HelpFunc.h"
 
-#include "ReverseWordsInAStringIII.h"
+#include "ReverseVowelsOfAString.h"
 
 using namespace std;
 
 int main()
 {
-	Solution_v2 solution;
+	Solution solu;
+	cout << solu.reverseVowels("leetcode") << endl;
 
-	cout << solution.reverseWords("hello,world,I,am,HongFei") << endl;
-	
+	return 0;
 }

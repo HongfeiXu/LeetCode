@@ -73,6 +73,17 @@
 |14. Longest Common Prefix	|CPP			|String			|边界测试很重要！			|
 |541. Reverse String II		|CPP			|String			|						|
 |557. Reverse Words in a String III|CPP		|String			|						|
+|551. Student Attendance Record I|CPP		|String			|						|
+|28. Implement strStr()		|CPP			|String			|						|
+|520. Detect Capital		|CPP			|String			|						|
+|443. String Compression	|CPP			|String			|						|
+|434. Number of Segments in a String|CPP	|String			|						|
+|67. Add Binary				|CPP			|String			|						|
+|387. First Unique Character in a String|CPP|String			|						|
+|383. Ransom Note			|CPP			|String			|						|
+|521. Longest Uncommon Subsequence I|CPP	|String			|						|
+|345. Reverse Vowels of a String|CPP		|String			|						|
+
 
 Now, string!  
 Need to learn->
