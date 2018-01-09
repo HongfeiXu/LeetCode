@@ -160,12 +160,14 @@
     <ClInclude Include="src\DetectCaptial.h" />
     <ClInclude Include="src\FindAllNumbersDisappearedInAnArray.h" />
     <ClInclude Include="src\FindDuplicateSubtrees.h" />
+    <ClInclude Include="src\FindTheDifference.h" />
     <ClInclude Include="src\FindUniqueCharacterInAString.h" />
     <ClInclude Include="src\FloodFill.h" />
     <ClInclude Include="src\GenerateParentheses.h" />
     <ClInclude Include="src\HelpFunc.h" />
     <ClInclude Include="src\ImageSmoother.h" />
     <ClInclude Include="src\ImplementStrStr.h" />
+    <ClInclude Include="src\IntersectionOfTwoArraysII.h" />
     <ClInclude Include="src\JudgeRouteCircle.h" />
     <ClInclude Include="src\K-diffPairsInAnArray.h" />
     <ClInclude Include="src\LengthOfLastWord.h" />
@@ -188,7 +190,9 @@
     <ClInclude Include="src\Non-decreasingArray.h" />
     <ClInclude Include="src\NQueens.h" />
     <ClInclude Include="src\NQueens2.h" />
+    <ClInclude Include="src\NumberOfBoomerangs.h" />
     <ClInclude Include="src\NumberOfSegmentsInAString.h" />
+    <ClInclude Include="src\PalindromePairs.h" />
     <ClInclude Include="src\PascalsTriangle.h" />
     <ClInclude Include="src\PascalsTriangle2.h" />
     <ClInclude Include="src\PlusOne.h" />

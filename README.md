@@ -31,9 +31,9 @@
 | 402. Remove K Digits                     |  CPP   | Stack, Greedy                 |                                          |
 | 414. Third Maximum Number                |  CPP   | Array                         | COOL                                     |
 | 670. Maximum Swap                        |  CPP   | Array, Math                   |                                          |
-| 674. Longest Continuous Increasing Subsequence |  CPP   | Array                         |                                          |
+| 674. Longest Continuous Increasing Subsequence |  CPP   | Array                   |                                          |
 | 189. Rotate Array                        |  CPP   | Array                         |                                          |
-| 448. Find All Numbers Disappeared in an Array |  CPP   | Array                         |                                          |
+| 448. Find All Numbers Disappeared in an Array |  CPP   | Array                    |                                          |
 | 485. Max Consecutive Ones                |  CPP   | Array                         |                                          |
 | 532. K-diff Pairs in an Array            |  CPP   | Array                         |                                          |
 | 605. Can Place Flowers                   |  CPP   | Array                         |                                          |
@@ -44,7 +44,7 @@
 | 169. Majority Element                    |  CPP   | Array                         | COOL                                     |
 | 268. Missing Number                      |  CPP   | Array, Math, Bit Manipulation | COOL                                     |
 | 66. Plus One                             |  CPP   | Array                         |                                          |
-| 581. Shortest Unsorted Continuous Subarray |  CPP   | Array                         |                                          |
+| 581. Shortest Unsorted Continuous Subarray |  CPP   | Array                       |                                          |
 | 119. Pascal's Triangle II                |  CPP   | Array                         |                                          |
 | 643. Maximum Average Subarray I          |  CPP   | Array                         | Sliding Window                           |
 | 695. Max Area of Island                  |  CPP   | Array, DFS                    | COOL                                     |
@@ -70,7 +70,7 @@
 | 606. Construct String from Binary Tree  | CPP    | String      | COOL            |
 | 652. Find Duplicate Subtrees            | CPP    | String      | COOL            |
 | 13. Roman to Integer                    | CPP    | String      |                 |
-| 14. Longest Common Prefix               | CPP    | String      | 边界测试很重要！        |
+| 14. Longest Common Prefix               | CPP    | String      | 边界测试很重要！  |
 | 541. Reverse String II                  | CPP    | String      |                 |
 | 557. Reverse Words in a String III      | CPP    | String      |                 |
 | 551. Student Attendance Record I        | CPP    | String      |                 |
@@ -84,10 +84,18 @@
 | 521. Longest Uncommon Subsequence I     | CPP    | String      |                 |
 | 345. Reverse Vowels of a String         | CPP    | String      |                 |
 
+>String Easy: 2017.10.12 -- 2018.1.4
 
-String Easy: 2017.10.12 -- 2018.1.4
 Need to learn->
 1. **string matching**. DONE
+
+| Problem                                 | Answer | Tags        | Comment         |
+| --------------------------------------- | ------ | ----------- | --------------- |
+| 389. Find the Difference                | CPP	   | String      |                 |
+|350. Intersectin of Two Arrays II		| CPP		|String		|				|
+|447. Number of Boomerangs				|CPP		|String		|有点意思		|
+|336. Palindrome Pairs					|CPP		|String		|WOWOWOWOW		|
+
 
 
 | Problem         | Answer | Tags | Comment |

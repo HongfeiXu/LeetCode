@@ -6,14 +6,21 @@
 
 #include "HelpFunc.h"
 
-#include "ReverseVowelsOfAString.h"
+#include "PalindromePairs.h"
 
 using namespace std;
 
 int main()
 {
-	Solution solu;
-	cout << solu.reverseVowels("leetcode") << endl;
+	Solution_v2 solu;
+
+	vector<string> input = { "abcd", "dcba", "lls", "s", "sssll" };
+	auto result = solu.palindromePairs(input);
+
+	for (auto item : result)
+	{
+		cout << item[0] << ", " << item[1] << endl;
+	}
 
 	return 0;
 }

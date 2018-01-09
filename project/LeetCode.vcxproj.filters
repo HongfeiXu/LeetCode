@@ -28,6 +28,9 @@
     <Filter Include="Header Files\Queen">
       <UniqueIdentifier>{e9c2391c-a2e7-4388-bcb0-8a7210168ff9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\HashTable">
+      <UniqueIdentifier>{002713cb-6422-4f3a-a548-b9bd0639a33e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\HelpFunc.h">
@@ -248,6 +251,18 @@
     </ClInclude>
     <ClInclude Include="src\ReverseVowelsOfAString.h">
       <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FindTheDifference.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IntersectionOfTwoArraysII.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NumberOfBoomerangs.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PalindromePairs.h">
+      <Filter>Header Files\HashTable</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
