@@ -21,7 +21,7 @@ Time Limit Exceeded...
 
 Approach 2:
 word->left|right
-left|right|newword if left = ~newword && right is Palindrome then left|right|newword si a Palindrome
+left|right|newword if left = reverse(newword) && right is Palindrome then left|right|newword si a Palindrome
 
 关键思想：
 1.用单词的逆构造hash表

@@ -264,6 +264,27 @@
     <ClInclude Include="src\PalindromePairs.h">
       <Filter>Header Files\HashTable</Filter>
     </ClInclude>
+    <ClInclude Include="src\EmployeeImportance.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IslandPerimeter.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\KeyboardRow.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IntersectionOfTwoArrays.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SetMismatch.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SingleNumber.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongestWordInDictionary.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

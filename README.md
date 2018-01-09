@@ -95,7 +95,13 @@ Need to learn->
 |350. Intersectin of Two Arrays II		| CPP		|String		|				|
 |447. Number of Boomerangs				|CPP		|String		|有点意思		|
 |336. Palindrome Pairs					|CPP		|String		|WOWOWOWOW		|
-
+|690. Employee Importance				|CPP		|String		|				|
+|463. Island Perimeter					|CPP		|String		|				|
+|500. Keyboard Row						|CPP		|String		|				|
+|349. Intersection of Two Arrays		|CPP		|String		|				|
+|645. Set Mismatch						|CPP		|String		|				|
+|136. Single Number						|CPP		|String		|				|
+|720. Longest Word in Dictionary		|CPP		|String		|Fun			|
 
 
 | Problem         | Answer | Tags | Comment |

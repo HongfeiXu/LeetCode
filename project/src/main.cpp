@@ -6,21 +6,16 @@
 
 #include "HelpFunc.h"
 
-#include "PalindromePairs.h"
+#include "LongestWordInDictionary.h"
 
 using namespace std;
 
 int main()
 {
-	Solution_v2 solu;
+	Solution solu;
 
-	vector<string> input = { "abcd", "dcba", "lls", "s", "sssll" };
-	auto result = solu.palindromePairs(input);
-
-	for (auto item : result)
-	{
-		cout << item[0] << ", " << item[1] << endl;
-	}
+	vector<string> input { "w", "wo", "wor", "worl", "world" };
+	cout << solu.longestWord(input) << endl;
 
 	return 0;
 }

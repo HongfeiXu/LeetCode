@@ -158,6 +158,7 @@
     <ClInclude Include="src\CountBinarySubstrings.h" />
     <ClInclude Include="src\CreateMaximumNumber.h" />
     <ClInclude Include="src\DetectCaptial.h" />
+    <ClInclude Include="src\EmployeeImportance.h" />
     <ClInclude Include="src\FindAllNumbersDisappearedInAnArray.h" />
     <ClInclude Include="src\FindDuplicateSubtrees.h" />
     <ClInclude Include="src\FindTheDifference.h" />
@@ -167,14 +168,18 @@
     <ClInclude Include="src\HelpFunc.h" />
     <ClInclude Include="src\ImageSmoother.h" />
     <ClInclude Include="src\ImplementStrStr.h" />
+    <ClInclude Include="src\IntersectionOfTwoArrays.h" />
     <ClInclude Include="src\IntersectionOfTwoArraysII.h" />
+    <ClInclude Include="src\IslandPerimeter.h" />
     <ClInclude Include="src\JudgeRouteCircle.h" />
     <ClInclude Include="src\K-diffPairsInAnArray.h" />
+    <ClInclude Include="src\KeyboardRow.h" />
     <ClInclude Include="src\LengthOfLastWord.h" />
     <ClInclude Include="src\LetterCombinationsOfAPhoneNumber.h" />
     <ClInclude Include="src\LongestCommonPrefix.h" />
     <ClInclude Include="src\LongestContinuousIncreasingSubsequence.h" />
     <ClInclude Include="src\LongestUncommonSubsequenceI.h" />
+    <ClInclude Include="src\LongestWordInDictionary.h" />
     <ClInclude Include="src\MajorityElement.h" />
     <ClInclude Include="src\MaxAreaOfIsland.h" />
     <ClInclude Include="src\MaxConsecutiveOnes.h" />
@@ -210,7 +215,9 @@
     <ClInclude Include="src\RomanToInteger.h" />
     <ClInclude Include="src\RotateArray.h" />
     <ClInclude Include="src\SearchInsertPosition.h" />
+    <ClInclude Include="src\SetMismatch.h" />
     <ClInclude Include="src\ShortestUnsortedContinuousSubarray.h" />
+    <ClInclude Include="src\SingleNumber.h" />
     <ClInclude Include="src\StringCompression.h" />
     <ClInclude Include="src\StudentAttendanceRecordI.h" />
     <ClInclude Include="src\ThirdMaximumNumber.h" />
