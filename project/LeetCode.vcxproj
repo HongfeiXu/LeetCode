@@ -159,6 +159,7 @@
     <ClInclude Include="src\CreateMaximumNumber.h" />
     <ClInclude Include="src\DetectCaptial.h" />
     <ClInclude Include="src\EmployeeImportance.h" />
+    <ClInclude Include="src\FindAllAnagramsInAString.h" />
     <ClInclude Include="src\FindAllNumbersDisappearedInAnArray.h" />
     <ClInclude Include="src\FindDuplicateSubtrees.h" />
     <ClInclude Include="src\FindTheDifference.h" />
@@ -178,6 +179,7 @@
     <ClInclude Include="src\LetterCombinationsOfAPhoneNumber.h" />
     <ClInclude Include="src\LongestCommonPrefix.h" />
     <ClInclude Include="src\LongestContinuousIncreasingSubsequence.h" />
+    <ClInclude Include="src\LongestSubStringWithoutRepeatingCharacters.h" />
     <ClInclude Include="src\LongestUncommonSubsequenceI.h" />
     <ClInclude Include="src\LongestWordInDictionary.h" />
     <ClInclude Include="src\MajorityElement.h" />
@@ -188,6 +190,7 @@
     <ClInclude Include="src\MaximumSubarray.h" />
     <ClInclude Include="src\MaximumSwap.h" />
     <ClInclude Include="src\MergeSortedArray.h" />
+    <ClInclude Include="src\MinimumWindowSubstring.h" />
     <ClInclude Include="src\MissingNumber.h" />
     <ClInclude Include="src\MoveZeroes.h" />
     <ClInclude Include="src\MultiplyStrings.h" />
@@ -226,6 +229,7 @@
     <ClInclude Include="src\ValidPalindrome.h" />
     <ClInclude Include="src\ValidPalindromeII.h" />
     <ClInclude Include="src\ValidParentheses.h" />
+    <ClInclude Include="src\WordPattern.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />

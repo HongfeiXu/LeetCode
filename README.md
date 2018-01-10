@@ -13,7 +13,7 @@
 | 001. Two Sum                             |  CPP   | Array, Hash Table             |                                          |
 | 015. 3Sum                                |  CPP   | Array                         | Cool                                     |
 | 016. 3Sum Closest                        |  CPP   | Array                         |                                          |
-| 017. Letter Combinations of a Phone Number |  CPP   | String, Backtracking          |                                          |
+| 017. Letter Combinations of a Phone Number |  CPP   | String, Backtracking        |                                          |
 | 020. Valid Parentheses                   |  CPP   | String, Stack                 |                                          |
 | 022. Generate Parentheses                |  CPP   | String, Backtracking, DP      |                                          |
 | 026. Remove Duplicates from Sorted Array |  CPP   | Array                         | [Cool](https://github.com/HongfeiXu/LeetCode/blob/master/images/RemoveDuplicateFromSortedArray.png?raw=true) |
@@ -91,7 +91,7 @@ Need to learn->
 
 | Problem                                 | Answer | Tags        | Comment         |
 | --------------------------------------- | ------ | ----------- | --------------- |
-| 389. Find the Difference                | CPP	   | String      |                 |
+| 389. Find the Difference				|CPP		|String		|				|
 |350. Intersectin of Two Arrays II		| CPP		|String		|				|
 |447. Number of Boomerangs				|CPP		|String		|有点意思		|
 |336. Palindrome Pairs					|CPP		|String		|WOWOWOWOW		|
@@ -102,6 +102,8 @@ Need to learn->
 |645. Set Mismatch						|CPP		|String		|				|
 |136. Single Number						|CPP		|String		|				|
 |720. Longest Word in Dictionary		|CPP		|String		|Fun			|
+|438. Find All Anagrams in a String		|CPP		|String		|Sliding Window	|
+|76. Minimum Window Substring			|CPP		|String		|Sliding Window	|
 
 
 | Problem         | Answer | Tags | Comment |

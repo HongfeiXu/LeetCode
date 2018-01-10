@@ -6,16 +6,15 @@
 
 #include "HelpFunc.h"
 
-#include "LongestWordInDictionary.h"
+#include "LongestSubStringWithoutRepeatingCharacters.h"
 
 using namespace std;
 
 int main()
 {
-	Solution solu;
+	Solution_v3 solu;
 
-	vector<string> input { "w", "wo", "wor", "worl", "world" };
-	cout << solu.longestWord(input) << endl;
+	cout << solu.lengthOfLongestSubstring("abcb") << endl;
 
 	return 0;
 }
