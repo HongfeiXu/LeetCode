@@ -156,11 +156,13 @@
     <ClInclude Include="src\ContainsDuplicate2.h" />
     <ClInclude Include="src\CountAndSay.h" />
     <ClInclude Include="src\CountBinarySubstrings.h" />
+    <ClInclude Include="src\CountPrimes.h" />
     <ClInclude Include="src\CreateMaximumNumber.h" />
     <ClInclude Include="src\DetectCaptial.h" />
     <ClInclude Include="src\EmployeeImportance.h" />
     <ClInclude Include="src\FindAllAnagramsInAString.h" />
     <ClInclude Include="src\FindAllNumbersDisappearedInAnArray.h" />
+    <ClInclude Include="src\FindAnagramMappings.h" />
     <ClInclude Include="src\FindDuplicateSubtrees.h" />
     <ClInclude Include="src\FindTheDifference.h" />
     <ClInclude Include="src\FindUniqueCharacterInAString.h" />
@@ -172,6 +174,7 @@
     <ClInclude Include="src\IntersectionOfTwoArrays.h" />
     <ClInclude Include="src\IntersectionOfTwoArraysII.h" />
     <ClInclude Include="src\IslandPerimeter.h" />
+    <ClInclude Include="src\IsomorphicStrings.h" />
     <ClInclude Include="src\JudgeRouteCircle.h" />
     <ClInclude Include="src\K-diffPairsInAnArray.h" />
     <ClInclude Include="src\KeyboardRow.h" />
@@ -192,6 +195,7 @@
     <ClInclude Include="src\MaximumSubarray.h" />
     <ClInclude Include="src\MaximumSwap.h" />
     <ClInclude Include="src\MergeSortedArray.h" />
+    <ClInclude Include="src\MinimumIndexSumOfTwoLists.h" />
     <ClInclude Include="src\MinimumWindowSubstring.h" />
     <ClInclude Include="src\MissingNumber.h" />
     <ClInclude Include="src\MoveZeroes.h" />
@@ -229,6 +233,7 @@
     <ClInclude Include="src\ThirdMaximumNumber.h" />
     <ClInclude Include="src\TwoSum.h" />
     <ClInclude Include="src\TwoSum2.h" />
+    <ClInclude Include="src\ValidAnagram.h" />
     <ClInclude Include="src\ValidPalindrome.h" />
     <ClInclude Include="src\ValidPalindromeII.h" />
     <ClInclude Include="src\ValidParentheses.h" />

@@ -306,6 +306,21 @@
     <ClInclude Include="src\LongestSubstringWithAtMostKDistinctCharacters.h">
       <Filter>Header Files\HashTable</Filter>
     </ClInclude>
+    <ClInclude Include="src\FindAnagramMappings.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MinimumIndexSumOfTwoLists.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ValidAnagram.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IsomorphicStrings.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CountPrimes.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

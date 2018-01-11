@@ -6,15 +6,15 @@
 
 #include "HelpFunc.h"
 
-#include "LongestSubstringWithAtMostKDistinctCharacters.h"
+#include "CountPrimes.h"
 
 using namespace std;
 
 int main()
 {
-	Solution solu;
+	Solution_v2 solu;
 
-	cout << solu.lengthOfSubstringKDistance("eceba", 2) << endl;
+	cout << solu.countPrimes(100) << endl;
 
 	return 0;
 }

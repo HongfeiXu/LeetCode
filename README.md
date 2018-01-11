@@ -107,6 +107,11 @@ Need to learn->
 |76. Minimum Window Substring			|CPP		|String		|Sliding Window	|
 |159 Longest Substring with At Most Two Distinct Characters|CPP|String|Sliding Window|
 |340 Longest Substring with At Most K Distinct Characters|CPP|String|Sliding Window|
+|760. Find Anagram Mappings				|CPP		|String		|				|
+|599. Minimum Index Sum of Two Lists	|CPP		|String		|				|
+|242. Valid Anagram						|CPP		|String		|				|
+|205. Isomorphic Strings				|CPP		|String		|				|
+|204. Count Primes						|CPP		|String		|COOL			|
 
 
 | Problem         | Answer | Tags | Comment |
