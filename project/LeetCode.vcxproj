@@ -179,6 +179,8 @@
     <ClInclude Include="src\LetterCombinationsOfAPhoneNumber.h" />
     <ClInclude Include="src\LongestCommonPrefix.h" />
     <ClInclude Include="src\LongestContinuousIncreasingSubsequence.h" />
+    <ClInclude Include="src\LongestSubstringWithAtMostKDistinctCharacters.h" />
+    <ClInclude Include="src\LongestSubstringWithAtMostTwoDistinctCharacters.h" />
     <ClInclude Include="src\LongestSubStringWithoutRepeatingCharacters.h" />
     <ClInclude Include="src\LongestUncommonSubsequenceI.h" />
     <ClInclude Include="src\LongestWordInDictionary.h" />
@@ -223,6 +225,7 @@
     <ClInclude Include="src\SingleNumber.h" />
     <ClInclude Include="src\StringCompression.h" />
     <ClInclude Include="src\StudentAttendanceRecordI.h" />
+    <ClInclude Include="src\SubstringWithConcatenationOfAllWords.h" />
     <ClInclude Include="src\ThirdMaximumNumber.h" />
     <ClInclude Include="src\TwoSum.h" />
     <ClInclude Include="src\TwoSum2.h" />
@@ -238,6 +241,7 @@
     <None Include="..\notes\Backtracking.md" />
     <None Include="..\notes\KMP.md" />
     <None Include="..\notes\LargestSumContiguousSubarray.md" />
+    <None Include="..\notes\SlidingWindowAlgorithmTemplate.md" />
     <None Include="..\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

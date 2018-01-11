@@ -168,6 +168,7 @@ public:
 
 			max_len = max(max_len, end - begin);
 		}
+		// 若最长的字符串出现在 s 的末尾，则需要在此判断 max_len 与 end-begin 的大小，取较大的那个
 		max_len = max(max_len, end - begin);
 	
 		return max_len;

@@ -5,6 +5,7 @@
 1. [Backtracking](https://github.com/HongfeiXu/LeetCode/blob/master/notes/Backtracking.md)
 2. [Largest Sum Contiguous Subarray](https://github.com/HongfeiXu/LeetCode/blob/master/notes/LargestSumContiguousSubarray.md)
 3. [KMP](https://github.com/HongfeiXu/LeetCode/blob/master/notes/KMP.md)
+4. [Sliding Window Algorithm](https://github.com/HongfeiXu/LeetCode/blob/master/notes/SlidingWindowAlgorithmTemplate.md)
 
 ## Progress
 
@@ -104,6 +105,8 @@ Need to learn->
 |720. Longest Word in Dictionary		|CPP		|String		|Fun			|
 |438. Find All Anagrams in a String		|CPP		|String		|Sliding Window	|
 |76. Minimum Window Substring			|CPP		|String		|Sliding Window	|
+|159 Longest Substring with At Most Two Distinct Characters|CPP|String|Sliding Window|
+|340 Longest Substring with At Most K Distinct Characters|CPP|String|Sliding Window|
 
 
 | Problem         | Answer | Tags | Comment |

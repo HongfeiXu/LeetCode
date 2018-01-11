@@ -6,15 +6,15 @@
 
 #include "HelpFunc.h"
 
-#include "LongestSubStringWithoutRepeatingCharacters.h"
+#include "LongestSubstringWithAtMostKDistinctCharacters.h"
 
 using namespace std;
 
 int main()
 {
-	Solution_v3 solu;
+	Solution solu;
 
-	cout << solu.lengthOfLongestSubstring("abcb") << endl;
+	cout << solu.lengthOfSubstringKDistance("eceba", 2) << endl;
 
 	return 0;
 }

@@ -246,9 +246,6 @@
     <ClInclude Include="src\RansomNote.h">
       <Filter>Header Files\String</Filter>
     </ClInclude>
-    <ClInclude Include="src\LongestUncommonSubsequenceI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\ReverseVowelsOfAString.h">
       <Filter>Header Files\String</Filter>
     </ClInclude>
@@ -297,6 +294,18 @@
     <ClInclude Include="src\LongestSubStringWithoutRepeatingCharacters.h">
       <Filter>Header Files\HashTable</Filter>
     </ClInclude>
+    <ClInclude Include="src\LongestUncommonSubsequenceI.h">
+      <Filter>Header Files\String</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SubstringWithConcatenationOfAllWords.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongestSubstringWithAtMostTwoDistinctCharacters.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongestSubstringWithAtMostKDistinctCharacters.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -314,6 +323,9 @@
       <Filter>Notes</Filter>
     </None>
     <None Include="..\notes\KMP.md">
+      <Filter>Notes</Filter>
+    </None>
+    <None Include="..\notes\SlidingWindowAlgorithmTemplate.md">
       <Filter>Notes</Filter>
     </None>
   </ItemGroup>
