@@ -6,15 +6,15 @@
 
 #include "HelpFunc.h"
 
-#include "CountPrimes.h"
+#include "LongestPalindrome.h"
 
 using namespace std;
 
 int main()
 {
-	Solution_v2 solu;
+	Solution solu;
 
-	cout << solu.countPrimes(100) << endl;
+	cout << solu.longestPalindrome("abccccdd") << endl;
 
 	return 0;
 }

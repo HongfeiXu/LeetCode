@@ -159,6 +159,7 @@
     <ClInclude Include="src\CountPrimes.h" />
     <ClInclude Include="src\CreateMaximumNumber.h" />
     <ClInclude Include="src\DetectCaptial.h" />
+    <ClInclude Include="src\DistributeCandies.h" />
     <ClInclude Include="src\EmployeeImportance.h" />
     <ClInclude Include="src\FindAllAnagramsInAString.h" />
     <ClInclude Include="src\FindAllNumbersDisappearedInAnArray.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="src\FindUniqueCharacterInAString.h" />
     <ClInclude Include="src\FloodFill.h" />
     <ClInclude Include="src\GenerateParentheses.h" />
+    <ClInclude Include="src\HappyNumber.h" />
     <ClInclude Include="src\HelpFunc.h" />
     <ClInclude Include="src\ImageSmoother.h" />
     <ClInclude Include="src\ImplementStrStr.h" />
@@ -182,6 +184,8 @@
     <ClInclude Include="src\LetterCombinationsOfAPhoneNumber.h" />
     <ClInclude Include="src\LongestCommonPrefix.h" />
     <ClInclude Include="src\LongestContinuousIncreasingSubsequence.h" />
+    <ClInclude Include="src\LongestHarmoniousSubsequence.h" />
+    <ClInclude Include="src\LongestPalindrome.h" />
     <ClInclude Include="src\LongestSubstringWithAtMostKDistinctCharacters.h" />
     <ClInclude Include="src\LongestSubstringWithAtMostTwoDistinctCharacters.h" />
     <ClInclude Include="src\LongestSubStringWithoutRepeatingCharacters.h" />

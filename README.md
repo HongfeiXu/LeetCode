@@ -92,27 +92,32 @@ Need to learn->
 
 | Problem                                 | Answer | Tags        | Comment         |
 | --------------------------------------- | ------ | ----------- | --------------- |
-| 389. Find the Difference				|CPP		|String		|				|
-|350. Intersectin of Two Arrays II		| CPP		|String		|				|
-|447. Number of Boomerangs				|CPP		|String		|有点意思		|
-|336. Palindrome Pairs					|CPP		|String		|WOWOWOWOW		|
-|690. Employee Importance				|CPP		|String		|				|
-|463. Island Perimeter					|CPP		|String		|				|
-|500. Keyboard Row						|CPP		|String		|				|
-|349. Intersection of Two Arrays		|CPP		|String		|				|
-|645. Set Mismatch						|CPP		|String		|				|
-|136. Single Number						|CPP		|String		|				|
-|720. Longest Word in Dictionary		|CPP		|String		|Fun			|
-|438. Find All Anagrams in a String		|CPP		|String		|Sliding Window	|
-|76. Minimum Window Substring			|CPP		|String		|Sliding Window	|
-|159 Longest Substring with At Most Two Distinct Characters|CPP|String|Sliding Window|
-|340 Longest Substring with At Most K Distinct Characters|CPP|String|Sliding Window|
-|760. Find Anagram Mappings				|CPP		|String		|				|
-|599. Minimum Index Sum of Two Lists	|CPP		|String		|				|
-|242. Valid Anagram						|CPP		|String		|				|
-|205. Isomorphic Strings				|CPP		|String		|				|
-|204. Count Primes						|CPP		|String		|COOL			|
+| 389. Find the Difference				|CPP		|HashTable		|				|
+|350. Intersectin of Two Arrays II		| CPP		|HashTable		|				|
+|447. Number of Boomerangs				|CPP		|HashTable		|有点意思		|
+|336. Palindrome Pairs					|CPP		|HashTable		|WOWOWOWOW		|
+|690. Employee Importance				|CPP		|HashTable		|				|
+|463. Island Perimeter					|CPP		|HashTable		|				|
+|500. Keyboard Row						|CPP		|HashTable		|				|
+|349. Intersection of Two Arrays		|CPP		|HashTable		|				|
+|645. Set Mismatch						|CPP		|HashTable		|				|
+|136. Single Number						|CPP		|HashTable		|				|
+|720. Longest Word in Dictionary		|CPP		|HashTable		|Fun			|
+|438. Find All Anagrams in a String		|CPP		|HashTable		|Sliding Window	|
+|76. Minimum Window Substring			|CPP		|HashTable		|Sliding Window	|
+|159 Longest Substring with At Most Two Distinct Characters|CPP|HashTable|Sliding Window|
+|340 Longest Substring with At Most K Distinct Characters|CPP|HashTable|Sliding Window|
+|760. Find Anagram Mappings				|CPP		|HashTable		|				|
+|599. Minimum Index Sum of Two Lists	|CPP		|HashTable		|				|
+|242. Valid Anagram						|CPP		|HashTable		|				|
+|205. Isomorphic Strings				|CPP		|HashTable		|				|
+|204. Count Primes						|CPP		|HashTable		|COOL			|
+|202. Happy Number						|CPP		|HashTable		|				|
+|594. Longest Harmonious Subsequence	|CPP		|HashTable		|				|
+|575. Distribute Candies				|CPP		|HashTable		|				|
+|409. Longest Palindrome				|CPP		|HashTable		|				|
 
+>HashTable Easy: 2018.1.5 -- 2018.1.12
 
 | Problem         | Answer | Tags | Comment |
 | --------------- | ------ | ---- | ------- |
