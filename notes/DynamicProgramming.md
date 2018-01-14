@@ -24,7 +24,7 @@
 
 >Ref: https://www.geeksforgeeks.org/longest-common-subsequence/
 
-### LCS Problem Statement:
+### LCS Problem Statement
 Given two sequences, find the length of longest subsequence present in both of them. 
 A subsequence is a sequence that appears in the same relative order, but not necessarily contiguous. 
 
@@ -290,5 +290,100 @@ public:
 
 ```
 
-### Solve Other Problems
+## 动态规划解钢条切割问题
 
+### 钢条切割问题
+
+>Ref: 算法导论 第15章
+
+给定一段长度为 n 英寸的钢条和一个价格表 p_i(i=1,2,...,n)。求钢条的切割方案，使得销售收益 r_n 最大。   
+注意：若长度 n 英寸的钢条的价格 p_n 足够大，最优解可能就是完全不需要切割。   
+
+
+对于r_n(n>=1)，我们使用更短的钢条的最优切割收益来描述它   
+r_n = max{p_n, r_1 + r_(n-1), r_2 + r_(n-2), ..., r_(n-1) + r_1}   
+==>   
+相似但更为简单的递归公式   
+r_n = max{p_i, r_(n-i)} (i = 1,...,n)   
+r_0 = 0   
+左边切割下长度为 i 的一段，只对右边剩下的长度进行切割（递归求解），对左边的一段则不再分割。
+
+### Solve CutRod Problem 
+
+下面代码中有6种实现，对应了不同的需求。
+
+1. 递归实现
+2. 动态规划实现，输出最优解的值
+3. 动态规划实现，并且输出最优解
+
+```c++
+#pragma once
+
+#include <iostream>
+#include <climits>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+// 1. 递归实现
+// Time: O(2^n)
+int CutRod(vector<int> price, int length)
+{
+	if (length == 0)
+		return 0;
+	int q = INT_MIN;
+	for (int i = 1; i <= length; ++i)
+		q = max(q, price[i] + CutRod(price, length - i));
+	return q;
+}
+
+// 2. 动态规划实现(bottom-up)
+// Time: O(n^2)
+int CutRod_DP(vector<int> price, int length)
+{
+	vector<int> r(length + 1, 0);	// r[1,...,length] 记录长度为 i 的钢条能获得的最大收益，r[0] = 0
+
+	for (int i = 1; i <= length; ++i)
+	{
+		int q = INT_MIN;
+		for (int j = 1; j <= i; ++j)
+			q = max(price[j] + r[i - j], q);
+		r[i] = q;
+	}
+	return r[length];
+}
+
+// 3. 动态规划实现(bottom-up)，构造最优解
+// Time: O(n^2)
+void CutRod_DP_print(vector<int> price, int length)
+{
+	vector<int> r(length + 1, 0);	// r[1,...,length] 记录长度为 i 的钢条能获得的最大收益，r[0] = 0
+	vector<int> s(length + 1, 0);	// s[1,...,length] 记录长度为 i 的钢条的第一段长度
+
+	// 对长度为 i 的钢条，计算获得的最大收益，以及对于的第一段切割长度
+	for (int i = 1; i <= length; ++i)
+	{
+		int q = INT_MIN;
+		int len;
+		for (int j = 1; j <= i; ++j)
+		{
+			if (price[j] + r[i - j] > q)
+			{
+				q = price[j] + r[i - j];
+				len = j;
+			}
+		}
+		r[i] = q;
+		s[i] = len;
+	}
+
+	// 输出切割的结果，即每一段钢条的长度
+	while (length > 0)
+	{
+		cout << s[length] << endl;	// 长度为 length 的钢条切割掉左边不再分割的那一段
+		length -= s[length];		// 对剩下长度的钢条继续迭代
+	}
+}
+
+```
