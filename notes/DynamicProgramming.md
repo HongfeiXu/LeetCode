@@ -36,7 +36,7 @@ Let us see how this problem possesses both important properties of a Dynamic Pro
 **1. Optimal Substructure**
 
 **Input :** X[0..m-1], Y[0..n-1] 
-  
+
 Let L(X[0..m-1], Y[0..n-1]) be the length of LCS of X and Y   
 **If** X[m-1]==Y[n-1] then   
 L(X[0..m-1], Y[0..n-1]) = L(X[0..m-2], Y[0..n-2]) + 1   
@@ -299,7 +299,6 @@ public:
 给定一段长度为 n 英寸的钢条和一个价格表 p_i(i=1,2,...,n)。求钢条的切割方案，使得销售收益 r_n 最大。   
 注意：若长度 n 英寸的钢条的价格 p_n 足够大，最优解可能就是完全不需要切割。   
 
-
 对于r_n(n>=1)，我们使用更短的钢条的最优切割收益来描述它   
 r_n = max{p_n, r_1 + r_(n-1), r_2 + r_(n-2), ..., r_(n-1) + r_1}   
 ==>   
@@ -307,6 +306,8 @@ r_n = max{p_n, r_1 + r_(n-1), r_2 + r_(n-2), ..., r_(n-1) + r_1}
 r_n = max{p_i, r_(n-i)} (i = 1,...,n)   
 r_0 = 0   
 左边切割下长度为 i 的一段，只对右边剩下的长度进行切割（递归求解），对左边的一段则不再分割。
+
+![LCS_TABLE](https://github.com/HongfeiXu/LeetCode/blob/master/images/CutRod.png?raw=true)
 
 ### Solve CutRod Problem 
 
