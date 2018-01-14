@@ -2,10 +2,9 @@
 
 ## 什么是动态规划
 
-Ref: http://blog.csdn.net/v_JULY_v/article/details/6110269
+>Ref: http://blog.csdn.net/v_JULY_v/article/details/6110269
 
-动态规划一般也只能应用于有最优子结构的问题。最优子结构的意思是局部最优解能决定全局最优解(对有些问题这个要求并不能完全满足，故有时需要引入一定的近似)。简单地说，问题能够分解成子问题来解决。
-动态规划算法分以下4个步骤：
+动态规划一般也只能应用于有最优子结构的问题。最优子结构的意思是局部最优解能决定全局最优解(对有些问题这个要求并不能完全满足，故有时需要引入一定的近似)。简单地说，问题能够分解成子问题来解决。动态规划算法分以下4个步骤：
 1. 描述最优解的结构
 2. 递归定义最优解的值
 3. 按自底向上的方式计算最优解的值   //此3步构成动态规划解的基础。
@@ -22,6 +21,8 @@ Ref: http://blog.csdn.net/v_JULY_v/article/details/6110269
 子问题重叠性质是指在用递归算法自顶向下对问题进行求解时，每次产生的子问题并不总是新问题，有些子问题会被重复计算多次。动态规划算法正是利用了这种子问题的重叠性质，对每一个子问题只计算一次，然后将其计算结果保存在一个表格中，当再次需要计算已经计算过的子问题时，只是在表格中简单地查看一下结果，从而获得较高的效率。
 
 ## 动态规划算法解 LCS 问题
+
+>Ref: https://www.geeksforgeeks.org/longest-common-subsequence/
 
 ### LCS Problem Statement:
 Given two sequences, find the length of longest subsequence present in both of them. 
@@ -57,7 +58,9 @@ Following "Solution" is simple recursive implementation of the LCS problem. The 
 4. Printing Longest Common Subsequence
 5. Printing Longest Common Subsequence with an auxiliary Table
 
-![]()
+![LCS_TABLE](https://github.com/HongfeiXu/LeetCode/blob/master/images/LCS_table.png?raw=true)
+
+上图表示了L[0..m, 0..n] 的内容以及 B[1..m, 1..n] 的内容
 
 ```c++
 #pragma once
