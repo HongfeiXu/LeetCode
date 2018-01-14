@@ -248,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\notes\Backtracking.md" />
+    <None Include="..\notes\DynamicProgramming.md" />
     <None Include="..\notes\KMP.md" />
     <None Include="..\notes\LargestSumContiguousSubarray.md" />
     <None Include="..\notes\SlidingWindowAlgorithmTemplate.md" />

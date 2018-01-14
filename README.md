@@ -92,7 +92,7 @@ Need to learn->
 
 | Problem                                 | Answer | Tags        | Comment         |
 | --------------------------------------- | ------ | ----------- | --------------- |
-| 389. Find the Difference				|CPP		|HashTable		|				|
+|389. Find the Difference				|CPP		|HashTable		|				|
 |350. Intersectin of Two Arrays II		| CPP		|HashTable		|				|
 |447. Number of Boomerangs				|CPP		|HashTable		|有点意思		|
 |336. Palindrome Pairs					|CPP		|HashTable		|WOWOWOWOW		|
@@ -118,6 +118,13 @@ Need to learn->
 |409. Longest Palindrome				|CPP		|HashTable		|				|
 
 >HashTable Easy: 2018.1.5 -- 2018.1.12
+
+
+>Dynamic Programming 2018.1.14 --
+
+	
+
+
 
 | Problem         | Answer | Tags | Comment |
 | --------------- | ------ | ---- | ------- |

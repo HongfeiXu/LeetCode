@@ -25,11 +25,12 @@ So I change the format of the sub problem into something like:
 maxSubArray(int A[], int i), which means the maxSubArray for A[0:i ] which must has A[i] as the end element.
 now the connect between the sub problem & the original one becomes clearer:
 
-maxSubArray(A, i) = maxSubArray(A, i - 1) > 0 ? maxSubArray(A, i - 1) : 0 + A[i];
+maxSubArray(A, i) = (maxSubArray(A, i - 1) > 0 ? maxSubArray(A, i - 1) : 0) + A[i];
 
 Approach v3:
 
 Kadane Algorithm
+¼û LargestSubContiguousSubarray.md
 
 */
 
