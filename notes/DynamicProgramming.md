@@ -294,7 +294,8 @@ public:
 
 ### 钢条切割问题
 
->Ref: 算法导论 第15章
+>Ref: 算法导论 第15章   
+>Ref: https://www.geeksforgeeks.org/dynamic-programming-set-13-cutting-a-rod/
 
 给定一段长度为 n 英寸的钢条和一个价格表 p_i(i=1,2,...,n)。求钢条的切割方案，使得销售收益 r_n 最大。   
 注意：若长度 n 英寸的钢条的价格 p_n 足够大，最优解可能就是完全不需要切割。   
@@ -303,7 +304,7 @@ public:
 r_n = max{p_n, r_1 + r_(n-1), r_2 + r_(n-2), ..., r_(n-1) + r_1}   
 ==>   
 相似但更为简单的递归公式   
-r_n = max{p_i, r_(n-i)} (i = 1,...,n)   
+r_n = max{p_i + r_(n-i)} (i = 1,...,n)   
 r_0 = 0   
 左边切割下长度为 i 的一段，只对右边剩下的长度进行切割（递归求解），对左边的一段则不再分割。
 
@@ -384,6 +385,112 @@ void CutRod_DP_print(vector<int> price, int length)
 	{
 		cout << s[length] << endl;	// 长度为 length 的钢条切割掉左边不再分割的那一段
 		length -= s[length];		// 对剩下长度的钢条继续迭代
+	}
+}
+
+```
+
+## 动态规划解线段分割问题
+
+### Cutted Segments
+
+>Ref: https://practice.geeksforgeeks.org/problems/cutted-segments/0
+
+Given an integer N denoting the Length of a line segment. 
+you need to cut the line segment in such a way that the cut length of a line segment each time is integer either x , y or z. 
+and after performing all cutting operation the total number of cutted segments must be maximum.
+
+对于长度为 n 的线段，其最优切割 S_n(n+>=1)，我们使用更短的线段的最优切割来描述它    
+S_n = max{S_i + S_(n-i)}, i = x,y,z 中小于等于 n 的数字   
+=>   
+S_n = max{1 + S_(n-i)}, i = x,y,z 中小于等于 n 的数字   
+S_0 = 0   
+前面的 i 长度不进行分割，只分割余下的 n - i 长度的线段，   
+S_i == -1 表示该线段无法用 x,y,z 进行分割   
+
+```c++
+#pragma once
+
+#include <vector>
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+void CuttedSegments(int N, int x, int y, int z)
+{
+	vector<int> S(N + 1, 0);
+	vector<int> candidate { x,y,z };
+	sort(candidate.begin(), candidate.end());	// 将候选的线段长度从小到大排序
+
+	// bottom-up Dynamic Programming
+	// 对长度为 i 的线段，计算其能被分割的最大块数。
+	for (int i = 1; i <= N; ++i)
+	{
+		int temp = -1;
+		// 用长度 x,y,z 作为左边不继续分割的线段
+		for (int j = 0; j < candidate.size(); ++j)
+		{
+			if (i >= candidate[j])
+			{
+				if(S[i-candidate[j]] != -1)
+					temp = max(temp, 1 + S[i - candidate[j]]);
+			}
+			// 当 curr < candidate[j] 时，不能进行分割，直接返回
+			else
+				break;
+		}
+		S[i] = temp;
+	}
+	cout << "Cutted Segments of " << N << " : " << S[N] << endl;
+}
+
+void CuttedSegments_Print(int N, int x, int y, int z)
+{
+	vector<int> S(N + 1, 0);
+	vector<int> candidate { x,y,z };
+	sort(candidate.begin(), candidate.end());	// 将候选的线段长度从小到大排序
+
+	vector<int> A(N + 1, -1);					// 记录长度为 i 的钢条分割的第一段长度，用来构造分割的解
+	// bottom-up Dynamic Programming
+	// 对长度为 i 的线段，计算其能被分割的最大块数。
+	for (int i = 1; i <= N; ++i)
+	{
+		int temp = -1;
+		// 用长度 x,y,z 作为左边不继续分割的线段
+		for (int j = 0; j < candidate.size(); ++j)
+		{
+			if (i >= candidate[j])
+			{
+				if (S[i - candidate[j]] != -1)
+				{
+					if (temp < 1 + S[i - candidate[j]])
+					{
+						temp = 1 + S[i - candidate[j]];
+						A[i] = candidate[j];		// 记录被分割的位置
+					}
+				}
+			}
+			// 当 curr < candidate[j] 时，不能进行分割，直接返回
+			else
+				break;
+		}
+		S[i] = temp;
+	}
+	
+	if (S[N] != -1)
+	{
+		cout << "Cutted Segments of " << N << " : ";
+		while (N != 0)
+		{
+			cout << A[N] << " ";
+			N = N - A[N];
+		}
+		cout << endl;
+	}
+	else
+	{
+		cout << "Segment of " << N << " can't be cutted by " << x << ", " << y << " and " << z << endl;
 	}
 }
 

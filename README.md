@@ -123,6 +123,10 @@ Need to learn->
 
 >Dynamic Programming 2018.1.14 --
 
+| Problem         | Answer | Tags | Comment |
+| --------------- | ------ | ---- | ------- |
+|746. Min Cost Climbing Stairs	|CPP    |DP			|COOL		|
+
 	
 
 

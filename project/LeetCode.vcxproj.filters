@@ -31,6 +31,9 @@
     <Filter Include="Header Files\HashTable">
       <UniqueIdentifier>{002713cb-6422-4f3a-a548-b9bd0639a33e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\DP">
+      <UniqueIdentifier>{778b990a-277f-4c96-9292-b2d2473c3dec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\HelpFunc.h">
@@ -332,6 +335,9 @@
     </ClInclude>
     <ClInclude Include="src\LongestPalindrome.h">
       <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MinCostClimbingStairs.h">
+      <Filter>Header Files\DP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

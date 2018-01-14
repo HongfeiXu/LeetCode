@@ -6,7 +6,7 @@
 
 #include "HelpFunc.h"
 
-#include "LongestPalindrome.h"
+#include "MinCostClimbingStairs.h"
 
 using namespace std;
 
@@ -14,7 +14,9 @@ int main()
 {
 	Solution solu;
 
-	cout << solu.longestPalindrome("abccccdd") << endl;
+	//vector<int> input { 1,100,1,1,1,100,1,1,100,1 };
+	vector<int> input { 10,15,20 };
+	cout << solu.minCostClimbingStairs(input) << endl;
 
 	return 0;
 }
