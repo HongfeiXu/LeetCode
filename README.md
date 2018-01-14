@@ -6,6 +6,7 @@
 2. [Largest Sum Contiguous Subarray](https://github.com/HongfeiXu/LeetCode/blob/master/notes/LargestSumContiguousSubarray.md)
 3. [KMP](https://github.com/HongfeiXu/LeetCode/blob/master/notes/KMP.md)
 4. [Sliding Window Algorithm](https://github.com/HongfeiXu/LeetCode/blob/master/notes/SlidingWindowAlgorithmTemplate.md)
+5. [DynamicProgramming](https://github.com/HongfeiXu/LeetCode/blob/master/notes/DynamicProgramming.md)
 
 ## Progress
 

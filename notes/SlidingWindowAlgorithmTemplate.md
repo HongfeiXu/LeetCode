@@ -281,7 +281,7 @@ public:
 };
 ```
 
-**159 Longest Substring with At Most Two Distinct Characters**
+**159. Longest Substring with At Most Two Distinct Characters**
 
 ```c++
 class Solution {
@@ -322,7 +322,7 @@ public:
 };
 ```
 
-**340 Longest Substring with At Most K Distinct Characters**
+**340. Longest Substring with At Most K Distinct Characters**
 
 ```c++
 class Solution {
