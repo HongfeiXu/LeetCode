@@ -126,6 +126,12 @@ Need to learn->
 | Problem         | Answer | Tags | Comment |
 | --------------- | ------ | ---- | ------- |
 |746. Min Cost Climbing Stairs	|CPP    |DP			|COOL		|
+|303. Range Sum Query - Immutable|CPP	|DP			|			|
+|198. House Robber				|CPP	|DP			|			|
+|70. Climbing Stairs			|CPP	|DP			|			|
+|300. Longest Increasing Subsequence|CPP|DP			|			|
+|376. Wiggle Subsequence		|CPP	|DP			|Important	|
+|467. Unique Substrings in Wraparound String|CPP|DP	|Tricky		|
 
 	
 

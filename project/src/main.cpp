@@ -3,20 +3,20 @@
 #include <iostream>
 #include <vector>
 #include <iterator>
+#include <chrono>
 
 #include "HelpFunc.h"
 
-#include "MinCostClimbingStairs.h"
+#include "UniqueSubstringsInWraparoundString.h"
 
 using namespace std;
 
 int main()
 {
-	Solution solu;
+	Solution_v2 solu;
 
-	//vector<int> input { 1,100,1,1,1,100,1,1,100,1 };
-	vector<int> input { 10,15,20 };
-	cout << solu.minCostClimbingStairs(input) << endl;
+	cout << solu.findSubstringInWraproundString("zab") << endl;
+
 
 	return 0;
 }

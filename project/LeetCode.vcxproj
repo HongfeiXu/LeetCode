@@ -150,6 +150,7 @@
     <ClInclude Include="src\BestTimeToBuyAndSellStock.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockII.h" />
     <ClInclude Include="src\CanPlaceFlowers.h" />
+    <ClInclude Include="src\ClimbingStairs.h" />
     <ClInclude Include="src\CombinationSum.h" />
     <ClInclude Include="src\ConstructStringFromBinaryTree.h" />
     <ClInclude Include="src\ContainsDuplicate.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="src\GenerateParentheses.h" />
     <ClInclude Include="src\HappyNumber.h" />
     <ClInclude Include="src\HelpFunc.h" />
+    <ClInclude Include="src\HouseRobber.h" />
     <ClInclude Include="src\ImageSmoother.h" />
     <ClInclude Include="src\ImplementStrStr.h" />
     <ClInclude Include="src\IntersectionOfTwoArrays.h" />
@@ -185,6 +187,7 @@
     <ClInclude Include="src\LongestCommonPrefix.h" />
     <ClInclude Include="src\LongestContinuousIncreasingSubsequence.h" />
     <ClInclude Include="src\LongestHarmoniousSubsequence.h" />
+    <ClInclude Include="src\LongestIncreasingSubsequence.h" />
     <ClInclude Include="src\LongestPalindrome.h" />
     <ClInclude Include="src\LongestSubstringWithAtMostKDistinctCharacters.h" />
     <ClInclude Include="src\LongestSubstringWithAtMostTwoDistinctCharacters.h" />
@@ -215,6 +218,7 @@
     <ClInclude Include="src\PascalsTriangle.h" />
     <ClInclude Include="src\PascalsTriangle2.h" />
     <ClInclude Include="src\PlusOne.h" />
+    <ClInclude Include="src\RangeSumQuery.h" />
     <ClInclude Include="src\RansomNote.h" />
     <ClInclude Include="src\RemoveDuplicatesFromSortedArray.h" />
     <ClInclude Include="src\RemoveElement.h" />
@@ -238,10 +242,12 @@
     <ClInclude Include="src\ThirdMaximumNumber.h" />
     <ClInclude Include="src\TwoSum.h" />
     <ClInclude Include="src\TwoSum2.h" />
+    <ClInclude Include="src\UniqueSubstringsInWraparoundString.h" />
     <ClInclude Include="src\ValidAnagram.h" />
     <ClInclude Include="src\ValidPalindrome.h" />
     <ClInclude Include="src\ValidPalindromeII.h" />
     <ClInclude Include="src\ValidParentheses.h" />
+    <ClInclude Include="src\WiggleSubsequence.h" />
     <ClInclude Include="src\WordPattern.h" />
   </ItemGroup>
   <ItemGroup>

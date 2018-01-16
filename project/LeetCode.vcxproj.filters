@@ -339,6 +339,24 @@
     <ClInclude Include="src\MinCostClimbingStairs.h">
       <Filter>Header Files\DP</Filter>
     </ClInclude>
+    <ClInclude Include="src\RangeSumQuery.h">
+      <Filter>Header Files\DP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HouseRobber.h">
+      <Filter>Header Files\DP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ClimbingStairs.h">
+      <Filter>Header Files\DP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WiggleSubsequence.h">
+      <Filter>Header Files\DP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongestIncreasingSubsequence.h">
+      <Filter>Header Files\DP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UniqueSubstringsInWraparoundString.h">
+      <Filter>Header Files\DP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
