@@ -159,6 +159,7 @@
     <ClInclude Include="src\CountBinarySubstrings.h" />
     <ClInclude Include="src\CountPrimes.h" />
     <ClInclude Include="src\CreateMaximumNumber.h" />
+    <ClInclude Include="src\DecodeWays.h" />
     <ClInclude Include="src\DetectCaptial.h" />
     <ClInclude Include="src\DistributeCandies.h" />
     <ClInclude Include="src\EmployeeImportance.h" />
@@ -240,8 +241,10 @@
     <ClInclude Include="src\StudentAttendanceRecordI.h" />
     <ClInclude Include="src\SubstringWithConcatenationOfAllWords.h" />
     <ClInclude Include="src\ThirdMaximumNumber.h" />
+    <ClInclude Include="src\TwoKeysKeyboard.h" />
     <ClInclude Include="src\TwoSum.h" />
     <ClInclude Include="src\TwoSum2.h" />
+    <ClInclude Include="src\UniqueBinarySearchTrees.h" />
     <ClInclude Include="src\UniqueSubstringsInWraparoundString.h" />
     <ClInclude Include="src\ValidAnagram.h" />
     <ClInclude Include="src\ValidPalindrome.h" />

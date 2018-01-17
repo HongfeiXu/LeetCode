@@ -357,6 +357,15 @@
     <ClInclude Include="src\UniqueSubstringsInWraparoundString.h">
       <Filter>Header Files\DP</Filter>
     </ClInclude>
+    <ClInclude Include="src\TwoKeysKeyboard.h">
+      <Filter>Header Files\DP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DecodeWays.h">
+      <Filter>Header Files\DP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UniqueBinarySearchTrees.h">
+      <Filter>Header Files\DP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

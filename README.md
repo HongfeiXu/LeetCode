@@ -132,7 +132,9 @@ Need to learn->
 |300. Longest Increasing Subsequence|CPP|DP			|			|
 |376. Wiggle Subsequence		|CPP	|DP			|Important	|
 |467. Unique Substrings in Wraparound String|CPP|DP	|Tricky		|
-
+|650. 2 Keys Keyboard			|CPP	|DP			|Tricky		|
+|91. Decode Ways				|CPP	|DP			|COOL		|
+|96. Unique Binary Search Trees	|CPP	|DP			|Interesting|
 	
 
 

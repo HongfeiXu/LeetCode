@@ -7,16 +7,19 @@
 
 #include "HelpFunc.h"
 
-#include "UniqueSubstringsInWraparoundString.h"
+#include "UniqueBinarySearchTrees.h"
 
 using namespace std;
 
 int main()
 {
-	Solution_v2 solu;
+	Solution solu;
 
-	cout << solu.findSubstringInWraproundString("zab") << endl;
+	auto t0 = chrono::high_resolution_clock::now();
+	cout << solu.numTrees(4) << endl;
+	auto t1 = chrono::high_resolution_clock::now();
 
-
+	cout << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << endl;
+	
 	return 0;
 }
