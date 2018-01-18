@@ -215,6 +215,7 @@
     <ClInclude Include="src\NQueens2.h" />
     <ClInclude Include="src\NumberOfBoomerangs.h" />
     <ClInclude Include="src\NumberOfSegmentsInAString.h" />
+    <ClInclude Include="src\OnesAndZeros.h" />
     <ClInclude Include="src\PalindromePairs.h" />
     <ClInclude Include="src\PascalsTriangle.h" />
     <ClInclude Include="src\PascalsTriangle2.h" />
@@ -245,6 +246,7 @@
     <ClInclude Include="src\TwoSum.h" />
     <ClInclude Include="src\TwoSum2.h" />
     <ClInclude Include="src\UniqueBinarySearchTrees.h" />
+    <ClInclude Include="src\UniqueBinarySearchTreesII.h" />
     <ClInclude Include="src\UniqueSubstringsInWraparoundString.h" />
     <ClInclude Include="src\ValidAnagram.h" />
     <ClInclude Include="src\ValidPalindrome.h" />
@@ -259,6 +261,7 @@
   <ItemGroup>
     <None Include="..\notes\Backtracking.md" />
     <None Include="..\notes\DynamicProgramming.md" />
+    <None Include="..\notes\GreedyAlgorithm.md" />
     <None Include="..\notes\KMP.md" />
     <None Include="..\notes\LargestSumContiguousSubarray.md" />
     <None Include="..\notes\SlidingWindowAlgorithmTemplate.md" />

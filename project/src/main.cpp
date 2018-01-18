@@ -7,16 +7,19 @@
 
 #include "HelpFunc.h"
 
-#include "UniqueBinarySearchTrees.h"
+#include "UniqueBinarySearchTreesII.h"
+
 
 using namespace std;
 
 int main()
 {
-	Solution solu;
+	Solution_v2 solu;
 
 	auto t0 = chrono::high_resolution_clock::now();
-	cout << solu.numTrees(4) << endl;
+
+	cout << solu.generateTrees(100).size() << endl;
+
 	auto t1 = chrono::high_resolution_clock::now();
 
 	cout << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << endl;

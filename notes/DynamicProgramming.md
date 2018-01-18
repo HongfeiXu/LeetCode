@@ -20,7 +20,7 @@
 
 子问题重叠性质是指在用递归算法自顶向下对问题进行求解时，每次产生的子问题并不总是新问题，有些子问题会被重复计算多次。动态规划算法正是利用了这种子问题的重叠性质，对每一个子问题只计算一次，然后将其计算结果保存在一个表格中，当再次需要计算已经计算过的子问题时，只是在表格中简单地查看一下结果，从而获得较高的效率。
 
-## 动态规划算法解 LCS 问题
+## 动态规划算法解“LCS 问题”
 
 >Ref: https://www.geeksforgeeks.org/longest-common-subsequence/
 
@@ -290,7 +290,7 @@ public:
 
 ```
 
-## 动态规划解钢条切割问题
+## 动态规划解“钢条切割问题”
 
 ### 钢条切割问题
 
@@ -390,7 +390,7 @@ void CutRod_DP_print(vector<int> price, int length)
 
 ```
 
-## 动态规划解线段分割问题
+## 动态规划解“线段分割问题”
 
 ### Cutted Segments
 
@@ -406,7 +406,14 @@ S_n = max{S_i + S_(n-i)}, i = x,y,z 中小于等于 n 的数字
 S_n = max{1 + S_(n-i)}, i = x,y,z 中小于等于 n 的数字   
 S_0 = 0   
 前面的 i 长度不进行分割，只分割余下的 n - i 长度的线段，   
-S_i == -1 表示该线段无法用 x,y,z 进行分割   
+S_i == -1 表示该线段无法用 x,y,z 进行分割  
+
+### Solve CutRod Problem
+
+下面代码中有2种实现，对应了不同的需求。
+
+1. 动态规划实现，输出最优解的值
+2. 动态规划实现，并且输出最优解
 
 ```c++
 #pragma once
@@ -495,3 +502,86 @@ void CuttedSegments_Print(int N, int x, int y, int z)
 }
 
 ```
+
+## 动态规划解“0-1 背包问题”
+
+### 0-1 Knapsack Problem
+
+一个正在抢劫商店的小偷发现了 n 个商品，第 i 个商品价值 vi 美元，重 wi 磅，vi 和 wi 都是整数。这个小偷希望拿走价值尽可能高的商品，但他的背包最多容纳 W 磅中的商品，W是一个整数。他应该拿那些商品呢？
+
+注：与 0-1 背包问题相对的，分数背包问题，其不同在于对每个商品，允许小偷拿走商品的一部分，而不是只能做出二元选择。可以将 0-1 背包问题中的商品详细为金锭，而分数背包问题中的商品更像金砂。
+
+Ref: CLRS Chapter 16
+Ref: https://www.geeksforgeeks.org/knapsack-problem/
+
+此问题具有最优子结构性质：如果我们将商品 j 从此方案中删除，则剩余的商品必须是不超过 W-wj 的价值最高方案。
+
+**设 M[i, w] 为用前 i 个商品装入最大容量为 w 的背包中的最大价值，则对任意的第 i 个物品，有两种情况，放进背包或者不放。**
+If wi > w ，容量不够无法放入背包：**M[i, w] = M[i-1, w]**   
+Else， 容量足够，可以不放入也可以放入，取两者较大值：**M[i, w] = Max(M[i-1, w], M[i-1, w-wi] + vi)**   
+另外：**M[0, w] = 0，M[i, 0] = 0**
+
+### Solve 0-1 Knapsack Problem
+
+下面代码中有2种实现，对应了不同的需求。
+
+1. 递归实现
+2. 动态规划实现，输出最优解的值，Time: O(nW)
+
+```c++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int ZeroOneKnapsack_Recursive(int n, const vector<int>& value, const vector<int>& weight, int W)
+{
+	// Base Case
+	if (n == 0 || W == 0)
+		return 0;
+
+	// If weight of the nth item is more than Knapsack capacity W, then
+	// this item cannot be included in the optimal solution
+	if (weight[n - 1] > W)
+		return ZeroOneKnapsack_Recursive(n - 1, value, weight, W);
+
+	// Return the maximum of two cases: 
+	// (1) nth item included 
+	// (2) not included
+	else
+		return max(ZeroOneKnapsack_Recursive(n - 1, value, weight, W),
+				   ZeroOneKnapsack_Recursive(n - 1, value, weight, W - weight[n - 1]) + value[n - 1]);
+}
+
+// n 件商品，每件商品的价格，每件商品的重量，背包的容量
+int ZeroOneKnapsack_DP(int n, const vector<int>& value, const vector<int>& weight, int W)
+{
+	// M[0~n, 0~W]
+	// M[0~n, 0] = 0, M[0, 0~W] = 0
+	vector<vector<int>> M(n + 1, vector<int>(W + 1, 0));
+
+	// bottom-up
+	for (int i = 1; i <= n; ++i)
+	{
+		for (int w = 1; w <= W; ++w)
+		{
+			// 求解 M[i, w]
+			if (weight[i - 1] > w)
+				M[i][w] = M[i - 1][w];
+			else
+				M[i][w] = max(M[i - 1][w], M[i - 1][w - weight[i - 1]] + value[i - 1]);
+		}
+	}
+	return M[n][W];
+}
+```
+
+
+
+
+
+
+
+
+

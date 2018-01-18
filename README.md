@@ -55,7 +55,6 @@
 | 665. Non-decreasing Array                |  CPP   | Array                         |                                          |
 | 566. Reshape the Matrix                  |  CPP   | Array                         |                                          |
 | 122. Best Time to Buy and Sell Stock II  |  CPP   | Array                         |                                          |
-
 >Array Easy: 2017.9.15 -- 2017.10.12
 
 | Problem                                 | Answer | Tags        | Comment         |
@@ -85,7 +84,6 @@
 | 383. Ransom Note                        | CPP    | String      |                 |
 | 521. Longest Uncommon Subsequence I     | CPP    | String      |                 |
 | 345. Reverse Vowels of a String         | CPP    | String      |                 |
-
 >String Easy: 2017.10.12 -- 2018.1.4
 
 Need to learn->
@@ -117,11 +115,8 @@ Need to learn->
 |594. Longest Harmonious Subsequence	|CPP		|HashTable		|				|
 |575. Distribute Candies				|CPP		|HashTable		|				|
 |409. Longest Palindrome				|CPP		|HashTable		|				|
-
 >HashTable Easy: 2018.1.5 -- 2018.1.12
 
-
->Dynamic Programming 2018.1.14 --
 
 | Problem         | Answer | Tags | Comment |
 | --------------- | ------ | ---- | ------- |
@@ -135,7 +130,13 @@ Need to learn->
 |650. 2 Keys Keyboard			|CPP	|DP			|Tricky		|
 |91. Decode Ways				|CPP	|DP			|COOL		|
 |96. Unique Binary Search Trees	|CPP	|DP			|Interesting|
-	
+|95. Unique Binary Search Trees II|CPP	|DP			|Interesting|
+|474. Ones and Zeroes			|CPP	|DP			|TODO		|
+>Dynamic Programming 2018.1.14 --2018.1.18
+
+| Problem         | Answer | Tags | Comment |
+| --------------- | ------ | ---- | ------- |
+|
 
 
 

@@ -34,6 +34,9 @@
     <Filter Include="Header Files\DP">
       <UniqueIdentifier>{778b990a-277f-4c96-9292-b2d2473c3dec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Greedy">
+      <UniqueIdentifier>{6d4d4806-98b1-4a1b-84eb-059550e9515a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\HelpFunc.h">
@@ -366,6 +369,12 @@
     <ClInclude Include="src\UniqueBinarySearchTrees.h">
       <Filter>Header Files\DP</Filter>
     </ClInclude>
+    <ClInclude Include="src\UniqueBinarySearchTreesII.h">
+      <Filter>Header Files\DP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OnesAndZeros.h">
+      <Filter>Header Files\DP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -389,6 +398,9 @@
       <Filter>Notes</Filter>
     </None>
     <None Include="..\notes\DynamicProgramming.md">
+      <Filter>Notes</Filter>
+    </None>
+    <None Include="..\notes\GreedyAlgorithm.md">
       <Filter>Notes</Filter>
     </None>
   </ItemGroup>
