@@ -147,6 +147,7 @@
     <ClInclude Include="src\AddBinaryh.h" />
     <ClInclude Include="src\AddStrings.h" />
     <ClInclude Include="src\ArrayPartitionI.h" />
+    <ClInclude Include="src\AssignCookies.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStock.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockII.h" />
     <ClInclude Include="src\CanPlaceFlowers.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="src\DecodeWays.h" />
     <ClInclude Include="src\DetectCaptial.h" />
     <ClInclude Include="src\DistributeCandies.h" />
+    <ClInclude Include="src\Dota2Senate.h" />
     <ClInclude Include="src\EmployeeImportance.h" />
     <ClInclude Include="src\FindAllAnagramsInAString.h" />
     <ClInclude Include="src\FindAllNumbersDisappearedInAnArray.h" />
@@ -181,6 +183,7 @@
     <ClInclude Include="src\IslandPerimeter.h" />
     <ClInclude Include="src\IsomorphicStrings.h" />
     <ClInclude Include="src\JudgeRouteCircle.h" />
+    <ClInclude Include="src\JumpGame.h" />
     <ClInclude Include="src\K-diffPairsInAnArray.h" />
     <ClInclude Include="src\KeyboardRow.h" />
     <ClInclude Include="src\LengthOfLastWord.h" />
@@ -211,12 +214,14 @@
     <ClInclude Include="src\MultiplyStrings.h" />
     <ClInclude Include="src\NextClosestTime.h" />
     <ClInclude Include="src\Non-decreasingArray.h" />
+    <ClInclude Include="src\NonOverlappingIntervals.h" />
     <ClInclude Include="src\NQueens.h" />
     <ClInclude Include="src\NQueens2.h" />
     <ClInclude Include="src\NumberOfBoomerangs.h" />
     <ClInclude Include="src\NumberOfSegmentsInAString.h" />
     <ClInclude Include="src\OnesAndZeros.h" />
     <ClInclude Include="src\PalindromePairs.h" />
+    <ClInclude Include="src\PartitionLabels.h" />
     <ClInclude Include="src\PascalsTriangle.h" />
     <ClInclude Include="src\PascalsTriangle2.h" />
     <ClInclude Include="src\PlusOne.h" />

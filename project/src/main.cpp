@@ -7,21 +7,20 @@
 
 #include "HelpFunc.h"
 
-#include "UniqueBinarySearchTreesII.h"
-
+#include "JumpGame.h"
 
 using namespace std;
 
 int main()
 {
-	Solution_v2 solu;
+	Solution solu;
 
 	auto t0 = chrono::high_resolution_clock::now();
 
-	cout << solu.generateTrees(100).size() << endl;
+	vector<int> input {  };
+	cout << boolalpha << solu.canJump(input) << endl;
 
 	auto t1 = chrono::high_resolution_clock::now();
-
 	cout << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << endl;
 	
 	return 0;

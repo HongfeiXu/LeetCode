@@ -136,9 +136,11 @@ Need to learn->
 
 | Problem         | Answer | Tags | Comment |
 | --------------- | ------ | ---- | ------- |
-|
-
-
+|455. Assign Cookies			|CPP	|Greedy		|			|
+|649. Dota2 Senate				|CPP	|Greedy		|COOL		|
+|763. Partition Labels			|CPP	|Greedy		|Nasty		|
+|435. Non-overlapping Intervals	|CPP	|Greedy		|			|
+|55. Jump Game					|CPP	|Greedy		|			|
 
 | Problem         | Answer | Tags | Comment |
 | --------------- | ------ | ---- | ------- |
