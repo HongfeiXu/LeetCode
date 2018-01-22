@@ -390,6 +390,9 @@
     <ClInclude Include="src\JumpGame.h">
       <Filter>Header Files\Greedy</Filter>
     </ClInclude>
+    <ClInclude Include="src\GasStation.h">
+      <Filter>Header Files\Greedy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

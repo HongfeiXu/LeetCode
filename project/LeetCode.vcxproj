@@ -172,6 +172,7 @@
     <ClInclude Include="src\FindTheDifference.h" />
     <ClInclude Include="src\FindUniqueCharacterInAString.h" />
     <ClInclude Include="src\FloodFill.h" />
+    <ClInclude Include="src\GasStation.h" />
     <ClInclude Include="src\GenerateParentheses.h" />
     <ClInclude Include="src\HappyNumber.h" />
     <ClInclude Include="src\HelpFunc.h" />

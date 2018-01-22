@@ -141,6 +141,7 @@ Need to learn->
 |763. Partition Labels			|CPP	|Greedy		|Nasty		|
 |435. Non-overlapping Intervals	|CPP	|Greedy		|			|
 |55. Jump Game					|CPP	|Greedy		|			|
+|134. Gas Station				|CPP	|Greedy		|			|
 
 | Problem         | Answer | Tags | Comment |
 | --------------- | ------ | ---- | ------- |

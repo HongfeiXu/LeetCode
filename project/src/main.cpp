@@ -7,7 +7,7 @@
 
 #include "HelpFunc.h"
 
-#include "JumpGame.h"
+#include "GasStation.h"
 
 using namespace std;
 
@@ -17,8 +17,10 @@ int main()
 
 	auto t0 = chrono::high_resolution_clock::now();
 
-	vector<int> input {  };
-	cout << boolalpha << solu.canJump(input) << endl;
+	vector<int> gas { 4,3,2,5,7,0,1 };
+	vector<int> cost { 3,2,5,3,6,2,1 };
+	cout << solu.canCompleteCircuit(gas, cost) << endl;
+
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << endl;
