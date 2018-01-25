@@ -54,7 +54,11 @@
 | 561. Array Partition I                   |  CPP   | Array, Bucket Sort            | COOL                                     |
 | 665. Non-decreasing Array                |  CPP   | Array                         |                                          |
 | 566. Reshape the Matrix                  |  CPP   | Array                         |                                          |
-| 122. Best Time to Buy and Sell Stock II  |  CPP   | Array                         |                                          |
+| 122. Best Time to Buy and Sell Stock II  |  CPP   | Array                         |										   |
+|123. Best Time to Buy and Sell Stock III	|CPP	|Array, DP			|NASTY						|
+|137. Single Number II						|CPP	|Array, Bit			|COOL						|
+|260. Single Number III						|CPP	|Array, Bit			|COOL						|
+|
 >Array Easy: 2017.9.15 -- 2017.10.12
 
 | Problem                                 | Answer | Tags        | Comment         |
@@ -100,7 +104,7 @@ Need to learn->
 |500. Keyboard Row						|CPP		|HashTable		|				|
 |349. Intersection of Two Arrays		|CPP		|HashTable		|				|
 |645. Set Mismatch						|CPP		|HashTable		|				|
-|136. Single Number						|CPP		|HashTable		|				|
+|136. Single Number						|CPP		|HashTable, Bit	|				|
 |720. Longest Word in Dictionary		|CPP		|HashTable		|Fun			|
 |438. Find All Anagrams in a String		|CPP		|HashTable		|Sliding Window	|
 |76. Minimum Window Substring			|CPP		|HashTable		|Sliding Window	|
@@ -142,6 +146,7 @@ Need to learn->
 |435. Non-overlapping Intervals	|CPP	|Greedy		|			|
 |55. Jump Game					|CPP	|Greedy		|			|
 |134. Gas Station				|CPP	|Greedy		|			|
+|406. Queue Reconstruction by Height|CPP|Greedy		|Nasty		|
 
 | Problem         | Answer | Tags | Comment |
 | --------------- | ------ | ---- | ------- |

@@ -150,6 +150,9 @@
     <ClInclude Include="src\AssignCookies.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStock.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockII.h" />
+    <ClInclude Include="src\BestTimeToBuyAndSellStockIII.h" />
+    <ClInclude Include="src\BestTimeToBuyAndSellStockIV.h" />
+    <ClInclude Include="src\BestTimeToBuyAndSellStockWithTransactionFee.h" />
     <ClInclude Include="src\CanPlaceFlowers.h" />
     <ClInclude Include="src\ClimbingStairs.h" />
     <ClInclude Include="src\CombinationSum.h" />
@@ -226,6 +229,7 @@
     <ClInclude Include="src\PascalsTriangle.h" />
     <ClInclude Include="src\PascalsTriangle2.h" />
     <ClInclude Include="src\PlusOne.h" />
+    <ClInclude Include="src\QueueReconstructionByHeight.h" />
     <ClInclude Include="src\RangeSumQuery.h" />
     <ClInclude Include="src\RansomNote.h" />
     <ClInclude Include="src\RemoveDuplicatesFromSortedArray.h" />
@@ -244,6 +248,8 @@
     <ClInclude Include="src\SetMismatch.h" />
     <ClInclude Include="src\ShortestUnsortedContinuousSubarray.h" />
     <ClInclude Include="src\SingleNumber.h" />
+    <ClInclude Include="src\SingleNumberII.h" />
+    <ClInclude Include="src\SingleNumberIII.h" />
     <ClInclude Include="src\StringCompression.h" />
     <ClInclude Include="src\StudentAttendanceRecordI.h" />
     <ClInclude Include="src\SubstringWithConcatenationOfAllWords.h" />
@@ -266,6 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\notes\Backtracking.md" />
+    <None Include="..\notes\BitAlgorithms.md" />
     <None Include="..\notes\DynamicProgramming.md" />
     <None Include="..\notes\GreedyAlgorithm.md" />
     <None Include="..\notes\KMP.md" />

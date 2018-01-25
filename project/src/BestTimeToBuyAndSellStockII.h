@@ -64,4 +64,23 @@ public:
 
 		return max_profit;
 	}
+
+	int maxProfit_v3(vector<int>& prices)
+	{
+		int maxProfit = 0;
+		for (int i = 0; i < prices.size();)
+		{
+			// 寻找极小值
+			int j = i;
+			while (j + 1 < prices.size() && prices[j] > prices[j + 1])
+				++j;
+			int k = j;
+			// 寻找极大值
+			while (k + 1 < prices.size() && prices[k] < prices[k + 1])
+				++k;
+			maxProfit += prices[k] - prices[j];
+			i = k + 1;
+		}
+		return maxProfit;
+	}
 };

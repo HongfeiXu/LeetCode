@@ -37,6 +37,9 @@
     <Filter Include="Header Files\Greedy">
       <UniqueIdentifier>{6d4d4806-98b1-4a1b-84eb-059550e9515a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\BitManipulation">
+      <UniqueIdentifier>{7183b58a-541c-41cb-9013-255b81c71ee2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\HelpFunc.h">
@@ -282,9 +285,6 @@
     <ClInclude Include="src\SetMismatch.h">
       <Filter>Header Files\HashTable</Filter>
     </ClInclude>
-    <ClInclude Include="src\SingleNumber.h">
-      <Filter>Header Files\HashTable</Filter>
-    </ClInclude>
     <ClInclude Include="src\LongestWordInDictionary.h">
       <Filter>Header Files\HashTable</Filter>
     </ClInclude>
@@ -393,6 +393,27 @@
     <ClInclude Include="src\GasStation.h">
       <Filter>Header Files\Greedy</Filter>
     </ClInclude>
+    <ClInclude Include="src\QueueReconstructionByHeight.h">
+      <Filter>Header Files\Greedy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BestTimeToBuyAndSellStockWithTransactionFee.h">
+      <Filter>Header Files\Greedy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BestTimeToBuyAndSellStockIII.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SingleNumberII.h">
+      <Filter>Header Files\BitManipulation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SingleNumberIII.h">
+      <Filter>Header Files\BitManipulation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SingleNumber.h">
+      <Filter>Header Files\BitManipulation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BestTimeToBuyAndSellStockIV.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -419,6 +440,9 @@
       <Filter>Notes</Filter>
     </None>
     <None Include="..\notes\GreedyAlgorithm.md">
+      <Filter>Notes</Filter>
+    </None>
+    <None Include="..\notes\BitAlgorithms.md">
       <Filter>Notes</Filter>
     </None>
   </ItemGroup>
