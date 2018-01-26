@@ -418,7 +418,7 @@
       <Filter>Header Files\Array</Filter>
     </ClInclude>
     <ClInclude Include="src\TrappingRainWater.h">
-      <Filter>Header Files\Array</Filter>
+      <Filter>Header Files\DP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -9,18 +9,19 @@
 
 #include "HelpFunc.h"
 
-#include "TrappingRainWater.h"
+#include "OnesAndZeros.h"
 
 using namespace std;
 
 int main()
 {
-	Solution_v3 solu;
+	Solution_v4 solu;
 
 	auto t0 = chrono::high_resolution_clock::now();
 
-	vector<int> input { 0,1,0,2,1,0,1,3,2,1,2,1 };
-	cout << solu.trap(input) << endl;
+	vector<string> input = { "10", "0001", "111001", "1", "0" };
+	int m = 5, n = 3;
+	cout << solu.findMaxForm(input, m, n) << endl;
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;

@@ -138,7 +138,7 @@ Need to learn->
 |91. Decode Ways				|CPP	|DP			|COOL		|
 |96. Unique Binary Search Trees	|CPP	|DP			|Interesting|
 |95. Unique Binary Search Trees II|CPP	|DP			|Interesting|
-|474. Ones and Zeroes			|CPP	|DP			|TODO		|
+|474. Ones and Zeroes			|CPP	|DP			|Interesting|
 |42. Trapping Rain Water		|CPP	|DP			|FUN		|
 >Dynamic Programming 2018.1.14 --2018.1.18
 
