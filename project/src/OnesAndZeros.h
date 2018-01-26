@@ -32,10 +32,14 @@ Approach v2:
 0-1背包问题的变形   WOWOWOW
 
 这里商品为所有的字符串，背包的容量由两个变量决定，即0的个数和1的个数
-设 mf[i, m, n] 表示前 i 个字符串装入容量最大为 m 个 0 和 n 个 1 的背包中的最大字符串数目
+设 mf[i, m, n] 表示前 i 个字符串装入容量最大为 m 个 0 和 n 个 1 的背包中的最大字符串数目 
 则对第i个字符串，有两种情况，放进背包或者不放进背包
 if strs[i].zeros > m || strs[i].ones > n，则无法放进背包，mf[i, m, n] = mf[i-1, m, n]
 else mf[i, m, n] = max(mf[i-1, m, n], mf[i-1, m - zeros, n- ones] + 1) 此时可以将次字符串不放入背包或者放入背包，取较大值。
+
+注：
+i=0,1,2,...,strs.size()，i == 0 时表示没有字符串放入背包，故mf[0,m,n] = 0
+m == 0 && n == 0 时表示，背包为空，（如果字符串中没有空字符的话。。。），则背包中字符串的数目显然也为0，故 m[i][0][0] = 0
 
 mf[strs.size(), m, n] 即为所求，注：这里 strs.size() 表示有 strs.size() 个字符串，而不用 strs.size() - 1
 直接用递归实现，依然是 Time Limit Exceeded
@@ -49,6 +53,7 @@ Space: O(strs.size() * m * n)
 
 Approach v4:
 Space Optimized
+因为每一次迭代i时只用到了i-1的数据，故只需要存储两行就足够完成递推
 Time: O(strs.size() * m * n)
 Space: O(m * n)
 

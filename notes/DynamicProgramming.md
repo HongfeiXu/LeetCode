@@ -577,6 +577,100 @@ int ZeroOneKnapsack_DP(int n, const vector<int>& value, const vector<int>& weigh
 }
 ```
 
+## 动态规划解 类“0-1 背包问题” Ones and Zeros
+
+### Ones and Zeros
+
+> https://leetcode.com/problems/ones-and-zeroes/
+
+474. Ones and Zeroes
+
+In the computer world, use restricted resource you have to generate maximum benefit is what we always want to pursue.   
+For now, suppose you are a dominator of m 0s and n 1s respectively. On the other hand, there is an array with strings consisting of only 0s and 1s.   
+Now your task is to find the maximum number of strings that you can form with given m 0s and n 1s. Each 0 and 1 can be used at most once.   
+
+Note:   
+The given numbers of 0s and 1s will both not exceed 100   
+The size of given string array won't exceed 600.   
+
+Example 1:   
+Input: Array = {"10", "0001", "111001", "1", "0"}, m = 5, n = 3   
+Output: 4   
+
+Explanation: This are totally 4 strings can be formed by the using of 5 0s and 3 1s, which are “10,”0001”,”1”,”0”   
+Example 2:   
+Input: Array = {"10", "0", "1"}, m = 1, n = 1   
+Output: 2   
+
+Explanation: You could form "10", but then you'd have nothing left. Better form "0" and "1".   
+
+### 分析
+
+这是 0-1背包问题的变形问题
+
+这里商品为所有的字符串，背包的容量由两个变量决定，即0的个数和1的个数   
+用 mf[i, m, n] 表示前 i 个字符串装入容量最大为 m 个 0 和 n 个 1 的背包中的最大字符串数目    
+则对第i个字符串，有两种情况，放进背包或者不放进背包   
+if strs[i].zeros > m || strs[i].ones > n，则无法放进背包，mf[i, m, n] = mf[i-1, m, n]   
+else mf[i, m, n] = max(mf[i-1, m, n], mf[i-1, m - zeros, n- ones] + 1) 此时可以将次字符串不放入背包或者放入背包，取较大值。      
+
+注：   
+i=0,1,2,...,strs.size()，i == 0 时表示没有字符串放入背包，故mf[0,m,n] = 0   
+m == 0 && n == 0 时表示，背包为空，（如果字符串中没有空字符的话。。。），则背包中字符串的数目显然也为0，故 m[i][0][0] = 0      
+
+mf[strs.size(), m, n] 即为所求，注：这里 strs.size() 表示有 strs.size() 个字符串，而不用 strs.size() - 1   
+
+可以进行空间复杂度优化    
+因为每一次迭代i时只用到了i-1的数据，故只需要存储两行就足够完成递推   
+Time: O(strs.size() * m * n)   
+Space: O(m * n)   
+
+### 解决
+
+```c++
+class Solution {
+public:
+	int findMaxForm(vector<string>& strs, int m, int n)
+	{
+		vector<vector<vector<int>>> mf(2, vector<vector<int>>());
+		for (int i = 0; i < mf.size(); ++i)
+			mf[i].assign(m + 1, vector<int>(n + 1, 0));
+
+		for (int i = 1; i <= strs.size(); ++i)
+		{
+			pair<int, int> cnt_of_zeros_and_ones = cntOfZerosAndOnes(strs[i - 1]);
+			for (int x = 0; x <= m; ++x)
+			{
+				for (int y = 0; y <= n; ++y)
+				{
+					if (cnt_of_zeros_and_ones.first > x || cnt_of_zeros_and_ones.second > y)
+						mf[i % 2][x][y] = mf[(i-1+2)%2][x][y];
+					else
+						mf[i % 2][x][y] = max(mf[(i-1+2)%2][x][y], mf[(i-1+2)%2][x - cnt_of_zeros_and_ones.first][y - cnt_of_zeros_and_ones.second] + 1);
+				}
+			}
+		}
+		return mf[strs.size()%2][m][n];
+	}
+
+	// 返回 s 中的 0 和 1 的个数
+	pair<int, int> cntOfZerosAndOnes(const string& s)
+	{
+		pair<int, int> result(0, 0);
+		for (const auto c : s)
+		{
+			if (c == '0')
+				result.first++;
+			else
+				result.second++;
+		}
+		return result;
+	}
+};
+```
+
+
+
 
 
 
