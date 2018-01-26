@@ -152,6 +152,7 @@
     <ClInclude Include="src\BestTimeToBuyAndSellStockII.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockIII.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockIV.h" />
+    <ClInclude Include="src\BestTimeToBuyAndSellStockWithCooldown.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockWithTransactionFee.h" />
     <ClInclude Include="src\CanPlaceFlowers.h" />
     <ClInclude Include="src\ClimbingStairs.h" />
@@ -254,6 +255,7 @@
     <ClInclude Include="src\StudentAttendanceRecordI.h" />
     <ClInclude Include="src\SubstringWithConcatenationOfAllWords.h" />
     <ClInclude Include="src\ThirdMaximumNumber.h" />
+    <ClInclude Include="src\TrappingRainWater.h" />
     <ClInclude Include="src\TwoKeysKeyboard.h" />
     <ClInclude Include="src\TwoSum.h" />
     <ClInclude Include="src\TwoSum2.h" />

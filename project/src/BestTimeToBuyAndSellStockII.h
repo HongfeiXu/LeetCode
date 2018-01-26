@@ -48,6 +48,7 @@ public:
 		return max_profit;
 	}
 
+	// GOOD
 	int maxProfit_v2(vector<int>& prices)
 	{
 		if (prices.empty())

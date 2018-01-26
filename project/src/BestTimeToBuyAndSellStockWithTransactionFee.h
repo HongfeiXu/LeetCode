@@ -31,5 +31,67 @@ Note:
 0 < prices[i] < 50000.
 0 <= fee < 50000.
 
+Approach:
+DP
+交易次数不限，但加入了交易费的条件，受 《309. Best Time to Buy and Sell Stock with Cooldown》 的启发，很容易写出下面的定义以及递推式
+buy[i] means till day i what is the maxProfit for any sequence end with buy.
+sell[i] means till day i what is the maxProfit for any sequence end with sell.
+递推式如下：
+buy[i] = max(sell[i-1] - prices[i], buy[i-1])			// 若在i天买入，则减去售价，若不在i天出售，则收益为 buy[i-1]，取两者中较大的
+sell[i] = max(buy[i-1] + prices[i] - fee, sell[i-1])	// 若在i天出售，则加上售价并减去交易费，buy[i-1]+prices[i]-fee，若不在i天出售，则收益为 sell[i-1]，取两者中较大的
+buy[0] = -prices[0]
+sell[0] = 0
+
+Time: O(n)
+Space: O(n)
+
+Approach v2:
+
+DP with Space Optimizing
+
+Time: O(n)
+Space: O(1)
+
 */
 
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+class Solution {
+public:
+	int maxProfit(vector<int>& prices, int fee)
+	{
+		int len = prices.size();
+		if (len < 2)
+			return 0;
+		vector<int> buy(len, 0);
+		vector<int> sell(len, 0);
+		buy[0] = -prices[0];
+		for (int i = 1; i < len; ++i)
+		{
+			buy[i] = max(sell[i - 1] - prices[i], buy[i - 1]);
+			sell[i] = max(buy[i - 1] + prices[i] - fee, sell[i - 1]);
+		}
+		return sell[len - 1];
+	}
+};
+
+class Solution_v2 {
+public:
+	int maxProfit(vector<int>& prices, int fee)
+	{
+		int len = prices.size();
+		if (len < 2)
+			return 0;
+		int buy = -prices[0], sell = 0, pre_buy = 0;
+		for (int i = 1; i < len; ++i)
+		{
+			pre_buy = buy;
+			buy = max(sell - prices[i], pre_buy);
+			sell = max(pre_buy + prices[i] - fee, sell);
+		}
+		return sell;
+	}
+};

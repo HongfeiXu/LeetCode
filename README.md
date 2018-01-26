@@ -41,7 +41,6 @@
 | 605. Can Place Flowers                   |  CPP   | Array                         |                                          |
 | 628. Maximum Product of Three Numbers    |  CPP   | Array                         |                                          |
 | 661. Image Smoother                      |  CPP   | Array                         |                                          |
-| 121. Best Time to Buy and Sell Stock     |  CPP   | Array                         | COOL                                     |
 | 167. Two Sum II - Input array is sorted  |  CPP   | Array                         | COOL                                     |
 | 169. Majority Element                    |  CPP   | Array                         | COOL                                     |
 | 268. Missing Number                      |  CPP   | Array, Math, Bit Manipulation | COOL                                     |
@@ -54,8 +53,12 @@
 | 561. Array Partition I                   |  CPP   | Array, Bucket Sort            | COOL                                     |
 | 665. Non-decreasing Array                |  CPP   | Array                         |                                          |
 | 566. Reshape the Matrix                  |  CPP   | Array                         |                                          |
+| 121. Best Time to Buy and Sell Stock     |  CPP   | Array                         | COOL                                     |
 | 122. Best Time to Buy and Sell Stock II  |  CPP   | Array                         |										   |
 |123. Best Time to Buy and Sell Stock III	|CPP	|Array, DP			|NASTY						|
+|188. Best Time to Buy and Sell Stock IV	|CPP	|Array, DP			|NASTY						|
+|309. Best Time to Buy and Sell Stock with Cooldown|CPP|Array, DP		|NASTY						|
+|714. Best Time to Buy and Sell Stock with Transaction Fee|CPP|Array,DP	|NASTY						|
 |137. Single Number II						|CPP	|Array, Bit			|COOL						|
 |260. Single Number III						|CPP	|Array, Bit			|COOL						|
 |
@@ -136,6 +139,7 @@ Need to learn->
 |96. Unique Binary Search Trees	|CPP	|DP			|Interesting|
 |95. Unique Binary Search Trees II|CPP	|DP			|Interesting|
 |474. Ones and Zeroes			|CPP	|DP			|TODO		|
+|42. Trapping Rain Water		|CPP	|DP			|FUN		|
 >Dynamic Programming 2018.1.14 --2018.1.18
 
 | Problem         | Answer | Tags | Comment |

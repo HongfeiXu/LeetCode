@@ -403,7 +403,7 @@ and after performing all cutting operation the total number of cutted segments m
 对于长度为 n 的线段，其最优切割 S_n(n+>=1)，我们使用更短的线段的最优切割来描述它    
 S_n = max{S_i + S_(n-i)}, i = x,y,z 中小于等于 n 的数字   
 =>   
-S_n = max{1 + S_(n-i)}, i = x,y,z 中小于等于 n 的数字   
+S_n = max{i + S_(n-i)}, i = x,y,z 中小于等于 n 的数字   
 S_0 = 0   
 前面的 i 长度不进行分割，只分割余下的 n - i 长度的线段，   
 S_i == -1 表示该线段无法用 x,y,z 进行分割  

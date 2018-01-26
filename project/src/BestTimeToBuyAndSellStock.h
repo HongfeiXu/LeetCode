@@ -44,6 +44,7 @@ dp[i] 记录从 prices[0...i] 进行一次交易获得的最大收益，用 min_price 保存 prices[
 dp[i+1] = max(dp[i], prices[i+1] - min_price)
 
 Approach v4:
+相当于时 Approach v3 的 Space Optimized 版本
 只需要遍历一次数组，通过一个变量记录当前最低价格，同时算出此次交易利润，并与当前最大值比较就可以了。
 
 */

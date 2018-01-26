@@ -414,6 +414,12 @@
     <ClInclude Include="src\BestTimeToBuyAndSellStockIV.h">
       <Filter>Header Files\Array</Filter>
     </ClInclude>
+    <ClInclude Include="src\BestTimeToBuyAndSellStockWithCooldown.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TrappingRainWater.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
