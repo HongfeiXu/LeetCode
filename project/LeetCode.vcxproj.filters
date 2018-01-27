@@ -40,6 +40,12 @@
     <Filter Include="Header Files\BitManipulation">
       <UniqueIdentifier>{7183b58a-541c-41cb-9013-255b81c71ee2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Heap">
+      <UniqueIdentifier>{16076c71-6a37-408e-a44d-e32a58c42437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DFS_BFS">
+      <UniqueIdentifier>{bd177775-aa4e-4053-b606-ba3785aae4e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\HelpFunc.h">
@@ -209,9 +215,6 @@
     </ClInclude>
     <ClInclude Include="src\RomanToInteger.h">
       <Filter>Header Files\String</Filter>
-    </ClInclude>
-    <ClInclude Include="src\FloodFill.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\LongestCommonPrefix.h">
       <Filter>Header Files\String</Filter>
@@ -396,9 +399,6 @@
     <ClInclude Include="src\QueueReconstructionByHeight.h">
       <Filter>Header Files\Greedy</Filter>
     </ClInclude>
-    <ClInclude Include="src\BestTimeToBuyAndSellStockWithTransactionFee.h">
-      <Filter>Header Files\Greedy</Filter>
-    </ClInclude>
     <ClInclude Include="src\BestTimeToBuyAndSellStockIII.h">
       <Filter>Header Files\Array</Filter>
     </ClInclude>
@@ -419,6 +419,21 @@
     </ClInclude>
     <ClInclude Include="src\TrappingRainWater.h">
       <Filter>Header Files\DP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TaskScheduler.h">
+      <Filter>Header Files\Greedy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BestTimeToBuyAndSellStockWithTransactionFee.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ReorganizeString.h">
+      <Filter>Header Files\Greedy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SlidingWindowMaximum.h">
+      <Filter>Header Files\Heap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FloodFill.h">
+      <Filter>Header Files\DFS_BFS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

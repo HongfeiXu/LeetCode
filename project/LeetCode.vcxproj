@@ -236,6 +236,7 @@
     <ClInclude Include="src\RemoveDuplicatesFromSortedArray.h" />
     <ClInclude Include="src\RemoveElement.h" />
     <ClInclude Include="src\RemoveKDigits.h" />
+    <ClInclude Include="src\ReorganizeString.h" />
     <ClInclude Include="src\RepeatedStringMatch.h" />
     <ClInclude Include="src\RepeatedSubstringPattern.h" />
     <ClInclude Include="src\ReshapeTheMatrix.h" />
@@ -251,9 +252,11 @@
     <ClInclude Include="src\SingleNumber.h" />
     <ClInclude Include="src\SingleNumberII.h" />
     <ClInclude Include="src\SingleNumberIII.h" />
+    <ClInclude Include="src\SlidingWindowMaximum.h" />
     <ClInclude Include="src\StringCompression.h" />
     <ClInclude Include="src\StudentAttendanceRecordI.h" />
     <ClInclude Include="src\SubstringWithConcatenationOfAllWords.h" />
+    <ClInclude Include="src\TaskScheduler.h" />
     <ClInclude Include="src\ThirdMaximumNumber.h" />
     <ClInclude Include="src\TrappingRainWater.h" />
     <ClInclude Include="src\TwoKeysKeyboard.h" />

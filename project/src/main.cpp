@@ -9,19 +9,21 @@
 
 #include "HelpFunc.h"
 
-#include "OnesAndZeros.h"
+#include "SlidingWindowMaximum.h"
 
 using namespace std;
 
 int main()
 {
-	Solution_v4 solu;
+	Solution solu;
 
 	auto t0 = chrono::high_resolution_clock::now();
 
-	vector<string> input = { "10", "0001", "111001", "1", "0" };
-	int m = 5, n = 3;
-	cout << solu.findMaxForm(input, m, n) << endl;
+	vector<int> nums {  8,3,4,2,2,5,-2,6,7};
+	int k = 4;
+	auto result = solu.maxSlidingWindow(nums, k);
+	copy(result.begin(), result.end(), ostream_iterator<int>(cout, " "));
+	cout << endl;
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;

@@ -151,11 +151,17 @@ Need to learn->
 |55. Jump Game					|CPP	|Greedy		|			|
 |134. Gas Station				|CPP	|Greedy		|			|
 |406. Queue Reconstruction by Height|CPP|Greedy		|Nasty		|
+|621. Task Scheduler			|CPP	|Greedy		|COOL		|
+|767. Reorganize String			|CPP	|Greedy		|			|
+>Greedy Algorithm 2018.1.19 -- 2018.1.27
+
+
 
 | Problem         | Answer | Tags | Comment |
 | --------------- | ------ | ---- | ------- |
-| 733. Flood Fill | CPP    |      | COOL    |
-
+|733. Flood Fill			| CPP		|DFS		|COOL			|
+|239. Sliding Window Maximum|CPP		|Queue		|Nice			|
+>Other
 
 ## Tips
 
