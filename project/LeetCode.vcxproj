@@ -207,6 +207,7 @@
     <ClInclude Include="src\MaxAreaOfIsland.h" />
     <ClInclude Include="src\MaxConsecutiveOnes.h" />
     <ClInclude Include="src\MaximumAverageSubarrayI.h" />
+    <ClInclude Include="src\MaximumDepthOfBinaryTree.h" />
     <ClInclude Include="src\MaximumProductOfThreeNumbers.h" />
     <ClInclude Include="src\MaximumSubarray.h" />
     <ClInclude Include="src\MaximumSwap.h" />
@@ -229,6 +230,7 @@
     <ClInclude Include="src\PartitionLabels.h" />
     <ClInclude Include="src\PascalsTriangle.h" />
     <ClInclude Include="src\PascalsTriangle2.h" />
+    <ClInclude Include="src\PathSum.h" />
     <ClInclude Include="src\PlusOne.h" />
     <ClInclude Include="src\QueueReconstructionByHeight.h" />
     <ClInclude Include="src\RangeSumQuery.h" />
@@ -246,6 +248,7 @@
     <ClInclude Include="src\ReverseWordsInAStringIII.h" />
     <ClInclude Include="src\RomanToInteger.h" />
     <ClInclude Include="src\RotateArray.h" />
+    <ClInclude Include="src\SameTree.h" />
     <ClInclude Include="src\SearchInsertPosition.h" />
     <ClInclude Include="src\SetMismatch.h" />
     <ClInclude Include="src\ShortestUnsortedContinuousSubarray.h" />
@@ -256,6 +259,7 @@
     <ClInclude Include="src\StringCompression.h" />
     <ClInclude Include="src\StudentAttendanceRecordI.h" />
     <ClInclude Include="src\SubstringWithConcatenationOfAllWords.h" />
+    <ClInclude Include="src\SymmetricTree.h" />
     <ClInclude Include="src\TaskScheduler.h" />
     <ClInclude Include="src\ThirdMaximumNumber.h" />
     <ClInclude Include="src\TrappingRainWater.h" />

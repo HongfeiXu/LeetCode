@@ -435,6 +435,18 @@
     <ClInclude Include="src\FloodFill.h">
       <Filter>Header Files\DFS_BFS</Filter>
     </ClInclude>
+    <ClInclude Include="src\PathSum.h">
+      <Filter>Header Files\DFS_BFS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SameTree.h">
+      <Filter>Header Files\DFS_BFS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SymmetricTree.h">
+      <Filter>Header Files\DFS_BFS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MaximumDepthOfBinaryTree.h">
+      <Filter>Header Files\DFS_BFS</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

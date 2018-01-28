@@ -103,22 +103,22 @@ class Solution_v2 {
 public:
 	vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor)
 	{
-		dfs(image, sr, sc, image[sr][sc], newColor);
+		isSymmetric(image, sr, sc, image[sr][sc], newColor);
 		return image;
 	}
 
 	// 此方法的问题在于，如果 oldColor 和 newColor 相同，则会无限递归下去。
-	void dfs(vector<vector<int>>& image, int r, int c, int oldColor, int newColor)
+	void isSymmetric(vector<vector<int>>& image, int r, int c, int oldColor, int newColor)
 	{
 		int R = image.size();
 		int C = image[0].size();
 		if (image[r][c] == oldColor)
 		{
 			image[r][c] = newColor;
-			if (r >= 1) dfs(image, r - 1, c, oldColor, newColor);
-			if (r + 1 < R) dfs(image, r + 1, c, oldColor, newColor);
-			if (c >= 1) dfs(image, r, c - 1, oldColor, newColor);
-			if (c + 1 < C) dfs(image, r, c + 1, oldColor, newColor);
+			if (r >= 1) isSymmetric(image, r - 1, c, oldColor, newColor);
+			if (r + 1 < R) isSymmetric(image, r + 1, c, oldColor, newColor);
+			if (c >= 1) isSymmetric(image, r, c - 1, oldColor, newColor);
+			if (c + 1 < C) isSymmetric(image, r, c + 1, oldColor, newColor);
 		}
 		
 	}

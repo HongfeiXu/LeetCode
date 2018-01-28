@@ -161,6 +161,9 @@ Need to learn->
 | --------------- | ------ | ---- | ------- |
 |733. Flood Fill			| CPP		|DFS		|COOL			|
 |239. Sliding Window Maximum|CPP		|Queue		|Nice			|
+|112. Path Sum				|CPP		|DFS		|				|
+|100. Same Tree				|CPP		|DFS		|COOL			|
+|101. Symmetric Tree		|CPP		|DFS		|COOL			|
 >Other
 
 ## Tips
