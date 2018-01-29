@@ -166,6 +166,9 @@ Need to learn->
 |101. Symmetric Tree		|CPP		|DFS		|COOL			|
 |104. Maximum Depth of Binary Tree|CPP	|DFS,BFS	|				|
 |108. Convert Sorted Array to Binary Search Tree|CPP|DFS|			|
+|111. Minimum Depth of Binary Tree|CPP  |DFS        |               |
+|257. Binary Tree Paths     |CPP		|DFS		|Useful			|		
+|98. Validate Binary Search Tree|CPP	|MidOrderTraverse|				|
 >Other
 
 ## Tips

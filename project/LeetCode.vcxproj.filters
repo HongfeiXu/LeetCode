@@ -453,6 +453,18 @@
     <ClInclude Include="src\BalancedBinaryTree.h">
       <Filter>Header Files\DFS_BFS</Filter>
     </ClInclude>
+    <ClInclude Include="src\MinimumDepthOfBinaryTree.h">
+      <Filter>Header Files\DFS_BFS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BinaryTreePaths.h">
+      <Filter>Header Files\DFS_BFS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ValidateBinarySearchTree.h">
+      <Filter>Header Files\DFS_BFS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RecoverBinarySearchTree.h">
+      <Filter>Header Files\DFS_BFS</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

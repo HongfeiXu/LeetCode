@@ -9,7 +9,7 @@
 
 #include "HelpFunc.h"
 
-#include "ConvertSortedArrayToBinarySearchTree.h"
+#include "ValidateBinarySearchTree.h"
 
 using namespace std;
 
@@ -27,12 +27,17 @@ int main()
 
 	auto t0 = chrono::high_resolution_clock::now();
 
-	Solution solu;
+	Solution_v2 solu;
 
-	vector<int> input { -10,-3,0,5,9 };
-	TreeNode* root = solu.sortedArrayToBST(input);
-	midorder(root);
-	cout << endl;
+	TreeNode a(1);
+	TreeNode b(2);
+	TreeNode c(3);
+
+	a.left = &b;
+	a.right = &c;
+
+	cout << boolalpha << solu.isValidBST(&a) << endl;
+
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;
 	

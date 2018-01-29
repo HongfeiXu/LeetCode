@@ -155,6 +155,7 @@
     <ClInclude Include="src\BestTimeToBuyAndSellStockIV.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockWithCooldown.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockWithTransactionFee.h" />
+    <ClInclude Include="src\BinaryTreePaths.h" />
     <ClInclude Include="src\CanPlaceFlowers.h" />
     <ClInclude Include="src\ClimbingStairs.h" />
     <ClInclude Include="src\CombinationSum.h" />
@@ -215,6 +216,7 @@
     <ClInclude Include="src\MaximumSwap.h" />
     <ClInclude Include="src\MergeSortedArray.h" />
     <ClInclude Include="src\MinCostClimbingStairs.h" />
+    <ClInclude Include="src\MinimumDepthOfBinaryTree.h" />
     <ClInclude Include="src\MinimumIndexSumOfTwoLists.h" />
     <ClInclude Include="src\MinimumWindowSubstring.h" />
     <ClInclude Include="src\MissingNumber.h" />
@@ -237,6 +239,7 @@
     <ClInclude Include="src\QueueReconstructionByHeight.h" />
     <ClInclude Include="src\RangeSumQuery.h" />
     <ClInclude Include="src\RansomNote.h" />
+    <ClInclude Include="src\RecoverBinarySearchTree.h" />
     <ClInclude Include="src\RemoveDuplicatesFromSortedArray.h" />
     <ClInclude Include="src\RemoveElement.h" />
     <ClInclude Include="src\RemoveKDigits.h" />
@@ -272,6 +275,7 @@
     <ClInclude Include="src\UniqueBinarySearchTreesII.h" />
     <ClInclude Include="src\UniqueSubstringsInWraparoundString.h" />
     <ClInclude Include="src\ValidAnagram.h" />
+    <ClInclude Include="src\ValidateBinarySearchTree.h" />
     <ClInclude Include="src\ValidPalindrome.h" />
     <ClInclude Include="src\ValidPalindromeII.h" />
     <ClInclude Include="src\ValidParentheses.h" />
