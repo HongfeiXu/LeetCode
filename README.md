@@ -164,6 +164,8 @@ Need to learn->
 |112. Path Sum				|CPP		|DFS		|				|
 |100. Same Tree				|CPP		|DFS		|COOL			|
 |101. Symmetric Tree		|CPP		|DFS		|COOL			|
+|104. Maximum Depth of Binary Tree|CPP	|DFS,BFS	|				|
+|108. Convert Sorted Array to Binary Search Tree|CPP|DFS|			|
 >Other
 
 ## Tips

@@ -447,6 +447,12 @@
     <ClInclude Include="src\MaximumDepthOfBinaryTree.h">
       <Filter>Header Files\DFS_BFS</Filter>
     </ClInclude>
+    <ClInclude Include="src\ConvertSortedArrayToBinarySearchTree.h">
+      <Filter>Header Files\DFS_BFS</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BalancedBinaryTree.h">
+      <Filter>Header Files\DFS_BFS</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

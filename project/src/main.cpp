@@ -9,28 +9,34 @@
 
 #include "HelpFunc.h"
 
-#include "SymmetricTree.h"
+#include "ConvertSortedArrayToBinarySearchTree.h"
 
 using namespace std;
 
+void midorder(TreeNode* root)
+{
+	if (root == nullptr)
+		return;
+	midorder(root->left);
+	cout << root->val << " ";
+	midorder(root->right);
+}
+
 int main()
 {
-	Solution_v2 solu;
 
 	auto t0 = chrono::high_resolution_clock::now();
 
-	TreeNode a(1);
-	TreeNode b(2);
-	TreeNode c(2);
-	TreeNode d(3);
-	a.left = &b;
-	a.right = &c;
-	b.left = &d;
+	Solution solu;
 
-	cout << boolalpha << solu.isSymmetric(&a) << endl;
-	
+	vector<int> input { -10,-3,0,5,9 };
+	TreeNode* root = solu.sortedArrayToBST(input);
+	midorder(root);
+	cout << endl;
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;
 	
 	return 0;
 }
+
+

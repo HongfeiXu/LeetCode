@@ -148,6 +148,7 @@
     <ClInclude Include="src\AddStrings.h" />
     <ClInclude Include="src\ArrayPartitionI.h" />
     <ClInclude Include="src\AssignCookies.h" />
+    <ClInclude Include="src\BalancedBinaryTree.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStock.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockII.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockIII.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="src\ConstructStringFromBinaryTree.h" />
     <ClInclude Include="src\ContainsDuplicate.h" />
     <ClInclude Include="src\ContainsDuplicate2.h" />
+    <ClInclude Include="src\ConvertSortedArrayToBinarySearchTree.h" />
     <ClInclude Include="src\CountAndSay.h" />
     <ClInclude Include="src\CountBinarySubstrings.h" />
     <ClInclude Include="src\CountPrimes.h" />
