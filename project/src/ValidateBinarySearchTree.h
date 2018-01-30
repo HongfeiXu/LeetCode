@@ -31,7 +31,6 @@ Approach v2:
 依然使用中序遍历的方法，但这里不保存遍历序列，
 而是在遍历的时候保存前一个访问节点的指针pre，与当前访问节点所在子树进行比较。
 
-
 Approach v3:
 Wrong Answer
 DFS

@@ -155,6 +155,7 @@
     <ClInclude Include="src\BestTimeToBuyAndSellStockIV.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockWithCooldown.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockWithTransactionFee.h" />
+    <ClInclude Include="src\BinaryTreeInorderTraversal.h" />
     <ClInclude Include="src\BinaryTreePaths.h" />
     <ClInclude Include="src\CanPlaceFlowers.h" />
     <ClInclude Include="src\ClimbingStairs.h" />
@@ -287,6 +288,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\notes\Backtracking.md" />
+    <None Include="..\notes\BinaryTree.md" />
     <None Include="..\notes\BitAlgorithms.md" />
     <None Include="..\notes\DynamicProgramming.md" />
     <None Include="..\notes\GreedyAlgorithm.md" />

@@ -465,6 +465,9 @@
     <ClInclude Include="src\RecoverBinarySearchTree.h">
       <Filter>Header Files\DFS_BFS</Filter>
     </ClInclude>
+    <ClInclude Include="src\BinaryTreeInorderTraversal.h">
+      <Filter>Header Files\DFS_BFS</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -494,6 +497,9 @@
       <Filter>Notes</Filter>
     </None>
     <None Include="..\notes\BitAlgorithms.md">
+      <Filter>Notes</Filter>
+    </None>
+    <None Include="..\notes\BinaryTree.md">
       <Filter>Notes</Filter>
     </None>
   </ItemGroup>

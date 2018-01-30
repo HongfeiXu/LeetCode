@@ -33,6 +33,8 @@ preorder traverse
 
 #include <stack>
 
+using namespace std;
+
 // Definition for a binary tree node.
 struct TreeNode {
 	int val;
@@ -88,15 +90,15 @@ public:
 				if (curr->val == sum)
 					return true;
 			}
-			if (curr->left != nullptr)
-			{
-				curr->left->val += curr->val;
-				S.push(curr->left);
-			}
 			if (curr->right != nullptr)
 			{
 				curr->right->val += curr->val;
 				S.push(curr->right);
+			}
+			if (curr->left != nullptr)
+			{
+				curr->left->val += curr->val;
+				S.push(curr->left);
 			}
 		}
 		return false;

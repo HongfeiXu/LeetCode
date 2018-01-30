@@ -9,7 +9,7 @@
 
 #include "HelpFunc.h"
 
-#include "ValidateBinarySearchTree.h"
+#include "BinaryTreeInorderTraversal.h"
 
 using namespace std;
 
@@ -27,7 +27,7 @@ int main()
 
 	auto t0 = chrono::high_resolution_clock::now();
 
-	Solution_v2 solu;
+	Solution_v4 solu;
 
 	TreeNode a(1);
 	TreeNode b(2);
@@ -36,7 +36,9 @@ int main()
 	a.left = &b;
 	a.right = &c;
 
-	cout << boolalpha << solu.isValidBST(&a) << endl;
+	auto result = solu.inorderTraversal(&a);
+	copy(result.begin(), result.end(), ostream_iterator<int>(cout, " "));
+	cout << endl;
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;
