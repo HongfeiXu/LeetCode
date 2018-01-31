@@ -148,6 +148,7 @@
     <ClInclude Include="src\AddStrings.h" />
     <ClInclude Include="src\ArrayPartitionI.h" />
     <ClInclude Include="src\AssignCookies.h" />
+    <ClInclude Include="src\AverageOfLevelsInBinaryTree.h" />
     <ClInclude Include="src\BalancedBinaryTree.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStock.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockII.h" />
@@ -156,6 +157,8 @@
     <ClInclude Include="src\BestTimeToBuyAndSellStockWithCooldown.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStockWithTransactionFee.h" />
     <ClInclude Include="src\BinaryTreeInorderTraversal.h" />
+    <ClInclude Include="src\BinaryTreeLevelOrderTraversal.h" />
+    <ClInclude Include="src\BinaryTreeLevelOrderTraversalII.h" />
     <ClInclude Include="src\BinaryTreePaths.h" />
     <ClInclude Include="src\CanPlaceFlowers.h" />
     <ClInclude Include="src\ClimbingStairs.h" />
@@ -215,6 +218,7 @@
     <ClInclude Include="src\MaximumProductOfThreeNumbers.h" />
     <ClInclude Include="src\MaximumSubarray.h" />
     <ClInclude Include="src\MaximumSwap.h" />
+    <ClInclude Include="src\MaximumWidthOfBinaryTree.h" />
     <ClInclude Include="src\MergeSortedArray.h" />
     <ClInclude Include="src\MinCostClimbingStairs.h" />
     <ClInclude Include="src\MinimumDepthOfBinaryTree.h" />

@@ -25,7 +25,7 @@ it takes a lot time to iterate and compare...
 Approach 2: Accepted
 The idea is to sort an input array and then run through all indices of a possible first element of a triplet.
 For each possible first element, we make a standard bi-direction 2Sum sweep of the remaining part of the array.
-Also we want to skip equal elements to avoid duplicates in the answer without making a set or smth like that.
+Also we want to skip equal elements to avoid duplicates in the answer without making a set or something like that.
 Reference:https://discuss.leetcode.com/topic/8125/concise-o-n-2-java-solution
 
 */

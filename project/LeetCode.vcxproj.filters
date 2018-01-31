@@ -43,7 +43,7 @@
     <Filter Include="Header Files\Heap">
       <UniqueIdentifier>{16076c71-6a37-408e-a44d-e32a58c42437}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\DFS_BFS">
+    <Filter Include="Header Files\Other">
       <UniqueIdentifier>{bd177775-aa4e-4053-b606-ba3785aae4e5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -433,40 +433,52 @@
       <Filter>Header Files\Heap</Filter>
     </ClInclude>
     <ClInclude Include="src\FloodFill.h">
-      <Filter>Header Files\DFS_BFS</Filter>
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
     <ClInclude Include="src\PathSum.h">
-      <Filter>Header Files\DFS_BFS</Filter>
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
     <ClInclude Include="src\SameTree.h">
-      <Filter>Header Files\DFS_BFS</Filter>
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
     <ClInclude Include="src\SymmetricTree.h">
-      <Filter>Header Files\DFS_BFS</Filter>
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
     <ClInclude Include="src\MaximumDepthOfBinaryTree.h">
-      <Filter>Header Files\DFS_BFS</Filter>
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
     <ClInclude Include="src\ConvertSortedArrayToBinarySearchTree.h">
-      <Filter>Header Files\DFS_BFS</Filter>
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
     <ClInclude Include="src\BalancedBinaryTree.h">
-      <Filter>Header Files\DFS_BFS</Filter>
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
     <ClInclude Include="src\MinimumDepthOfBinaryTree.h">
-      <Filter>Header Files\DFS_BFS</Filter>
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
     <ClInclude Include="src\BinaryTreePaths.h">
-      <Filter>Header Files\DFS_BFS</Filter>
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
     <ClInclude Include="src\ValidateBinarySearchTree.h">
-      <Filter>Header Files\DFS_BFS</Filter>
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
     <ClInclude Include="src\RecoverBinarySearchTree.h">
-      <Filter>Header Files\DFS_BFS</Filter>
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
     <ClInclude Include="src\BinaryTreeInorderTraversal.h">
-      <Filter>Header Files\DFS_BFS</Filter>
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BinaryTreeLevelOrderTraversal.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BinaryTreeLevelOrderTraversalII.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AverageOfLevelsInBinaryTree.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MaximumWidthOfBinaryTree.h">
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

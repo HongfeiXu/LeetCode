@@ -168,7 +168,12 @@ Need to learn->
 |108. Convert Sorted Array to Binary Search Tree|CPP|DFS|			|
 |111. Minimum Depth of Binary Tree|CPP  |DFS        |               |
 |257. Binary Tree Paths     |CPP		|DFS		|Useful			|		
-|98. Validate Binary Search Tree|CPP	|MidOrderTraverse|				|
+|98. Validate Binary Search Tree|CPP	|MidOrderTraverse|COOL		|
+|99. Recover Binary Search Tree|CPP		|Morris Traversal|			|
+|102. Binary Tree Level Order Traversal	|BFS, DFS	|				|
+|107. Binary Tree Level Order Traversal II|BFS, DFS	|				|
+|637. Average of Levels in Binary Tree	|BFS, DFS	|				|
+
 >Other
 
 ## Tips

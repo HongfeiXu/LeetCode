@@ -174,7 +174,7 @@ public:
 					pre->right = curr;
 					curr = curr->left;
 				}
-				// pre->right == curr，说明左子树的最右节点的右孩子已经是当前节点了，需要把它重置回去（因为pre显然在当前节点之前被访问了），即将右孩子设为空。
+				// pre->right == curr，说明左子树的最右节点的右孩子已经是当前节点了，需要把它重置回去（因为pre显然在当前节点之前被访问了），即将右孩子设为空。并且直接访问当前节点。
 				// Revert the changes made in if part to restore the original
 				// tree i.e., fix the right child of predecssor
 				else

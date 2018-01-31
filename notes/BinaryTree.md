@@ -10,10 +10,7 @@ struct TreeNode {
 ```
 
 
-## 二叉树的遍历
-
-以中序遍历为例，三种实现方式。
-
+## 二叉树的中序遍历
 
 ### 1. Recursive Approach
 
@@ -157,6 +154,7 @@ public:
 					curr = curr->left;
 				}
 				// pre->right == curr，说明左子树的最右节点的右孩子已经是当前节点了，需要把它重置回去（因为pre显然在当前节点之前被访问了），即将右孩子设为空。
+				// 同时，直接访问当前节点，因为在当前节点之前的节点已经被访问过了。
 				// Revert the changes made in if part to restore the original
 				// tree i.e., fix the right child of predecssor
 				else
@@ -177,3 +175,83 @@ public:
 1. https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/   
 2. http://www.cnblogs.com/AnnieKim/archive/2013/06/15/morristraversal.html   
 3. https://leetcode.com/problems/binary-tree-inorder-traversal/solution/
+
+
+## 二叉树的层次遍历
+
+
+### 题目叙述：
+```
+Given binary tree [3,9,20,null,null,15,7],
+    3
+   / \
+  9  20
+    /  \
+   15   7
+return its level order traversal as:
+[
+  [3],
+  [9,20],
+  [15,7]
+]
+```
+
+### 1. BFS（基于队列）
+
+```c++
+class Solution {
+public:
+	vector<vector<int>> levelOrder(TreeNode* root)
+	{
+		vector<vector<int>> result;
+		if (root == nullptr)
+			return result;
+		queue<TreeNode*> Q;		// 保存一层节点
+		Q.push(root);
+		while (!Q.empty())
+		{
+			int size = Q.size();
+			vector<int> curr_layer;
+			// 出队当前一层节点，并添加下一层节点
+			for (int i = 0; i < size; ++i)
+			{
+				TreeNode* temp = Q.front();
+				Q.pop();
+				curr_layer.push_back(temp->val);
+				if (temp->left != nullptr)
+					Q.push(temp->left);
+				if (temp->right != nullptr)
+					Q.push(temp->right);
+			}
+			result.push_back(curr_layer);
+		}
+		return result;
+	}
+};
+```
+
+### 2. DFS（将层数作为参数传递）
+
+```c++
+class Solution_v2 {
+public:
+	vector<vector<int>> result;
+
+	vector<vector<int>> levelOrder(TreeNode* root)
+	{
+		dfs(root, 0);
+		return result;
+	}
+
+	void dfs(TreeNode* root, int level)
+	{
+		if (root == nullptr)
+			return;
+		if (level == result.size())				// The level does not exist in output
+			result.push_back(vector<int>());	// Create a new level
+		result[level].push_back(root->val);		// Add the current value to its level
+		dfs(root->left, level + 1);				// Go to the next level
+		dfs(root->right, level + 1);
+	}
+};
+```

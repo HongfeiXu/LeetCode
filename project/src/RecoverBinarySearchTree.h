@@ -42,10 +42,10 @@ Time: O(N)
 Space: 平均 O(logN)，最坏 O(N), cause the recursion
 
 ####################################################
-Approach v3:
+Approach v3: COOOOOOL
 
-TODO...
-
+思路与v2相同，只是这里使用 Morris Traversal 的方式进行中序遍历，既不是基于栈的也不是递归实现。使得空间复杂度降为 O(1)。
+Time: O(N)
 Space: O(1)
 
 */
@@ -122,5 +122,68 @@ public:
 			second = root;
 		pre = root;
 		inorderTraverse(root->right);
+	}
+};
+
+class Solution_v3 {
+private:
+	TreeNode* pre;			// 用来辅助进行 Morris Traversal，寻找左子树的最右节点
+
+	TreeNode* previous;		// 记录前一个被访问的节点
+	TreeNode* first;		// 第一个大于之后节点的节点
+	TreeNode* second;		// 最后一个小于之前节点的节点
+
+public:
+	void recoverTree(TreeNode* root)
+	{
+
+		previous = pre = first = second = nullptr;
+		inorderTraverse(root);
+		swap(first->val, second->val);
+	}
+
+	void inorderTraverse(TreeNode* curr)
+	{
+		while (curr != nullptr)
+		{
+			if (curr->left == nullptr)
+			{
+				// 将当前要遍历的节点 curr 与前一个遍历的节点 previous 做比较，寻找 first 和 second
+				if (previous != nullptr && previous->val > curr->val)
+				{
+					if (first == nullptr)
+						first = previous;
+					second = curr;
+				}
+				// 更新 previous 以及 curr
+				previous = curr;
+				curr = curr->right;
+			}
+			else
+			{
+				pre = curr->left;
+				while (pre->right != nullptr && pre->right != curr)
+					pre = pre->right;
+				if (pre->right == nullptr)
+				{
+					pre->right = curr;
+					curr = curr->left;
+				}
+				else
+				{
+					// 断开线索，恢复树的原来形状
+					pre->right = nullptr;
+					// 将当前要遍历的节点 curr 与前一个遍历的节点 previous 做比较，寻找 first 和 second
+					if (previous->val > curr->val)
+					{
+						if (first == nullptr)
+							first = previous;
+						second = curr;
+					}
+					previous = curr;
+					curr = curr->right;
+				}
+			}
+		}
 	}
 };
