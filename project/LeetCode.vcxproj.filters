@@ -480,6 +480,9 @@
     <ClInclude Include="src\MaximumWidthOfBinaryTree.h">
       <Filter>Header Files\Other</Filter>
     </ClInclude>
+    <ClInclude Include="src\OpenTheLock.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

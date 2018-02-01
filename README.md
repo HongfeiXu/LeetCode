@@ -170,9 +170,11 @@ Need to learn->
 |257. Binary Tree Paths     |CPP		|DFS		|Useful			|		
 |98. Validate Binary Search Tree|CPP	|MidOrderTraverse|COOL		|
 |99. Recover Binary Search Tree|CPP		|Morris Traversal|			|
-|102. Binary Tree Level Order Traversal	|BFS, DFS	|				|
-|107. Binary Tree Level Order Traversal II|BFS, DFS	|				|
-|637. Average of Levels in Binary Tree	|BFS, DFS	|				|
+|102. Binary Tree Level Order Traversal|CPP|BFS, DFS	|				|
+|107. Binary Tree Level Order Traversal II|CPP|BFS, DFS	|				|
+|637. Average of Levels in Binary Tree|CPP	|BFS, DFS	|				|
+|662. Maximum Width of Binary Tree|CPP		|BFS, DFS	|Nice			|
+|752. Open the Lock			|CPP		|BFS			|COOOOL, TODO	|
 
 >Other
 

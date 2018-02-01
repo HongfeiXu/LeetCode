@@ -235,6 +235,7 @@
     <ClInclude Include="src\NumberOfBoomerangs.h" />
     <ClInclude Include="src\NumberOfSegmentsInAString.h" />
     <ClInclude Include="src\OnesAndZeros.h" />
+    <ClInclude Include="src\OpenTheLock.h" />
     <ClInclude Include="src\PalindromePairs.h" />
     <ClInclude Include="src\PartitionLabels.h" />
     <ClInclude Include="src\PascalsTriangle.h" />

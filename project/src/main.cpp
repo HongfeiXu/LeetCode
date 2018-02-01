@@ -9,36 +9,30 @@
 
 #include "HelpFunc.h"
 
-#include "AverageOfLevelsInBinaryTree.h"
+#include "OpenTheLock.h"
 
 using namespace std;
 
-void midorder(TreeNode* root)
-{
-	if (root == nullptr)
-		return;
-	midorder(root->left);
-	cout << root->val << " ";
-	midorder(root->right);
-}
+//void midorder(TreeNode* root)
+//{
+//	if (root == nullptr)
+//		return;
+//	midorder(root->left);
+//	cout << root->val << " ";
+//	midorder(root->right);
+//}
 
 int main()
 {
 
 	auto t0 = chrono::high_resolution_clock::now();
 
-	Solution_v2 solu;
+	Solution solu;
 
-	TreeNode a(1);
-	TreeNode b(2);
-	TreeNode c(3);
+	vector<string> deadends = { "0201","0101","0102","1212","2002" };
+	string target = "0000";
+	cout << solu.openLock(deadends, target)  << endl;
 
-	a.left = &b;
-	a.right = &c;
-
-	auto result = solu.averageOfLevels(&a);
-	copy(result.begin(), result.end(), ostream_iterator<double>(cout, " "));
-	cout << endl;
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;
