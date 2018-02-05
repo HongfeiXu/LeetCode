@@ -27,7 +27,7 @@ Following two are the most commonly used representations of graph.
 
 **Adjacency Matrix:**
 
-![]()
+![Adjaceny Matrix](https://github.com/HongfeiXu/LeetCode/blob/master/images/adjacency_matrix_representation.png?raw=true)
 
 Pros: Representation is easier to implement and follow. Removing an edge takes `O(1)` time. Queries like whether there is an edge from vertex ¡®u¡¯ to vertex ¡®v¡¯ are efficient and can be done `O(1)`.
 
@@ -35,7 +35,7 @@ Cons: Consumes more space `O(V^2)`. Even if the graph is sparse(contains less nu
 
 **Adjacency List:**
 
-![]()
+![Adjaceny List](https://github.com/HongfeiXu/LeetCode/blob/master/images/adjacency_list_representation.png?raw=true)
 
 Pros: Saves space `O(|V|+|E|)` . In the worst case, there can be `C(V, 2)` number of edges in a graph thus consuming `O(V^2)` space. Adding a vertex is easier.
 
