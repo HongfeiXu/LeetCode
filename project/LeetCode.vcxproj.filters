@@ -483,6 +483,12 @@
     <ClInclude Include="src\OpenTheLock.h">
       <Filter>Header Files\Other</Filter>
     </ClInclude>
+    <ClInclude Include="src\BinaryTreeZigzagLevelOrderTraversal.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NetworkDelayTime.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

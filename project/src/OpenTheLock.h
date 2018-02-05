@@ -60,6 +60,7 @@ Every node has 8 edges at most. The nodes in dead ends cannot be visited. Find t
 TODO...
 如果题目要求输出解锁的步骤呢？即，如果存在解锁序列，返回解锁的每一步，而不是步骤数。
 那就需要构造出广度优先树？
+是的，但我们只需要记录每个节点的父节点即可。在最后，由目标节点向上直到起始节点得到逆序的路径。交换首尾顺序即得到结果。
 
 */
 
@@ -67,6 +68,7 @@ TODO...
 #include <string>
 #include <unordered_set>
 #include <queue>
+#include <unordered_map>
 
 using namespace std;
 
@@ -94,9 +96,11 @@ public:
 				// 到达目标，返回距离
 				if (curr_node == target)
 					return result;
+				// 得到候选邻接节点
 				vector<string> neighbor_nodes = getNeighbors(curr_node);
 				for (auto node : neighbor_nodes)
 				{
+					// 若候选节点不是 deadend 并且也没有被访问过，则入队为下一层节点
 					if (dds.find(node) == dds.end() && visited.find(node) == visited.end())
 					{
 						bfs.push(node);
@@ -125,3 +129,115 @@ public:
 		return result;
 	}
 };
+
+class Solution_v2 {
+public:
+	queue<string> bfs;				// 进行广度优先搜索，其中不保存无法到达的 deadends 节点
+	unordered_set<string> visited;	// 保存以及访问过得节点，使得之后不会二次访问
+	unordered_map<string, string> node_to_parent;	// 保存节点及其父节点，以此构造出广度优先树
+
+	vector<string> openLock(vector<string>& deadends, string target)
+	{
+		vector<string> result;
+		int path_length = openLockAux(deadends, target);
+		if (path_length == -1)			// 若路径不存在，返回空的 vector<string>
+			return result;
+		else if (path_length == 0)		// 若路径长度为0，则说明目标节点即为起始节点
+		{
+			result.push_back("0000");
+			return result;
+		}
+		// 若路径存在，并且目标节点不是起始节点，则，从目标节点开始沿着父节点方向寻找到起始节点，构造出逆序的路径
+		while (target != "0000")
+		{
+			result.push_back(target);
+			target = node_to_parent[target];
+		}
+		result.push_back("0000");
+		return vector<string>(result.rbegin(), result.rend());	// 返回从起始节点到目标节点的路径
+	}
+
+	int openLockAux(const vector<string>& deadends, const string& target)
+	{
+		unordered_set<string> dds(deadends.begin(), deadends.end());
+		// 若起始节点为 deadends，则直接返回 -1
+		if (dds.find("0000") != dds.end())
+			return -1;
+		bfs.push("0000");
+		visited.insert("0000");
+		int result = 0;
+		while (!bfs.empty())
+		{
+			int curr_layer_size = bfs.size();
+			// 出队当前层节点，入队下一层节点
+			for (int i = 0; i < curr_layer_size; ++i)
+			{
+				string curr_node = bfs.front();
+				bfs.pop();
+				// 到达目标，返回距离
+				if (curr_node == target)
+					return result;
+				// 得到候选邻接节点
+				vector<string> neighbor_nodes = getNeighbors(curr_node);
+				for (auto node : neighbor_nodes)
+				{
+					// 若候选节点不是 deadend 并且也没有被访问过，则入队为下一层节点
+					if (dds.find(node) == dds.end() && visited.find(node) == visited.end())
+					{
+						bfs.push(node);
+						visited.insert(node);
+						node_to_parent.insert({ node, curr_node });		// 保存节点及父节点的映射关系
+					}
+				}
+			}
+			// 下一次迭代时已经是下一层，距离值增加1
+			++result;
+		}
+		return -1;
+	}
+
+	// 获得一个节点的八个候选邻接节点
+	vector<string> getNeighbors(const string& node)
+	{
+		vector<string> result;
+		for (int i = 0; i < 4; ++i)
+		{
+			string temp = node;
+			temp[i] = (node[i] - '0' + 1) % 10 + '0';
+			result.push_back(temp);
+			temp[i] = (node[i] - '0' - 1 + 10) % 10 + '0';
+			result.push_back(temp);
+		}
+		return result;
+	}
+};
+
+#include <chrono>
+#include <algorithm>
+
+using namespace std;
+
+void test()
+{
+
+	auto t0 = chrono::high_resolution_clock::now();
+
+	Solution_v2 solu;
+
+	vector<string> deadends = { "0201","0101","0102","1212","2002" };
+	string target = "0202";
+	auto result = solu.openLock(deadends, target);
+	copy(result.begin(), result.end(), ostream_iterator<string>(cout, " "));
+	cout << endl;
+
+	auto t1 = chrono::high_resolution_clock::now();
+	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;
+}
+
+/*
+
+0000 1000 1100 1200 1201 1202 0202
+Time: 238ms
+请按任意键继续. . .
+
+*/

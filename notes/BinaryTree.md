@@ -235,15 +235,14 @@ public:
 ```c++
 class Solution_v2 {
 public:
-	vector<vector<int>> result;
-
 	vector<vector<int>> levelOrder(TreeNode* root)
 	{
-		dfs(root, 0);
+		vector<vector<int>> result;
+		dfs(root, 0£¬ result);
 		return result;
 	}
 
-	void dfs(TreeNode* root, int level)
+	void dfs(TreeNode* root, int level, vector<vector<int>>& result)
 	{
 		if (root == nullptr)
 			return;

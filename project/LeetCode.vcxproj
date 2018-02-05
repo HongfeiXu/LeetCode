@@ -160,6 +160,7 @@
     <ClInclude Include="src\BinaryTreeLevelOrderTraversal.h" />
     <ClInclude Include="src\BinaryTreeLevelOrderTraversalII.h" />
     <ClInclude Include="src\BinaryTreePaths.h" />
+    <ClInclude Include="src\BinaryTreeZigzagLevelOrderTraversal.h" />
     <ClInclude Include="src\CanPlaceFlowers.h" />
     <ClInclude Include="src\ClimbingStairs.h" />
     <ClInclude Include="src\CombinationSum.h" />
@@ -227,6 +228,7 @@
     <ClInclude Include="src\MissingNumber.h" />
     <ClInclude Include="src\MoveZeroes.h" />
     <ClInclude Include="src\MultiplyStrings.h" />
+    <ClInclude Include="src\NetworkDelayTime.h" />
     <ClInclude Include="src\NextClosestTime.h" />
     <ClInclude Include="src\Non-decreasingArray.h" />
     <ClInclude Include="src\NonOverlappingIntervals.h" />

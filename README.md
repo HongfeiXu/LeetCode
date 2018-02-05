@@ -174,8 +174,8 @@ Need to learn->
 |107. Binary Tree Level Order Traversal II|CPP|BFS, DFS	|				|
 |637. Average of Levels in Binary Tree|CPP	|BFS, DFS	|				|
 |662. Maximum Width of Binary Tree|CPP		|BFS, DFS	|Nice			|
-|752. Open the Lock			|CPP		|BFS			|COOOOL, TODO	|
-
+|752. Open the Lock			|CPP		|BFS			|COOOOL			|
+|103. Binary Tree Zigzag Level Order Traversal|CPP|BFS,DFS|				|
 >Other
 
 ## Tips
