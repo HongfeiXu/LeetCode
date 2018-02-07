@@ -489,6 +489,12 @@
     <ClInclude Include="src\NetworkDelayTime.h">
       <Filter>Header Files\Other</Filter>
     </ClInclude>
+    <ClInclude Include="src\FindLargestValueInEachTreeRow.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Minesweeper.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -521,6 +527,9 @@
       <Filter>Notes</Filter>
     </None>
     <None Include="..\notes\BinaryTree.md">
+      <Filter>Notes</Filter>
+    </None>
+    <None Include="..\notes\Graph.md">
       <Filter>Notes</Filter>
     </None>
   </ItemGroup>

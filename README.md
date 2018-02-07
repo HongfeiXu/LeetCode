@@ -181,6 +181,9 @@ Need to learn->
 | 662. Maximum Width of Binary Tree        | CPP    | BFS, DFS         | Nice    |
 | 752. Open the Lock                       | CPP    | BFS              | COOOOL  |
 | 103. Binary Tree Zigzag Level Order Traversal | CPP    | BFS,DFS          |         |
+|743. Network Delay Time					|CPP	|Dijkstra			|		|
+|515. Find Largest Value in Each Tree Row	|CPP	|BFS				|		|
+|529. Minesweeper							|CPP	|BFS				|		|
 >Other
 
 ## Tips
