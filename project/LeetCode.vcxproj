@@ -240,6 +240,7 @@
     <ClInclude Include="src\NumberOfSegmentsInAString.h" />
     <ClInclude Include="src\OnesAndZeros.h" />
     <ClInclude Include="src\OpenTheLock.h" />
+    <ClInclude Include="src\PacificAtlanticWaterFlow.h" />
     <ClInclude Include="src\PalindromePairs.h" />
     <ClInclude Include="src\PartitionLabels.h" />
     <ClInclude Include="src\PascalsTriangle.h" />
@@ -276,6 +277,7 @@
     <ClInclude Include="src\SubstringWithConcatenationOfAllWords.h" />
     <ClInclude Include="src\SymmetricTree.h" />
     <ClInclude Include="src\TaskScheduler.h" />
+    <ClInclude Include="src\TheMaze.h" />
     <ClInclude Include="src\ThirdMaximumNumber.h" />
     <ClInclude Include="src\TrappingRainWater.h" />
     <ClInclude Include="src\TwoKeysKeyboard.h" />

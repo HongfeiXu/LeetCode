@@ -9,7 +9,7 @@
 
 #include "HelpFunc.h"
 
-#include "FindLargestValueInEachTreeRow.h"
+#include "TheMaze.h"
 
 using namespace std;
 
@@ -28,22 +28,20 @@ int main()
 	auto t0 = chrono::high_resolution_clock::now();
 
 	Solution_v2 solu;
+	vector<vector<int>> maze = 
+	{
+		{ 0, 0, 1, 0, 0 },
+		{ 0, 0, 0, 0, 0 },
+		{ 0, 0, 0, 1, 0 },
+		{ 1, 1, 0, 1, 1 },
+		{ 0, 0, 0, 0, 0 }
+	};
+	vector<int> start { 0, 4 };
+	//vector<int> dest { 4,4 };
+	vector<int> dest { 3,2 };
 
-	TreeNode a(1);
-	TreeNode b(3);
-	TreeNode c(2);
-	TreeNode d(5);
-	TreeNode e(3);
-	TreeNode f(9);
-	a.left = &b;
-	a.right = &c;
-	b.left = &d;
-	b.right = &e;
-	c.right = &f;
+	cout << boolalpha << solu.hasPath(maze, start, dest) << endl;
 
-	auto result = solu.largestValues(&a);
-	copy(result.begin(), result.end(), ostream_iterator<int>(cout, " "));
-	cout << endl;
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;

@@ -160,8 +160,6 @@ Need to learn->
 | 767. Reorganize String              | CPP    | Greedy |         |
 >Greedy Algorithm 2018.1.19 -- 2018.1.27
 
-
-
 | Problem                                  | Answer | Tags             | Comment |
 | ---------------------------------------- | ------ | ---------------- | ------- |
 | 733. Flood Fill                          | CPP    | DFS              | COOL    |
@@ -184,6 +182,7 @@ Need to learn->
 |743. Network Delay Time					|CPP	|Dijkstra			|		|
 |515. Find Largest Value in Each Tree Row	|CPP	|BFS				|		|
 |529. Minesweeper							|CPP	|BFS				|		|
+|490. The Maze								|CPP	|BFS, DFS			|(not test)		|
 >Other
 
 ## Tips
