@@ -205,6 +205,7 @@
     <ClInclude Include="src\LongestCommonPrefix.h" />
     <ClInclude Include="src\LongestContinuousIncreasingSubsequence.h" />
     <ClInclude Include="src\LongestHarmoniousSubsequence.h" />
+    <ClInclude Include="src\LongestIncreasingPathInAMatrix.h" />
     <ClInclude Include="src\LongestIncreasingSubsequence.h" />
     <ClInclude Include="src\LongestPalindrome.h" />
     <ClInclude Include="src\LongestSubstringWithAtMostKDistinctCharacters.h" />

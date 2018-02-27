@@ -183,6 +183,9 @@ Need to learn->
 |515. Find Largest Value in Each Tree Row	|CPP	|BFS				|		|
 |529. Minesweeper							|CPP	|BFS				|		|
 |490. The Maze								|CPP	|BFS, DFS			|(not test)		|
+|417. Pacific Atlantic Water Flow			|CPP	|BFS				|		|
+|329. Longest Increasing Path in a Matrix	|CPP	|DFS				|		|
+
 >Other
 
 ## Tips

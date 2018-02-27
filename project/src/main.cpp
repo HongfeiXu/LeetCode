@@ -6,10 +6,11 @@
 #include <chrono>
 #include <utility>
 #include <bitset>
+#include <unordered_map>
 
 #include "HelpFunc.h"
 
-#include "TheMaze.h"
+#include "LongestIncreasingPathInAMatrix.h"
 
 using namespace std;
 
@@ -27,20 +28,15 @@ int main()
 
 	auto t0 = chrono::high_resolution_clock::now();
 
-	Solution_v2 solu;
-	vector<vector<int>> maze = 
-	{
-		{ 0, 0, 1, 0, 0 },
-		{ 0, 0, 0, 0, 0 },
-		{ 0, 0, 0, 1, 0 },
-		{ 1, 1, 0, 1, 1 },
-		{ 0, 0, 0, 0, 0 }
-	};
-	vector<int> start { 0, 4 };
-	//vector<int> dest { 4,4 };
-	vector<int> dest { 3,2 };
+	Solution solu;
 
-	cout << boolalpha << solu.hasPath(maze, start, dest) << endl;
+	vector<vector<int>> matrix =
+	{
+		{3,4,5},
+		{3,2,6},
+		{2,2,1}
+	};
+	cout << solu.longestIncreasingPath(matrix) << endl;
 
 
 	auto t1 = chrono::high_resolution_clock::now();

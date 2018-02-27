@@ -501,6 +501,9 @@
     <ClInclude Include="src\TheMaze.h">
       <Filter>Header Files\Other</Filter>
     </ClInclude>
+    <ClInclude Include="src\LongestIncreasingPathInAMatrix.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
