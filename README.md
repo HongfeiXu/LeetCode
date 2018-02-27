@@ -171,22 +171,30 @@ Need to learn->
 | 108. Convert Sorted Array to Binary Search Tree | CPP    | DFS              |         |
 | 111. Minimum Depth of Binary Tree        | CPP    | DFS              |         |
 | 257. Binary Tree Paths                   | CPP    | DFS              | Useful  |
-| 98. Validate Binary Search Tree          | CPP    | MidOrderTraverse | COOL    |
-| 99. Recover Binary Search Tree           | CPP    | Morris Traversal |         |
 | 102. Binary Tree Level Order Traversal   | CPP    | BFS, DFS         |         |
 | 107. Binary Tree Level Order Traversal II | CPP    | BFS, DFS         |         |
 | 637. Average of Levels in Binary Tree    | CPP    | BFS, DFS         |         |
 | 662. Maximum Width of Binary Tree        | CPP    | BFS, DFS         | Nice    |
 | 752. Open the Lock                       | CPP    | BFS              | COOOOL  |
 | 103. Binary Tree Zigzag Level Order Traversal | CPP    | BFS,DFS          |         |
-|743. Network Delay Time					|CPP	|Dijkstra			|		|
 |515. Find Largest Value in Each Tree Row	|CPP	|BFS				|		|
 |529. Minesweeper							|CPP	|BFS				|		|
 |490. The Maze								|CPP	|BFS, DFS			|(not test)		|
 |417. Pacific Atlantic Water Flow			|CPP	|BFS				|		|
 |329. Longest Increasing Path in a Matrix	|CPP	|DFS				|		|
+>BFS,DFS 2018.1.28 -- 2018.1.27
 
->Other
+| Problem                                  | Answer | Tags             | Comment |
+| ---------------------------------------- | ------ | ---------------- | ------- |
+|TODO									|CPP		|Backtracking		|			|
+> Backtracking 2018.2.27
+
+| Problem                                  | Answer | Tags             | Comment |
+| ---------------------------------------- | ------ | ---------------- | ------- |
+|743. Network Delay Time					|CPP	|Dijkstra			|		|
+| 98. Validate Binary Search Tree          | CPP    | MidOrderTraverse | COOL    |
+| 99. Recover Binary Search Tree           | CPP    | Morris Traversal |         |
+> Tree, Graph 2018.2.27
 
 ## Tips
 
