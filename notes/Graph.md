@@ -338,5 +338,100 @@ void dijkstra(const AdjListGraph& G, int start)
 }
 ```
 
+## 5. Graph Cycle
+
+### I. Detect Cycle in a Directed Graph
+
+Ref: https://www.geeksforgeeks.org/detect-cycle-in-a-graph/
+
+![cycle](https://github.com/HongfeiXu/LeetCode/blob/master/images/cycle.png?raw=true)
+
+
+**法一**
+
+DFS 遍历图中节点，看是否存在**后向边**，若存在则有环，否则无环。为了判断是否存在后向边，这里我们通过记录当前递归栈中的节点的方式来进行操作。见下面的详细解释：
+
+For a disconnected graph, we get the DFS forrest as output. To detect cycle, we can check for cycle in individual trees by checking back edges.
+
+To detect a back edge, we can keep track of vertices currently in **recursion stack** of function for DFS traversal. If we reach a vertex that is already in the recursion stack, then there is a cycle in the tree. **The edge that connects current vertex to the vertex in the recursion stack is back edge.** We have used recStack[] array to keep track of vertices in the recursion stack.
+
+Below is C++ implementation based on above idea.
+
+```c++
+// Returns true if the graph contains a cycle, else false.
+// This function is a variation of DFS()
+bool isCyclicDirectGraph(const AdjListGraph& G)
+{
+	// Mark all the vertices as not visited and not part of recursion
+	// stack
+	vector<bool> visited(G.V, false);
+	vector<bool> recusive_stack(G.V, false);
+
+	// Call the recursive helper function to detect cycle in different
+	// DFS trees
+	for (int i = 0; i < G.V; ++i)
+	{
+		if (isCylicUtilDirectGraph(i, G, visited, recusive_stack))
+			return true;
+	}
+	return false;
+}
+
+// This function is a variation of DFSUytil()
+bool isCylicUtilDirectGraph(int u, const AdjListGraph& G, vector<bool>& visited, vector<bool>& recusive_stack)
+{
+	if (!visited[u])
+	{
+		// Mark the current node as visited and part of recursion stack
+		visited[u] = true;
+		recusive_stack[u] = true;
+
+		// Recur for all the vertices adjacent to this vertex
+		auto pv = G.array[u].head;
+		while (pv != nullptr)
+		{
+			if (!visited[pv->dest] && isCylicUtilDirectGraph(pv->dest, G, visited, recusive_stack))
+				return true;
+			else if (recusive_stack[pv->dest])
+				return true;
+			pv = pv->next;
+		}
+		recusive_stack[u] = false;
+	}
+	return false;
+}
+```
+
+Time Complexity of this method is same as time complexity of DFS traversal which is O(V+E).
+
+**法二**
+
+
+Detect Cycle in a directed graph using colors. The solution is from CLRS book. **The idea is to do DFS of given graph and while doing traversal, assign one of the below three colors to every vertex.**
+
+```
+WHITE : Vertex is not processed yet.  Initially
+        all vertices are WHITE.
+
+GRAY : Vertex is being processed (DFS for this 
+       vertex has started, but not finished which means
+       that all descendants (ind DFS tree) of this vertex
+       are not processed yet (or this vertex is in function
+       call stack)
+
+BLACK : Vertex and all its descendants are 
+        processed.
+
+While doing DFS, if we encounter an edge from current 
+vertex to a GRAY vertex, then this edge is back edge 
+and hence there is a cycle.
+```
+
+Below is C++ implementation based on above idea.
+
+TODO......
+
+
+### II. Detect Cycle in an Undirected Graph
 
 

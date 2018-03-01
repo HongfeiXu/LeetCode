@@ -127,6 +127,7 @@ Need to learn->
 | 594. Longest Harmonious Subsequence      | CPP    | HashTable      |                |
 | 575. Distribute Candies                  | CPP    | HashTable      |                |
 | 409. Longest Palindrome                  | CPP    | HashTable      |                |
+| 138. Copy List with Random Pointer		|CPP	| HashTable, Linked List		|					|
 >HashTable Easy: 2018.1.5 -- 2018.1.12
 
 
@@ -182,18 +183,15 @@ Need to learn->
 |490. The Maze								|CPP	|BFS, DFS			|(not test)		|
 |417. Pacific Atlantic Water Flow			|CPP	|BFS				|		|
 |329. Longest Increasing Path in a Matrix	|CPP	|DFS				|		|
+| 98. Validate Binary Search Tree          | CPP    | MidOrderTraverse | COOL    |
+| 99. Recover Binary Search Tree           | CPP    | Morris Traversal |         |
 >BFS,DFS 2018.1.28 -- 2018.1.27
 
 | Problem                                  | Answer | Tags             | Comment |
 | ---------------------------------------- | ------ | ---------------- | ------- |
-|TODO									|CPP		|Backtracking		|			|
-> Backtracking 2018.2.27
-
-| Problem                                  | Answer | Tags             | Comment |
-| ---------------------------------------- | ------ | ---------------- | ------- |
 |743. Network Delay Time					|CPP	|Dijkstra			|		|
-| 98. Validate Binary Search Tree          | CPP    | MidOrderTraverse | COOL    |
-| 99. Recover Binary Search Tree           | CPP    | Morris Traversal |         |
+|133. Clone Graph							|CPP	|DFS, BFS			|COOOL	|
+
 > Tree, Graph 2018.2.27
 
 ## Tips

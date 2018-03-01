@@ -10,7 +10,7 @@
 
 #include "HelpFunc.h"
 
-#include "LongestIncreasingPathInAMatrix.h"
+#include "CloneGraph.h"
 
 using namespace std;
 
@@ -29,14 +29,6 @@ int main()
 	auto t0 = chrono::high_resolution_clock::now();
 
 	Solution solu;
-
-	vector<vector<int>> matrix =
-	{
-		{3,4,5},
-		{3,2,6},
-		{2,2,1}
-	};
-	cout << solu.longestIncreasingPath(matrix) << endl;
 
 
 	auto t1 = chrono::high_resolution_clock::now();

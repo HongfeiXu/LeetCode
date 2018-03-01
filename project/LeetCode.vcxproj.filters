@@ -46,6 +46,9 @@
     <Filter Include="Header Files\Other">
       <UniqueIdentifier>{bd177775-aa4e-4053-b606-ba3785aae4e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Graph">
+      <UniqueIdentifier>{3cb27902-a4cb-450c-abff-291ec2bcbaa2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\HelpFunc.h">
@@ -486,9 +489,6 @@
     <ClInclude Include="src\BinaryTreeZigzagLevelOrderTraversal.h">
       <Filter>Header Files\Other</Filter>
     </ClInclude>
-    <ClInclude Include="src\NetworkDelayTime.h">
-      <Filter>Header Files\Other</Filter>
-    </ClInclude>
     <ClInclude Include="src\FindLargestValueInEachTreeRow.h">
       <Filter>Header Files\Other</Filter>
     </ClInclude>
@@ -503,6 +503,18 @@
     </ClInclude>
     <ClInclude Include="src\LongestIncreasingPathInAMatrix.h">
       <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="src\NetworkDelayTime.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CloneGraph.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CopyListWithRandomPointer.h">
+      <Filter>Header Files\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CourseSchedule.h">
+      <Filter>Header Files\Graph</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

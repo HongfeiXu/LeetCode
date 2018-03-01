@@ -163,14 +163,17 @@
     <ClInclude Include="src\BinaryTreeZigzagLevelOrderTraversal.h" />
     <ClInclude Include="src\CanPlaceFlowers.h" />
     <ClInclude Include="src\ClimbingStairs.h" />
+    <ClInclude Include="src\CloneGraph.h" />
     <ClInclude Include="src\CombinationSum.h" />
     <ClInclude Include="src\ConstructStringFromBinaryTree.h" />
     <ClInclude Include="src\ContainsDuplicate.h" />
     <ClInclude Include="src\ContainsDuplicate2.h" />
     <ClInclude Include="src\ConvertSortedArrayToBinarySearchTree.h" />
+    <ClInclude Include="src\CopyListWithRandomPointer.h" />
     <ClInclude Include="src\CountAndSay.h" />
     <ClInclude Include="src\CountBinarySubstrings.h" />
     <ClInclude Include="src\CountPrimes.h" />
+    <ClInclude Include="src\CourseSchedule.h" />
     <ClInclude Include="src\CreateMaximumNumber.h" />
     <ClInclude Include="src\DecodeWays.h" />
     <ClInclude Include="src\DetectCaptial.h" />
