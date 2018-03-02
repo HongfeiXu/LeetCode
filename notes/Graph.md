@@ -4,11 +4,11 @@
 
 - Graph and its representations
 - DFS and BFS
+- Minimum Spanning Tree
+- Shortest Paths
 - Graph Cycle
 - Topological Sorting
-- Minimum Spanning Tree
 - BackTracking
-- Shortest Paths
 - Connectivity
 - Hard Problems
 - Maximum Flow
@@ -143,6 +143,52 @@ Given a **connected and undirected graph**, a spanning tree of that graph is a s
 The step#2 uses **Union-Find algorithm** to detect cycle. So we recommend to read following post as a prerequisite.
 
 ```c++
+// 并查集
+// 并查集
+struct DisjointSet {
+	int node_num;
+	vector<int> parent;
+	vector<int> rank;
+	DisjointSet(int node_num_): node_num(node_num_)
+	{
+		assert(node_num_ >= 0);
+		parent.assign(node_num_, 0);
+		rank.assign(node_num_, 0);
+		for (int i = 0; i < node_num; ++i)
+			parent[i] = i;
+	}
+	int findSet(int x)
+	{
+		assert(x < node_num);
+		if (x != parent[x])
+			// 路径压缩
+			parent[x] = findSet(parent[x]);
+		return parent[x];
+	}
+	// 合并 x y 所在的两个集合为一个
+	void unionSet(int x, int y)
+	{
+		x = findSet(x);
+		y = findSet(y);
+		// 按秩合并
+		if (rank[x] > rank[y])
+			parent[y] = x;
+		else if (rank[x] < rank[y])
+			parent[x] = y;
+		else
+		{
+			parent[x] = y;
+			++rank[y];
+		}
+	}	
+};
+
+struct Edge {
+	int start;
+	int end;
+	int weight;
+};
+
 void printKruskalMST(const vector<Edge>& edges_of_MST)
 {
 	cout << "Edges of Kruskal MST" << endl;
@@ -405,7 +451,9 @@ Time Complexity of this method is same as time complexity of DFS traversal which
 
 **法二**
 
-Detect Cycle in a directed graph using colors. The solution is from CLRS book. **The idea is to do DFS of given graph and while doing traversal, assign one of the below three colors to every vertex.**
+Detect Cycle in a directed graph using colors. The solution is from CLRS book. 
+
+**The idea is to do DFS of given graph and while doing traversal, assign one of the below three colors to every vertex.**
 
 
 ```
@@ -475,7 +523,111 @@ bool isCyclicUtilDirectGraphColor(int u, const AdjListGraph& G, vector<color>& c
 }
 ```
 
-
 ### II. Detect Cycle in an Undirected Graph
 
+Ref: https://www.geeksforgeeks.org/union-find/
+
+**Union-Find Algorithm** can be used to check whether an undirected graph contains cycle or not.This method assumes that graph doesn’t contain any self-loops.
+We can keeps track of the subsets in a 1D array, lets call it parent[].
+
+For each edge, make subsets using both the vertices of the edge. If both the vertices are in the same subset, a cycle is found.
+
+```c++
+bool isCycleUndirectedGraph(const AdjListGraph& G)
+{
+	// AdjListGraph -> AdjMatGraph -> Edges
+	vector<vector<int>> AdjMatGraph(G.V, vector<int>(G.V, 0));
+	for (int u = 0; u < G.V; ++u)
+	{
+		auto pv = G.array[u].head;
+		while (pv != nullptr)
+		{
+			AdjMatGraph[u][pv->dest] = 1;
+			pv = pv->next;
+		}
+	}
+	vector<Edge> edges;
+	for (int i = 0; i < G.V; ++i)
+	{
+		for (int j = i + 1; j < G.V; ++j)
+		{
+			if (AdjMatGraph[i][j] == 1)
+				edges.push_back({ i, j, 1 });
+		}
+	}
+
+	// Iterate through all edges of graph, find subset of both
+	// vertices of every edge, if both subsets are same, then 
+	// there is cycle in graph.
+	DisjointSet disjoint_set(G.V);
+	for (auto edge : edges)
+	{
+		int u = edge.start;
+		int v = edge.end;
+		if (disjoint_set.findSet(u) == disjoint_set.findSet(v))
+			return true;
+		else
+			disjoint_set.unionSet(u, v);
+	}
+	return false;
+}
+```
+
+## 5. Topological Sorting
+
+Ref: https://www.geeksforgeeks.org/topological-sorting/
+
+Topological sorting for **Directed Acyclic Graph (DAG)** is a linear ordering of vertices such that for every directed edge uv, vertex u comes before v in the ordering. Topological Sorting for a graph is not possible if the graph is not a DAG.
+
+Algorithm to find Topological Sorting:
+
+We can modify DFS to find Topological Sorting of a graph. In DFS, we start from a vertex, we first print it and then recursively call DFS for its adjacent vertices. In topological sorting, **we use a temporary stack**. We don’t print the vertex immediately, we first recursively call topological sorting for all its adjacent vertices, then push it to a stack. Finally, print contents of stack. **Note that a vertex is pushed to stack only when all of its adjacent vertices (and their adjacent vertices and so on) are already in stack.**
+
+![cycle](https://github.com/HongfeiXu/LeetCode/blob/master/images/topologicalSort.png?raw=true)
+
+```c++
+void topologicalSort(const AdjListGraph& G)
+{
+	stack<int> S;
+	// Mark all the vertices as not visited
+	vector<bool> visited(G.V, false);
+
+	// Call the recursive helper function to store Topological
+	// Sort starting from all vertices one by one
+	for (int i = 0; i < G.V; ++i)
+	{
+		if (!visited[i])
+			topologicalSortUtil(G, i, visited, S);
+	}
+
+	// Print contents of stack
+	while (!S.empty())
+	{
+		cout << S.top() << " ";
+		S.pop();
+	}
+	cout << endl;
+}
+
+void topologicalSortUtil(const AdjListGraph& G, int u, vector<bool>& visited, stack<int>& S)
+{
+	// Mark the current node as visited.
+	visited[u] = true;
+
+	// Recur for all the vertices adjacent to this vertex
+	auto pv = G.array[u].head;
+	while (pv != nullptr)
+	{
+		if (!visited[pv->dest])
+			topologicalSortUtil(G, pv->dest, visited, S);
+		pv = pv->next;
+	}
+
+	// Push current vertex to stack which stores result
+	S.push(u);
+}
+```
+
+
+**Time Complexity:** The above algorithm is simply DFS with an extra stack. So time complexity is same as DFS which is O(V+E).
 
