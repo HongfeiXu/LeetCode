@@ -346,7 +346,6 @@ Ref: https://www.geeksforgeeks.org/detect-cycle-in-a-graph/
 
 ![cycle](https://github.com/HongfeiXu/LeetCode/blob/master/images/cycle.png?raw=true)
 
-
 **法一**
 
 DFS 遍历图中节点，看是否存在**后向边**，若存在则有环，否则无环。为了判断是否存在后向边，这里我们通过记录当前递归栈中的节点的方式来进行操作。见下面的详细解释：
@@ -406,8 +405,8 @@ Time Complexity of this method is same as time complexity of DFS traversal which
 
 **法二**
 
-
 Detect Cycle in a directed graph using colors. The solution is from CLRS book. **The idea is to do DFS of given graph and while doing traversal, assign one of the below three colors to every vertex.**
+
 
 ```
 WHITE : Vertex is not processed yet.  Initially
@@ -427,9 +426,54 @@ vertex to a GRAY vertex, then this edge is back edge
 and hence there is a cycle.
 ```
 
+![cycle](https://github.com/HongfeiXu/LeetCode/blob/master/images/DFS_color.png?raw=true)
+
+
 Below is C++ implementation based on above idea.
 
-TODO......
+```c++
+bool isCyclicDirectGraphColor(const AdjListGraph& G)
+{
+	// Initialize color of all vertices as WHITE
+	vector<color> colors(G.V, WHITE);
+
+	// Do a DFS traversal beginning with all
+	// vertices
+	for (int i = 0; i < G.V; ++i)
+	{
+		if (colors[i] == WHITE)
+			if (isCyclicUtilDirectGraphColor(i, G, colors))
+				return true;
+	}
+	return false;
+}
+
+bool isCyclicUtilDirectGraphColor(int u, const AdjListGraph& G, vector<color>& colors)
+{
+	// GRAY :  This vertex is being processed (DFS
+	//         for this vertex has started, but not
+	//         ended (or this vertex is in function
+	//         call stack)
+	colors[u] = GREY;
+
+	// Iterate through all adjacent vertices
+	auto pv = G.array[u].head;
+	while (pv != nullptr)
+	{
+		// If v is not processed and there is a back
+		// edge in subtree rooted with v
+		if (colors[pv->dest] == WHITE && isCyclicUtilDirectGraphColor(pv->dest, G, colors))
+			return true;
+		// If there is
+		else if (colors[pv->dest] == GREY)
+			return true;
+		pv = pv->next;
+	}
+	// Mark this vertex as processed
+	colors[u] = BLACK;
+	return false;
+}
+```
 
 
 ### II. Detect Cycle in an Undirected Graph
