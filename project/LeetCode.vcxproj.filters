@@ -516,6 +516,12 @@
     <ClInclude Include="src\CourseSchedule.h">
       <Filter>Header Files\Graph</Filter>
     </ClInclude>
+    <ClInclude Include="src\CourseScheduleII.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CourseScheduleIII.h">
+      <Filter>Header Files\Greedy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

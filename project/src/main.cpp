@@ -10,7 +10,7 @@
 
 #include "HelpFunc.h"
 
-#include "CloneGraph.h"
+#include "CourseScheduleII.h"
 
 using namespace std;
 
@@ -29,6 +29,14 @@ int main()
 	auto t0 = chrono::high_resolution_clock::now();
 
 	Solution solu;
+
+	vector < pair<int, int > > edges;
+	int numCourses = 2;
+	edges.push_back({ 1,0 });
+	
+	auto result = solu.findOrder(numCourses, edges);
+	
+	PrintVector(result);
 
 
 	auto t1 = chrono::high_resolution_clock::now();

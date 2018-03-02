@@ -451,6 +451,8 @@ Time Complexity of this method is same as time complexity of DFS traversal which
 
 **法二**
 
+相比法一更直观
+
 Detect Cycle in a directed graph using colors. The solution is from CLRS book. 
 
 **The idea is to do DFS of given graph and while doing traversal, assign one of the below three colors to every vertex.**
@@ -583,7 +585,7 @@ Algorithm to find Topological Sorting:
 
 We can modify DFS to find Topological Sorting of a graph. In DFS, we start from a vertex, we first print it and then recursively call DFS for its adjacent vertices. In topological sorting, **we use a temporary stack**. We don’t print the vertex immediately, we first recursively call topological sorting for all its adjacent vertices, then push it to a stack. Finally, print contents of stack. **Note that a vertex is pushed to stack only when all of its adjacent vertices (and their adjacent vertices and so on) are already in stack.**
 
-![cycle](https://github.com/HongfeiXu/LeetCode/blob/master/images/topologicalSort.png?raw=true)
+![topologicalSort](https://github.com/HongfeiXu/LeetCode/blob/master/images/topologicalSort.png?raw=true)
 
 ```c++
 void topologicalSort(const AdjListGraph& G)

@@ -26,6 +26,13 @@ Approach:
 
 只要没有循环依赖的课程，则一定可以完成所有课程。
 判断有向图（考虑一般情况，即：非连通图）是否有环。
+DFS + recursive_stack
+
+Approach v2:
+
+DFS + color
+更直观
+
 
 */
 
@@ -66,7 +73,7 @@ public:
 	{
 		vector<unordered_set<int>> graph(numCourses);
 		for (auto pre : prerequisites)
-			graph[pre.first].insert(pre.second);
+			graph[pre.second].insert(pre.first);
 		return graph;
 	}
 
@@ -85,6 +92,44 @@ public:
 			}
 			recursive_stack[v] = false;
 		}
+		return false;
+	}
+};
+
+class Solution_v2 {
+public:
+	enum color { WHITE, GREY, BLACK };
+
+	bool canFinish(int numCourses, vector<pair<int, int>>& prerequisites)
+	{
+		vector<unordered_set<int>> graph(numCourses);
+		for (auto edge : prerequisites)
+			graph[edge.second].insert(edge.first);
+
+		vector<color> colors(numCourses, WHITE);
+		for (int i = 0; i < numCourses; ++i)
+		{
+			if (colors[i] == WHITE)
+			{
+				// 若存在回路，则无法完成
+				if (isCyclic(i, graph, colors))
+					return false;
+			}
+		}
+		return true;
+	}
+
+	bool isCyclic(int u, vector<unordered_set<int>>& graph, vector<color>& colors)
+	{
+		colors[u] = GREY;
+		for (auto v : graph[u])
+		{
+			if (colors[v] == WHITE && isCyclic(v, graph, colors))
+				return true;
+			else if (colors[v] == GREY)
+				return true;
+		}
+		colors[u] = BLACK;
 		return false;
 	}
 };

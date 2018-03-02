@@ -191,6 +191,8 @@ Need to learn->
 | ---------------------------------------- | ------ | ---------------- | ------- |
 |743. Network Delay Time					|CPP	|Dijkstra			|		|
 |133. Clone Graph							|CPP	|DFS, BFS			|COOOL	|
+|207. Course Schedule						|CPP	|DFS				|		|
+|337. Course Schedule II					|CPP	|DFS, Topological Sorgint	|		|
 
 > Tree, Graph 2018.2.27
 
