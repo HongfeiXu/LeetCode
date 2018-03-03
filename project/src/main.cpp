@@ -10,7 +10,7 @@
 
 #include "HelpFunc.h"
 
-#include "CourseScheduleII.h"
+#include "MinimumHeightTrees.h"
 
 using namespace std;
 
@@ -28,16 +28,13 @@ int main()
 
 	auto t0 = chrono::high_resolution_clock::now();
 
-	Solution solu;
+	Solution_v2 solu;
 
-	vector < pair<int, int > > edges;
-	int numCourses = 2;
-	edges.push_back({ 1,0 });
-	
-	auto result = solu.findOrder(numCourses, edges);
-	
+	int n = 4;
+	vector<pair<int, int>> edges = { {1, 0},{1, 2},{1, 3} };
+
+	auto result = solu.findMinHeightTrees(n, edges);
 	PrintVector(result);
-
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;

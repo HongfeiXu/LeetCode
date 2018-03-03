@@ -22,16 +22,29 @@ Note:
 The input prerequisites is a graph represented by a list of edges, not adjacency matrices. Read more about how a graph is represented.
 You may assume that there are no duplicate edges in the input prerequisites.
 
+######################################################
 Approach:
 
 只要没有循环依赖的课程，则一定可以完成所有课程。
 判断有向图（考虑一般情况，即：非连通图）是否有环。
 DFS + recursive_stack
 
+######################################################
 Approach v2:
 
 DFS + color
 更直观
+
+######################################################
+Approach v3:
+
+BFS
+Ref: http://www.cnblogs.com/grandyang/p/4484571.html
+
+从入度的角度考虑，一层层删除入度为0的节点，删除当前层入度为0的节点时也要更新其孩子节点。
+若最终还有节点的入度不为0，则说明有环，否则无环。
+
+主要处理两部分内容：1. 各节点的入度，2. 各节点的孩子节点
 
 
 */
@@ -39,6 +52,7 @@ DFS + color
 #include <vector>
 #include <utility>
 #include <unordered_set>
+#include <queue>
 
 using namespace std;
 
@@ -131,5 +145,41 @@ public:
 		}
 		colors[u] = BLACK;
 		return false;
+	}
+};
+
+class Solution_v3 {
+public:
+	bool canFinish(int numCourses, vector<pair<int, int>>& prerequisites)
+	{
+		vector<vector<int>> adj(numCourses);		// 使用 vector 更保险，
+		vector<int> in(numCourses, 0);
+		for (const auto& edge : prerequisites)
+		{
+			adj[edge.second].push_back(edge.first);
+			++in[edge.first];
+		}
+
+		queue<int> q;
+		for (int i = 0; i < numCourses; ++i)
+		{
+			if (in[i] == 0)
+				q.push(i);
+		}
+		while (!q.empty())
+		{
+			--numCourses;
+			int u = q.front();
+			q.pop();
+			// 更新 u 的孩子节点 v 的入度
+			for (auto v : adj[u])
+			{
+				--in[v];
+				// 若 v 的入度减至 0，则入队。
+				if (in[v] == 0)
+					q.push(v);
+			}
+		}
+		return numCourses == 0;
 	}
 };

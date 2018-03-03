@@ -36,10 +36,17 @@ Topological Sorting and Detect Cycle in a Directed Graph
 
 这里通过记录DFS递归访问的节点栈 recur_stack 来判断是否存在环路。
 
+Approach v2:
+
+BFS，类似于 207. Course Schedule Approach v3。考虑入度。
+删除入度为0的节点，删除当前层入度为0的节点时也要更新其孩子节点。且，按照出队顺序保存节点，得到拓扑序列。
+若最终还有节点的入度不为0，则说明有环，否则无环。
+
 */
 
 #include <vector>
 #include <unordered_set>
+#include <queue>
 
 using namespace std;
 
@@ -86,5 +93,46 @@ public:
 		result.push_back(u);
 
 		return false;
+	}
+};
+
+class Solution_v2 {
+public:
+	vector<int> findOrder(int numCourses, vector<pair<int, int>>& prerequisites)
+	{
+		vector<int> result;
+		// 使用 vector<vector<int>> 比 vector<unordered_set<int>> 更保险（比如存在 [0,1],[0,1] 这种重复的边）
+		vector<vector<int>> adj(numCourses);		
+		vector<int> in(numCourses, 0);
+		for (auto edge : prerequisites)
+		{
+			adj[edge.second].push_back(edge.first);
+			++in[edge.first];
+		}
+
+		queue<int> q;
+		for (int i = 0; i < numCourses; ++i)
+		{
+			if (in[i] == 0)
+				q.push(i);
+		}
+		while (!q.empty())
+		{
+			int u = q.front();
+			q.pop();
+			result.push_back(u);
+			for (auto v : adj[u])
+			{
+				--in[v];
+				if (in[v] == 0)
+					q.push(v);
+			}
+		}
+		// 如果所有节点入度均变为0，说明可以安排所有的课程
+		if (result.size() == numCourses)
+			return result;
+		// 存在课程未被安排（存在环）
+		else
+			return { };
 	}
 };

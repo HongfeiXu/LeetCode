@@ -159,6 +159,7 @@ Need to learn->
 | 406. Queue Reconstruction by Height | CPP    | Greedy | Nasty   |
 | 621. Task Scheduler                 | CPP    | Greedy | COOL    |
 | 767. Reorganize String              | CPP    | Greedy |         |
+|630. Course Schedule III			|CPP	|Greedy		|So COOL	|
 >Greedy Algorithm 2018.1.19 -- 2018.1.27
 
 | Problem                                  | Answer | Tags             | Comment |
@@ -191,8 +192,9 @@ Need to learn->
 | ---------------------------------------- | ------ | ---------------- | ------- |
 |743. Network Delay Time					|CPP	|Dijkstra			|		|
 |133. Clone Graph							|CPP	|DFS, BFS			|COOOL	|
-|207. Course Schedule						|CPP	|DFS				|		|
-|337. Course Schedule II					|CPP	|DFS, Topological Sorgint	|		|
+|207. Course Schedule						|CPP	|DFS, BFS				|		|
+|337. Course Schedule II					|CPP	|DFS, Topological Sorting, BFS|		|
+|310. Minimum Height Trees					|CPP	|BFS, Graph			|SOOOO COOL		|
 
 > Tree, Graph 2018.2.27
 
