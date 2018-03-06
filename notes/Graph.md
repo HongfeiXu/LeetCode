@@ -525,6 +525,52 @@ bool isCyclicUtilDirectGraphColor(int u, const AdjListGraph& G, vector<color>& c
 }
 ```
 
+**法三**
+
+寻找入度为0的点，逐渐删除，并更新其孩子节点的入度，若最终全部节点入度都为0，则不存在环，否则，存在环。稍微修改则变为 Topological Sorting 的法二。
+
+**较 DFS 方法好用啊。**
+
+```c++
+bool isCyclicDirectGraphInDegree(const AdjListGraph& G)
+{
+	vector<int> in_degree(G.V, 0);
+	for (int i = 0; i < G.V; ++i)
+	{
+		auto p = G.array[i].head;
+		while (p != nullptr)
+		{
+			++in_degree[p->dest];
+			p = p->next;
+		}
+	}
+
+	int count = 0;
+	queue<int> q;
+	for (int i = 0; i < G.V; ++i)
+	{
+		if (in_degree[i] == 0)
+			q.push(i);
+	}
+	while (!q.empty())
+	{
+		int u = q.front();
+		q.pop();
+		++count;
+		auto pv = G.array[u].head;
+		while (pv != nullptr)
+		{
+			--in_degree[pv->dest];
+			if (in_degree[pv->dest] == 0)
+				q.push(pv->dest);
+			pv = pv->next;
+		}
+	}
+	// 如果最终还有节点的入度不为0，说明存在环，否则无环
+	return G.V != count;
+}
+```
+
 ### II. Detect Cycle in an Undirected Graph
 
 Ref: https://www.geeksforgeeks.org/union-find/
@@ -581,6 +627,8 @@ Ref: https://www.geeksforgeeks.org/topological-sorting/
 
 Topological sorting for **Directed Acyclic Graph (DAG)** is a linear ordering of vertices such that for every directed edge uv, vertex u comes before v in the ordering. Topological Sorting for a graph is not possible if the graph is not a DAG.
 
+**法一 DFS + a temporary stack**
+
 Algorithm to find Topological Sorting:
 
 We can modify DFS to find Topological Sorting of a graph. In DFS, we start from a vertex, we first print it and then recursively call DFS for its adjacent vertices. In topological sorting, **we use a temporary stack**. We don’t print the vertex immediately, we first recursively call topological sorting for all its adjacent vertices, then push it to a stack. Finally, print contents of stack. **Note that a vertex is pushed to stack only when all of its adjacent vertices (and their adjacent vertices and so on) are already in stack.**
@@ -633,3 +681,77 @@ void topologicalSortUtil(const AdjListGraph& G, int u, vector<bool>& visited, st
 
 **Time Complexity:** The above algorithm is simply DFS with an extra stack. So time complexity is same as DFS which is O(V+E).
 
+**法二 BFS + 入度**
+
+Ref: https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/
+
+Algorithm:   
+Steps involved in finding the topological ordering of a DAG:
+
+Step-1: Compute in-degree (number of incoming edges) for each of the vertex present in the DAG and initialize the count of visited nodes as 0.
+
+Step-2: Pick all the vertices with in-degree as 0 and add them into a queue (Enqueue operation)
+
+Step-3: Remove a vertex from the queue (Dequeue operation) and then.
+
+1. Increment count of visited nodes by 1. Add this vertex to result.
+2. Decrease in-degree by 1 for all its neighboring nodes.
+3. If in-degree of a neighboring nodes is reduced to zero, then add it to the queue.
+
+
+Step-4: Repeat Step 3 until the queue is empty.
+
+Step-5: If count of visited nodes is not equal to the number of nodes in the graph then the topological sort is not possible for the given graph.
+
+**注：这里能处理有向图中包含环的情况。并且较 DFS 的方法好用。**
+
+```c++
+void topologicalSortInDegree(const AdjListGraph& G)
+{
+	vector<int> top_order;
+	vector<int> in_degree(G.V, 0);
+	for (int i = 0; i < G.V; ++i)
+	{
+		auto p = G.array[i].head;
+		while (p != nullptr)
+		{
+			++in_degree[p->dest];
+			p = p->next;
+		}
+	}
+
+	int count = 0;
+	queue<int> q;
+	for (int i = 0; i < G.V; ++i)
+	{
+		if (in_degree[i] == 0)
+			q.push(i);
+	}
+	while (!q.empty())
+	{
+		int u = q.front();
+		q.pop();
+		top_order.push_back(u);
+		++count;
+		auto pv = G.array[u].head;
+		while (pv != nullptr)
+		{
+			--in_degree[pv->dest];
+			if (in_degree[pv->dest] == 0)
+				q.push(pv->dest);
+			pv = pv->next;
+		}
+	}
+
+	// Check if there was a cycle
+	if (count != G.V)
+	{
+		cout << "There exists a cycle in the graph\n" << endl;
+		return;
+	}
+
+	for (auto i : top_order)
+		cout << i << " ";
+	cout << endl;
+}
+```

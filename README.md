@@ -193,8 +193,10 @@ Need to learn->
 |743. Network Delay Time					|CPP	|Dijkstra			|		|
 |133. Clone Graph							|CPP	|DFS, BFS			|COOOL	|
 |207. Course Schedule						|CPP	|DFS, BFS				|		|
-|337. Course Schedule II					|CPP	|DFS, Topological Sorting, BFS|		|
-|310. Minimum Height Trees					|CPP	|BFS, Graph			|SOOOO COOL		|
+|337. Course Schedule II					|CPP	|DFS, Topological Sorting, BFS|	|
+|310. Minimum Height Trees					|CPP	|BFS, Graph			|SOOOO COOL	|
+|332. Reconstruct Itinerary					|CPP	|DFS, Greedy, Eulerian Path	|SOOOO COOL	|
+|399. Evaluate Division						|CPP	|DFS, hash			|SOOOO COOL	|
 
 > Tree, Graph 2018.2.27
 

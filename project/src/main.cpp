@@ -10,7 +10,7 @@
 
 #include "HelpFunc.h"
 
-#include "MinimumHeightTrees.h"
+#include "EvaluateDivision.h"
 
 using namespace std;
 
@@ -30,10 +30,11 @@ int main()
 
 	Solution_v2 solu;
 
-	int n = 4;
-	vector<pair<int, int>> edges = { {1, 0},{1, 2},{1, 3} };
+	vector<pair<string, string>> equations = { {"f", "c"}, {"c", "a"}, {"c", "b"}, {"b", "a"}, { "b", "d" }, {"d", "e"}, {"d", "g"}, {"o", "p"} };
+	vector<double> values = { 2,3,3,1,4,2,1, 3 };
+	vector<pair<string, string>> queries = { {"f", "e"}, {"e", "f"}, {"c", "d"}, {"d", "c"}, {"c", "o"} };
 
-	auto result = solu.findMinHeightTrees(n, edges);
+	auto result = solu.calcEquation(equations, values, queries);
 	PrintVector(result);
 
 	auto t1 = chrono::high_resolution_clock::now();

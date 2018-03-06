@@ -182,6 +182,7 @@
     <ClInclude Include="src\DistributeCandies.h" />
     <ClInclude Include="src\Dota2Senate.h" />
     <ClInclude Include="src\EmployeeImportance.h" />
+    <ClInclude Include="src\EvaluateDivision.h" />
     <ClInclude Include="src\FindAllAnagramsInAString.h" />
     <ClInclude Include="src\FindAllNumbersDisappearedInAnArray.h" />
     <ClInclude Include="src\FindAnagramMappings.h" />
@@ -257,6 +258,7 @@
     <ClInclude Include="src\QueueReconstructionByHeight.h" />
     <ClInclude Include="src\RangeSumQuery.h" />
     <ClInclude Include="src\RansomNote.h" />
+    <ClInclude Include="src\ReconstructItinerary.h" />
     <ClInclude Include="src\RecoverBinarySearchTree.h" />
     <ClInclude Include="src\RemoveDuplicatesFromSortedArray.h" />
     <ClInclude Include="src\RemoveElement.h" />
