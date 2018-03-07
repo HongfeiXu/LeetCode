@@ -527,7 +527,7 @@ bool isCyclicUtilDirectGraphColor(int u, const AdjListGraph& G, vector<color>& c
 
 **法三**
 
-寻找入度为0的点，逐渐删除，并更新其孩子节点的入度，若最终全部节点入度都为0，则不存在环，否则，存在环。稍微修改则变为 Topological Sorting 的法二。
+寻找入度为0的点，逐渐删除，并更新其孩子节点的入度，若最终全部节点入度都为0，则不存在环，否则，存在环。稍微修改则变为 Topological Sorting 的法二。注：余下的节点不一定全在环上。可能有环上节点u出发到的叶子节点v，v的入度不会被减到0.
 
 **较 DFS 方法好用啊。**
 

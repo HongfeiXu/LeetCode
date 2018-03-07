@@ -10,7 +10,7 @@
 
 #include "HelpFunc.h"
 
-#include "EvaluateDivision.h"
+#include "RedundantConnectionII.h"
 
 using namespace std;
 
@@ -28,13 +28,12 @@ int main()
 
 	auto t0 = chrono::high_resolution_clock::now();
 
-	Solution_v2 solu;
+	Solution solu;
 
-	vector<pair<string, string>> equations = { {"f", "c"}, {"c", "a"}, {"c", "b"}, {"b", "a"}, { "b", "d" }, {"d", "e"}, {"d", "g"}, {"o", "p"} };
-	vector<double> values = { 2,3,3,1,4,2,1, 3 };
-	vector<pair<string, string>> queries = { {"f", "e"}, {"e", "f"}, {"c", "d"}, {"d", "c"}, {"c", "o"} };
-
-	auto result = solu.calcEquation(equations, values, queries);
+	vector<vector<int>> input = {
+		{1,2},{2,3},{3,4},{4,1},{1,5}
+	};
+	auto result = solu.findRedundantDirectedConnection(input);
 	PrintVector(result);
 
 	auto t1 = chrono::high_resolution_clock::now();

@@ -260,6 +260,8 @@
     <ClInclude Include="src\RansomNote.h" />
     <ClInclude Include="src\ReconstructItinerary.h" />
     <ClInclude Include="src\RecoverBinarySearchTree.h" />
+    <ClInclude Include="src\RedundantConnection.h" />
+    <ClInclude Include="src\RedundantConnectionII.h" />
     <ClInclude Include="src\RemoveDuplicatesFromSortedArray.h" />
     <ClInclude Include="src\RemoveElement.h" />
     <ClInclude Include="src\RemoveKDigits.h" />

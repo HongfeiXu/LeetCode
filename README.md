@@ -186,7 +186,7 @@ Need to learn->
 |329. Longest Increasing Path in a Matrix	|CPP	|DFS				|		|
 | 98. Validate Binary Search Tree          | CPP    | MidOrderTraverse | COOL    |
 | 99. Recover Binary Search Tree           | CPP    | Morris Traversal |         |
->BFS,DFS 2018.1.28 -- 2018.1.27
+>BFS,DFS 2018.1.28 -- 2018.2.27
 
 | Problem                                  | Answer | Tags             | Comment |
 | ---------------------------------------- | ------ | ---------------- | ------- |
@@ -197,6 +197,8 @@ Need to learn->
 |310. Minimum Height Trees					|CPP	|BFS, Graph			|SOOOO COOL	|
 |332. Reconstruct Itinerary					|CPP	|DFS, Greedy, Eulerian Path	|SOOOO COOL	|
 |399. Evaluate Division						|CPP	|DFS, hash			|SOOOO COOL	|
+|684. Redundant Connection					|CPP	|Degree, Union Find	|Nice		|
+|685. Redundant Connection II				|CPP	|DFS, Union Find	|Nice		|
 
 > Tree, Graph 2018.2.27
 

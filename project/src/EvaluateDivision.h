@@ -186,10 +186,11 @@ public:
 			   unordered_set<string>& visited, 
 			   unordered_map<string, unordered_map<string, double>>& g)
 	{
+		visited.insert(from);
+
 		if (g[from].find(to) != g[from].end())
 			return g[from][to];
 
-		visited.insert(from);
 		for (auto neighbor : g[from])
 		{
 			if (visited.find(neighbor.first) == visited.end())

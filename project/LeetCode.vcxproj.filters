@@ -531,6 +531,12 @@
     <ClInclude Include="src\EvaluateDivision.h">
       <Filter>Header Files\Graph</Filter>
     </ClInclude>
+    <ClInclude Include="src\RedundantConnection.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RedundantConnectionII.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
