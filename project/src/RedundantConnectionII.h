@@ -51,18 +51,10 @@ https://discuss.leetcode.com/assets/uploads/files/1507232873325-screen-shot-2017
 
 若存在一个顶点 v 有两个 parent，看这两个 parent 的 root 是否相同，
 	1. 若相同，则说明无环，删除任意一个 parent->v 均可（题目要求，按照 edges 的逆序，选择）
-	2. 若不同，则说明存在环，从其中一个 root 开始进行 dfs，若能访问所有顶点，则说明可以形成 rotated tree（则另一个一定无法形成 rotated tree），
+	2. 若不同，则说明存在环，这时环上的某个节点具有两个父节点（一个父节点在环上，一个不在环上），我们需要删除那个环上的父节点。
 	故删除另一个 parent->v，否则，删除这个 parent->v。
 若所有顶点都只有一个 parent，则从任意节点 u 出发，沿着其父节点方向向上遍历，一定会得到类似 Example 2: 5,1,4,3,2,1，
 则 1,4,3,2 一定是环上的所有节点了。按逆序从 edges 中查找两个顶点均在 1,4,3,2 中的第一条边，即为所求。
-
-Approach v2:
-
-Union Find:
-
-TODO...
-
-
 
 */
 
@@ -82,13 +74,9 @@ public:
 	vector<int> findRedundantDirectedConnection(vector<vector<int>>& edges)
 	{
 		n = edges.size();
-		vector<vector<int>> adj_mat(n + 1, vector<int>(n + 1, 0));
 		vector<vector<int>> parent(n + 1);
 		for (auto & edge : edges)
-		{
-			adj_mat[edge.front()][edge.back()] = 1;
 			parent[edge.back()].push_back(edge.front());
-		}
 
 		// 查找具有两个父节点的顶点
 		int v = 0;	
@@ -109,30 +97,21 @@ public:
 					two_roots[i] = parent[two_roots[i]][0];
 			}
 
-			// 若两个父节点的根节点相同，说明图无环，删除 edges 中排在后面的那个边即可。
+			// case 1. 若两个父节点的根节点相同，说明图无环，删除 edges 中排在后面的那个边即可。即后入 parent[v] 的那个节点指向 v 的边
 			if (two_roots[0] == two_roots[1])
-			{
-				for (auto it = edges.rbegin(); it != edges.rend(); ++it)
-				{
-					if (it->back() == v
-						&& (it->front() == two_parents[0] || it->front() == two_parents[1]))
-						return *it;
-				}
-			}
-			// 如果两个父节点的根节点不同，则看从哪一个根进行 dfs 可以访问所有顶点
+				return { two_parents[1], v };
+			// case 2. 如果两个父节点的根节点不同，说明有环，删除那个在环中的父节点到v的边
 			else
 			{
-				// 如果第一个父节点的根出发能够访问所有节点，则删除第二个父节点到 v 的边
-				if (isRotateTree(two_roots[0], adj_mat))
-					return vector<int> {two_parents[1], v};
-				// 否则，删除第一个父节点到 v 的边
+				if (two_roots[0] == v)
+					return { two_parents[0], v };
 				else
-					return vector<int> {two_parents[0], v};
+					return { two_parents[1], v };
 			}
 		}
 
 		//////////////////////////////////////////////////////////////////////////
-		// 如果不存在具有两个父节点的节点，则一定存在环
+		// case 3. 如果不存在具有两个父节点的节点，则一定存在环
 		// 由于所有节点只有一个父节点，则可以从任意节点出发，按 parent 方向向上访问，
 		// 直到重复访问到某个节点，则这个重复节点中所夹的节点即为环中所有节点。
 		vector<int> loop;
@@ -155,23 +134,6 @@ public:
 			if (vertex_in_loop.find(it->front()) != vertex_in_loop.end()
 				&& vertex_in_loop.find(it->back()) != vertex_in_loop.end())
 				return *it;
-		}
-	}
-
-	bool isRotateTree(int root, const vector<vector<int>>& adj_mat)
-	{
-		unordered_set<int> visited;
-		dfs(root, adj_mat, visited);
-		return visited.size() == n;
-	}
-
-	void dfs(int root, const vector<vector<int>>& adj_mat, unordered_set<int>& visited)
-	{
-		visited.insert(root);
-		for (int i = 1; i <= n; ++i)
-		{
-			if (adj_mat[root][i] == 1 && visited.find(i) == visited.end())
-				dfs(i, adj_mat, visited);
 		}
 	}
 };

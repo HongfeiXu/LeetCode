@@ -73,8 +73,10 @@ void printGraph(AdjListGraph& graph);
 
 ## 2. BFS and DFS
 
+注：下面的实现中，BFS的实现会得到从 start 节点能够到达的所有其他节点的广度搜索序列，不保证是G的所有顶点。DFS的实现，由于外层循环对所有当前未被访问的节点调用 DFSUtil 或者 DFS_Iteartive_Util，所以G中所有节点都会被访问到。
+
 ```c++
-std::vector<int> BFS(const AdjListGraph& G, int start)
+vector<int> BFS(const AdjListGraph& G, int start)
 {
 	assert(start < G.V && start >= 0);
 	vector<int> result;
@@ -102,6 +104,19 @@ std::vector<int> BFS(const AdjListGraph& G, int start)
 	return result;
 }
 
+std::vector<int> DFS(const AdjListGraph& G)
+{
+	vector<int> result;
+	unordered_set<int> visited;
+	for (int i = 0; i < G.V; ++i)
+	{
+		if (visited.find(i) == visited.end())
+			DFSUtil(G, i, visited, result);
+	}
+
+	return result;
+}
+
 void DFSUtil(const AdjListGraph& G, int start, unordered_set<int>& visited, vector<int>& result)
 {
 	// 记录结果，并标记为已访问
@@ -117,13 +132,38 @@ void DFSUtil(const AdjListGraph& G, int start, unordered_set<int>& visited, vect
 	}
 }
 
-std::vector<int> DFS(const AdjListGraph& G, int start)
+std::vector<int> DFS_Iteartive(const AdjListGraph& G)
 {
-	assert(start < G.V && start >= 0);
-	vector<int> result;
 	unordered_set<int> visited;
-	DFSUtil(G, start, visited, result);
+	vector<int> result;
+	for (int i = 0; i < G.V; ++i)
+	{
+		if (visited.find(i) == visited.end())
+			DFS_Iterative_Util(G, i, visited, result);
+	}
 	return result;
+}
+
+void DFS_Iterative_Util(const AdjListGraph& G, int start, unordered_set<int>& visited, vector<int>& result)
+{
+	stack<int> S;
+
+	S.push(start);
+	while (!S.empty())
+	{
+		// 出栈栈顶元素，访问之
+		int u = S.top();
+		S.pop();
+		result.push_back(u);
+		visited.insert(u);
+		auto pv = G.array[u].head;
+		while (pv != nullptr)
+		{
+			if (visited.find(pv->dest) == visited.end())
+				S.push(pv->dest);
+			pv = pv->next;
+		}
+	}
 }
 ```
 
@@ -755,3 +795,166 @@ void topologicalSortInDegree(const AdjListGraph& G)
 	cout << endl;
 }
 ```
+
+## 6. Hard Problems
+
+### a. Graph Coloring
+
+Ref: https://www.geeksforgeeks.org/graph-coloring-applications/
+
+Graph coloring problem is to assign colors to certain elements of a graph subject to certain constraints.
+
+**Vertex coloring** is the most common graph coloring problem. The problem is, given m colors, find a way of coloring the vertices of a graph such that no two adjacent vertices are colored using same color. The other graph coloring problems like Edge Coloring (No vertex is incident to two edges of same color) and Face Coloring (Geographical Map Coloring) can be transformed into vertex coloring.
+
+**Chromatic Number:** The smallest number of colors needed to color a graph G is called its chromatic number. For example, the following can be colored minimum 3 colors.
+
+![GraphColoring](https://github.com/HongfeiXu/LeetCode/blob/master/images/GraphColoring.png?raw=true)
+
+>The problem to find chromatic number of a given graph is NP Complete.
+
+#### Applications of Graph Coloring:
+
+1. Making Schedule or Time Table
+2. Bipartite Graphs. We can check if a graph is Bipartite or not by coloring the graph using two colors. If a given graph is 2-colorable, then it is Bipartite, otherwise not. 
+3. Map Coloring
+4. ...
+
+#### Basic Greedy Coloring Algorithm
+
+Unfortunately, there is no efficient algorithm available for coloring a graph with minimum number of colors as the problem is a known NP Complete problem. There are approximate algorithms to solve the problem though. Following is the basic Greedy Algorithm to assign colors. **It doesn’t guarantee to use minimum colors, but it guarantees an upper bound on the number of colors. The basic algorithm never uses more than d+1 colors where d is the maximum degree of a vertex in the given graph.**
+
+```
+1. Color first vertex with first color.
+2. Do following for remaining V-1 vertices.
+….. a) Consider the currently picked vertex and color it with the
+lowest numbered color that has not been used on any previously
+colored vertices adjacent to it. If all previously used colors
+appear on vertices adjacent to v, assign a new color to it.
+```
+ 
+ ```c++
+ std::vector<int> greedyColoring(const AdjListGraph& G)
+{
+	vector<int> result(G.V, -1);
+	vector<bool> avaliable(G.V, true);  // 记录颜色i是否还没有被当前节点的相邻节点使用
+
+	result[0] = 0;		// 给节点0第一个颜色0
+	// 处理余下的 G.V - 1 个节点
+	for (int u = 1; u < G.V; ++u)
+	{
+		auto pv = G.array[u].head;
+		while (pv != nullptr)
+		{
+			// 若 pv->dest 有颜色，则将其颜色在 avaliable 中标记为无法使用
+			if (result[pv->dest] != -1)
+				avaliable[result[pv->dest]] = false;
+			pv = pv->next;
+		}
+		// 从 avaliable  中找出第一个可以被使用的颜色赋给 u
+		for (int i = 0; i < avaliable.size(); ++i)
+		{
+			if (avaliable[i])
+			{
+				result[u] = i;
+				avaliable.assign(G.V, true);
+				break;
+			}
+		}
+	}
+
+	return result;
+}
+ ```
+
+ #### Check whether a given graph is Bipartite or not
+
+ >判断一个无向图是否为二部图。 即判断此无向图是是 2-colorable 的。 
+ >Ref: https://www.geeksforgeeks.org/bipartite-graph/
+ >Ref: https://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/
+
+ A bipartite graph is possible if the graph coloring is possible using two colors such that vertices in a set are colored with the same color. 
+
+ ![bipartite_graph](https://github.com/HongfeiXu/LeetCode/blob/master/images/bipartitegraph-1.jpg?raw=true)
+
+** 法一：BFS**
+
+ ```
+ Following is a simple algorithm to find out whether a given graph is Birpartite or not using Breadth First Search (BFS).
+1. Assign RED color to the source vertex (putting into set U).
+2. Color all the neighbors with BLUE color (putting into set V).
+3. Color all neighbor’s neighbor with RED color (putting into set U).
+4. This way, assign color to all vertices such that it satisfies all the constraints of m way coloring problem where m = 2.
+5. While assigning colors, if we find a neighbor which is colored with same color as current vertex, then the graph cannot be colored with 2 vertices (or graph is not Bipartite)
+ ```
+
+ ```c++
+ bool isBipartite(vector<vector<int>>& g)
+{
+	int n = g.size();
+	// Create a color vector to store colors assigned to all vertices.
+	// -1: no color, 1: first color, 0: second color.
+	vector<int> color_vec(n, -1);
+	for (int i = 0; i < n; ++i)
+	{
+		if (color_vec[i] == -1)
+		{
+			if (!isBipartiteAux(g, i, color_vec))
+				return false;
+		}
+	}
+	return true;
+}
+
+bool isBipartiteAux(vector<vector<int>>& g, int start, vector<int>& color_vec)
+{
+	int n = g.size();
+	// Assign first color to source
+	color_vec[start] = 1;
+	queue<int> Q;
+	Q.push(start);
+	while (!Q.empty())
+	{
+		// Dequeue a vertex from queue
+		int u = Q.front();
+		Q.pop();
+
+		// Return false if there is a self-loop
+		if (g[u][u] == 1)
+			return false;
+
+		// Find all non-colored adjacent vertices
+		for (int v = 0; v < n; ++v)
+		{
+			// v is not colored, assign alternate color to v
+			if (g[u][v] == 1 && color_vec[v] == -1)
+				color_vec[v] = 1 - color_vec[u];
+			// v is colored with same color as u, return false
+			else if (g[u][v] == 1 && color_vec[v] == color_vec[u])
+				return false;
+		}
+	}
+	return true;
+}
+
+void test()
+{
+	vector<vector<int>> g = {
+		{0,1,0,1},
+		{1,0,1,0 },
+		{0,1,0,1 },
+		{1,0,1,0 }
+	};
+	cout << boolalpha << isBipartite(g) << endl;
+}
+ ```
+
+**Time Complexity** of the above approach is same as that Breadth First Search. In above implementation is O(V^2) where V is number of vertices. If graph is represented using adjacency list, then the complexity becomes O(V+E).
+
+**法二：DFS**
+
+TODO
+
+**法三：Backtracking algorithm m coloring problem**
+
+TODO
+

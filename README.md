@@ -198,7 +198,7 @@ Need to learn->
 |332. Reconstruct Itinerary					|CPP	|DFS, Greedy, Eulerian Path	|SOOOO COOL	|
 |399. Evaluate Division						|CPP	|DFS, hash			|SOOOO COOL	|
 |684. Redundant Connection					|CPP	|Degree, Union Find	|Nice		|
-|685. Redundant Connection II				|CPP	|DFS, Union Find	|Nice		|
+|685. Redundant Connection II				|CPP	|DFS				|Nice		|
 
 > Tree, Graph 2018.2.27
 

@@ -173,6 +173,7 @@
     <ClInclude Include="src\CountAndSay.h" />
     <ClInclude Include="src\CountBinarySubstrings.h" />
     <ClInclude Include="src\CountPrimes.h" />
+    <ClInclude Include="src\CouplesHoldingHands.h" />
     <ClInclude Include="src\CourseSchedule.h" />
     <ClInclude Include="src\CourseScheduleII.h" />
     <ClInclude Include="src\CourseScheduleIII.h" />
@@ -200,6 +201,7 @@
     <ClInclude Include="src\ImplementStrStr.h" />
     <ClInclude Include="src\IntersectionOfTwoArrays.h" />
     <ClInclude Include="src\IntersectionOfTwoArraysII.h" />
+    <ClInclude Include="src\IsGraphBipartite.h" />
     <ClInclude Include="src\IslandPerimeter.h" />
     <ClInclude Include="src\IsomorphicStrings.h" />
     <ClInclude Include="src\JudgeRouteCircle.h" />
