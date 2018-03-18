@@ -66,7 +66,7 @@
 | 714. Best Time to Buy and Sell Stock with Transaction Fee |  CPP   | Array,DP                      | NASTY                                    |
 | 137. Single Number II                    |  CPP   | Array, Bit                    | COOL                                     |
 | 260. Single Number III                   |  CPP   | Array, Bit                    | COOL                                     |
-|
+|41. First Missing Positive				|CPP		|Array					|				|
 >Array Easy: 2017.9.15 -- 2017.10.12
 
 | Problem                                 | Answer | Tags        | Comment         |
@@ -199,8 +199,25 @@ Need to learn->
 |399. Evaluate Division						|CPP	|DFS, hash			|SOOOO COOL	|
 |684. Redundant Connection					|CPP	|Degree, Union Find	|Nice		|
 |685. Redundant Connection II				|CPP	|DFS				|Nice		|
+|785. Is Graph Bipartite?					|CPP	|BFS, Graph Coloring|Nice		|
+|765. Couples Holding Hands					|CPP	|cyclic swapping	|WOWOWOW	|
+> Tree, Graph 2018.2.27 -- 2018.3.13
 
-> Tree, Graph 2018.2.27
+| Problem                                  | Answer | Tags             | Comment |
+| ---------------------------------------- | ------ | ---------------- | ------- |
+|À©³ä£ºMini Swap Array						|CPP	|cyclic swapping	|COOL		|
+
+
+
+| Problem                                  | Answer | Tags             | Comment |
+| ---------------------------------------- | ------ | ---------------- | ------- |
+|2. Add Two Numbers							|CPP	|					|			|
+|4. Median of Two Sorted Arrays				|CPP	|					|WOWOWOWOW	|
+|5. Longest Palindromic Substring			|CPP	|Middle Out			|COOOL		|
+|6. ZigZag Conversion						|CPP	|String				|Aha		|
+|7. Reverse Integer							|CPP	|Math				|			|
+
+> 1-100 2018.3.13 -- 
 
 ## Tips
 

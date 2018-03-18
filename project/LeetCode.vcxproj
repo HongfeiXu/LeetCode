@@ -146,6 +146,7 @@
     <ClInclude Include="src\3SumCloset.h" />
     <ClInclude Include="src\AddBinaryh.h" />
     <ClInclude Include="src\AddStrings.h" />
+    <ClInclude Include="src\AddTwoNumbers.h" />
     <ClInclude Include="src\ArrayPartitionI.h" />
     <ClInclude Include="src\AssignCookies.h" />
     <ClInclude Include="src\AverageOfLevelsInBinaryTree.h" />
@@ -182,6 +183,7 @@
     <ClInclude Include="src\DetectCaptial.h" />
     <ClInclude Include="src\DistributeCandies.h" />
     <ClInclude Include="src\Dota2Senate.h" />
+    <ClInclude Include="src\EditDistance.h" />
     <ClInclude Include="src\EmployeeImportance.h" />
     <ClInclude Include="src\EvaluateDivision.h" />
     <ClInclude Include="src\FindAllAnagramsInAString.h" />
@@ -191,6 +193,7 @@
     <ClInclude Include="src\FindLargestValueInEachTreeRow.h" />
     <ClInclude Include="src\FindTheDifference.h" />
     <ClInclude Include="src\FindUniqueCharacterInAString.h" />
+    <ClInclude Include="src\FirstMissingPositive.h" />
     <ClInclude Include="src\FloodFill.h" />
     <ClInclude Include="src\GasStation.h" />
     <ClInclude Include="src\GenerateParentheses.h" />
@@ -216,6 +219,8 @@
     <ClInclude Include="src\LongestIncreasingPathInAMatrix.h" />
     <ClInclude Include="src\LongestIncreasingSubsequence.h" />
     <ClInclude Include="src\LongestPalindrome.h" />
+    <ClInclude Include="src\LongestPalindromicSubsequence.h" />
+    <ClInclude Include="src\LongestPalindromicSubstring.h" />
     <ClInclude Include="src\LongestSubstringWithAtMostKDistinctCharacters.h" />
     <ClInclude Include="src\LongestSubstringWithAtMostTwoDistinctCharacters.h" />
     <ClInclude Include="src\LongestSubStringWithoutRepeatingCharacters.h" />
@@ -230,6 +235,7 @@
     <ClInclude Include="src\MaximumSubarray.h" />
     <ClInclude Include="src\MaximumSwap.h" />
     <ClInclude Include="src\MaximumWidthOfBinaryTree.h" />
+    <ClInclude Include="src\MedianOfTwoSortedArrays.h" />
     <ClInclude Include="src\MergeSortedArray.h" />
     <ClInclude Include="src\MinCostClimbingStairs.h" />
     <ClInclude Include="src\Minesweeper.h" />
@@ -237,6 +243,7 @@
     <ClInclude Include="src\MinimumHeightTrees.h" />
     <ClInclude Include="src\MinimumIndexSumOfTwoLists.h" />
     <ClInclude Include="src\MinimumWindowSubstring.h" />
+    <ClInclude Include="src\MiniSwapArray.h" />
     <ClInclude Include="src\MissingNumber.h" />
     <ClInclude Include="src\MoveZeroes.h" />
     <ClInclude Include="src\MultiplyStrings.h" />
@@ -271,6 +278,7 @@
     <ClInclude Include="src\RepeatedStringMatch.h" />
     <ClInclude Include="src\RepeatedSubstringPattern.h" />
     <ClInclude Include="src\ReshapeTheMatrix.h" />
+    <ClInclude Include="src\ReverseInteger.h" />
     <ClInclude Include="src\ReverseString.h" />
     <ClInclude Include="src\ReverseStringII.h" />
     <ClInclude Include="src\ReverseVowelsOfAString.h" />
@@ -306,6 +314,7 @@
     <ClInclude Include="src\ValidParentheses.h" />
     <ClInclude Include="src\WiggleSubsequence.h" />
     <ClInclude Include="src\WordPattern.h" />
+    <ClInclude Include="src\ZigZagConversion.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />

@@ -75,14 +75,15 @@ using namespace std;
 class Solution {
 public:
 	/* Returns length of LCS for X[0..m-1], Y[0..n-1] */
-	int LCS(const string& X, const string& Y, int m, int n)
+	int LCS(string X, string Y)
 	{
+		int m = X.size(), n = Y.size();
 		if(m == 0 || n == 0)
 			return 0;
 		if (X[m] == Y[n])
-			return 1 + LCS(X, Y, m - 1, n - 1);
+			return 1 + LCS(string(X, 0, m - 1), string(Y, 0, n - 1));
 		else
-			return max(LCS(X, Y, m - 1, n), LCS(X, Y, m, n - 1));
+			return max(LCS(string(X, 0, m - 1), Y), LCS(X, string(Y, 0, n - 1)));
 	}
 };
 /*
@@ -95,8 +96,9 @@ and worst case happens when all characters of X and Y mismatch i.e., length of L
 class Solution_DP {
 public:
 	/* Returns length of LCS for X[0..m-1], Y[0..n-1] */
-	int LCS(const string& X, const string& Y, int m, int n)
+	int LCS(string X, string Y)
 	{
+		int m = X.size(), n = Y.size();
 		// L[i, j] 表示 X[0..i-1] 与 Y[0..j-1] 的 LCS 的长度
 		vector<vector<int>> L(m + 1);
 		for (int i = 0; i < m + 1; ++i)
@@ -115,7 +117,6 @@ public:
 					L[i][j] = max(L[i - 1][j], L[i][j - 1]);
 			}
 		}
-
 		return L[m][n];
 	}
 };
@@ -127,28 +128,26 @@ Auxiliary Space: O(mn)
 
 /* 3. Space Optimized Dynamic Programming C/C++ implementation of LCS problem */
 /*
-One important observation in above simple implementation is, in each iteration of outer loop we only, 
-need values from all columns of previous row. So there is no need of storing all rows in our DP matrix, 
-we can just store two rows at a time and use them, in that way used space will reduce from L[m+1][n+1] to L[2][n+1].
+Space 可以优化到 O(2*min(m,n))
+我们知道计算 L[i] 这一行时，只需要知道 L[i-1] 这一行的值。因此只需要两行即可。
 */
 class Solution_DP_v2 {
 public:
 	/* Returns length of LCS for X[0..m-1], Y[0..n-1] */
-	int LCS(const string& X, const string& Y, int m, int n)
+	int LCS(string X, string Y)
 	{
+		if (X.size() < Y.size())
+			swap(X, Y);
+		int m = X.size(), n = Y.size();
 		// L[i, j] 表示 X[0..i-1] 与 Y[0..j-1] 的 LCS 的长度
-		vector<vector<int>> L(m + 1);
-		for (int i = 0; i < m + 1; ++i)
-			L[i].assign(n + 1, 0);
+		vector<vector<int>> L(2, vector<int>(n+1, 0));
 
 		// Following steps build L[m+1][n+1] in bottom up fashion.
-		for (int i = 0; i < m + 1; ++i)
+		for (int i = 1; i <= m; ++i)
 		{
-			for (int j = 0; j < n + 1; ++j)
+			for (int j = 1; j <= n; ++j)
 			{
-				if (i == 0 || j == 0)
-					L[i % 2][j] = 0;
-				else if (X[i - 1] == Y[j - 1])	// 画出表格，方便理解这里的下标为何是 i-1 而不是 i
+				if (X[i - 1] == Y[j - 1])	// 画出表格，方便理解这里的下标为何是 i-1 而不是 i
 					L[i % 2][j] = L[(i - 1) % 2][j - 1] + 1;
 				else
 					L[i % 2][j] = max(L[(i - 1) % 2][j], L[i % 2][j - 1]);
@@ -160,9 +159,55 @@ public:
 };
 /*
 Time Complexity : O(m*n)
-Auxiliary Space : O(n)
+表格大小：2*min(m, n)，额外空间 O(1)
 */
 
+/*
+进一步的，其实我们只要一行就可以了，每次计算的时候我们需要3个值，
+其中上边和左边的值可以直接从 L[j] 和 L[j-1] 得到，左上角的值需要临时变量（left_up）来记录。
+每次更新第 i 行的 L[j] 之前需要先备份第 i-1 行的 L[j] 的值到 left_up 中。
+*/
+class Solution_DP_v3 {
+public:
+	/* Returns length of LCS for X[0..m-1], Y[0..n-1] */
+	int LCS(string X, string Y)
+	{
+		if (X.size() < Y.size())
+			swap(X, Y);
+		int m = X.size(), n = Y.size();
+		vector<int> L(n + 1, 0);
+		int left_up = 0;
+		// Following steps build L[m+1][n+1] in bottom up fashion.
+		for (int i =  0; i <= m; ++i)
+		{
+			for (int j = 0; j <= n; ++j)
+			{
+				if (i == 0 || j == 0)
+				{
+					left_up = 0;
+					L[j] = 0;
+					continue;
+				}
+				if (X[i - 1] == Y[j - 1])
+				{
+					int temp = L[j];
+					L[j] = left_up + 1;
+					left_up = temp;
+				}
+				else
+				{
+					left_up = L[j];
+					L[j] = max(L[j - 1], L[j]);
+				}
+			}
+		}
+		return L[n];
+	}
+};
+/*
+Time Complexity : O(m*n)
+表格大小：min(m,n)，额外空间 O(1)
+*/
 
 /* 4. Printing Longest Common Subsequence */
 /*
@@ -170,8 +215,9 @@ Auxiliary Space : O(n)
 */
 class Solution_DP_print {
 public:
-	void LCS(const string& X, const string& Y, int m, int n)
+	void LCS(string X, string Y)
 	{
+		int m = X.size(), n = Y.size();
 		// L[i, j] 表示 X[0..i-1] 与 Y[0..j-1] 的 LCS 的长度
 		vector<vector<int>> L(m + 1);
 		for (int i = 0; i < m + 1; ++i)
@@ -226,8 +272,9 @@ B[i, j]指向的表项对应计算 L[i, j] 时所选择的子问题的最优解。
 */
 class Solution_DP_print_v2 {
 public:
-	void LCS(const string& X, const string& Y, int m, int n)
+	void LCS(string X, string Y)
 	{
+		int m = X.size(), n = Y.size();
 		// L[i, j] 表示 X[0..i-1] 与 Y[0..j-1] 的 LCS 的长度
 		vector<vector<int>> L(m + 1);
 		vector<vector<char>> B(m + 1);
@@ -289,6 +336,13 @@ public:
 };
 
 ```
+
+类似的还有 
+1. Longest Common Substring 问题;[[GeeksForGeeks](https://www.geeksforgeeks.org/longest-common-subsequence/)]
+2. Longest Palindromic Subsequence 问题；[leetcode 516]
+3. Longest Palindromic Substring 问题；[leetcode 5]
+4. Edit Distance 问题；[leetcode 72]
+5. ...
 
 ## 动态规划解“钢条切割问题”
 

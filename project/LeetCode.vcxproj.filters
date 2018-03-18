@@ -49,6 +49,9 @@
     <Filter Include="Header Files\Graph">
       <UniqueIdentifier>{3cb27902-a4cb-450c-abff-291ec2bcbaa2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\1_100">
+      <UniqueIdentifier>{15a301d0-428a-4b0e-b737-50c65c1a049e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\HelpFunc.h">
@@ -542,6 +545,33 @@
     </ClInclude>
     <ClInclude Include="src\IsGraphBipartite.h">
       <Filter>Header Files\Graph</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FirstMissingPositive.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MiniSwapArray.h">
+      <Filter>Header Files\Array</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AddTwoNumbers.h">
+      <Filter>Header Files\1_100</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MedianOfTwoSortedArrays.h">
+      <Filter>Header Files\1_100</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongestPalindromicSubstring.h">
+      <Filter>Header Files\1_100</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LongestPalindromicSubsequence.h">
+      <Filter>Header Files\DP</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ZigZagConversion.h">
+      <Filter>Header Files\1_100</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EditDistance.h">
+      <Filter>Header Files\1_100</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ReverseInteger.h">
+      <Filter>Header Files\1_100</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

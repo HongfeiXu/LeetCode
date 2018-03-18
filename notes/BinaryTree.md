@@ -9,6 +9,19 @@ struct TreeNode {
 };
 ```
 
+## 二叉树的前序遍历(TODO)
+
+### 1. Recursive Approach
+
+### 2. Iterating method 
+
+## 二叉树的后序遍历(TODO)
+
+### 1. Recursive Approach
+
+### 2. Iterating method 
+
+
 
 ## 二叉树的中序遍历
 

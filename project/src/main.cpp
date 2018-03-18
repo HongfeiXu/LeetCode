@@ -7,10 +7,11 @@
 #include <utility>
 #include <bitset>
 #include <unordered_map>
+#include <cassert>
 
 #include "HelpFunc.h"
 
-#include "RedundantConnectionII.h"
+#include "ReverseInteger.h"
 
 using namespace std;
 
@@ -25,16 +26,11 @@ using namespace std;
 
 int main()
 {
-
 	auto t0 = chrono::high_resolution_clock::now();
 
 	Solution solu;
 
-	vector<vector<int>> input = {
-		{1,2},{2,3},{3,4},{4,1},{1,5}
-	};
-	auto result = solu.findRedundantDirectedConnection(input);
-	PrintVector(result);
+	cout << solu.reverse(-123) << endl;
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;
