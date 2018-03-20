@@ -6,7 +6,9 @@
 
 Related Topics: Backtracking
 
-The n-queens puzzle is the problem of placing n queens on an n¡Án chessboard such that no two queens attack each other.
+Follow up for N-Queens problem.
+
+Now, instead outputting board configurations, return the total number of distinct solutions.
 
 Approach: Backtracking
 

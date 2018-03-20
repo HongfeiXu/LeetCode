@@ -11,7 +11,7 @@
 
 #include "HelpFunc.h"
 
-#include "Sqrt_x.h"
+#include "NQueens.h"
 
 using namespace std;
 
@@ -28,9 +28,17 @@ int main()
 {
 	auto t0 = chrono::high_resolution_clock::now();
 
-	Solution_v2 solu;
+	Solution solu;
 
-	cout << solu.mySqrt(8) << endl;
+	vector<vector<string>> result;
+
+	result = solu.solveNQueens(4);
+
+	for (int i = 0; i < result.size(); i++)
+	{
+		PrintVector(result[i], '\n');
+		cout << endl;
+	}
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;

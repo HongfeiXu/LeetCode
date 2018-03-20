@@ -17,7 +17,7 @@ ABC ACB BAC BCA CBA CAB
 
 ![NewPermutation](https://github.com/HongfeiXu/LeetCode/blob/master/images/NewPermutation.gif?raw=true)
 
-**递归求字符串的全排列，包含重复**   
+**a. 递归求字符串的全排列，包含重复**   
 
 ```c++
 /*
@@ -51,29 +51,218 @@ public:
 };
 ```
 
-**非递归求字符串的全排列，去除重复** 
+**b. 递归求字符串的全排列，不包含重复**  
 
 ```c++
 /*
-去掉重复的全排列的非递归实现（借助STL中 next_permutation()）
-Time: O(n*n!) 
-这里每次 next_permutation 最多进行 a.size() / 2 此交换。
+去掉重复的全排列的递归实现（基于SolutionRaw）
+在全排列中去掉重复的规则：去重的全排列就是从第一个数字起每个数分别与它后面非重复出现的数字交换。
+下面给出完整代码：
 */
-class SolutionHandleDup_v3{
+class SolutionHandleDup_v1 {
+public:
+	// 在 [left, right) 区间中查找是或否有与 a[right] 相同的字符，若有了，则不能进行 swap，以此来避免重复的排列。
+	bool canSwap(string& a, int left, int right)
+	{
+		for (int i = left; i < right; ++i)
+		{
+			if (a[i] == a[right])
+				return false;
+		}
+		return true;
+	}
+
+	// 排列 a[left,left+1,...,right]
+	void permuteAux(string& a, int left, int right, vector<string>& result)
+	{
+		// 若 left == right，说明所有字符的位置已经确定，则为一个排列结果。
+		if (left == right)
+			result.push_back(a);
+		// i 从 left 开始到 right 结束，选择一个数字作为 a[left]。
+		for (int i = left; i <= right; ++i)
+		{
+			if (canSwap(a, left, i))
+			{
+				swap(a[left], a[i]);
+				permuteAux(a, left + 1, right, result);
+				swap(a[left], a[i]);	// backtrack
+			}
+		}
+	}
+
+	vector<string> permute(string a)
+	{
+		vector<string> result;
+		permuteAux(a, 0, a.size() - 1, result);
+		return result;
+	}
+};
+
+```
+
+**c. 非递归求字符串的全排列，去除重复** 
+
+```c++
+/*
+去掉重复的全排列的非递归实现（自己写 nextPermutation()）
+Ref: http://en.cppreference.com/w/cpp/algorithm/next_permutation
+Ref: http://blog.csdn.net/hackbuteer1/article/details/7462447
+Ref: 《STL源码剖析》
+Time: O(n*n!)
+*/
+class SolutionHandleDup_v4 {
 public:
 	vector<string> permute(string a)
 	{
 		sort(a.begin(), a.end());
 		vector<string> result;
 		result.push_back(a);
-		while (next_permutation(a.begin(), a.end()))
+		while (nextPermutation(a.begin(), a.end()))
 			result.push_back(a);
 		return result;
+	}
+	/*
+	参考STL next_permutation() 的写法
+	nextPermutation 会取得 [first, last) 所标示序列的下一个排列组合。
+	如果没有下一个排列组合，则返回 false；否则返回 true。
+	*/
+	bool nextPermutation(string::iterator first, string::iterator last)
+	{
+		// 若字符串为空，则没有下一个排列，返回 false
+		if (first == last)
+			return false;
+		auto i = last;
+		// 若字符串中只有一个字符，则没有下一个排列，返回 false
+		if (first == --i)
+			return false;
+		while (true)
+		{
+			auto i1 = i;
+			// 从后向前寻找替换数，即前一个元素i小于后一个元素i1，i即为要替换的数字，i即为替换点
+			if (*(--i) < *i1)
+			{
+				// 从后向前寻找第一个比 *i 大的数字 *i2
+				auto i2 = last;
+				while (!(*i < *--i2))
+					;
+
+				// 构造下一个排列
+				iter_swap(i, i2);	// 替换 *i, *i2
+				reverse(i1, last);	// 替换点 i 后的数全部反转
+				return true;
+			}
+			// i到最前面了，没有找到替换数，当前字符串为最大排列，颠倒得到最小排列，并返回 false。
+			if (i == first)
+			{
+				reverse(first, last);
+				return false;
+			}
+		}
 	}
 };
 ```
 
+**总结**
+
+至此我们已经运用了递归与非递归的方法解决了全排列问题，总结一下就是：
+1. 全排列就是从第一个数字起每个数分别与它后面的数字交换。
+2. 去重的全排列就是从第一个数字起每个数分别与它后面非重复出现的数字交换。
+3. 全排列的非递归就是由后向前找替换数和替换点，然后由后向前找第一个比替换数大的数与替换数交换，最后颠倒替换点后的所有数据。
+
 *更多的内容看代码：[Permutation.h](https://github.com/HongfeiXu/LeetCode/blob/master/notes/src/Permutation.h)*
+
+### 3. 字符串的组合
+
+输入一个字符串，输出该字符串中字符的所有组合。举个例子，如果输入abc，它的组合有a、b、c、ab、ac、bc、abc。
+
+和求解全排列类似，这里也使用回溯法的思路。
+
+**法一**
+
+```c++
+/*
+对于字符串中每一个字符，在每个组合中只有两种情况，要么存在，要么不存在。
+从首字符开始，递归得到包括该字符的组合，不包括该字符的组合。
+最终得到长度为1,2,3,...,s.size()的组合
+*/
+class Solution {
+public:
+	vector<string> combine(string s)
+	{
+		vector<string> result;
+		string curr = "";
+		combineAux(s, 0, curr, result);
+		return result;
+	}
+
+	// a 为输入的字符串
+	// i 表示当前要选择的字符 a[i]，要么放入当前组合，要么不放入
+	// curr 表示当前组合
+	// result 保存所有组合
+	void combineAux(const string& a, int i, string& curr,  vector<string>& result)
+	{
+		if (i == a.size())
+		{
+			// 跳过空组合
+			if (curr.empty())
+				return;
+			result.push_back(curr);
+			return;
+		}
+
+		// 将 a[i] 放入当前组合
+		curr.push_back(a[i]);
+		combineAux(a, i + 1, curr, result);
+		curr.pop_back();	// backtrack
+		// 不把 a[i] 放入当前组合
+		combineAux(a, i + 1, curr, result);
+	}
+};
+```
+
+**法二**
+>Ref: http://blog.csdn.net/hackbuteer1/article/details/7462447
+
+```c++
+/*
+假设我们想在长度为n的字符串中求m个字符的组合。我们先从头扫描字符串的第一个字符。
+针对第一个字符，我们有两种选择：
+第一是把这个字符放到组合中去，接下来我们需要在剩下的n-1个字符中选取m-1个字符；
+第二是不把这个字符放到组合中去，接下来我们需要在剩下的n-1个字符中选择m个字符。
+
+求s中长度为1,2,3,...,s.size()的组合，则，只需要调用 combineAux 传入不同的长度作为参数即可。
+*/
+class Solution_v2 {
+public:
+	// 求s中长度为m的组合
+	void combineAux(string s, int m, string& curr, vector<string>& result)
+	{
+		if (m == 0)
+		{
+			result.push_back(curr);
+			return;
+		}
+		// 如果s已经为空，说明没有字符可供选择，而此时m不为0，说明还未能选够足够的字符，返回
+		if (s.empty())
+			return;
+		// 把这个字符放到组合中去，接下来我们需要在剩下的s.size()-1个字符中选取m-1个字符
+		curr.push_back(s[0]);
+		combineAux(s.substr(1), m - 1, curr, result);
+		curr.pop_back();	// backtrack
+		// 不把这个字符放到组合中去，接下来我们需要在剩下的s.size() - 1个字符中选择m个字符
+		combineAux(s.substr(1), m, curr, result);
+	}
+
+	vector<string> combine(string s)
+	{
+		vector<string> result;
+		string curr = "";
+		for(int i = 1; i <= s.size(); ++i)
+			combineAux(s, i, curr, result);
+		return result;
+	}
+};
+```
 
 ## Some Small Useful Scripts
 
