@@ -2,30 +2,22 @@
 
 >Ref: https://www.geeksforgeeks.org/fundamentals-of-algorithms/#MathematicalAlgorithms
 
-## Some Nice Problems
+## Some Basic Problems
 
 ### 1. Write an Efficient Method to Check if a Number is Multiple of 3
 
 TODO...
 
-### 2. Write a program to print all permutations of a given string
-
-**求字符串的全排列**
+### 2. 字符串的全排列
 
 >Ref: https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
-
-A permutation, also called an “arrangement number” or “order,” is a rearrangement of the elements of an ordered list S into a one-to-one correspondence with S itself. A string of length n has n! permutation.
 
 Below are the permutations of string ABC.   
 ABC ACB BAC BCA CBA CAB
 
-Here is a solution that is used as a basis in **backtracking**.
-
 ![NewPermutation](https://github.com/HongfeiXu/LeetCode/blob/master/images/NewPermutation.gif?raw=true)
 
-Note : The below solution prints duplicate permutations if there are repeating characters in input string. 
-
-Time Complexity: O(n*n!) Note that there are n! permutations and it requires O(n) time to print a a permutation.
+**递归求字符串的全排列，包含重复**   
 
 ```c++
 /*
@@ -58,6 +50,8 @@ public:
 	}
 };
 ```
+
+**非递归求字符串的全排列，去除重复** 
 
 ```c++
 /*
