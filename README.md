@@ -216,6 +216,8 @@ Need to learn->
 |5. Longest Palindromic Substring			|CPP	|Middle Out			|COOOL		|
 |6. ZigZag Conversion						|CPP	|String				|Aha		|
 |7. Reverse Integer							|CPP	|Math				|			|
+|9. Palindrome Number						|CPP	|Math				|			|
+|69. Sqrt(x)								|CPP	|Math				|			|
 
 > 1-100 2018.3.13 -- 
 

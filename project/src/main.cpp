@@ -11,7 +11,7 @@
 
 #include "HelpFunc.h"
 
-#include "ReverseInteger.h"
+#include "Sqrt_x.h"
 
 using namespace std;
 
@@ -28,9 +28,9 @@ int main()
 {
 	auto t0 = chrono::high_resolution_clock::now();
 
-	Solution solu;
+	Solution_v2 solu;
 
-	cout << solu.reverse(-123) << endl;
+	cout << solu.mySqrt(8) << endl;
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;

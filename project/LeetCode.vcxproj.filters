@@ -573,6 +573,12 @@
     <ClInclude Include="src\ReverseInteger.h">
       <Filter>Header Files\1_100</Filter>
     </ClInclude>
+    <ClInclude Include="src\PalindromeNumber.h">
+      <Filter>Header Files\1_100</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sqrt_x.h">
+      <Filter>Header Files\1_100</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -608,6 +614,9 @@
       <Filter>Notes</Filter>
     </None>
     <None Include="..\notes\Graph.md">
+      <Filter>Notes</Filter>
+    </None>
+    <None Include="..\notes\MathematicalAlgorithms.md">
       <Filter>Notes</Filter>
     </None>
   </ItemGroup>

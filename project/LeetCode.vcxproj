@@ -258,6 +258,7 @@
     <ClInclude Include="src\OnesAndZeros.h" />
     <ClInclude Include="src\OpenTheLock.h" />
     <ClInclude Include="src\PacificAtlanticWaterFlow.h" />
+    <ClInclude Include="src\PalindromeNumber.h" />
     <ClInclude Include="src\PalindromePairs.h" />
     <ClInclude Include="src\PartitionLabels.h" />
     <ClInclude Include="src\PascalsTriangle.h" />
@@ -293,6 +294,7 @@
     <ClInclude Include="src\SingleNumberII.h" />
     <ClInclude Include="src\SingleNumberIII.h" />
     <ClInclude Include="src\SlidingWindowMaximum.h" />
+    <ClInclude Include="src\Sqrt_x.h" />
     <ClInclude Include="src\StringCompression.h" />
     <ClInclude Include="src\StudentAttendanceRecordI.h" />
     <ClInclude Include="src\SubstringWithConcatenationOfAllWords.h" />
@@ -328,6 +330,7 @@
     <None Include="..\notes\GreedyAlgorithm.md" />
     <None Include="..\notes\KMP.md" />
     <None Include="..\notes\LargestSumContiguousSubarray.md" />
+    <None Include="..\notes\MathematicalAlgorithms.md" />
     <None Include="..\notes\SlidingWindowAlgorithmTemplate.md" />
     <None Include="..\README.md" />
   </ItemGroup>

@@ -45,8 +45,8 @@ class Solution {
 public:
 	int reverse(int x)
 	{
-		string int_max_str = std::to_string(INT_MAX);
-		string int_min_str = std::to_string(INT_MIN);
+		std::string int_max_str = std::to_string(INT_MAX);
+		std::string int_min_str = std::to_string(INT_MIN);
 		std::string s = std::to_string(x);
 		if (s[0] == '-')
 		{
