@@ -12,7 +12,7 @@ TODO...
 
 **求字符串的全排列**
 
-Ref: https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+>Ref: https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
 
 A permutation, also called an “arrangement number” or “order,” is a rearrangement of the elements of an ordered list S into a one-to-one correspondence with S itself. A string of length n has n! permutation.
 
@@ -113,8 +113,8 @@ public:
 
 **牛顿迭代法快速寻找平方根**
 
-Ref: https://www.zhihu.com/question/20690553（详细介绍了牛顿-拉弗森方法的原理以及收敛的充分条件）   
-Ref: http://www.matrix67.com/blog/archives/361   
+>Ref: https://www.zhihu.com/question/20690553（详细介绍了牛顿-拉弗森方法的原理以及收敛的充分条件）   
+>Ref: http://www.matrix67.com/blog/archives/361   
 
 求根号 a，也就是求解 `x^2 - a = 0` 的非负解。   
 这种算法的原理很简单，我们仅仅是不断用 (x,f(x)) 的切线来逼近方程 `x^2 - a = 0` 的根。   
@@ -141,7 +141,7 @@ double NewtonsMethod(double n)
 
 **牛顿迭代法快速寻找整数的整数平方根**
 
-Ref: https://en.wikipedia.org/wiki/Integer_square_root#Using_only_integer_division
+>Ref: https://en.wikipedia.org/wiki/Integer_square_root#Using_only_integer_division
 
 另外，运用牛顿迭代法，可以快速计算整数 a 的整数平方根 x。即`x * x <= a,(x+1) * (x+1)>a`。   
 
