@@ -21,8 +21,6 @@ ABC ACB BAC BCA CBA CAB
 
 Here is a solution that is used as a basis in **backtracking**.
 
-
-
 ![NewPermutation](https://github.com/HongfeiXu/LeetCode/blob/master/images/NewPermutation.gif?raw=true)
 
 Note : The below solution prints duplicate permutations if there are repeating characters in input string. 
@@ -81,7 +79,7 @@ public:
 };
 ```
 
-*更多的内容看代码：[Permutation.cpp](https://github.com/HongfeiXu/LeetCode/blob/master/notes/src/Permuatation.cpp)*
+*更多的内容看代码：[Permutation.cpp](https://github.com/HongfeiXu/LeetCode/blob/master/notes/src/Permuatation.h)*
 
 
 
