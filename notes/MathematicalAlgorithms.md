@@ -111,7 +111,8 @@ public:
 
 ### 2. Square root
 
-**牛顿迭代法快速寻找平方根 **  
+**牛顿迭代法快速寻找平方根**
+
 Ref: https://www.zhihu.com/question/20690553（详细介绍了牛顿-拉弗森方法的原理以及收敛的充分条件）   
 Ref: http://www.matrix67.com/blog/archives/361   
 
@@ -138,10 +139,12 @@ double NewtonsMethod(double n)
 }
 ```
 
-**牛顿迭代法快速寻找整数的整数平方根  **
+**牛顿迭代法快速寻找整数的整数平方根**
+
 Ref: https://en.wikipedia.org/wiki/Integer_square_root#Using_only_integer_division
 
 另外，运用牛顿迭代法，可以快速计算整数 a 的整数平方根 x。即`x * x <= a,(x+1) * (x+1)>a`。   
+
 运用带余除法改写上面的迭代式（好处是，这里中间结果只需要用整型值进行存储，不需要进行复杂的浮点数计算）：
 
 x[k+1] = floor((x[k] + floor(n/x[k]))/2), k >= 0, x[0] > 0, x[0] 是整数（x[k]也为整数）
