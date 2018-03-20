@@ -79,10 +79,7 @@ public:
 };
 ```
 
-*更多的内容看代码：[Permutation.cpp](https://github.com/HongfeiXu/LeetCode/blob/master/notes/src/Permuatation.h)*
-
-
-
+*更多的内容看代码：[Permutation.h](https://github.com/HongfeiXu/LeetCode/blob/master/notes/src/Permutation.h)*
 
 ## Some Small Useful Scripts
 
