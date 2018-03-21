@@ -12,6 +12,7 @@
 8. [Binary Tree](https://github.com/HongfeiXu/LeetCode/blob/master/notes/BinaryTree.md)
 9. [Bit Algorithms](https://github.com/HongfeiXu/LeetCode/blob/master/notes/BitAlgorithms.md)
 10. [Pattern Searching](https://github.com/HongfeiXu/LeetCode/blob/master/notes/PatternSearching.md)
+11. [Math Algorithms](https://github.com/HongfeiXu/LeetCode/blob/master/notes/MathematicalAlgorithms.md)
 
 ## Progress
 

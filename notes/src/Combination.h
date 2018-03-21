@@ -1,11 +1,10 @@
 #pragma once
 
 /*
-
+Date: 2018.3.20
 输入一个字符串，输出该字符串中字符的所有组合。举个例子，如果输入abc，它的组合有a、b、c、ab、ac、bc、abc。
 
-Date: 2018.3.20
-
+Ref: http://blog.csdn.net/hackbuteer1/article/details/7462447
 */
 
 #include <vector>
@@ -60,34 +59,55 @@ public:
 第一是把这个字符放到组合中去，接下来我们需要在剩下的n-1个字符中选取m-1个字符；
 第二是不把这个字符放到组合中去，接下来我们需要在剩下的n-1个字符中选择m个字符。
 
-求s中长度为1,2,3,...,s.size()的组合，则，只需要调用 combineAux 传入不同的长度作为参数即可。
+求str中长度为1,2,3,...,str.size()的组合，则，只需要调用 combineAux 传入不同的长度作为参数即可。
 */
 class Solution_v2 {
 public:
-	void combineAux(string s, int m, string& curr, vector<string>& result)
+	vector<string> combine(string str)
 	{
+		vector<string> result;
+		// 依次得到长为 1,2,...,str.size() 的组合
+		for (int i = 1; i <= str.size(); ++i)
+		{
+			string curr = "";
+			combineAux(str, 0, i, curr, result);
+		}
+		return result;
+	}
+
+	/*
+	在字符串 str的子串 str[i,i+1,...,str.size() - 1] 中选择长为 m 的字符组合
+	str: 输入字符串
+	i: 当前访问到的位置
+	curr: 当前组合
+	result: 结果
+
+	str.size() - i  为余下的字符长度
+	*/
+	void combineAux(const string& str, int i, int m, string& curr, vector<string>& result)
+	{
+		// 选取完成
 		if (m == 0)
 		{
 			result.push_back(curr);
 			return;
 		}
-		// 如果s已经为空，说明没有字符可供选择，而此时m不为0，说明还未能选够足够的字符，返回
-		if (s.empty())
-			return;
-		// 把这个字符放到组合中去，接下来我们需要在剩下的s.size()-1个字符中选取m-1个字符
-		curr.push_back(s[0]);
-		combineAux(s.substr(1), m - 1, curr, result);
-		curr.pop_back();
-		// 不把这个字符放到组合中去，接下来我们需要在剩下的s.size() - 1个字符中选择m个字符
-		combineAux(s.substr(1), m, curr, result);
-	}
 
-	vector<string> combine(string s)
-	{
-		vector<string> result;
-		string curr = "";
-		for(int i = 1; i <= s.size(); ++i)
-			combineAux(s, i, curr, result);
-		return result;
+		// 字符串遍历完毕但未完成 m 次选取
+		//if (i == str.size())
+		//{
+		//	return;
+		//}
+
+		// 若余下的字符全部选择也不足以达到还需要的 m，则直接返回（剪枝）
+		if (str.size() - i < m)
+			return;
+
+		// 选择 str[i]，则在余下的字符 str[i+1,...,str.size()-1] 中选择 m-1 个字符
+		curr.push_back(str[i]);
+		combineAux(str, i + 1, m - 1, curr, result);
+		curr.pop_back();
+		// 不选择 str[i]，则在余下的字符 str[i+1,...,str.size()-1] 中选择 m 个字符
+		combineAux(str, i + 1, m, curr, result);
 	}
 };

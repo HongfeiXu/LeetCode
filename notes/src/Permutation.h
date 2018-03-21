@@ -23,6 +23,7 @@ ABC ACB BAC BCA CBA CAB
 #include <vector>
 #include <unordered_set>
 #include <algorithm>
+#include <iterator>
 
 using namespace std;
 
@@ -50,6 +51,8 @@ public:
 	vector<string> permute(string a)
 	{
 		vector<string> result;
+		if (a.empty())
+			return result;
 		permuteAux(a, 0, a.size() - 1, result);
 		return result;
 	}
@@ -84,6 +87,8 @@ public:
 	vector<string> permute(string a)
 	{
 		vector<string> result;
+		if (a.empty())
+			return result;
 		string out = "";
 		permuteAux(a, out, result);
 		return result;
@@ -130,6 +135,8 @@ public:
 	vector<string> permute(string a)
 	{
 		vector<string> result;
+		if (a.empty())
+			return result;
 		permuteAux(a, 0, a.size() - 1, result);
 		return result;
 	}
@@ -158,11 +165,13 @@ public:
 
 	vector<string> permute(string a)
 	{
+		vector<string> ret;
+		if (a.empty())
+			return ret;
+
 		// use unordered_set to remove the duplicates
 		unordered_set<string> result;
 		permuteAux(a, 0, a.size() - 1, result);
-
-		vector<string> ret;
 		copy(result.begin(), result.end(), back_inserter(ret));
 		return ret;
 	}
@@ -178,8 +187,11 @@ class SolutionHandleDup_v3{
 public:
 	vector<string> permute(string a)
 	{
-		sort(a.begin(), a.end());
 		vector<string> result;
+		if (a.empty())
+			return result;
+
+		sort(a.begin(), a.end());
 		result.push_back(a);
 		while (next_permutation(a.begin(), a.end()))
 			result.push_back(a);
@@ -198,8 +210,10 @@ class SolutionHandleDup_v4 {
 public:
 	vector<string> permute(string a)
 	{
-		sort(a.begin(), a.end());
 		vector<string> result;
+		if (a.empty())
+			return result;
+		sort(a.begin(), a.end());
 		result.push_back(a);
 		while (nextPermutation(a.begin(), a.end()))
 			result.push_back(a);
