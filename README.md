@@ -218,7 +218,10 @@ Need to learn->
 |5. Longest Palindromic Substring			|CPP	|Middle Out			|COOOL		|
 |6. ZigZag Conversion						|CPP	|String				|Aha		|
 |7. Reverse Integer							|CPP	|Math				|			|
+|8. String to Integer (atoi)				|CPP	|String				|			|
 |9. Palindrome Number						|CPP	|Math				|			|
+|11. Container With Most Water				|CPP	|Array				|			|
+|12. Integer to Roman						|CPP	|Array				|TODO...	|
 |69. Sqrt(x)								|CPP	|Math				|			|
 
 > 1-100 2018.3.13 -- 

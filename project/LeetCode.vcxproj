@@ -167,6 +167,7 @@
     <ClInclude Include="src\CloneGraph.h" />
     <ClInclude Include="src\CombinationSum.h" />
     <ClInclude Include="src\ConstructStringFromBinaryTree.h" />
+    <ClInclude Include="src\ContainerWithMostWater.h" />
     <ClInclude Include="src\ContainsDuplicate.h" />
     <ClInclude Include="src\ContainsDuplicate2.h" />
     <ClInclude Include="src\ConvertSortedArrayToBinarySearchTree.h" />
@@ -202,6 +203,7 @@
     <ClInclude Include="src\HouseRobber.h" />
     <ClInclude Include="src\ImageSmoother.h" />
     <ClInclude Include="src\ImplementStrStr.h" />
+    <ClInclude Include="src\IntegerToRoman.h" />
     <ClInclude Include="src\IntersectionOfTwoArrays.h" />
     <ClInclude Include="src\IntersectionOfTwoArraysII.h" />
     <ClInclude Include="src\IsGraphBipartite.h" />
@@ -296,6 +298,7 @@
     <ClInclude Include="src\SlidingWindowMaximum.h" />
     <ClInclude Include="src\Sqrt_x.h" />
     <ClInclude Include="src\StringCompression.h" />
+    <ClInclude Include="src\StringToInteger.h" />
     <ClInclude Include="src\StudentAttendanceRecordI.h" />
     <ClInclude Include="src\SubstringWithConcatenationOfAllWords.h" />
     <ClInclude Include="src\SymmetricTree.h" />

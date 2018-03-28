@@ -43,21 +43,11 @@ public:
 					if (tempResult == target)
 						return tempResult;
 					if (abs(tempResult - target) < abs(result - target))
-					{
 						result = tempResult;
-						while (low < high && nums[low] == nums[low + 1])
-							low++;
-						while (low < high && nums[high] == nums[high - 1])
-							high--;
-					}
-					else if (tempResult < target)
-					{
+					if (tempResult < target)
 						low++;
-					}
 					else if (tempResult > target)
-					{
 						high--;
-					}
 				}
 			}
 		}

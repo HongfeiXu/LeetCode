@@ -84,9 +84,14 @@ public:
 	}
 
 
-	vector<vector<int>> threeSum_v2(vector<int>& nums)
+
+};
+
+class Solution_v2 {
+public:
+	vector<vector<int>> threeSum(vector<int>& nums)
 	{
-		vector<vector<int>> solutionSet;
+		vector<vector<int>> result;
 
 		sort(nums.begin(), nums.end());
 		for (int i = 0; i < static_cast<int>(nums.size()) - 2; i++)	// note: this static_cast is important, or when the nums is empty, error happens
@@ -95,31 +100,27 @@ public:
 			{
 				int low = i + 1;
 				int high = nums.size() - 1;
-				int twoSum = 0 - nums[i];
+				int two_sum = 0 - nums[i];
 				while (low < high)
 				{
-					if (nums[low] + nums[high] == twoSum)
+					if (nums[low] + nums[high] == two_sum)
 					{
-						solutionSet.push_back(vector<int>{nums[i], nums[low], nums[high]});
+						result.push_back(vector<int>{nums[i], nums[low], nums[high]});
 						// avoid duplicates
 						while (low < high && nums[low] == nums[low + 1])
-							low++;
+							++low;
 						while (low < high && nums[high] == nums[high - 1])
-							high--;
-						low++;
-						high--;
+							--high;
+						++low;
+						--high;
 					}
-					else if (nums[low] + nums[high] < twoSum)
-					{
-						low++;
-					}
+					else if (nums[low] + nums[high] < two_sum)
+						++low;
 					else
-					{
-						high--;
-					}
+						--high;
 				}
 			}
 		}
-		return solutionSet;
+		return result;
 	}
 };

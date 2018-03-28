@@ -11,7 +11,7 @@
 
 #include "HelpFunc.h"
 
-#include "NQueens.h"
+#include "ContainerWithMostWater.h"
 
 using namespace std;
 
@@ -28,17 +28,6 @@ int main()
 {
 	auto t0 = chrono::high_resolution_clock::now();
 
-	Solution solu;
-
-	vector<vector<string>> result;
-
-	result = solu.solveNQueens(4);
-
-	for (int i = 0; i < result.size(); i++)
-	{
-		PrintVector(result[i], '\n');
-		cout << endl;
-	}
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;
