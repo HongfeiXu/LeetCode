@@ -149,6 +149,7 @@
     <ClInclude Include="src\AddTwoNumbers.h" />
     <ClInclude Include="src\ArrayPartitionI.h" />
     <ClInclude Include="src\AssignCookies.h" />
+    <ClInclude Include="src\AStar.h" />
     <ClInclude Include="src\AverageOfLevelsInBinaryTree.h" />
     <ClInclude Include="src\BalancedBinaryTree.h" />
     <ClInclude Include="src\BestTimeToBuyAndSellStock.h" />
@@ -329,6 +330,7 @@
     <None Include="..\notes\BinaryTree.md" />
     <None Include="..\notes\BitAlgorithms.md" />
     <None Include="..\notes\DynamicProgramming.md" />
+    <None Include="..\notes\GeoAlgo.md" />
     <None Include="..\notes\Graph.md" />
     <None Include="..\notes\GreedyAlgorithm.md" />
     <None Include="..\notes\KMP.md" />

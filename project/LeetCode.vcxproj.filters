@@ -588,6 +588,9 @@
     <ClInclude Include="src\IntegerToRoman.h">
       <Filter>Header Files\1_100</Filter>
     </ClInclude>
+    <ClInclude Include="src\AStar.h">
+      <Filter>Header Files\Graph</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -626,6 +629,9 @@
       <Filter>Notes</Filter>
     </None>
     <None Include="..\notes\MathematicalAlgorithms.md">
+      <Filter>Notes</Filter>
+    </None>
+    <None Include="..\notes\GeoAlgo.md">
       <Filter>Notes</Filter>
     </None>
   </ItemGroup>

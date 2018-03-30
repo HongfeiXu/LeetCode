@@ -958,3 +958,302 @@ TODO
 
 TODO
 
+
+#### A* search algorthm
+
+>Ref: https://blog.csdn.net/hitwhylz/article/details/23089415
+>Ref: https://zh.wikipedia.org/wiki/A*%E6%90%9C%E5%AF%BB%E7%AE%97%E6%B3%95
+
+A*搜索算法，俗称A星算法。这是一种在图形平面上，有多个节点的路径，求出最低通过成本的算法。常用于游戏中的NPC的移动计算，或网络游戏的BOT的移动计算上。
+
+该算法综合了Best-First Search和Dijkstra算法的优点：在进行启发式搜索提高算法效率的同时，可以保证找到一条最优路径（基于评估函数）。
+
+在此算法中，如果以`g(n)`表示从起点到任意顶点`n`的实际距离，`h(n)`表示任意顶点`n`到目标顶点的估算距离（根据所采用的评估函数的不同而变化），那么A*算法的估算函数为：
+
+`f(n) = g(n) + h(n)`
+
+这个公式遵循以下特性：
+
+1. 如果`g(n)`为0，即只计算任意顶点n到目标的评估函数`h(n)`，而不计算起点到顶点`n`的距离，则算法转化为使用贪心策略的Best-First Search，速度最快，但可能得不出最优解；
+2. 如果`h(n)`不高于实际到目标顶点的距离，则一定可以求出最优解，而且`h(n)`越小，需要计算的节点越多，算法效率越低，常见的评估函数有——欧几里得距离、曼哈顿距离、切比雪夫距离；
+3. 如果`h(n)`为0，即只需求出起点到任意顶点`n`的最短路径`g(n)`，而不计算任何评估函数`h(n)`，则转化为单源最短路径问题，即Dijkstra算法，此时需要计算最多的定点；
+4. 如果`h(n)`大于实际到目标顶点的距离，不保证能找到最短路径，但速度比较快。
+
+```c
+function A*(start, goal)
+    // The set of nodes already evaluated
+    closedSet := {}
+
+    // The set of currently discovered nodes that are not evaluated yet.
+    // Initially, only the start node is known.
+    openSet := {start}
+
+    // For each node, which node it can most efficiently be reached from.
+    // If a node can be reached from many nodes, cameFrom will eventually contain the
+    // most efficient previous step.
+    cameFrom := an empty map
+
+    // For each node, the cost of getting from the start node to that node.
+    gScore := map with default value of Infinity
+
+    // The cost of going from start to start is zero.
+    gScore[start] := 0
+
+    // For each node, the total cost of getting from the start node to the goal
+    // by passing by that node. That value is partly known, partly heuristic.
+    fScore := map with default value of Infinity
+
+    // For the first node, that value is completely heuristic.
+    fScore[start] := heuristic_cost_estimate(start, goal)
+
+    while openSet is not empty
+        current := the node in openSet having the lowest fScore[] value
+        if current = goal
+            return reconstruct_path(cameFrom, current)
+
+        openSet.Remove(current)
+        closedSet.Add(current)
+
+        for each neighbor of current
+            if neighbor in closedSet
+                continue		// Ignore the neighbor which is already evaluated.
+
+            if neighbor not in openSet	// Discover a new node
+                openSet.Add(neighbor)
+            
+            // The distance from start to a neighbor
+            //the "dist_between" function may vary as per the solution requirements.
+            tentative_gScore := gScore[current] + dist_between(current, neighbor)
+            if tentative_gScore >= gScore[neighbor]
+                continue		// This is not a better path.
+
+            // This path is the best until now. Record it!
+            cameFrom[neighbor] := current
+            gScore[neighbor] := tentative_gScore
+            fScore[neighbor] := gScore[neighbor] + heuristic_cost_estimate(neighbor, goal) 
+
+    return failure
+
+function reconstruct_path(cameFrom, current)
+    total_path := [current]
+    while current in cameFrom.Keys:
+        current := cameFrom[current]
+        total_path.append(current)
+    return total_path
+```
+
+C++实现如下：
+
+```c++
+#pragma once
+
+/*
+
+Just Implement A* Search Algorithm!
+
+*/
+
+#include <set>
+#include <utility>
+#include <algorithm>
+#include <iostream>
+#include <iterator>
+#include <vector>
+#include <unordered_set>
+#include <cmath>
+
+using namespace std;
+
+// 代表图中的每个节点，关键字为 pos，用来
+class Node {
+public:
+	pair<int, int> parent_pos;
+	double g;
+	double h;
+	double f;
+	Node() : parent_pos({ -1,-1}), g(FLT_MAX), h(FLT_MAX), f(FLT_MAX)
+	{
+	}
+};
+
+bool isInvalid(const vector<vector<int>>& grid, const pair<int, int>& pos)
+{
+	if (pos.first < 0 || pos.second < 0 || pos.first >= grid.size() || pos.second >= grid[0].size())
+		return true;
+	else
+		return false;
+}
+
+bool isBlocked(const vector<vector<int>>& grid, const pair<int, int>& pos)
+{
+	return grid[pos.first][pos.second] == 0;
+}
+
+bool isDestination(const pair<int, int>& pos, const pair<int, int>& des)
+{
+	return pos == des;
+}
+
+// 这里的评估函数为欧几里得距离Euclidean Distance
+// TODO: 尝试曼哈顿距离，切比雪夫距离
+double calculateHValue(const pair<int, int>& curr, const pair<int, int>& des)
+{
+	return sqrt((curr.first - des.first)*(curr.first - des.first) + (curr.second - des.second) * (curr.second - des.second));
+}
+
+// 从 des 向前按照 parent_pos 确定路径，直到到达 src 停止
+void reconstructPath(const vector<vector<Node>>& cells, const pair<int, int>& src, const pair<int, int>& des)
+{
+	vector<pair<int, int>> path;
+	
+	pair<int, int> temp = des;
+	while (temp != src)
+	{
+		path.push_back(temp);
+		temp = cells[temp.first][temp.second].parent_pos;
+	}
+	path.push_back(src);
+	for (auto it = path.rbegin(); it != path.rend(); ++it)
+	{
+		if (it != path.rend() - 1)
+			cout << "(" << it->first << ", " << it->second << ")->";
+		else
+			cout << "(" << it->first << ", " << it->second << ")";
+	}
+	cout << endl;
+}
+
+// 寻找邻居节点，（不包括 block 以及非法的位置（超出grid的位置））
+// 另外，这里允许路径穿墙通过（沿着对角线通过）
+// 不负责清理 neighbor_nodes
+void calculateNeighborNodes(const vector<vector<int>>& grid, const pair<int, int>& curr, vector<pair<int, int>>& neighbor_nodes)
+{
+	// 保存8个方向的候选邻居节点
+	vector<pair<int, int>> candidates(8, { 0,0 });
+	candidates[0] = { curr.first - 1, curr.second };
+	candidates[1] = { curr.first + 1, curr.second };
+	candidates[2] = { curr.first, curr.second - 1 };
+	candidates[3] = { curr.first, curr.second + 1 };
+	candidates[4] = { curr.first - 1, curr.second - 1 };
+	candidates[5] = { curr.first - 1, curr.second + 1 };
+	candidates[6] = { curr.first + 1, curr.second - 1 };
+	candidates[7] = { curr.first + 1, curr.second + 1 };
+	for (int i = 0; i < 8; ++i)
+	{
+		// 注意，要先判断是否合法，然后在判断是否 block
+		if(isInvalid(grid, candidates[i]) ||isBlocked(grid, candidates[i]))
+			continue;
+		neighbor_nodes.push_back(candidates[i]);
+	}
+}
+
+// 计算 curr 节点 和邻居节点之间的距离，对角线方向的邻居距离为 1.4，其余为1.0
+double distanceBetween(const pair<int, int>& curr, const pair<int, int>& neighbor)
+{
+	if (abs(curr.first - neighbor.first) == 1 && abs(curr.second - neighbor.second) == 1)
+		return 1.4;
+	else
+		return 1.0;
+}
+
+void aStarSearch(const vector<vector<int>>& grid, const pair<int, int>& src, const pair<int, int>& des)
+{
+	if(grid.empty() || grid[0].empty())
+	{
+		cout << "grid invalid" << endl;
+		return;
+	}
+	if (isInvalid(grid, src) || isInvalid(grid, des))
+	{
+		cout << "src or des invalid" << endl;
+		return;
+	}
+	if (isBlocked(grid, src) || isBlocked(grid, des))
+	{
+		cout << "src or des blocked" << endl;
+		return;
+	}
+
+	int m = grid.size(), n = grid[0].size();
+
+	// 存储当前已经发现但没有评估的节点，包括 f 值 和节点在 grid 中的位置
+	set<pair<double, pair<int, int>>> open_set;
+	// 存储已经评估过的节点
+	set<pair<int, int>> closed_set;
+	// 存储所有节点的信息，包括节点的父节点位置，节点的g,h,f值。
+	// 默认节点的g,f,h值均为 FLT_MAX
+	vector<vector<Node>> cells(m, vector<Node>(n));
+
+	cells[src.first][src.second].g = 0;
+	cells[src.first][src.second].h = calculateHValue(src, des);
+	cells[src.first][src.second].f = cells[src.first][src.second].g + cells[src.first][src.second].h;
+	open_set.insert({ cells[src.first][src.second].f, src });
+	while (!open_set.empty())
+	{
+		pair<int, int> curr_pos = (*open_set.begin()).second;
+		// 出队判断
+		if (curr_pos == des)
+		{
+			cout << "Reconstruct path: " << endl;
+			reconstructPath(cells, src, des);
+			return;
+		}
+		open_set.erase(open_set.begin());
+		closed_set.insert(curr_pos);
+
+		vector<pair<int, int>> neighbor_nodes;
+		calculateNeighborNodes(grid, curr_pos, neighbor_nodes);
+		for (const auto& neighbor : neighbor_nodes)
+		{
+			if (closed_set.find(neighbor) != closed_set.end())
+				continue;
+			// neighbor 不在 open_set 中（f值未被更新）
+			if (cells[neighbor.first][neighbor.second].f == FLT_MAX)
+			{
+				cells[neighbor.first][neighbor.second].parent_pos = curr_pos;
+				cells[neighbor.first][neighbor.second].g = cells[curr_pos.first][curr_pos.second].g + distanceBetween(curr_pos, neighbor);
+				cells[neighbor.first][neighbor.second].h = calculateHValue(neighbor, des);
+				cells[neighbor.first][neighbor.second].f = cells[neighbor.first][neighbor.second].g + cells[neighbor.first][neighbor.second].h;
+				// 将 neighbor 加入 open_set 中
+				open_set.insert({ cells[neighbor.first][neighbor.second].f, neighbor });
+			}
+			// neighbor 在 open_set 中
+			else
+			{
+				double tentative_g = cells[curr_pos.first][curr_pos.second].g + distanceBetween(curr_pos, neighbor);
+				// 如果从curr到neighor比具有更小的g值，则更新 neighbor 的父节点，以及 g,h,f 值
+				if (tentative_g < cells[neighbor.first][neighbor.second].g)
+				{
+					cells[neighbor.first][neighbor.second].parent_pos = curr_pos;
+					cells[neighbor.first][neighbor.second].g = tentative_g;
+					cells[neighbor.first][neighbor.second].h = calculateHValue(neighbor, des);
+					cells[neighbor.first][neighbor.second].f = cells[neighbor.first][neighbor.second].g + cells[neighbor.first][neighbor.second].h;
+				}
+			}
+		}
+	}
+	cout << "Rescontruct path failed!" << endl;
+}
+
+void test()
+{
+	/* Description of the Grid-
+	1--> The cell is not blocked
+	0--> The cell is blocked    */
+	vector<vector<int>> grid = 
+	{
+		{ 1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
+		{ 1, 1, 1, 0, 1, 1, 1, 0, 1, 1 },
+		{ 1, 1, 1, 0, 1, 1, 0, 1, 0, 1 },
+		{ 0, 0, 1, 0, 1, 0, 0, 0, 0, 1 },
+		{ 1, 1, 1, 0, 1, 1, 1, 0, 1, 0 },
+		{ 1, 0, 1, 1, 1, 1, 0, 1, 0, 0 },
+		{ 1, 0, 0, 0, 0, 1, 0, 0, 0, 1 },
+		{ 1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
+		{ 1, 1, 1, 0, 0, 0, 1, 0, 0, 1 } 
+	};
+
+	aStarSearch(grid, { 8, 0 }, { 0 ,0 });
+}
+
+```
