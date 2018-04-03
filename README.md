@@ -226,6 +226,11 @@ Need to learn->
 
 > 1-100 2018.3.13 -- 
 
+| Problem                                  | Answer | Tags             | Comment |
+| ---------------------------------------- | ------ | ---------------- | ------- |
+| A* search algorithm					| CPP		| Graph			|COOL		|
+>Other(Not Leetcode)
+
 ## Tips
 
 1. 使用 vector 下标索引元素时，提醒自己下标是否合法，vector 是否为空，有没有对一些极端情况作出处理。
