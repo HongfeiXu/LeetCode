@@ -634,5 +634,8 @@
     <None Include="..\notes\GeoAlgo.md">
       <Filter>Notes</Filter>
     </None>
+    <None Include="..\notes\LinkedList.md">
+      <Filter>Notes</Filter>
+    </None>
   </ItemGroup>
 </Project>

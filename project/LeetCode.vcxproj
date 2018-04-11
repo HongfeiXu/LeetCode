@@ -335,6 +335,7 @@
     <None Include="..\notes\GreedyAlgorithm.md" />
     <None Include="..\notes\KMP.md" />
     <None Include="..\notes\LargestSumContiguousSubarray.md" />
+    <None Include="..\notes\LinkedList.md" />
     <None Include="..\notes\MathematicalAlgorithms.md" />
     <None Include="..\notes\SlidingWindowAlgorithmTemplate.md" />
     <None Include="..\README.md" />
