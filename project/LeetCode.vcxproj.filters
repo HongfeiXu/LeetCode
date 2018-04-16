@@ -591,6 +591,9 @@
     <ClInclude Include="src\AStar.h">
       <Filter>Header Files\Graph</Filter>
     </ClInclude>
+    <ClInclude Include="src\MergeTwoSortedLists.h">
+      <Filter>Header Files\1_100</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">

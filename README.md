@@ -222,7 +222,9 @@ Need to learn->
 |9. Palindrome Number						|CPP	|Math				|			|
 |11. Container With Most Water				|CPP	|Array				|			|
 |12. Integer to Roman						|CPP	|Array				|TODO...	|
+|21. Merge Two Sorted Lists					|CPP	|Linked List		|			|
 |69. Sqrt(x)								|CPP	|Math				|			|
+
 
 > 1-100 2018.3.13 -- 
 

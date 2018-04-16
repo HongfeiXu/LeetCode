@@ -240,6 +240,7 @@
     <ClInclude Include="src\MaximumWidthOfBinaryTree.h" />
     <ClInclude Include="src\MedianOfTwoSortedArrays.h" />
     <ClInclude Include="src\MergeSortedArray.h" />
+    <ClInclude Include="src\MergeTwoSortedLists.h" />
     <ClInclude Include="src\MinCostClimbingStairs.h" />
     <ClInclude Include="src\Minesweeper.h" />
     <ClInclude Include="src\MinimumDepthOfBinaryTree.h" />
