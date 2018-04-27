@@ -8,10 +8,11 @@
 #include <bitset>
 #include <unordered_map>
 #include <cassert>
+#include <algorithm>
 
 #include "HelpFunc.h"
 
-#include "MergeTwoSortedLists.h"
+#include "MergeKSortedLists.h"
 
 using namespace std;
 
@@ -24,6 +25,7 @@ using namespace std;
 //	midorder(root->right);
 //}
 
+
 int main()
 {
 	auto t0 = chrono::high_resolution_clock::now();
@@ -32,7 +34,7 @@ int main()
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;
-	
+
 	return 0;
 }
 

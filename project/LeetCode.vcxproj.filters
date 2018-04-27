@@ -52,6 +52,12 @@
     <Filter Include="Header Files\1_100">
       <UniqueIdentifier>{15a301d0-428a-4b0e-b737-50c65c1a049e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{f8b5a176-b068-479c-bcb3-5ca27450e851}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{57db7651-0e06-403a-a73e-922254fa7c2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\HelpFunc.h">
@@ -594,10 +600,19 @@
     <ClInclude Include="src\MergeTwoSortedLists.h">
       <Filter>Header Files\1_100</Filter>
     </ClInclude>
+    <ClInclude Include="src\MergeKSortedLists.h">
+      <Filter>Header Files\1_100</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyList.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyList.cpp">
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

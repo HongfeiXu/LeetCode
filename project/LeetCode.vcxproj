@@ -239,6 +239,7 @@
     <ClInclude Include="src\MaximumSwap.h" />
     <ClInclude Include="src\MaximumWidthOfBinaryTree.h" />
     <ClInclude Include="src\MedianOfTwoSortedArrays.h" />
+    <ClInclude Include="src\MergeKSortedLists.h" />
     <ClInclude Include="src\MergeSortedArray.h" />
     <ClInclude Include="src\MergeTwoSortedLists.h" />
     <ClInclude Include="src\MinCostClimbingStairs.h" />
@@ -251,6 +252,7 @@
     <ClInclude Include="src\MissingNumber.h" />
     <ClInclude Include="src\MoveZeroes.h" />
     <ClInclude Include="src\MultiplyStrings.h" />
+    <ClInclude Include="src\MyList.h" />
     <ClInclude Include="src\NetworkDelayTime.h" />
     <ClInclude Include="src\NextClosestTime.h" />
     <ClInclude Include="src\Non-decreasingArray.h" />
@@ -325,6 +327,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MyList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\notes\Backtracking.md" />
