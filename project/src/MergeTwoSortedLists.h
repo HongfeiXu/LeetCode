@@ -35,33 +35,35 @@ public:
 		if (l2 == nullptr)
 			return l1;
 
-		// l1的首元素不大于l2的首元素
+		// l1的首元素不大于l2的首元素，则新链表中的第一个元素一定是 *l1
 		if (l1->val > l2->val)
 			swap(l1, l2);
 		
 		// 向l1中逐个插入l2中的元素
-		ListNode* curr_l1 = l1;
-		ListNode* curr_l2 = l2;
-		ListNode* next_l2 = l2->next;
-		while (curr_l2 != nullptr)
+		ListNode* pre = nullptr;	// pre 指向 curr 的前一个节点
+		ListNode* curr = l1;		// curr 指向当前合并后有序的新链表的最后一个节点
+		ListNode* r_node = l2;
+		while (r_node != nullptr)
 		{
-			while (curr_l1->next != nullptr && curr_l1->next->val <= curr_l2->val)
+			// 寻找 r_node 要插入到 lhs 中的位置（在lhs中找寻第一个比r_node大的节点curr）
+			while (curr != nullptr && r_node->val >= curr->val)
 			{
-				curr_l1 = curr_l1->next;
+				pre = curr;
+				curr = curr->next;
 			}
-			// 如果 l1 中不存在比 curr_l2->val 大的元素，则直接把 l2 余下的元素连接到 l1 的末端
-			if (curr_l1->next == nullptr)
+
+			// 若当前节点r_node大于所有lhs中余下的节点，则直接将rhs接到lhs的尾部
+			if (curr == nullptr)
 			{
-				curr_l1->next = curr_l2;
-				return l1;
+				pre->next = r_node;
+				break;
 			}
-			// 将 curr_l2 插入到 curr_l1 的后面
-			curr_l2->next = curr_l1->next;
-			curr_l1->next = curr_l2;
-			// 更新 curr_l1, curr_l2, next_l2
-			curr_l1 = curr_l1->next;
-			curr_l2 = next_l2;
-			next_l2 = curr_l2 == nullptr ? nullptr : curr_l2->next;
+
+			// 将当前节点r_node插入pre后面，更新pre指针
+			pre->next = r_node;
+			r_node = r_node->next;
+			pre->next->next = curr;
+			pre = pre->next;
 		}
 		return l1;
 	}
@@ -78,7 +80,9 @@ void driver()
 	b.next = &c;
 
 	ListNode A(5);
+	ListNode B(7);
 	ListNode* l2 = &A;
+	A.next = &B;
 
 	Solution solu;
 	ListNode* l3 = solu.mergeTwoLists(l1, l2);
