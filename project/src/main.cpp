@@ -12,7 +12,7 @@
 
 #include "HelpFunc.h"
 
-#include "MergeKSortedLists.h"
+#include "Trie.h"
 
 using namespace std;
 

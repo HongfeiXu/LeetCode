@@ -14,6 +14,7 @@
 10. [Pattern Searching](https://github.com/HongfeiXu/LeetCode/blob/master/notes/PatternSearching.md)
 11. [Math Algorithms](https://github.com/HongfeiXu/LeetCode/blob/master/notes/MathematicalAlgorithms.md)
 12. [Geometric Algorithms](https://github.com/HongfeiXu/LeetCode/blob/master/notes/GeoAlgo.md)
+13. [Trie](https://github.com/HongfeiXu/LeetCode/blob/master/notes/Trie.md)
 
 ## Progress
 

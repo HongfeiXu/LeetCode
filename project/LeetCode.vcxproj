@@ -310,6 +310,7 @@
     <ClInclude Include="src\TheMaze.h" />
     <ClInclude Include="src\ThirdMaximumNumber.h" />
     <ClInclude Include="src\TrappingRainWater.h" />
+    <ClInclude Include="src\Trie.h" />
     <ClInclude Include="src\TwoKeysKeyboard.h" />
     <ClInclude Include="src\TwoSum.h" />
     <ClInclude Include="src\TwoSum2.h" />
@@ -342,6 +343,7 @@
     <None Include="..\notes\LinkedList.md" />
     <None Include="..\notes\MathematicalAlgorithms.md" />
     <None Include="..\notes\SlidingWindowAlgorithmTemplate.md" />
+    <None Include="..\notes\Trie.md" />
     <None Include="..\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

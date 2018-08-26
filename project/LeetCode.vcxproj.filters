@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Header Files\Array">
       <UniqueIdentifier>{d4c8bae0-9c34-4a06-bc11-631c53bc7ecc}</UniqueIdentifier>
     </Filter>
@@ -60,9 +56,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\HelpFunc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\MaximumSwap.h">
       <Filter>Header Files\Array</Filter>
     </ClInclude>
@@ -606,6 +599,12 @@
     <ClInclude Include="src\MyList.h">
       <Filter>Header Files\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="src\Trie.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HelpFunc.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -653,6 +652,9 @@
       <Filter>Notes</Filter>
     </None>
     <None Include="..\notes\LinkedList.md">
+      <Filter>Notes</Filter>
+    </None>
+    <None Include="..\notes\Trie.md">
       <Filter>Notes</Filter>
     </None>
   </ItemGroup>
