@@ -55,22 +55,22 @@ public:
 	}
 };
 
-class Solution_v2 {
+class Solution_v3 {
 public:
 	int climbStairs(int n)
 	{
-		if (n == 1)
-			return 1;
-		int pre = 0;
-		int prepre = 1;
-		int curr = 0;
-		for (int i = 2; i <= n; ++i)
+		int dp[2] = { 1, 2 };
+		if (n < 3)
 		{
-			curr = pre + prepre;
-			pre = prepre;
-			prepre = curr;
+			return dp[n - 1];
 		}
-
-		return curr;
+		int temp = 0;
+		for (int i = 3; i <= n; ++i)
+		{
+			temp = dp[1];
+			dp[1] += dp[0];
+			dp[0] = temp;
+		}
+		return dp[1];
 	}
 };
