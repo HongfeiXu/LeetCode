@@ -270,6 +270,7 @@
     <ClInclude Include="src\PascalsTriangle.h" />
     <ClInclude Include="src\PascalsTriangle2.h" />
     <ClInclude Include="src\PathSum.h" />
+    <ClInclude Include="src\Permutations.h" />
     <ClInclude Include="src\PlusOne.h" />
     <ClInclude Include="src\QueueReconstructionByHeight.h" />
     <ClInclude Include="src\RangeSumQuery.h" />

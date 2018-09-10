@@ -225,6 +225,7 @@ Need to learn->
 |12. Integer to Roman						|CPP	|Array				|TODO...	|
 |21. Merge Two Sorted Lists					|CPP	|Linked List		|Important	|
 |23. Merge k Sorted Lists					|CPP	|Linked List		|			|
+|46. Permutations							|CPP	|Backtracking		|			|
 |69. Sqrt(x)								|CPP	|Math				|			|
 
 

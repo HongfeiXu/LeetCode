@@ -12,7 +12,7 @@
 
 #include "HelpFunc.h"
 
-#include "Trie.h"
+#include "Permutations.h"
 
 using namespace std;
 
@@ -28,8 +28,6 @@ using namespace std;
 
 int main()
 {
-	cout << "hello world" << endl;
-
 	auto t0 = chrono::high_resolution_clock::now();
 
 	driver();
