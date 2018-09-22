@@ -4,6 +4,8 @@
 
 Just Implement A* Search Algorithm!
 
+Ref: https://www.gamedev.net/articles/programming/artificial-intelligence/a-pathfinding-for-beginners-r2003/
+
 */
 
 #include <set>
