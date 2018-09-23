@@ -12,7 +12,6 @@
 
 #include "HelpFunc.h"
 
-#include "AStar.h"
 
 using namespace std;
 
@@ -30,7 +29,7 @@ int main()
 {
 	auto t0 = chrono::high_resolution_clock::now();
 
-	test();
+	//test();
 
 	auto t1 = chrono::high_resolution_clock::now();
 	cout << "Time: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms" << endl;

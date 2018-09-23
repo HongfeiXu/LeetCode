@@ -20,7 +20,7 @@ All root-to-leaf paths are:
 
 Approach:
 
-DP
+dfs
       1
   ->2  ->3
 ->5

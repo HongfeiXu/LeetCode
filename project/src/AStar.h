@@ -5,7 +5,8 @@
 Just Implement A* Search Algorithm!
 
 Ref: https://www.gamedev.net/articles/programming/artificial-intelligence/a-pathfinding-for-beginners-r2003/
-
+Ref: https://www.geeksforgeeks.org/a-search-algorithm/
+Ref: 游戏编程算法与技巧
 */
 
 #include <set>
@@ -19,7 +20,6 @@ Ref: https://www.gamedev.net/articles/programming/artificial-intelligence/a-path
 
 using namespace std;
 
-// 代表图中的每个节点，关键字为 pos，用来
 class Node {
 public:
 	pair<int, int> parent_pos;
@@ -176,7 +176,7 @@ void aStarSearch(const vector<vector<int>>& grid, const pair<int, int>& src, con
 			else
 			{
 				double tentative_g = cells[curr_pos.first][curr_pos.second].g + distanceBetween(curr_pos, neighbor);
-				// 如果从curr到neighor比具有更小的g值，则更新 neighbor 的父节点，以及 g,h,f 值
+				// 如果从curr到neighbor比原先父节点到neighbor具有更小的g值，则更新 neighbor 的父节点，以及 g,h,f 值
 				if (tentative_g < cells[neighbor.first][neighbor.second].g)
 				{
 					cells[neighbor.first][neighbor.second].parent_pos = curr_pos;
