@@ -27,22 +27,22 @@ will result in no division by zero and there is no contradiction.
 
 Approach:
 
-Ë¼Ïë£º
+æ€æƒ³ï¼š
 
-¸ù¾İ equations ºÍ values ½¨Á¢´øÈ¨ÓĞÏòÍ¼ G£¬±ß u->v µÄÈ¨ÖµÎª u/v£¬£¨ÌâÖĞÖ¸³öËùÓĞ value ¾ùÎªÕıÊı£¬ËùÒÔ u/v ´æÔÚÔò v/u ±Ø¶¨´æÔÚ£©
-Ôò v->u µÄÈ¨ÖµÎª v/u¡£
+æ ¹æ® equations å’Œ values å»ºç«‹å¸¦æƒæœ‰å‘å›¾ Gï¼Œè¾¹ u->v çš„æƒå€¼ä¸º u/vï¼Œï¼ˆé¢˜ä¸­æŒ‡å‡ºæ‰€æœ‰ value å‡ä¸ºæ­£æ•°ï¼Œæ‰€ä»¥ u/v å­˜åœ¨åˆ™ v/u å¿…å®šå­˜åœ¨ï¼‰
+åˆ™ v->u çš„æƒå€¼ä¸º v/uã€‚
 
-¶ÔÓÚ queries ÖĞµÄ x/y£¬
-Èç¹û x Óë y ÖĞÈÎÒâÒ»¸ö²»ÔÙÍ¼ÖĞ³öÏÖ£¬Ôò·µ»Ø -1.0
-·ñÔò£¬²éÕÒ x µ½ y µÄÂ·¾¶£¬£¨DFS£¬¼û´úÂë£©
-	ÈôÂ·¾¶´æÔÚ x->a->b->y Ôò£¬ x/y = x/a * a/b * b/y
-	ÈôÂ·¾¶²»´æÔÚ£¬Ôò x/y = -1.0
+å¯¹äº queries ä¸­çš„ x/yï¼Œ
+å¦‚æœ x ä¸ y ä¸­ä»»æ„ä¸€ä¸ªä¸å†å›¾ä¸­å‡ºç°ï¼Œåˆ™è¿”å› -1.0
+å¦åˆ™ï¼ŒæŸ¥æ‰¾ x åˆ° y çš„è·¯å¾„ï¼Œï¼ˆDFSï¼Œè§ä»£ç ï¼‰
+	è‹¥è·¯å¾„å­˜åœ¨ x->a->b->y åˆ™ï¼Œ x/y = x/a * a/b * b/y
+	è‹¥è·¯å¾„ä¸å­˜åœ¨ï¼Œåˆ™ x/y = -1.0
 
 Approach v2:
 
-ÓëÉÏÃæÀàËÆ£¬²»¹ıÕâÀï²»ÏÔÊ¾µÄÇó³öÂ·¾¶£¬¶øÊÇ½øĞĞµİ¹éĞÎÊ½µÄ dfs£¬
-°´ÕÕµİ¹éÊ½ from/to = from/neighbor.first * neighbor.first/to£¬Èç¹ûµ±Ç° neighbor ²»´æÔÚµ½´ï to µÄÂ·¾¶£¬Ôò¿¼²ìÏÂÒ»¸ö neighbor£¬
-Èç¹ûÈ«²¿ neighbor ¶¼¿¼²ìÍê±Ï£¬ÎŞ·¨µ½´ï  to£¬ÔòËµÃ÷ from ÎŞ·¨µ½´ï to£¬·µ»Ø0.
+ä¸ä¸Šé¢ç±»ä¼¼ï¼Œä¸è¿‡è¿™é‡Œä¸æ˜¾ç¤ºçš„æ±‚å‡ºè·¯å¾„ï¼Œè€Œæ˜¯è¿›è¡Œé€’å½’å½¢å¼çš„ dfsï¼Œ
+æŒ‰ç…§é€’å½’å¼ from/to = from/neighbor.first * neighbor.first/toï¼Œå¦‚æœå½“å‰ neighbor ä¸å­˜åœ¨åˆ°è¾¾ to çš„è·¯å¾„ï¼Œåˆ™è€ƒå¯Ÿä¸‹ä¸€ä¸ª neighborï¼Œ
+å¦‚æœå…¨éƒ¨ neighbor éƒ½è€ƒå¯Ÿå®Œæ¯•ï¼Œæ— æ³•åˆ°è¾¾  toï¼Œåˆ™è¯´æ˜ from æ— æ³•åˆ°è¾¾ toï¼Œè¿”å›0.
 
 */
 
@@ -74,7 +74,7 @@ public:
 
 		for (auto query : queries)
 		{
-			// Èô x »òÕß y ÖĞÓĞÒ»¸ö²»´æÔÚ
+			// è‹¥ x æˆ–è€… y ä¸­æœ‰ä¸€ä¸ªä¸å­˜åœ¨
 			if (g.find(query.first) == g.end() || g.find(query.second) == g.end())
 			{
 				result.push_back(-1);
@@ -88,14 +88,14 @@ public:
 				continue;
 			}
 
-			// x, y ÏàÁÚ
+			// x, y ç›¸é‚»
 			if (g[query.first].find(query.second) != g[query.first].end())
 			{
 				result.push_back(g[query.first][query.second]);
 				continue;
 			}
 			
-			// Ñ°ÕÒ x µ½ y µÄÂ·¾¶£¨¿ÉÄÜ²»´æÔÚ£©
+			// å¯»æ‰¾ x åˆ° y çš„è·¯å¾„ï¼ˆå¯èƒ½ä¸å­˜åœ¨ï¼‰
 			vector<string> path = dfs(query.first, query.second, g);
 			if (!path.empty())
 			{
@@ -110,7 +110,7 @@ public:
 		return result;
 	}
 
-	// Ê¹ÓÃÉî¶ÈÓÅÏÈËÑË÷·½Ê½£¬ÕÒµ½ x µ½ y µÄÂ·¾¶ path£¬Èç¹û²»´æÔÚÔòÎª¿Õ
+	// ä½¿ç”¨æ·±åº¦ä¼˜å…ˆæœç´¢æ–¹å¼ï¼Œæ‰¾åˆ° x åˆ° y çš„è·¯å¾„ pathï¼Œå¦‚æœä¸å­˜åœ¨åˆ™ä¸ºç©º
 	vector<string> dfs(string x, string y, unordered_map<string, unordered_map<string, double>>& g)
 	{
 		vector<string> path;
@@ -121,10 +121,10 @@ public:
 		while (!dfs.empty())
 		{
 			string curr_node = dfs.top();
-			// ÈôÕÒµ½Ä¿±ê½Úµã£¬ÔòÍË³öÑ­»·£¬´ÓÕ»µ×µ½Õ»¶¥¼´Îª x µ½ y µÄÒ»Ìõ
+			// è‹¥æ‰¾åˆ°ç›®æ ‡èŠ‚ç‚¹ï¼Œåˆ™é€€å‡ºå¾ªç¯ï¼Œä»æ ˆåº•åˆ°æ ˆé¡¶å³ä¸º x åˆ° y çš„ä¸€æ¡
 			if(curr_node == y)
 				break;
-			bool found = false;	// curr_node ÊÇ·ñ»¹ÓĞÃ»ÓĞ±»·ÃÎÊµÄÁÚ¾Ó
+			bool found = false;	// curr_node æ˜¯å¦è¿˜æœ‰æ²¡æœ‰è¢«è®¿é—®çš„é‚»å±…
 			for (auto neighbor : g[curr_node])
 			{
 				if (visited.find(neighbor.first) == visited.end())
@@ -135,7 +135,7 @@ public:
 					break;
 				}
 			}
-			// curr_node µÄËùÓĞÁÚ¾Ó½Úµã¶¼±»·ÃÎÊ¹ı£¬ÇÒÃ»ÓĞ·¢ÏÖ y ½Úµã£¬Ôò curr_node Ò»¶¨²»ÔÙ´Ó x µ½ y µÄ path ÉÏ
+			// curr_node çš„æ‰€æœ‰é‚»å±…èŠ‚ç‚¹éƒ½è¢«è®¿é—®è¿‡ï¼Œä¸”æ²¡æœ‰å‘ç° y èŠ‚ç‚¹ï¼Œåˆ™ curr_node ä¸€å®šä¸å†ä» x åˆ° y çš„ path ä¸Š
 			if (!found)
 				dfs.pop();
 		}
@@ -180,7 +180,7 @@ public:
 		return result;
 	}
 
-	// µİ¹éÇó½â from/to£¬Èç¹û²»´æÔÚ£¬·µ»Ø 0£¨from »ò to ²»ÔÚÍ¼ÖĞ£¬from == to ¶¼¿ÉÒÔÖ±½Ó handle£©
+	// é€’å½’æ±‚è§£ from/toï¼Œå¦‚æœä¸å­˜åœ¨ï¼Œè¿”å› 0ï¼ˆfrom æˆ– to ä¸åœ¨å›¾ä¸­ï¼Œfrom == to éƒ½å¯ä»¥ç›´æ¥ handleï¼‰
 	// from/to = from/neighbor.first * neighbor.first/to
 	double dfs(string from, string to, 
 			   unordered_set<string>& visited, 
@@ -195,14 +195,14 @@ public:
 		{
 			if (visited.find(neighbor.first) == visited.end())
 			{
-				// Çó neighbor.first / to
+				// æ±‚ neighbor.first / to
 				double temp = dfs(neighbor.first, to, visited, g);
-				// Èôtemp != 0£¬ËµÃ÷´æÔÚÂ·¾¶£¬¹Ê£¬from/to = from/neighbor.first * neighbor.first/to£¬Ö±½Ó·µ»Ø
+				// è‹¥temp != 0ï¼Œè¯´æ˜å­˜åœ¨è·¯å¾„ï¼Œæ•…ï¼Œfrom/to = from/neighbor.first * neighbor.first/toï¼Œç›´æ¥è¿”å›
 				if (temp != 0)
 					return temp * g[from][neighbor.first];
 			}
 		}
-		// Èç¹û´Ó from µ½²»ÁË to£¬Ôò£¬·µ»Ø 0
+		// å¦‚æœä» from åˆ°ä¸äº† toï¼Œåˆ™ï¼Œè¿”å› 0
 		return 0;
 	}
 };

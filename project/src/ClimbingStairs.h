@@ -29,7 +29,7 @@ Explanation:  There are three ways to climb to the top.
 Approach:
 
 C[n] = C[n-1] + C[n-2]
-µ½´ïµÚn¸öÌ¨½×µÄ·½·¨Êý = µ½´ïµÚn-2¸öÌ¨½×µÄ·½·¨Êé + µ½´ïµÚn-1¸öÌ¨½×µÄ·½·¨Êý
+åˆ°è¾¾ç¬¬nä¸ªå°é˜¶çš„æ–¹æ³•æ•° = åˆ°è¾¾ç¬¬n-2ä¸ªå°é˜¶çš„æ–¹æ³•ä¹¦ + åˆ°è¾¾ç¬¬n-1ä¸ªå°é˜¶çš„æ–¹æ³•æ•°
 C[0] = 1
 C[1] = 1
 

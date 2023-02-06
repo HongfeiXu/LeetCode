@@ -7,7 +7,7 @@
 Given n pairs of parentheses, write a function to
 generate all combinations of well-formed parentheses.
 
-����������ӱ
+方法都很新颖
 
 Related Topics: String, Backtracking
 
@@ -20,10 +20,10 @@ and the right parenthesis (m) to be added. At each function call add a left pare
 if n >0 and add a right parenthesis if m>0.
 Append the result and terminate recursive calls when both m and n are zero.
 
-��ʼʱ���ɼ������������ĿΪn,�ɼ������������ĿΪ0
-ÿ����һ��"("�����Լ����")"���ֻ��1���ɼ����"("���ֻ��1��
-ÿ����һ��")"���ɼ����")"���ֻ��1��
-ֱ��û�пɼ��������Ϊֹ��
+初始时，可加入的左括号数目为n,可加入的右括号数目为0
+每加入一个"("，可以加入的")"数字会加1。可加入的"("数字会减1。
+每加入一个")"，可加入的")"数字会减1。
+直到没有可加入的括号为止。
 
 Approach DP:
 

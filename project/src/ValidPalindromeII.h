@@ -18,8 +18,8 @@ Note:
 The string will only contain lowercase characters a-z. The maximum length of the string is 50000.
 
 Approach:
-Á½Í·¼Ğ£¬ÈôÓöµ½²»µÈµÄ×ÖÄ¸£¬·ÖÁ½ÖÖÇé¿ö£¬É¾³ı×ó±ß×ÖÄ¸»òÕßÉ¾³ıÓÒ±ß×ÖÄ¸£¬ÈôÓĞÒ»ÖÖÇé¿öÎª»ØÎÄ×Ö£¬Ôò·µ»Ø true£¬·ñÔò·µ»Ø false
-ÈôÎ´Óöµ½²»µÈµÄ×ÖÄ¸£¬Ôò·µ»Ø true
+ä¸¤å¤´å¤¹ï¼Œè‹¥é‡åˆ°ä¸ç­‰çš„å­—æ¯ï¼Œåˆ†ä¸¤ç§æƒ…å†µï¼Œåˆ é™¤å·¦è¾¹å­—æ¯æˆ–è€…åˆ é™¤å³è¾¹å­—æ¯ï¼Œè‹¥æœ‰ä¸€ç§æƒ…å†µä¸ºå›æ–‡å­—ï¼Œåˆ™è¿”å› trueï¼Œå¦åˆ™è¿”å› false
+è‹¥æœªé‡åˆ°ä¸ç­‰çš„å­—æ¯ï¼Œåˆ™è¿”å› true
 
 */
 
@@ -47,11 +47,11 @@ public:
 			else
 			{
 				string temp;
-				// É¾³ı s[i]
+				// åˆ é™¤ s[i]
 				temp.assign(s.begin() + i + 1, s.begin() + j + 1);
 				if (aux(temp))
 					return true;
-				// É¾³ı s[j]
+				// åˆ é™¤ s[j]
 				temp.assign(s.begin() + i, s.begin() + j);
 				if (aux(temp))
 					return true;

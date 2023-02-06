@@ -43,28 +43,28 @@ return [3, 4]
 ########################################################################
 Approach #1 Dijsktra[Time Limit Exceeded]:
 
-��ÿ������ u Ϊ��ʼ�㣬��Դ���·���������ֵ��Ϊ�� u Ϊ���������ĸ߶� Hu��
-ѡ�������С Hu ����Щ���㡣
+以每个顶点 u 为起始点，求单源最短路径，则，最大值即为以 u 为树根的树的高度 Hu。
+选择具有最小 Hu 的那些顶点。
 
 ########################################################################
 Approach #2 
 
-����з�
-һ��һ�����ȥҶ�ڵ㣬��ȥһ��ڵ��ͬʱ��������ЩҶ�ӽڵ�ĸ��ڵ㣬
-���ʣ��һ�����������ڵ��������Ҫ�����С�߶ȵĸ��ڵ㡣��ע��������С�߶ȵĸ��ڵ�����ֻ��������
+剥洋葱法
+一层一层的褪去叶节点，退去一层节点的同时，更新这些叶子节点的父节点，
+最后剩下一个或者两个节点就是我们要求的最小高度的根节点。（注：具有最小高度的根节点至多只有两个）
 
 ########################################################################
-Approach #3������ Approach #2
+Approach #3，优于 Approach #2
 
 Ref: http://www.cnblogs.com/grandyang/p/5000291.html
 
-����з�
-��϶��У�Ѱ��һ���Ϊ1�Ľڵ㣬��ΪҶ�ӽڵ㣬����һ�� k ���ڵ㣬���丸�ڵ���ɾ����ЩҶ�ӽڵ㣬�����ڵ�Ķ�Ҳ��Ϊ1���򽫸��ڵ�����С����Ҹ��� n = n-k��
-ֱ�� n <= 2 ʱ���˳�ѭ����
+剥洋葱法
+结合队列，寻找一层度为1的节点，即为叶子节点，对这一层 k 个节点，在其父节点中删除这些叶子节点，若父节点的度也变为1，则将父节点入队列。并且更新 n = n-k。
+直到 n <= 2 时，退出循环。
 
-���ַ�����BFS����ֻ�������Ǵ�k��Ҷ�ӽڵ�������������ڵ��������BFS���ǴӸ��ڵ������Ҷ�ӽڵ������
+这种方法与BFS很像，只是这里是从k个叶子节点出发，逐层向根节点遍历。而BFS则是从根节点出发向叶子节点遍历。
 
-������ 207. Course Schedule
+类似于 207. Course Schedule
 
 */
 
@@ -93,7 +93,7 @@ public:
 			adj_mat[edge.second][edge.first] = 1;
 		}
 
-		// ���� u Ϊ��ʼ�㣬��Դ���·�����������·�������ֵ
+		// 顶点 u 为起始点，求单源最短路径，保存最短路径的最大值
 		vector<int> u_height(n);
 
 		for (int u = 0; u < n; ++u)
@@ -171,21 +171,21 @@ public:
 			return result;
 		}
 
-		// n >= 2 ʱ
+		// n >= 2 时
 		vector<unordered_set<int>> adj(n);
 		for (auto edge : edges)
 		{
 			adj[edge.first].insert(edge.second);
 			adj[edge.second].insert(edge.first);
 		}
-		// ��ŵ�ǰ����ȥ��Ҷ��
+		// 存放当前待剥去的叶子
 		vector<int> leaves;
-		// ������ȥ��Ҷ�ӱ��Ϊ true
+		// 将被剥去的叶子标记为 true
 		vector<bool> erased(n, false);
-		int count = 0;			// ��¼�Լ���ȥ��Ҷ�ӽڵ�ĸ���
-		while (count + 2 < n)	// ���ʣ��1������2���ڵ�ʱ�������������
+		int count = 0;			// 记录以及剥去的叶子节点的个数
+		while (count + 2 < n)	// 最后剩下1个或者2个节点时，不继续剥洋葱
 		{
-			// Ѱ��Ҷ�ӽڵ㲢��ȥ
+			// 寻找叶子节点并剥去
 			findAndEraseLeaves(adj, leaves, erased);
 			count += leaves.size();
 		}
@@ -197,17 +197,17 @@ public:
 		return result;
 	}
 
-	// Ѱ��Ҷ�ӽڵ㲢��ȥ
+	// 寻找叶子节点并剥去
 	void findAndEraseLeaves(vector<unordered_set<int>>& nodes, vector<int>& leaves, vector<bool>& erased)
 	{
-		vector<pair<int, int>> leaves_edge;	// �洢Ҷ�ڵ��Լ��丸�ڵ�
-		// Ѱ��һ��Ҷ�ӽڵ�
+		vector<pair<int, int>> leaves_edge;	// 存储叶节点以及其父节点
+		// 寻找一层叶子节点
 		for (int i = 0; i < nodes.size(); ++i)
 		{
 			if (!erased[i] && nodes[i].size() == 1)
 				leaves_edge.push_back({ i, *(nodes[i].begin()) });
 		}
-		// ����Ҷ�ӽڵ�ĸ��ڵ㣬���ҽ�Ҷ�ӽڵ���Ϊ��ɾ��
+		// 更新叶子节点的父节点，并且将叶子节点标记为已删除
 		for (int i = 0; i < leaves_edge.size(); ++i)
 		{
 			nodes[leaves_edge[i].second].erase(leaves_edge[i].first);
@@ -240,7 +240,7 @@ public:
 		}
 		while (n > 2)
 		{
-			// һ��һ�����
+			// 一层一层剥除
 			int size = q.size();
 			n -= size;
 			for (int i = 0; i < size; ++i)

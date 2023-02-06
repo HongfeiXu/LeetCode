@@ -15,11 +15,11 @@ Explanation: The longest harmonious subsequence is [3,2,2,2,3].
 
 Approach:
 
-use map<int, vector<int>> Óë vector<pair<int, vector<int>>>
+use map<int, vector<int>> ä¸ vector<pair<int, vector<int>>>
 
 Approach_v2:
 
-¼ò»¯ÁËµÚÒ»ÖÖ·½·¨£¬ÒòÎªÕâÀï²»ĞíÒª×îÖÕÊä³ö×ÓĞòÁĞ£¬Ã»±ØÒª±£´æÓÃÀ´È·¶¨×ÓĞòÁĞĞÅÏ¢µÄÊı×Ö¡£
+ç®€åŒ–äº†ç¬¬ä¸€ç§æ–¹æ³•ï¼Œå› ä¸ºè¿™é‡Œä¸è®¸è¦æœ€ç»ˆè¾“å‡ºå­åºåˆ—ï¼Œæ²¡å¿…è¦ä¿å­˜ç”¨æ¥ç¡®å®šå­åºåˆ—ä¿¡æ¯çš„æ•°å­—ã€‚
 
 */
 
@@ -54,7 +54,7 @@ public:
 				currHS.first = num2pos_vec[i].first;
 				currHS.second = num2pos_vec[i + 1].first;
 
-				if (LHS.first == -1)		// LHS »¹Ã»ÓĞÓĞĞ§ÄÚÈİ£¬Ö±½ÓÓÃ currHS ¸³Öµ
+				if (LHS.first == -1)		// LHS è¿˜æ²¡æœ‰æœ‰æ•ˆå†…å®¹ï¼Œç›´æ¥ç”¨ currHS èµ‹å€¼
 				{
 					LHS = currHS;
 				}

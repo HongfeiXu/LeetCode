@@ -30,10 +30,10 @@ The given starting pixel will satisfy 0 <= sr < image.length and 0 <= sc < image
 The value of each color in image[i][j] and newColor will be an integer in [0, 65535].
 
 Approach:
-Ê¹ÓÃ¹ã¶ÈÓÅÏÈËÑË÷
+ä½¿ç”¨å¹¿åº¦ä¼˜å…ˆæœç´¢
 
 Approach:
-Ê¹ÓÃÉî¶ÈÓÅÏÈËÑË÷
+ä½¿ç”¨æ·±åº¦ä¼˜å…ˆæœç´¢
 
 */
 
@@ -66,7 +66,7 @@ public:
 		{
 			POSITION curr = Q.front();
 			already_walk[curr.first][curr.second] = true;
-			// ½Úµã³ö¶ÓÁĞÊ±¸Ä±äÑÕÉ«
+			// èŠ‚ç‚¹å‡ºé˜Ÿåˆ—æ—¶æ”¹å˜é¢œè‰²
 			image[curr.first][curr.second] = newColor;
 			Q.pop();
 
@@ -78,16 +78,16 @@ public:
 			curr_neighbor.push_back(POSITION(curr.first, curr.second + 1));
 			for (auto &neighbor : curr_neighbor)
 			{
-				// ±ß½çºÏ·¨ĞÔ¼ì²â
+				// è¾¹ç•Œåˆæ³•æ€§æ£€æµ‹
 				if (neighbor.first < 0 || neighbor.first >= m || neighbor.second < 0 || neighbor.second >= n)
 					continue;
 
-				// ±ÜÃâÖØ¸´·ÃÎÊÒ»¸öÎ»ÖÃ
+				// é¿å…é‡å¤è®¿é—®ä¸€ä¸ªä½ç½®
 				if(already_walk[neighbor.first][neighbor.second])
 					continue;
 
-				// Èç¹û±ß½çºÏ·¨£¬ÇÒÃ»ÓĞ±»·ÃÎÊ¹ı£¬
-				// ÈôÑÕÉ«Èç¹ûÓë³õÊ¼ÑÕÉ«ÏàÍ¬£¬±ê¼Ç¸ÃµãÎªÒÑ¾­·ÃÎÊ£¬Ôò½«¸Ã½ÚµãÈë¶Ó
+				// å¦‚æœè¾¹ç•Œåˆæ³•ï¼Œä¸”æ²¡æœ‰è¢«è®¿é—®è¿‡ï¼Œ
+				// è‹¥é¢œè‰²å¦‚æœä¸åˆå§‹é¢œè‰²ç›¸åŒï¼Œæ ‡è®°è¯¥ç‚¹ä¸ºå·²ç»è®¿é—®ï¼Œåˆ™å°†è¯¥èŠ‚ç‚¹å…¥é˜Ÿ
 				if (image[neighbor.first][neighbor.second] == oldColor)
 				{
 					already_walk[neighbor.first][neighbor.second] = true;
@@ -107,7 +107,7 @@ public:
 		return image;
 	}
 
-	// ´Ë·½·¨µÄÎÊÌâÔÚÓÚ£¬Èç¹û oldColor ºÍ newColor ÏàÍ¬£¬Ôò»áÎŞÏŞµİ¹éÏÂÈ¥¡£
+	// æ­¤æ–¹æ³•çš„é—®é¢˜åœ¨äºï¼Œå¦‚æœ oldColor å’Œ newColor ç›¸åŒï¼Œåˆ™ä¼šæ— é™é€’å½’ä¸‹å»ã€‚
 	void isSymmetric(vector<vector<int>>& image, int r, int c, int oldColor, int newColor)
 	{
 		int R = image.size();

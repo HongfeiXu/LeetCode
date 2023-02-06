@@ -26,10 +26,10 @@ Input: 4
 Output: "1211"
 
 Approach:
-³õÊ¼nÎª 1 Ê±£¬½á¹ûÎª"1"
-Èôn>1£¬½øÐÐµü´ú£¬´Ó2µ½n£¨°üÀ¨n£©£¬
-	Ã¿´Îµü´ú£¬Ïàµ±ÓÚ¼ÇÂ¼Ã¿¸öÊý×ÖÁ¬Ðø³öÏÖµÄ´ÎÊý£¬Ö®ºó¹¹³É½á¹ûÊý×Ö
-½ø¹ýn-1´Ëµü´úµÃµ½½á¹û
+åˆå§‹nä¸º 1 æ—¶ï¼Œç»“æžœä¸º"1"
+è‹¥n>1ï¼Œè¿›è¡Œè¿­ä»£ï¼Œä»Ž2åˆ°nï¼ˆåŒ…æ‹¬nï¼‰ï¼Œ
+	æ¯æ¬¡è¿­ä»£ï¼Œç›¸å½“äºŽè®°å½•æ¯ä¸ªæ•°å­—è¿žç»­å‡ºçŽ°çš„æ¬¡æ•°ï¼Œä¹‹åŽæž„æˆç»“æžœæ•°å­—
+è¿›è¿‡n-1æ­¤è¿­ä»£å¾—åˆ°ç»“æžœ
 
 */
 
@@ -48,11 +48,11 @@ public:
 
 		for (int i = 2; i <= n; ++i)
 		{
-			string tempResult;	// ±£´æµÚi¸öÐòÁÐ
+			string tempResult;	// ä¿å­˜ç¬¬iä¸ªåºåˆ—
 			for (int j = 0; j < result.size(); )
 			{
 				int count = 1;
-				// µÚÒ»¸ö²»µÈÊ½ºÜÖØÒª
+				// ç¬¬ä¸€ä¸ªä¸ç­‰å¼å¾ˆé‡è¦
 				while ((j + count < result.size()) && (result[j] == result[j + count]))
 					++count;
 

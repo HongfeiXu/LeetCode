@@ -23,8 +23,8 @@ Approach:
 
 Backtracking
 
-×¢Òâµ½£ºÈç¹ûÊäÈëÊý×ÖÎª´ÓÐ¡µ½´ó£¬ÔòÊä³öµÄÅÅÁÐÒ²ÊÇ°´ÕÕ×ÖµäÐòÅÅÁÐµÄ
-ÁíÍâ£ºÌâÄ¿ÌáÊ¾ÊäÈëµÄÊ±²»Í¬Êý×Ö£¬ËùÒÔÕâÀïÃæµÄÅÐ¶ÏÆäÊµÊ±¶àÓàµÄ£¬µ«£¬Ã»ÓÐ»µ´¦Âï
+æ³¨æ„åˆ°ï¼šå¦‚æžœè¾“å…¥æ•°å­—ä¸ºä»Žå°åˆ°å¤§ï¼Œåˆ™è¾“å‡ºçš„æŽ’åˆ—ä¹Ÿæ˜¯æŒ‰ç…§å­—å…¸åºæŽ’åˆ—çš„
+å¦å¤–ï¼šé¢˜ç›®æç¤ºè¾“å…¥çš„æ—¶ä¸åŒæ•°å­—ï¼Œæ‰€ä»¥è¿™é‡Œé¢çš„åˆ¤æ–­å…¶å®žæ—¶å¤šä½™çš„ï¼Œä½†ï¼Œæ²¡æœ‰åå¤„å˜›
 
 */
 
@@ -46,7 +46,7 @@ public:
 
 	void permuteAux(vector<int>& nums, int i, vector<vector<int>>& result)
 	{
-		// Ç° nums.size() - 1 ¸öÊý×ÖÈ·¶¨£¬Õû¸öÅÅÁÐ¾Í¶¨ÏÂÀ´ÁË
+		// å‰ nums.size() - 1 ä¸ªæ•°å­—ç¡®å®šï¼Œæ•´ä¸ªæŽ’åˆ—å°±å®šä¸‹æ¥äº†
 		if (i == nums.size() - 1)
 		{
 			result.push_back(nums);
@@ -63,7 +63,7 @@ public:
 		}
 	}
 
-	// Èô nums[j] ÔÚ nums[i,...,j-1] ÖÐÃ»ÓÐ³öÏÖ£¬ÔòÐèÒª½»»»£¬·ñÔò²»Ó¦¸Ã½»»»£¬±ÜÃâ³öÏÖÖØ¸´ÅÅÁÐ
+	// è‹¥ nums[j] åœ¨ nums[i,...,j-1] ä¸­æ²¡æœ‰å‡ºçŽ°ï¼Œåˆ™éœ€è¦äº¤æ¢ï¼Œå¦åˆ™ä¸åº”è¯¥äº¤æ¢ï¼Œé¿å…å‡ºçŽ°é‡å¤æŽ’åˆ—
 	bool shouldSwap(vector<int>& nums, int i, int j)
 	{
 		for (int k = i; k < j; ++k)

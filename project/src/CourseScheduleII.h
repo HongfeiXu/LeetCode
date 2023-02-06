@@ -26,21 +26,21 @@ Approach:
 
 Topological Sorting and Detect Cycle in a Directed Graph
 
-�������棺
-���������Ƿ���ڣ�����ͼ�Ƿ�Ϊ�޻�ͼ����
-�����ڱ���������С�
+两个方面：
+拓扑排序是否存在（有向图是否为无环图），
+若存在保存这个序列。
 
-���������ж�����ͼ�Ƿ�Ϊ�޻�ͼ���㷨���� DFS��
-��������Ҳ���� DFS������ͬʱ���� DFS ʵ�����������棬��ɨ����жϡ�
-��������л�����ֱ�ӷ��ؿ����У����򣬲��ϸ����������С�
+这里由于判断有向图是否为无环图的算法基于 DFS，
+拓扑排序也基于 DFS，可以同时基于 DFS 实现这两个方面，边扫描边判断。
+如果发现有环，则直接返回空序列，否则，不断更新拓扑序列。
 
-����ͨ����¼DFS�ݹ���ʵĽڵ�ջ recur_stack ���ж��Ƿ���ڻ�·��
+这里通过记录DFS递归访问的节点栈 recur_stack 来判断是否存在环路。
 
 Approach v2:
 
-BFS�������� 207. Course Schedule Approach v3��������ȡ�
-ɾ�����Ϊ0�Ľڵ㣬ɾ����ǰ�����Ϊ0�Ľڵ�ʱҲҪ�����亢�ӽڵ㡣�ң����ճ���˳�򱣴�ڵ㣬�õ��������С�
-�����ջ��нڵ����Ȳ�Ϊ0����˵���л��������޻���
+BFS，类似于 207. Course Schedule Approach v3。考虑入度。
+删除入度为0的节点，删除当前层入度为0的节点时也要更新其孩子节点。且，按照出队顺序保存节点，得到拓扑序列。
+若最终还有节点的入度不为0，则说明有环，否则无环。
 
 */
 
@@ -69,11 +69,11 @@ public:
 			}
 		}
 
-		// ���򷵻�
+		// 逆序返回
 		return vector<int>(result.rbegin(), result.rend());
 	}
 
-	// ���� true ��ʾ�л���false ��ʾ�޻�
+	// 返回 true 表示有环，false 表示无环
 	bool topologicalSort(int u, vector<unordered_set<int>>& graph, vector<bool>& visited, vector<bool>& recur_stack, vector<int>& result)
 	{
 		visited[u] = true;
@@ -101,7 +101,7 @@ public:
 	vector<int> findOrder(int numCourses, vector<pair<int, int>>& prerequisites)
 	{
 		vector<int> result;
-		// ʹ�� vector<vector<int>> �� vector<unordered_set<int>> �����գ�������� [0,1],[0,1] �����ظ��ıߣ�
+		// 使用 vector<vector<int>> 比 vector<unordered_set<int>> 更保险（比如存在 [0,1],[0,1] 这种重复的边）
 		vector<vector<int>> adj(numCourses);		
 		vector<int> in(numCourses, 0);
 		for (auto edge : prerequisites)
@@ -128,10 +128,10 @@ public:
 					q.push(v);
 			}
 		}
-		// ������нڵ���Ⱦ���Ϊ0��˵�����԰������еĿγ�
+		// 如果所有节点入度均变为0，说明可以安排所有的课程
 		if (result.size() == numCourses)
 			return result;
-		// ���ڿγ�δ�����ţ����ڻ���
+		// 存在课程未被安排（存在环）
 		else
 			return { };
 	}

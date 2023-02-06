@@ -17,7 +17,7 @@ Notes:
 You may assume pattern contains only lowercase letters, and str contains lowercase letters separated by a single space.
 
 Approach:
-Ê¹ÓÃÁ½¸ö unordered_map À´È·¶¨ÊÇ·ñÎªË«Éä¹ØÏµ
+ä½¿ç”¨ä¸¤ä¸ª unordered_map æ¥ç¡®å®šæ˜¯å¦ä¸ºåŒå°„å…³ç³»
 
 */
 
@@ -34,7 +34,7 @@ public:
 	{
 		vector<string> words;
 
-		// ½«×Ö·û´®·Ö¸îÎªµ¥´Ê
+		// å°†å­—ç¬¦ä¸²åˆ†å‰²ä¸ºå•è¯
 		stringstream ss(str);
 		string temp;
 		while (ss >> temp)
@@ -54,23 +54,23 @@ public:
 
 		for (int i = 1; i < pattern.size(); ++i)
 		{
-			// Èç¹ûµ±Ç°×Ö·ûÃ»ÓĞÓ³Éäµ½µ¥´ÊÉÏ
+			// å¦‚æœå½“å‰å­—ç¬¦æ²¡æœ‰æ˜ å°„åˆ°å•è¯ä¸Š
 			if (char_to_string[pattern[i]] == "")
 			{
-				// Èôµ¥´ÊÒ²Ã»ÓĞÓ³Éäµ½×Ö·ûÉÏ£¬ÔòÌí¼ÓÕâ¶ÔÓ³Éä
+				// è‹¥å•è¯ä¹Ÿæ²¡æœ‰æ˜ å°„åˆ°å­—ç¬¦ä¸Šï¼Œåˆ™æ·»åŠ è¿™å¯¹æ˜ å°„
 				if (string_to_char[words[i]] == 0)
 				{
 					char_to_string[pattern[i]] = words[i];
 					string_to_char[words[i]] = pattern[i];
 				}
-				// ·ñÔò£¬²»ÊÇË«Éä
+				// å¦åˆ™ï¼Œä¸æ˜¯åŒå°„
 				else
 					return false;
 			}
-			// ·ñÔò£¬
+			// å¦åˆ™ï¼Œ
 			else
 			{
-				// Èôµ±Ç°×Ö·ûÓ³Éäµ½µÄµ¥´Ê²»ÊÇµ±Ç°·ÃÎÊµÄµ¥´Ê£¬Ôò²»ÊÇË«Éä
+				// è‹¥å½“å‰å­—ç¬¦æ˜ å°„åˆ°çš„å•è¯ä¸æ˜¯å½“å‰è®¿é—®çš„å•è¯ï¼Œåˆ™ä¸æ˜¯åŒå°„
 				if (char_to_string[pattern[i]] != words[i])
 					return false;
 			}

@@ -19,10 +19,10 @@ All edges times[i] = (u, v, w) will have 1 <= u, v <= N and 1 <= w <= 100.
 
 Approach:
 
-N ¸ö½ÚµãµÄ´øÈ¨ÓĞÏòÍ¼£¬±ßĞÅÏ¢ÓÉ times ¸ø³ö£¬ÒªÇóÔ´½áµãµ½ËùÓĞ½ÚµãµÄ×î¶Ì¾àÀëµÄ×î´óÖµ¡£
-¿ÉÒÔ´Ó±ßĞÅÏ¢¹¹Ôì³öÍ¼µÄÁÚ½Ó¾ØÕó±íÊ¾
-¿ÉÒÔÊ¹ÓÃ Dijkstra¡¯s shortest path algorithm Çó´ËÎÊÌâ¡£
-×¢Òâ£ºÕâÀï½Úµã´Ó1¿ªÊ¼µ½100£¬²»ÊÇ´Ó0¿ªÊ¼µ½99
+N ä¸ªèŠ‚ç‚¹çš„å¸¦æƒæœ‰å‘å›¾ï¼Œè¾¹ä¿¡æ¯ç”± times ç»™å‡ºï¼Œè¦æ±‚æºç»“ç‚¹åˆ°æ‰€æœ‰èŠ‚ç‚¹çš„æœ€çŸ­è·ç¦»çš„æœ€å¤§å€¼ã€‚
+å¯ä»¥ä»è¾¹ä¿¡æ¯æ„é€ å‡ºå›¾çš„é‚»æ¥çŸ©é˜µè¡¨ç¤º
+å¯ä»¥ä½¿ç”¨ Dijkstraâ€™s shortest path algorithm æ±‚æ­¤é—®é¢˜ã€‚
+æ³¨æ„ï¼šè¿™é‡ŒèŠ‚ç‚¹ä»1å¼€å§‹åˆ°100ï¼Œä¸æ˜¯ä»0å¼€å§‹åˆ°99
 
 */
 
@@ -33,7 +33,7 @@ using namespace std;
 
 class Solution {
 public:
-	// È¡³öµ±Ç°²»ÔÚ SPT ÖĞÇÒ¾ßÓĞ×îĞ¡ distance µÄ¶¥µã
+	// å–å‡ºå½“å‰ä¸åœ¨ SPT ä¸­ä¸”å…·æœ‰æœ€å° distance çš„é¡¶ç‚¹
 	int minDistVertex(const vector<int>& dist, const vector<bool>& sptSet)
 	{
 		int min_dist = INT_MAX;
@@ -51,19 +51,19 @@ public:
 
 	int networkDelayTime(vector<vector<int>>& times, int N, int K)
 	{
-		// ÓÉtimesËù´ø±ßĞÅÏ¢µÃµ½Í¼µÄÁÚ½Ó¾ØÕó±íÊ¾
+		// ç”±timesæ‰€å¸¦è¾¹ä¿¡æ¯å¾—åˆ°å›¾çš„é‚»æ¥çŸ©é˜µè¡¨ç¤º
 		vector<vector<int>> graph(N+1, vector<int>(N+1, INT_MAX));		
 		for (int i = 0; i < times.size(); ++i)
 			graph[times[i][0]][times[i][1]] = times[i][2];
 
-		vector<int> dist(N+1, INT_MAX);		// ËùÓĞ¶¥µãµ½ K µÄ×î¶Ì¾àÀë
+		vector<int> dist(N+1, INT_MAX);		// æ‰€æœ‰é¡¶ç‚¹åˆ° K çš„æœ€çŸ­è·ç¦»
 		dist[K] = 0;
 		vector<bool> sptSet(N+1, false);
-		// ¼ÆËã dist
-		for (int i = 0; i < N - 1; ++i)		// ĞèÒª½øĞĞ N-1 ´Îµü´úµÃµ½ SPT £¨ÕâÀï²»ĞèÒªÇó³ö SPT µÄ½á¹¹£¬ËùÒÔÃ»ÓĞ¼ÇÂ¼ parent ĞÅÏ¢£©
+		// è®¡ç®— dist
+		for (int i = 0; i < N - 1; ++i)		// éœ€è¦è¿›è¡Œ N-1 æ¬¡è¿­ä»£å¾—åˆ° SPT ï¼ˆè¿™é‡Œä¸éœ€è¦æ±‚å‡º SPT çš„ç»“æ„ï¼Œæ‰€ä»¥æ²¡æœ‰è®°å½• parent ä¿¡æ¯ï¼‰
 		{
 			int u = minDistVertex(dist, sptSet);
-			sptSet[u] = true;				// ½«µ±Ç°Î´¼ÓÈë SPT ÖĞÇÒ¾ßÓĞ×îĞ¡ distance µÄ¶¥µã¼ÓÈë SPT
+			sptSet[u] = true;				// å°†å½“å‰æœªåŠ å…¥ SPT ä¸­ä¸”å…·æœ‰æœ€å° distance çš„é¡¶ç‚¹åŠ å…¥ SPT
 			for (int v = 1; v <= N; ++v)
 			{
 				if (sptSet[v] == false && graph[u][v] != INT_MAX && dist[u] != INT_MAX && dist[u] + graph[u][v] < dist[v])
@@ -73,7 +73,7 @@ public:
 		int result = 0;
 		for (int i = 1; i <= N; ++i)
 			result = max(result, dist[i]);
-		if (result == INT_MAX)				// ´æÔÚ½ÚµãÎŞ·¨µ½´ï£¨Í¼²»Á¬Í¨£©
+		if (result == INT_MAX)				// å­˜åœ¨èŠ‚ç‚¹æ— æ³•åˆ°è¾¾ï¼ˆå›¾ä¸è¿é€šï¼‰
 			return -1;
 		else
 			return result;

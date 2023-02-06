@@ -2,7 +2,7 @@
 
 /*
 
-×Ô¶¨ÒåÀàĞÍ ListNode£¬ÓÃÀ´¹¹Ôìµ¥Á´±í
+è‡ªå®šä¹‰ç±»å‹ ListNodeï¼Œç”¨æ¥æ„é€ å•é“¾è¡¨
 
 */
 
@@ -17,14 +17,14 @@ struct ListNode {
 	ListNode(int x) : val(x), next(nullptr) { }
 };
 
-// Ê¹ÓÃ std::list ¹¹½¨×Ô¶¨ÒåµÄÁ´±í
+// ä½¿ç”¨ std::list æ„å»ºè‡ªå®šä¹‰çš„é“¾è¡¨
 ListNode* makeList(list<int>::const_iterator b, list<int>::const_iterator e);
 
-// Ê¹ÓÃ std::vector ¹¹½¨×Ô¶¨ÒåµÄÁ´±í
+// ä½¿ç”¨ std::vector æ„å»ºè‡ªå®šä¹‰çš„é“¾è¡¨
 ListNode* vectorToMyList(vector<int>::const_iterator b, vector<int>::const_iterator e);
 
-// ÊÍ·Åµ¥Á´±í½ÚµãÄÚ´æ
+// é‡Šæ”¾å•é“¾è¡¨èŠ‚ç‚¹å†…å­˜
 void destroyList(ListNode* head);
 
-// Êä³ö×Ô¶¨ÒåÁ´±í
+// è¾“å‡ºè‡ªå®šä¹‰é“¾è¡¨
 void printList(ListNode* head);

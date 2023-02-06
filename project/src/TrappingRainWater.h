@@ -11,31 +11,31 @@ Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
 
 Approach:
 Time Limit Exceeded
-ÉäÏß·¨
-¶ÔÃ¿Ò»¸ö¸ß¶È£¬×öÒ»ÌõË®Æ½ÉäÏß£¬ÕÒµ½½»µã£¬È»ºóÈ·¶¨½»µã¼äµÄ¿ÕÇø¼ä£¬¼ÆËãÇø¼ä³¤¶È£¬¼Óµ½×îÖÕµÄ result ÉÏ¡£
-×îºóÒ»¸ö²âÊÔÃ»Í¨¹ı :<
+å°„çº¿æ³•
+å¯¹æ¯ä¸€ä¸ªé«˜åº¦ï¼Œåšä¸€æ¡æ°´å¹³å°„çº¿ï¼Œæ‰¾åˆ°äº¤ç‚¹ï¼Œç„¶åç¡®å®šäº¤ç‚¹é—´çš„ç©ºåŒºé—´ï¼Œè®¡ç®—åŒºé—´é•¿åº¦ï¼ŒåŠ åˆ°æœ€ç»ˆçš„ result ä¸Šã€‚
+æœ€åä¸€ä¸ªæµ‹è¯•æ²¡é€šè¿‡ :<
 
 Approach v2:
 Ref: https://leetcode.com/problems/trapping-rain-water/solution/
 Brute force
-¶ÔÓÚÃ¿Ò»¸öÊı×éµÄÔªËØ£¬¸Ã³öÄÜ¹»Ê¢Ë®µÄÁ¿ÓÉÈı¸öÊı×Ö¾ö¶¨£¬
-1. ×ó±ßµÄ×î¸ßµÄ¸ß¶È left_max
-2. ÓÒ±ßµÄ×î¸ßµÄ¸ß¶È right_max
-3. ×ÔÉíµÄ¸ß¶È height[i]
-Ê¢Ë®µÄÁ¿Îª£ºmax(0, min(left_max, right_max) - height[i])  ####Çå³şÕâµã£¬ÔòÎÊÌâ¾ÍºÜºÃ½â¾öÁË
-Òò´Ë£¬¹Ø¼ü¾ÍÊÇ¾ÍËã³öÃ¿¸öÊı×éµÄÔªËØÆä×óÓÒÁ½±ßµÄ×î¸ß¸ß¶È
+å¯¹äºæ¯ä¸€ä¸ªæ•°ç»„çš„å…ƒç´ ï¼Œè¯¥å‡ºèƒ½å¤Ÿç››æ°´çš„é‡ç”±ä¸‰ä¸ªæ•°å­—å†³å®šï¼Œ
+1. å·¦è¾¹çš„æœ€é«˜çš„é«˜åº¦ left_max
+2. å³è¾¹çš„æœ€é«˜çš„é«˜åº¦ right_max
+3. è‡ªèº«çš„é«˜åº¦ height[i]
+ç››æ°´çš„é‡ä¸ºï¼šmax(0, min(left_max, right_max) - height[i])  ####æ¸…æ¥šè¿™ç‚¹ï¼Œåˆ™é—®é¢˜å°±å¾ˆå¥½è§£å†³äº†
+å› æ­¤ï¼Œå…³é”®å°±æ˜¯å°±ç®—å‡ºæ¯ä¸ªæ•°ç»„çš„å…ƒç´ å…¶å·¦å³ä¸¤è¾¹çš„æœ€é«˜é«˜åº¦
 
 
 Approach v3:
 Ref: https://leetcode.com/problems/trapping-rain-water/solution/
 DP
-Ê¹ÓÃ¶¯Ì¬¹æ»®·½·¨¼ÓËÙÇó³öÃ¿¸öÊı×éµÄÔªËØÆä×óÓÒÁ½±ßµÄ×î¸ß¸ß¶È
-left_max[0...n-1]£¬left_max[i]±íÊ¾´Ó0µ½iµÄ×î¸ß¸ß¶È
-right_max[0...n-1]£¬right_max[i]±íÊ¾´Óiµ½n-1µÄ×î¸ß¸ß¶È
+ä½¿ç”¨åŠ¨æ€è§„åˆ’æ–¹æ³•åŠ é€Ÿæ±‚å‡ºæ¯ä¸ªæ•°ç»„çš„å…ƒç´ å…¶å·¦å³ä¸¤è¾¹çš„æœ€é«˜é«˜åº¦
+left_max[0...n-1]ï¼Œleft_max[i]è¡¨ç¤ºä»0åˆ°içš„æœ€é«˜é«˜åº¦
+right_max[0...n-1]ï¼Œright_max[i]è¡¨ç¤ºä»iåˆ°n-1çš„æœ€é«˜é«˜åº¦
 
 left_max[i] = max(left_max[i-1], height[i]);
 right_max[i] = max(right_max[i+1], height[i])
-Ê¢Ë®µÄÁ¿Îª£ºmax(0, min(left_max[i-1], right_max[i+1]) - height[i])
+ç››æ°´çš„é‡ä¸ºï¼šmax(0, min(left_max[i-1], right_max[i+1]) - height[i])
 
 Approach v4:
 Ref: https://leetcode.com/problems/trapping-rain-water/solution/
@@ -80,7 +80,7 @@ public:
 		return result;
 	}
 
-	// ÕÒÑ°´Ó start Î»ÖÃ¿ªÊ¼£¬¸ß¶È´ïµ½»òÕß³¬¹ı target ÇÒÏÂÒ»¸öÎ»ÖÃµÍÓÚ target µÄÎ»ÖÃ
+	// æ‰¾å¯»ä» start ä½ç½®å¼€å§‹ï¼Œé«˜åº¦è¾¾åˆ°æˆ–è€…è¶…è¿‡ target ä¸”ä¸‹ä¸€ä¸ªä½ç½®ä½äº target çš„ä½ç½®
 	int find_first(vector<int>& height, int start, int target)
 	{
 		int len = height.size();
@@ -89,9 +89,9 @@ public:
 			if (height[i] >= target && height[i+1] < target)
 				return i;
 		}
-		return -1;		// Î´ÕÒµ½¸ß¶È´ïµ½»ò³¬¹ı target µÄÎ»ÖÃ
+		return -1;		// æœªæ‰¾åˆ°é«˜åº¦è¾¾åˆ°æˆ–è¶…è¿‡ target çš„ä½ç½®
 	}
-	// ÕÒÑ°´Ó start Î»ÖÃ¿ªÊ¼£¬¸ß¶È´ïµ½»òÕß³¬¹ı target µÄÎ»ÖÃ
+	// æ‰¾å¯»ä» start ä½ç½®å¼€å§‹ï¼Œé«˜åº¦è¾¾åˆ°æˆ–è€…è¶…è¿‡ target çš„ä½ç½®
 	int find_last(vector<int>& height, int start, int target)
 	{
 		int len = height.size();
@@ -100,7 +100,7 @@ public:
 			if (height[i] >= target)
 				return i;
 		}
-		return -1;		// Î´ÕÒµ½¸ß¶È´ïµ½»ò³¬¹ı target µÄÎ»ÖÃ
+		return -1;		// æœªæ‰¾åˆ°é«˜åº¦è¾¾åˆ°æˆ–è¶…è¿‡ target çš„ä½ç½®
 	}
 };
 
@@ -121,7 +121,7 @@ public:
 		return result;
 	}
 
-	// hight[] ÖĞ [start...finish] Î»ÖÃµÄ×î´ó¸ß¶È
+	// hight[] ä¸­ [start...finish] ä½ç½®çš„æœ€å¤§é«˜åº¦
 	int maxHeight(vector<int>& height, int start, int finish)
 	{
 		int result = 0;
@@ -142,15 +142,15 @@ public:
 
 		vector<int> left_max(len, 0);
 		vector<int> right_max(len, 0);
-		// ´Ó×óÍùÓÒ
+		// ä»å·¦å¾€å³
 		left_max[0] = height[0];
 		for (int i = 1; i < len; ++i)
 			left_max[i] = max(left_max[i - 1], height[i]);
-		// ´ÓÓÒÍù×ó
+		// ä»å³å¾€å·¦
 		right_max[len - 1] = height[len - 1];
 		for (int i = len - 2; i >= 0; --i)
 			right_max[i] = max(right_max[i + 1], height[i]);
-		// i == 0 »ò len-1 Ê±£¬ÎŞ·¨Ê¢Ë®
+		// i == 0 æˆ– len-1 æ—¶ï¼Œæ— æ³•ç››æ°´
 		for (int i = 1; i < len - 1; ++i)
 		{
 			int lmax = left_max[i - 1];

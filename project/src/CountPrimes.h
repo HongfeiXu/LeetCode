@@ -12,16 +12,16 @@ Credits:
 Special thanks to @mithmatt for adding this problem and creating all test cases.
 
 Approach:
-Ö±½Ó·¨£¬ÅÐ¶Ï¡¢¼ÆÊý
+ç›´æŽ¥æ³•ï¼Œåˆ¤æ–­ã€è®¡æ•°
 O(n^1.5)
 
 
 Approach:
-°£À­ÍÐË¹ÌØÄáÉ¸·¨
-¸ø³öÒªÉ¸ÊýÖµµÄ·¶Î§n£¬ÕÒ³ö sqrt(n) ÒÔÄÚµÄËØÊý p_1,p_2, ... ,p_k¡£
-ÏÈÓÃ2È¥É¸£¬¼´°Ñ2ÁôÏÂ£¬°Ñ2µÄ±¶ÊýÌÞ³ýµô£»ÔÙÓÃÏÂÒ»¸öËØÊý£¬Ò²¾ÍÊÇ3É¸£¬°Ñ3ÁôÏÂ£¬°Ñ3µÄ±¶ÊýÌÞ³ýµô£»½ÓÏÂÈ¥ÓÃÏÂÒ»¸öËØÊý5É¸£¬°Ñ5ÁôÏÂ£¬°Ñ5µÄ±¶ÊýÌÞ³ýµô£»²»¶ÏÖØ¸´ÏÂÈ¥......¡£
-×¢£ºÕâÀï²»ÐèÒªÔÙÅÐ¶Ï2¡¢3¡¢5¡¢...µÈÊÇËØÊý
-¸´ÔÓ¶ÈÊÇO(n log log n)¡£
+åŸƒæ‹‰æ‰˜æ–¯ç‰¹å°¼ç­›æ³•
+ç»™å‡ºè¦ç­›æ•°å€¼çš„èŒƒå›´nï¼Œæ‰¾å‡º sqrt(n) ä»¥å†…çš„ç´ æ•° p_1,p_2, ... ,p_kã€‚
+å…ˆç”¨2åŽ»ç­›ï¼Œå³æŠŠ2ç•™ä¸‹ï¼ŒæŠŠ2çš„å€æ•°å‰”é™¤æŽ‰ï¼›å†ç”¨ä¸‹ä¸€ä¸ªç´ æ•°ï¼Œä¹Ÿå°±æ˜¯3ç­›ï¼ŒæŠŠ3ç•™ä¸‹ï¼ŒæŠŠ3çš„å€æ•°å‰”é™¤æŽ‰ï¼›æŽ¥ä¸‹åŽ»ç”¨ä¸‹ä¸€ä¸ªç´ æ•°5ç­›ï¼ŒæŠŠ5ç•™ä¸‹ï¼ŒæŠŠ5çš„å€æ•°å‰”é™¤æŽ‰ï¼›ä¸æ–­é‡å¤ä¸‹åŽ»......ã€‚
+æ³¨ï¼šè¿™é‡Œä¸éœ€è¦å†åˆ¤æ–­2ã€3ã€5ã€...ç­‰æ˜¯ç´ æ•°
+å¤æ‚åº¦æ˜¯O(n log log n)ã€‚
 
 */
 
@@ -71,8 +71,8 @@ public:
 
 		vector<int>is_prime_table(n, 1);
 
-		is_prime_table[0] = 0;		// 0 ²»ÔÚ¿¼ÂÇÖ®ÁÐ
-		is_prime_table[1] = 0;		// 1 Îª·ÇËØÊý
+		is_prime_table[0] = 0;		// 0 ä¸åœ¨è€ƒè™‘ä¹‹åˆ—
+		is_prime_table[1] = 0;		// 1 ä¸ºéžç´ æ•°
 		for (int i = 2; i * i < n; ++i)
 		{
 			if (!is_prime_table[i])

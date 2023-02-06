@@ -19,9 +19,9 @@ Approach My way:
 classified discussion, nlg(n) time
 
 Approach New way:
-ÒªÕÒ×î´óµÄÈý¸öÊýµÄ³Ë»ý£¬¾­¹ýÒ»¶¨µÄ·ÖÎö£¬¿ÉÒÔÖªµÀ£¬ÎÒÃÇÖ»ÐèÒªÖªµÀ×î´óµÄÈý¸öÊýºÍ×îÐ¡µÄÁ½¸öÊý£¬¼´¿ÉËãµÃ½á¹û¡£
-ÒòÎªÕâÀïÓÐ¸ºÊýµÄ´æÔÚ¡£
-ËùÒÔ My way ÖÐµÄÅÅÐòÊÇ·ÑÊÂ²»ÌÖºÃµÄ¡£
+è¦æ‰¾æœ€å¤§çš„ä¸‰ä¸ªæ•°çš„ä¹˜ç§¯ï¼Œç»è¿‡ä¸€å®šçš„åˆ†æžï¼Œå¯ä»¥çŸ¥é“ï¼Œæˆ‘ä»¬åªéœ€è¦çŸ¥é“æœ€å¤§çš„ä¸‰ä¸ªæ•°å’Œæœ€å°çš„ä¸¤ä¸ªæ•°ï¼Œå³å¯ç®—å¾—ç»“æžœã€‚
+å› ä¸ºè¿™é‡Œæœ‰è´Ÿæ•°çš„å­˜åœ¨ã€‚
+æ‰€ä»¥ My way ä¸­çš„æŽ’åºæ˜¯è´¹äº‹ä¸è®¨å¥½çš„ã€‚
 like 414. Third Maximum Number
 
 */

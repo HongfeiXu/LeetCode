@@ -41,17 +41,17 @@ If current has left child
 	a. In current's left subtree, make current the right child of the rightmost node
 	b. Go to this left child, i.e., current = current.left
 Else
-	a. Add current¡¯s value
+	a. Add currentâ€™s value
 	b. Go to the right, i.e., current = current.right
 
 Time: O(n)
 Space: O(1)
-¸Ä±äÁËÊ÷µÄ½á¹¹
+æ”¹å˜äº†æ ‘çš„ç»“æ„
 
 Approach v4:
 Morris Traversal
 
-²»¸Ä±äÊ÷µÄ½á¹¹£¨×îÖÕºÍÔ­Ê¼µÄÏàÍ¬£¬ÖĞ¼ä¿ÉÄÜ»á¸Ä±ä£©
+ä¸æ”¹å˜æ ‘çš„ç»“æ„ï¼ˆæœ€ç»ˆå’ŒåŸå§‹çš„ç›¸åŒï¼Œä¸­é—´å¯èƒ½ä¼šæ”¹å˜ï¼‰
 Time: O(n)
 Space: O(1)
 
@@ -99,18 +99,18 @@ public:
 		TreeNode* p = root;
 		while (p != nullptr || !S.empty())
 		{
-			// ´Óµ±Ç°½Úµã¿ªÊ¼£¬×óº¢×Ó·½ÏòÈëÕ»£¬Ö±µ½×î×óº¢×Ó
+			// ä»å½“å‰èŠ‚ç‚¹å¼€å§‹ï¼Œå·¦å­©å­æ–¹å‘å…¥æ ˆï¼Œç›´åˆ°æœ€å·¦å­©å­
 			while (p != nullptr)
 			{
 				S.push(p);
 				p = p->left;
 			}
-			// ³öÕ»µÃµ½×î×óº¢×Ó
+			// å‡ºæ ˆå¾—åˆ°æœ€å·¦å­©å­
 			p = S.top();
 			S.pop();
-			// ·ÃÎÊ½Úµã
+			// è®¿é—®èŠ‚ç‚¹
 			result.push_back(p->val);
-			// ×ªÏò¸Ã×î×óº¢×ÓµÄÓÒ×ÓÊ÷
+			// è½¬å‘è¯¥æœ€å·¦å­©å­çš„å³å­æ ‘
 			p = p->right;
 		}
 		return result;
@@ -125,22 +125,22 @@ public:
 		TreeNode* curr = root;
 		while (curr != nullptr)
 		{
-			// Èô×ó×ÓÊ÷Îª¿Õ£¬½øĞĞ·ÃÎÊ²Ù×÷
+			// è‹¥å·¦å­æ ‘ä¸ºç©ºï¼Œè¿›è¡Œè®¿é—®æ“ä½œ
 			if (curr->left == nullptr)
 			{
-				result.push_back(curr->val);	// ·ÃÎÊµ±Ç°½Úµã
-				curr = curr->right;				// p ¸üĞÂÎªµ±Ç°½ÚµãµÄÓÒº¢×Ó
+				result.push_back(curr->val);	// è®¿é—®å½“å‰èŠ‚ç‚¹
+				curr = curr->right;				// p æ›´æ–°ä¸ºå½“å‰èŠ‚ç‚¹çš„å³å­©å­
 			}
-			// Èô×ó×ÓÊ÷²»Îª¿Õ£¬½øĞĞ¶ş²æÊ÷µÄ±äĞÎ²Ù×÷
+			// è‹¥å·¦å­æ ‘ä¸ä¸ºç©ºï¼Œè¿›è¡ŒäºŒå‰æ ‘çš„å˜å½¢æ“ä½œ
 			else
 			{
-				TreeNode* pre = curr->left;		// q ±£´æµ±Ç°½Úµã p µÄ×ó×ÓÊ÷µÄ×îÓÒ½Úµã
+				TreeNode* pre = curr->left;		// q ä¿å­˜å½“å‰èŠ‚ç‚¹ p çš„å·¦å­æ ‘çš„æœ€å³èŠ‚ç‚¹
 				while (pre->right != nullptr)
 					pre = pre->right;
-				pre->right = curr;				// ½« p ÒÔ¼°ÆäÓÒ×ÓÊ÷£¬×÷Îª q µÄÓÒ×ÓÊ÷
+				pre->right = curr;				// å°† p ä»¥åŠå…¶å³å­æ ‘ï¼Œä½œä¸º q çš„å³å­æ ‘
 				TreeNode* temp = curr->left;
-				curr->left = nullptr;			// ½« p µÄ×óº¢×ÓÉèÎª¿Õ£¬·ÀÖ¹ÎŞÏŞÑ­»·
-				curr = temp;					// p ¸üĞÂÎªĞÂµÄ¸ù½Úµã
+				curr->left = nullptr;			// å°† p çš„å·¦å­©å­è®¾ä¸ºç©ºï¼Œé˜²æ­¢æ— é™å¾ªç¯
+				curr = temp;					// p æ›´æ–°ä¸ºæ–°çš„æ ¹èŠ‚ç‚¹
 			}
 
 		}
@@ -165,16 +165,16 @@ public:
 			{
 				// Find the inorder predecessor of current
 				TreeNode* pre = curr->left;
-				while (pre->right != nullptr && pre->right != curr)	// ×¢ÒâÕâÀïÓë Approach_v3 µÄ²»Í¬
+				while (pre->right != nullptr && pre->right != curr)	// æ³¨æ„è¿™é‡Œä¸ Approach_v3 çš„ä¸åŒ
 					pre = pre->right;
-				// pre->right == nullptr£¬ËµÃ÷×ó×ÓÊ÷µÄ×îÓÒ½Úµã»¹Ã»ÓĞ°Ñµ±Ç°½Úµã×÷ÎªÓÒº¢×Ó
+				// pre->right == nullptrï¼Œè¯´æ˜å·¦å­æ ‘çš„æœ€å³èŠ‚ç‚¹è¿˜æ²¡æœ‰æŠŠå½“å‰èŠ‚ç‚¹ä½œä¸ºå³å­©å­
 				// Make current as right child of its inorder predecessor
 				if (pre->right == nullptr)
 				{
 					pre->right = curr;
 					curr = curr->left;
 				}
-				// pre->right == curr£¬ËµÃ÷×ó×ÓÊ÷µÄ×îÓÒ½ÚµãµÄÓÒº¢×ÓÒÑ¾­ÊÇµ±Ç°½ÚµãÁË£¬ĞèÒª°ÑËüÖØÖÃ»ØÈ¥£¨ÒòÎªpreÏÔÈ»ÔÚµ±Ç°½ÚµãÖ®Ç°±»·ÃÎÊÁË£©£¬¼´½«ÓÒº¢×ÓÉèÎª¿Õ¡£²¢ÇÒÖ±½Ó·ÃÎÊµ±Ç°½Úµã¡£
+				// pre->right == currï¼Œè¯´æ˜å·¦å­æ ‘çš„æœ€å³èŠ‚ç‚¹çš„å³å­©å­å·²ç»æ˜¯å½“å‰èŠ‚ç‚¹äº†ï¼Œéœ€è¦æŠŠå®ƒé‡ç½®å›å»ï¼ˆå› ä¸ºpreæ˜¾ç„¶åœ¨å½“å‰èŠ‚ç‚¹ä¹‹å‰è¢«è®¿é—®äº†ï¼‰ï¼Œå³å°†å³å­©å­è®¾ä¸ºç©ºã€‚å¹¶ä¸”ç›´æ¥è®¿é—®å½“å‰èŠ‚ç‚¹ã€‚
 				// Revert the changes made in if part to restore the original
 				// tree i.e., fix the right child of predecssor
 				else

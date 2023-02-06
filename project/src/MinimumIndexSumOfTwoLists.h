@@ -42,34 +42,34 @@ public:
 	vector<string> findRestaurant(vector<string>& list1, vector<string>& list2)
 	{
 		vector<string> result;
-		pair<string, int> curr_least({ "", INT_MAX });	// ´æ´¢µ±Ç°¾ßÓĞ least list index sum µÄÏàÍ¬·¹µêÃû
+		pair<string, int> curr_least({ "", INT_MAX });	// å­˜å‚¨å½“å‰å…·æœ‰ least list index sum çš„ç›¸åŒé¥­åº—å
 
 		if (list1.size() > list2.size())
 			list1.swap(list2);
 
-		// ¶Ô½Ï³¤µÄ list ¹¹½¨ unordered_map£¬¼ÇÂ¼Ã¿¸öµ¥´ÊµÄÏÂ±ê
+		// å¯¹è¾ƒé•¿çš„ list æ„å»º unordered_mapï¼Œè®°å½•æ¯ä¸ªå•è¯çš„ä¸‹æ ‡
 		unordered_map<string, int> um;
 		for (int i = 0; i < list2.size(); ++i)
 			um[list2[i]] = i;
 
-		// ¶Ô½Ï¶ÌµÄ list ×öµü´ú
+		// å¯¹è¾ƒçŸ­çš„ list åšè¿­ä»£
 		for (int i = 0; i < list1.size(); ++i)
 		{
-			// Èç¹û i ´óÓÚ curr_least.second£¬Ôò²»ĞèÒª¼ÌĞøÑ°ÕÒÁË£¬ÒòÎª½ÓÏÂÀ´¿Ï¶¨²»»áÓĞ¸üĞ¡µÄ list index sum
+			// å¦‚æœ i å¤§äº curr_least.secondï¼Œåˆ™ä¸éœ€è¦ç»§ç»­å¯»æ‰¾äº†ï¼Œå› ä¸ºæ¥ä¸‹æ¥è‚¯å®šä¸ä¼šæœ‰æ›´å°çš„ list index sum
 			if(i > curr_least.second)	
 				break;
 
-			// Ñ°ÕÒÊÇ·ñ´æÔÚÏàÍ¬µ¥´Ê
+			// å¯»æ‰¾æ˜¯å¦å­˜åœ¨ç›¸åŒå•è¯
 			if (um.find(list1[i]) != um.end())
 			{
 				pair<string, int> temp = { list1[i], i + um[list1[i]] };
-				if (curr_least.second > temp.second)	// ·¢ÏÖĞÂµÄ¸ü½üµÄ·¹µê£¬ÔòĞèÒªÇå¿Õresult£¬È»ºóÌí¼ÓĞÂµÄ·¹µê
+				if (curr_least.second > temp.second)	// å‘ç°æ–°çš„æ›´è¿‘çš„é¥­åº—ï¼Œåˆ™éœ€è¦æ¸…ç©ºresultï¼Œç„¶åæ·»åŠ æ–°çš„é¥­åº—
 				{
 					curr_least = temp;
 					result.clear();
 					result.push_back(curr_least.first);
 				}
-				else if (curr_least.second == temp.second)	// ÈôĞÂµÄ·¹µêÓë×î½üµÄ·¹µê¾àÀëÏàÍ¬£¬ÔòÌí¼ÓĞÂµÄ·¹µê
+				else if (curr_least.second == temp.second)	// è‹¥æ–°çš„é¥­åº—ä¸æœ€è¿‘çš„é¥­åº—è·ç¦»ç›¸åŒï¼Œåˆ™æ·»åŠ æ–°çš„é¥­åº—
 				{
 					result.push_back(temp.first);
 				}

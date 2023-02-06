@@ -31,8 +31,8 @@ Explanation: You don't need to remove any of the intervals since they're already
 
 Approach:
 
-CLRS chapter 16����һ�����ӻ��������ı��Σ���ÿ�����俴��һ�������ռ�õ�ʱ��
-���������ܹ����ŵĻ��a��Ȼ�����ܵĻ����ȥa�͵õ���Ҫ��ɾ���Ļ����
+CLRS chapter 16，第一个例子活动安排问题的变形，把每个区间看成一个活动所需占用的时间
+先求出最大能够安排的活动数a，然后用总的活动数减去a就得到需要被删除的活动数。
 
 */
 

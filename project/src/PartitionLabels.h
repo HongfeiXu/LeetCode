@@ -27,28 +27,28 @@ Approach:
 ababcbacadefegdehijhklij
 
 a_first = 0, a_last = 8
-1~7ÖĞÃ¿¸ö×Ö·ûµÄ³öÏÖ·¶Î§¶¼ÔÚ 0~8 ÄÚ£¬Ôò 0~8 ÎªÒ»¸ö partition£¬³¤Îª9
+1~7ä¸­æ¯ä¸ªå­—ç¬¦çš„å‡ºç°èŒƒå›´éƒ½åœ¨ 0~8 å†…ï¼Œåˆ™ 0~8 ä¸ºä¸€ä¸ª partitionï¼Œé•¿ä¸º9
 
 d_first = 9, d_last = 14
-9~14ÖĞ
-e_first = 10, e_last = 15£¬ 15 > 14
-9~15ÖĞÃ¿¸ö×Ö·ûµÄ³öÏÖ·¶Î§¶¼ÔÚ 9~15 ÄÚ£¬Ôò 9~15 ÎªÒ»¸ö partition£¬³¤Îª7
+9~14ä¸­
+e_first = 10, e_last = 15ï¼Œ 15 > 14
+9~15ä¸­æ¯ä¸ªå­—ç¬¦çš„å‡ºç°èŒƒå›´éƒ½åœ¨ 9~15 å†…ï¼Œåˆ™ 9~15 ä¸ºä¸€ä¸ª partitionï¼Œé•¿ä¸º7
 
 h_first = 16, h_last = 19
-16~19ÖĞ
+16~19ä¸­
 i_first = 17, i_last = 22, 22 > 19
-16~22ÖĞ
+16~22ä¸­
 j_first = 18, i_last = 23, 23 > 22
-16~23ÖĞÃ¿¸ö×Ö·ûµÄ³öÏÖ·¶Î§¶¼ÔÚ 16~23 ÄÚ£¬Ôò 16~23 ÎªÒ»¸ö partition£¬³¤Îª8
+16~23ä¸­æ¯ä¸ªå­—ç¬¦çš„å‡ºç°èŒƒå›´éƒ½åœ¨ 16~23 å†…ï¼Œåˆ™ 16~23 ä¸ºä¸€ä¸ª partitionï¼Œé•¿ä¸º8
 
-Worst Time: O(n^2) abcdefghijk Ê±»áÓöµ½×î»µµÄÊ±¼ä¸´ÔÓ¶È
-ÕâÀïĞèÒª¶ÔÄÇĞ©Ã»ÓĞÈ·¶¨·¶Î§µÄ×Ö·û½øĞĞËÑË÷²Ù×÷£¬»¹ÊÇ±È½ÏºÄÊ±µÄ£¬ÎÒÃÇ¿ÉÒÔ¿¼ÂÇÊ¹ÓÃ Sliding Window ·½Ê½À´½øĞĞ´¦Àí¡£
+Worst Time: O(n^2) abcdefghijk æ—¶ä¼šé‡åˆ°æœ€åçš„æ—¶é—´å¤æ‚åº¦
+è¿™é‡Œéœ€è¦å¯¹é‚£äº›æ²¡æœ‰ç¡®å®šèŒƒå›´çš„å­—ç¬¦è¿›è¡Œæœç´¢æ“ä½œï¼Œè¿˜æ˜¯æ¯”è¾ƒè€—æ—¶çš„ï¼Œæˆ‘ä»¬å¯ä»¥è€ƒè™‘ä½¿ç”¨ Sliding Window æ–¹å¼æ¥è¿›è¡Œå¤„ç†ã€‚
 
 Approach_v2
 Sliding Window
 
 The idea is to use sliding window to add all the chars which are not exhausted yet
-use a unordered_map ±£´æÃ¿¸ö×Ö·û¼°³öÏÖ¸öÊı
+use a unordered_map ä¿å­˜æ¯ä¸ªå­—ç¬¦åŠå‡ºç°ä¸ªæ•°
 use a unordered_set to know if current char is new or we have seen it before in the current window
 if we find new char c, we insert it into the unordered_set, and --unordered_map[c]
 if we exhausted all char c, unordered_map[c] == 0, then, we erase it from unordered_set
@@ -75,10 +75,10 @@ public:
 			return result;
 		int len = S.size();
 		int curr_first = 0, curr_last = 0;
-		// Ã¿´Îµü´úÈ·¶¨Ò»¸ö partition£¬
+		// æ¯æ¬¡è¿­ä»£ç¡®å®šä¸€ä¸ª partitionï¼Œ
 		while (curr_first != len)
 		{
-			unordered_set<char> visited;	// ±£´æÒÑ¾­È·¶¨ÁË·¶Î§µÄ×Ö·û£¨·¶Î§£ºµÚÒ»´Î³öÏÖµÄÎ»ÖÃµ½×îºóÒ»´Î³öÏÖµÄÎ»ÖÃ£©
+			unordered_set<char> visited;	// ä¿å­˜å·²ç»ç¡®å®šäº†èŒƒå›´çš„å­—ç¬¦ï¼ˆèŒƒå›´ï¼šç¬¬ä¸€æ¬¡å‡ºç°çš„ä½ç½®åˆ°æœ€åä¸€æ¬¡å‡ºç°çš„ä½ç½®ï¼‰
 			curr_last = S.find_last_of(S[curr_first]);
 			if (curr_last == curr_first)
 			{
@@ -90,19 +90,19 @@ public:
 				visited.insert(S[curr_first]);
 				for (int j = curr_first + 1; j < curr_last; ++j)
 				{
-					// ÈôÔÚ curr_first ~ curr_last ·¶Î§ÄÚµÄ×Ö·û£¬Ã»ÓĞÈ·¶¨·¶Î§£¬Ôò¿´×îºóÒ»´Î³öÏÖµÄÎ»ÖÃÊÇ·ñÔÚ·¶Î§Ö®ÄÚ£¬Èô²»ÔÚ£¬ÔòĞèÒªÀ©´ó·¶Î§
+					// è‹¥åœ¨ curr_first ~ curr_last èŒƒå›´å†…çš„å­—ç¬¦ï¼Œæ²¡æœ‰ç¡®å®šèŒƒå›´ï¼Œåˆ™çœ‹æœ€åä¸€æ¬¡å‡ºç°çš„ä½ç½®æ˜¯å¦åœ¨èŒƒå›´ä¹‹å†…ï¼Œè‹¥ä¸åœ¨ï¼Œåˆ™éœ€è¦æ‰©å¤§èŒƒå›´
 					if (visited.find(S[j]) == visited.end())
 					{
 						visited.insert(S[j]);
 						int temp_last = S.find_last_of(S[j]);
-						// Èô S[j] ³öÏÖµÄ×îºóÒ»¸öÎ»ÖÃÔÚµ±Ç°·¶Î§Ö®Íâ£¬Ôò¸üĞÂ curr_last£¬À©´ó·¶Î§
+						// è‹¥ S[j] å‡ºç°çš„æœ€åä¸€ä¸ªä½ç½®åœ¨å½“å‰èŒƒå›´ä¹‹å¤–ï¼Œåˆ™æ›´æ–° curr_lastï¼Œæ‰©å¤§èŒƒå›´
 						if (temp_last > curr_last)
 							curr_last = temp_last;
 					}
 				}
-				// ±£´æµ±Ç°ÕÒµ½µÄÒ»¸ö partition µÄ³¤¶È
+				// ä¿å­˜å½“å‰æ‰¾åˆ°çš„ä¸€ä¸ª partition çš„é•¿åº¦
 				result.push_back(curr_last - curr_first + 1);
-				// ¸üĞÂ curr_first£¬È·¶¨ÏÂÒ»¸ö partition
+				// æ›´æ–° curr_firstï¼Œç¡®å®šä¸‹ä¸€ä¸ª partition
 				curr_first = curr_last + 1;
 			}
 		}
@@ -122,20 +122,20 @@ public:
 			++char2int[c];
 
 		int left = 0, right = 0;
-		unordered_set<char> visited;	// ±£´æµ±Ç°´°¿ÚÖĞµÄÎ´±»±éÀúÍêµÄ×ÖÄ¸
+		unordered_set<char> visited;	// ä¿å­˜å½“å‰çª—å£ä¸­çš„æœªè¢«éå†å®Œçš„å­—æ¯
 		while (right != S.length())
 		{
 			char curr = S[right];
 			++right;
-			// ½«µÚÒ»´Î·ÃÎÊµÄ×ÖÄ¸Ìí¼Óµ½ visited ÖĞ
+			// å°†ç¬¬ä¸€æ¬¡è®¿é—®çš„å­—æ¯æ·»åŠ åˆ° visited ä¸­
 			if (visited.find(curr) == visited.end())
 				visited.insert(curr);
-			// Ã¿·ÃÎÊÒ»¸ö×ÖÄ¸¾Í¼õÈ¥Æä³öÏÖµÄ´ÎÊı
+			// æ¯è®¿é—®ä¸€ä¸ªå­—æ¯å°±å‡å»å…¶å‡ºç°çš„æ¬¡æ•°
 			--char2int[curr];
-			// Ö±µ½¸Ã×ÖÄ¸È«²¿±»·ÃÎÊ£¬´Ó visited ÖĞÉ¾È¥¸Ã×ÖÄ¸
+			// ç›´åˆ°è¯¥å­—æ¯å…¨éƒ¨è¢«è®¿é—®ï¼Œä» visited ä¸­åˆ å»è¯¥å­—æ¯
 			if (char2int[curr] == 0)
 				visited.erase(curr);
-			// Èôµ±Ç°´°¿ÚÖĞ×ÖÄ¸¸öÊı¸öÊı¼õÖÁ0£¬ËµÃ÷ËùÓĞ´°¿ÚÄÚµÄ×ÖÄ¸¶¼ÔÚ½ö³öÏÖÔÚ´°¿ÚÄÚ£¬²»ÔÚ´°Íâ³öÏÖ£¬Ôò¹¹³ÉÒ»¸ö partition
+			// è‹¥å½“å‰çª—å£ä¸­å­—æ¯ä¸ªæ•°ä¸ªæ•°å‡è‡³0ï¼Œè¯´æ˜æ‰€æœ‰çª—å£å†…çš„å­—æ¯éƒ½åœ¨ä»…å‡ºç°åœ¨çª—å£å†…ï¼Œä¸åœ¨çª—å¤–å‡ºç°ï¼Œåˆ™æ„æˆä¸€ä¸ª partition
 			if (visited.size() == 0)
 			{
 				result.push_back(right - left);

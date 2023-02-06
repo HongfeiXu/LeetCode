@@ -31,9 +31,9 @@ The length of words[i] will be in the range [1, 30].
 
 Approach:
 
-Ê¹ÓÃ unordered_set ¼ÇÂ¼ÄÇĞ©ÒÔ¼°È·¶¨¿ÉÒÔÃ¿´ÎÌí¼ÓÒ»¸ö×ÖÄ¸¹¹³ÉµÄµ¥´Ê
-ÏÈ¶Ô words ÅÅĞò£¬È»ºó¶ÔÓÚ³¤¶ÈÎª 1 µÄµ¥´Ê£¬Ö±½Ó·ÅÈë unordered_set ÖĞ£¬
-¶ÔÓÚ³¤¶ÈÎª n µÄµ¥´Ê£¬ÈôÆäÇ° n-1 ¸ö×Ö·û¹¹³ÉµÄ×Ó´®ÔÚ unordered_set ÖĞ£¬Ôò¸Ãµ¥´ÊÒ²·ÅÈë unordered_set ÖĞ¡£
+ä½¿ç”¨ unordered_set è®°å½•é‚£äº›ä»¥åŠç¡®å®šå¯ä»¥æ¯æ¬¡æ·»åŠ ä¸€ä¸ªå­—æ¯æ„æˆçš„å•è¯
+å…ˆå¯¹ words æ’åºï¼Œç„¶åå¯¹äºé•¿åº¦ä¸º 1 çš„å•è¯ï¼Œç›´æ¥æ”¾å…¥ unordered_set ä¸­ï¼Œ
+å¯¹äºé•¿åº¦ä¸º n çš„å•è¯ï¼Œè‹¥å…¶å‰ n-1 ä¸ªå­—ç¬¦æ„æˆçš„å­ä¸²åœ¨ unordered_set ä¸­ï¼Œåˆ™è¯¥å•è¯ä¹Ÿæ”¾å…¥ unordered_set ä¸­ã€‚
 
 */
 
@@ -49,17 +49,17 @@ public:
 
 	string longestWord(vector<string>& words)
 	{
-		// °´ÕÕµ¥´ÊµÄ³¤¶È¶Ô words ½øĞĞ´ÓĞ¡µ½´óÅÅĞò
+		// æŒ‰ç…§å•è¯çš„é•¿åº¦å¯¹ words è¿›è¡Œä»å°åˆ°å¤§æ’åº
 		sort(words.begin(), words.end());
 		
-		unordered_set<string> built;		// ¼ÇÂ¼ÄÇĞ©ÒÔ¼°È·¶¨¿ÉÒÔÃ¿´ÎÌí¼ÓÒ»¸ö×ÖÄ¸¹¹³ÉµÄµ¥´Ê
+		unordered_set<string> built;		// è®°å½•é‚£äº›ä»¥åŠç¡®å®šå¯ä»¥æ¯æ¬¡æ·»åŠ ä¸€ä¸ªå­—æ¯æ„æˆçš„å•è¯
 		for (int i = 0; i < words.size(); ++i)
 		{
-			if (words[i].size() == 1)		// ¶ÔÓÚ³¤¶ÈÎª 1 µÄµ¥´Ê£¬Ö±½Ó·ÅÈë unordered_set ÖĞ
+			if (words[i].size() == 1)		// å¯¹äºé•¿åº¦ä¸º 1 çš„å•è¯ï¼Œç›´æ¥æ”¾å…¥ unordered_set ä¸­
 				built.insert(words[i]);
 			else if(words[i].empty())		
 				continue;
-			else							// ¶ÔÓÚ³¤¶ÈÎª n µÄµ¥´Ê£¬ÈôÆäÇ° n-1 ¸ö×Ö·û¹¹³ÉµÄ×Ó´®ÔÚ unordered_set ÖĞ£¬Ôò¸Ãµ¥´ÊÒ²·ÅÈë unordered_set ÖĞ
+			else							// å¯¹äºé•¿åº¦ä¸º n çš„å•è¯ï¼Œè‹¥å…¶å‰ n-1 ä¸ªå­—ç¬¦æ„æˆçš„å­ä¸²åœ¨ unordered_set ä¸­ï¼Œåˆ™è¯¥å•è¯ä¹Ÿæ”¾å…¥ unordered_set ä¸­
 			{
 				string temp = words[i].substr(0, words[i].size() - 1);
 				if (built.find(temp) != built.end())

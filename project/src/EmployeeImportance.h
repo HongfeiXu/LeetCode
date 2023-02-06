@@ -31,7 +31,7 @@ Approach:
 hash table + BFS
 
 Approach_v2: 
-hash table + DFS ºÃÏñ¸ü¿ìĞ©¡£
+hash table + DFS å¥½åƒæ›´å¿«äº›ã€‚
 
 */
 
@@ -59,12 +59,12 @@ public:
 	{
 		int total_importance = 0;
 
-		// Ê¹ÓÃ hash table ¼ÓËÙ²éÕÒÏÂ¼¶ÈËÔ±½ÚµãµÄËÙ¶È£¬idÎªkey£¬¶ÔÓ¦µÄemployeesÖĞµÄÖ¸ÕëÎªvalue
+		// ä½¿ç”¨ hash table åŠ é€ŸæŸ¥æ‰¾ä¸‹çº§äººå‘˜èŠ‚ç‚¹çš„é€Ÿåº¦ï¼Œidä¸ºkeyï¼Œå¯¹åº”çš„employeesä¸­çš„æŒ‡é’ˆä¸ºvalue
 		unordered_map<int, Employee*> um;
 		for (int i = 0; i < employees.size(); ++i)
 			um[employees[i]->id] = employees[i];
 
-		// Ê¹ÓÃ¹ã¶ÈÓÅÏÈµÄ·½Ê½±éÀúÒÔidÎª¸ùµÄÈËÔ±ÉÏÏÂ¼¶Ê÷
+		// ä½¿ç”¨å¹¿åº¦ä¼˜å…ˆçš„æ–¹å¼éå†ä»¥idä¸ºæ ¹çš„äººå‘˜ä¸Šä¸‹çº§æ ‘
 		queue<int> employee_id_queue;
 		employee_id_queue.push(id);
 		while (!employee_id_queue.empty())
@@ -88,7 +88,7 @@ public:
 	{
 		int total_importance = 0;
 
-		// Ê¹ÓÃ hash table ¼ÓËÙ²éÕÒÏÂ¼¶ÈËÔ±½ÚµãµÄËÙ¶È£¬idÎªkey£¬¶ÔÓ¦µÄemployeesÖĞµÄÖ¸ÕëÎªvalue
+		// ä½¿ç”¨ hash table åŠ é€ŸæŸ¥æ‰¾ä¸‹çº§äººå‘˜èŠ‚ç‚¹çš„é€Ÿåº¦ï¼Œidä¸ºkeyï¼Œå¯¹åº”çš„employeesä¸­çš„æŒ‡é’ˆä¸ºvalue
 		unordered_map<int, Employee*> id_to_employee;
 		for (int i = 0; i < employees.size(); ++i)
 			id_to_employee[employees[i]->id] = employees[i];
@@ -98,7 +98,7 @@ public:
 		return total_importance;
 	}
 
-	// Éî¶ÈÓÅÏÈ±éÀú
+	// æ·±åº¦ä¼˜å…ˆéå†
 	int calculateImportance(unordered_map<int, Employee*>& id_to_employee, int id)
 	{
 		Employee* curr_employee = id_to_employee[id];

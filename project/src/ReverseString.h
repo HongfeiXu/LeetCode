@@ -10,10 +10,10 @@ Example:
 Given s = "hello", return "olleh".
 
 Approach:
-使用反向迭代器，空间复杂度为O(n)
+浣跨敤鍙嶅悜杩唬鍣紝绌洪棿澶嶆潅搴︿负O(n)
 
 Approach:
-交换两侧，空间复杂度为O(1)
+浜ゆ崲涓や晶锛岀┖闂村鏉傚害涓篛(1)
 
 */
 

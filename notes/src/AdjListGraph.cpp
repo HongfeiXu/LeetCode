@@ -53,7 +53,7 @@ std::vector<int> BFS(const AdjListGraph& G, int start)
 		auto pv = G.array[u].head;
 		while (pv != nullptr)
 		{
-			// Èô¶¥µã v Ã»ÓĞ±»·ÃÎÊ£¬Ôò·ÅÈëQÖĞ£¬²¢±ê¼ÇÎªÒÑ·ÃÎÊ
+			// è‹¥é¡¶ç‚¹ v æ²¡æœ‰è¢«è®¿é—®ï¼Œåˆ™æ”¾å…¥Qä¸­ï¼Œå¹¶æ ‡è®°ä¸ºå·²è®¿é—®
 			if (visited.find(pv->dest) == visited.end())
 			{
 				Q.push(pv->dest);
@@ -67,13 +67,13 @@ std::vector<int> BFS(const AdjListGraph& G, int start)
 
 void DFSUtil(const AdjListGraph& G, int start, unordered_set<int>& visited, vector<int>& result)
 {
-	// ¼ÇÂ¼½á¹û£¬²¢±ê¼ÇÎªÒÑ·ÃÎÊ
+	// è®°å½•ç»“æœï¼Œå¹¶æ ‡è®°ä¸ºå·²è®¿é—®
 	result.push_back(start);
 	visited.insert(start);
 	auto pv = G.array[start].head;
 	while (pv != nullptr)
 	{
-		// Èç¹û½Úµã v Ã»ÓĞ±»·ÃÎÊ£¬Ôò¶ÔÆä½øĞĞÉî¶È±éÀú
+		// å¦‚æœèŠ‚ç‚¹ v æ²¡æœ‰è¢«è®¿é—®ï¼Œåˆ™å¯¹å…¶è¿›è¡Œæ·±åº¦éå†
 		if (visited.find(pv->dest) == visited.end())
 			DFSUtil(G, pv->dest, visited, result);
 		pv = pv->next;
@@ -109,7 +109,7 @@ void printPrimMST(const vector<int>& parent)
 	cout << "Edges of Prim MST" << endl;
 	for (int i = 0; i < parent.size(); ++i)
 	{
-		cout << parent[i] << " - " << i << endl;	// Êä³öÃ¿¸ö½ÚµãÒÔ¼°Æä¸¸½ÚµãËù×é³ÉµÄ±ß
+		cout << parent[i] << " - " << i << endl;	// è¾“å‡ºæ¯ä¸ªèŠ‚ç‚¹ä»¥åŠå…¶çˆ¶èŠ‚ç‚¹æ‰€ç»„æˆçš„è¾¹
 	}
 }
 
@@ -119,15 +119,15 @@ void primMST(const AdjListGraph& G, int start)
 		return;
 	vector<int> parent(G.V);
 	vector<int> key(G.V, INT_MAX);
-	vector<bool> mstSet(G.V, false);		// ±ê¼Ç¶¥µãÊÇ·ñÒÑ¾­¼ÓÈë MST ÖĞ
-	key[start] = 0;			// ÒÔ start Îª¸ù¹¹Ôì MST
+	vector<bool> mstSet(G.V, false);		// æ ‡è®°é¡¶ç‚¹æ˜¯å¦å·²ç»åŠ å…¥ MST ä¸­
+	key[start] = 0;			// ä»¥ start ä¸ºæ ¹æ„é€  MST
 	parent[start] = -1;
 	for (int count = 0; count < G.V - 1; ++count)
 	{
-		// Ñ°ÕÒ²»ÔÚ MST ÖĞ¡¢key Öµ×îĞ¡µÄ½Úµã£¬¼ÓÈë MST ÖĞ
+		// å¯»æ‰¾ä¸åœ¨ MST ä¸­ã€key å€¼æœ€å°çš„èŠ‚ç‚¹ï¼ŒåŠ å…¥ MST ä¸­
 		int u = minKeyVertex(key, mstSet);
 		mstSet[u] = true;
-		// ¸üĞÂ u µÄÁÚ¾Ó½Úµã
+		// æ›´æ–° u çš„é‚»å±…èŠ‚ç‚¹
 		auto pv = G.array[u].head;
 		while (pv != nullptr)
 		{
@@ -159,9 +159,9 @@ void kruskalMST(const AdjListGraph& G)
 		return lhs.weight < rhs.weight;
 	};
 
-	// ´æ´¢ MST ÖĞµÄ±ß
+	// å­˜å‚¨ MST ä¸­çš„è¾¹
 	vector<Edge> edges_of_MST;
-	// ´æ´¢ËùÓĞGµÄ±ß£¨Ã¿Ìõ±ß´æ´¢ÁËÁ½´Î£©
+	// å­˜å‚¨æ‰€æœ‰Gçš„è¾¹ï¼ˆæ¯æ¡è¾¹å­˜å‚¨äº†ä¸¤æ¬¡ï¼‰
 	vector<Edge> edges_of_G;
 	for (int i = 0; i < G.V; ++i)
 	{
@@ -190,13 +190,13 @@ void kruskalMST(const AdjListGraph& G)
 void dijkstra(const AdjListGraph& G, int start)
 {
 	assert(start < G.V && start >= 0);
-	vector<int> parent(G.V, -1);			// ¼ÇÂ¼Ã¿¸ö¶¥µãµÄ¸¸½Úµã£¬ÓÃÀ´Êä³ö×î¶ÌÂ·¾¶Ê÷£¬Ö»ÒªÇóÊä³ö×î¶ÌÂ·¾¶µÄ³¤¶È£¬Ôò²»ĞèÒª parent
-	vector<bool> sptSet(G.V, false);		// ±ê¼Ç¶¥µãÊÇ·ñÒÑ¾­¼ÓÈë sptSet ÖĞ
-	vector<int> dist(G.V, INT_MAX);			// Ã¿¸ö¶¥µãµ½ÆğÊ¼¶¥µãµÄ¾àÀë³õÊ¼Îª INT_MAX
+	vector<int> parent(G.V, -1);			// è®°å½•æ¯ä¸ªé¡¶ç‚¹çš„çˆ¶èŠ‚ç‚¹ï¼Œç”¨æ¥è¾“å‡ºæœ€çŸ­è·¯å¾„æ ‘ï¼Œåªè¦æ±‚è¾“å‡ºæœ€çŸ­è·¯å¾„çš„é•¿åº¦ï¼Œåˆ™ä¸éœ€è¦ parent
+	vector<bool> sptSet(G.V, false);		// æ ‡è®°é¡¶ç‚¹æ˜¯å¦å·²ç»åŠ å…¥ sptSet ä¸­
+	vector<int> dist(G.V, INT_MAX);			// æ¯ä¸ªé¡¶ç‚¹åˆ°èµ·å§‹é¡¶ç‚¹çš„è·ç¦»åˆå§‹ä¸º INT_MAX
 	dist[start] = 0;
 	parent[start] = -1;
-	// ½øĞĞ G.V - 1 ´Îµü´ú¼´¿É£¬ÒòÎªÈôÔÚ½øĞĞµÚ G.V ´Îµü´ú£¬¶ÔÓÚÕâ¸ö×îºóµÄ½Úµã£¬ËùÓĞÏàÁÚµÄ½ÚµãÒÑ¾­±»¼ÓÈë SPT ÖĞÁË£¬Ã»ÓĞ±ØÒªÔÙ½øĞĞ´Ë´Î·ÃÎÊ£¬
-	// ÎÒÃÇ¸ù¾İ G.V - 1 ´Îµü´úËù¸üĞÂµÄ parent µÄĞÅÏ¢¾Í¿ÉÒÔÈ·¶¨ SPT 
+	// è¿›è¡Œ G.V - 1 æ¬¡è¿­ä»£å³å¯ï¼Œå› ä¸ºè‹¥åœ¨è¿›è¡Œç¬¬ G.V æ¬¡è¿­ä»£ï¼Œå¯¹äºè¿™ä¸ªæœ€åçš„èŠ‚ç‚¹ï¼Œæ‰€æœ‰ç›¸é‚»çš„èŠ‚ç‚¹å·²ç»è¢«åŠ å…¥ SPT ä¸­äº†ï¼Œæ²¡æœ‰å¿…è¦å†è¿›è¡Œæ­¤æ¬¡è®¿é—®ï¼Œ
+	// æˆ‘ä»¬æ ¹æ® G.V - 1 æ¬¡è¿­ä»£æ‰€æ›´æ–°çš„ parent çš„ä¿¡æ¯å°±å¯ä»¥ç¡®å®š SPT 
 	for (int count = 0; count < G.V - 1; ++count)
 	{
 		int u = minDistanceVertex(dist, sptSet);
@@ -204,9 +204,9 @@ void dijkstra(const AdjListGraph& G, int start)
 		auto pv = G.array[u].head;
 		while (pv != nullptr)
 		{
-			// ÈôÁÚ¾Ó½Úµã v Î´±»·ÃÎÊÇÒ¾àÀëÖµ´óÓÚ dist[u] + pv->weight£¬Ôò¸üĞÂÆä dist Öµ
-			// ÕâÀï dist[u] != INT_MAX  ÊÇ±£Ö¤ u µ±Ç°ÊÇ¿ÉÒÔÓë MST Á¬Í¨µÄ£¬
-			// Èç¹ûµ±Ç°¾ßÓĞ×îĞ¡¾àÀëµÄ½Úµã u Óë MST ²»Á¬Í¨£¬ÔòÆäÁÚ¾Ó½ÚµãµÄ dist Öµ½«ÒÀÈ»Îª INT_MAX
+			// è‹¥é‚»å±…èŠ‚ç‚¹ v æœªè¢«è®¿é—®ä¸”è·ç¦»å€¼å¤§äº dist[u] + pv->weightï¼Œåˆ™æ›´æ–°å…¶ dist å€¼
+			// è¿™é‡Œ dist[u] != INT_MAX  æ˜¯ä¿è¯ u å½“å‰æ˜¯å¯ä»¥ä¸ MST è¿é€šçš„ï¼Œ
+			// å¦‚æœå½“å‰å…·æœ‰æœ€å°è·ç¦»çš„èŠ‚ç‚¹ u ä¸ MST ä¸è¿é€šï¼Œåˆ™å…¶é‚»å±…èŠ‚ç‚¹çš„ dist å€¼å°†ä¾ç„¶ä¸º INT_MAX
 			if (sptSet[pv->dest] == false && dist[u] != INT_MAX && dist[u] + pv->weight < dist[pv->dest])
 			{
 				dist[pv->dest] = dist[u] + pv->weight;
@@ -231,8 +231,8 @@ int minDistanceVertex(const vector<int>& dist, const vector<bool>& sptSet)
 	int min_dist_vert;
 	for (int i = 0; i < dist.size(); ++i)
 	{
-		// Ñ°ÕÒÃ»ÓĞ¼ÓÈë SPT ÖĞµÄ½ÚµãÖĞ£¬¾ßÓĞ×îĞ¡ dist ÖµµÄ½Úµã
-		// ÕâÀï²ÉÓÃ <= ºÅ£¬ÊÇÎªÁËÔÚµ±Ç°ÓàÏÂ½ÚµãµÄ dist Öµ¾ùÎª INT_MAX Ê±£¬·µ»ØÆäÖĞµÄÒ»¸ö½Úµã£¬Èç¹ûÎª < ºÅ£¬Ôò·µ»ØÖµÎŞĞ§
+		// å¯»æ‰¾æ²¡æœ‰åŠ å…¥ SPT ä¸­çš„èŠ‚ç‚¹ä¸­ï¼Œå…·æœ‰æœ€å° dist å€¼çš„èŠ‚ç‚¹
+		// è¿™é‡Œé‡‡ç”¨ <= å·ï¼Œæ˜¯ä¸ºäº†åœ¨å½“å‰ä½™ä¸‹èŠ‚ç‚¹çš„ dist å€¼å‡ä¸º INT_MAX æ—¶ï¼Œè¿”å›å…¶ä¸­çš„ä¸€ä¸ªèŠ‚ç‚¹ï¼Œå¦‚æœä¸º < å·ï¼Œåˆ™è¿”å›å€¼æ— æ•ˆ
 		if (dist[i] <= min_dist && sptSet[i] == false)
 		{
 			min_dist = dist[i];
@@ -322,6 +322,6 @@ Edges of Dijkstra SPT
 1 -> 3: 4
 -1 -> 4: 2147483647
 -1 -> 5: 2147483647
-Çë°´ÈÎÒâ¼ü¼ÌĞø. . .
+è¯·æŒ‰ä»»æ„é”®ç»§ç»­. . .
 
 */

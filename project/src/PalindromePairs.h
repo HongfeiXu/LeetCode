@@ -23,9 +23,9 @@ Approach 2:
 word->left|right
 left|right|newword if left = reverse(newword) && right is Palindrome then left|right|newword si a Palindrome
 
-¹Ø¼üË¼Ïë£º
-1.ÓÃµ¥´ÊµÄÄæ¹¹Ôìhash±í
-2. ·Ö¸îµ¥´ÊÎª left£¬right£¬·Ö±ğ²é±í
+å…³é”®æ€æƒ³ï¼š
+1.ç”¨å•è¯çš„é€†æ„é€ hashè¡¨
+2. åˆ†å‰²å•è¯ä¸º leftï¼Œrightï¼Œåˆ†åˆ«æŸ¥è¡¨
 
 */
 
@@ -79,7 +79,7 @@ public:
 	{
 		vector<vector<int>> result;
 		
-		// 1. ¹¹ÔìÒ»¸ö hash±í£¬ key ÊÇËùÓĞµ¥´ÊµÄÄæ×ª£¬value ÊÇµ¥´ÊµÄÏÂ±ê
+		// 1. æ„é€ ä¸€ä¸ª hashè¡¨ï¼Œ key æ˜¯æ‰€æœ‰å•è¯çš„é€†è½¬ï¼Œvalue æ˜¯å•è¯çš„ä¸‹æ ‡
 		unordered_map<string, int> um;
 		for (int i = 0; i < words.size(); ++i)
 		{
@@ -87,9 +87,9 @@ public:
 			um[temp] = i;
 		}
 
-		// 2. ¶ÔÃ¿¸öµ¥´Ê£¬·Ö¸îÎª left ºÍ right£¬
-		// ÔÚ hash ±íÖĞËÑË÷left£¬Èô´æÔÚ,ÅĞ¶Ï right ÊÇ·ñÎª»ØÎÄ×Ö£¬Èç¹ûÊÇ£¬Ôò left|right|searched ¹¹³ÉÒ»¸ö»ØÎÄ×Ö
-		// ÔÚ hash ±íÖĞËÑË÷right£¬Èô´æÔÚ£¬ÅĞ¶ÏleftÊÇ·ñÎª»áÎÄ×Ö£¬Èç¹ûÊÇ£¬Ôò searched|left|right ¹¹³ÉÒ»¸ö»ØÎÄ×Ö
+		// 2. å¯¹æ¯ä¸ªå•è¯ï¼Œåˆ†å‰²ä¸º left å’Œ rightï¼Œ
+		// åœ¨ hash è¡¨ä¸­æœç´¢leftï¼Œè‹¥å­˜åœ¨,åˆ¤æ–­ right æ˜¯å¦ä¸ºå›æ–‡å­—ï¼Œå¦‚æœæ˜¯ï¼Œåˆ™ left|right|searched æ„æˆä¸€ä¸ªå›æ–‡å­—
+		// åœ¨ hash è¡¨ä¸­æœç´¢rightï¼Œè‹¥å­˜åœ¨ï¼Œåˆ¤æ–­leftæ˜¯å¦ä¸ºä¼šæ–‡å­—ï¼Œå¦‚æœæ˜¯ï¼Œåˆ™ searched|left|right æ„æˆä¸€ä¸ªå›æ–‡å­—
 		for (int i = 0; i < words.size(); ++i)
 		{
 			// edge case: if empty string "" exists, find all palindromes to become pairs ("", self)

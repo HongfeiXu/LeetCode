@@ -18,7 +18,7 @@ If there are multiple such windows, you are guaranteed that there will always be
 
 Approach:
 
-Ê¹ÓÃ Sliding Window Ëã·¨£¬ ÀàËÆÓÚ 438. Find All Anagrams in a String
+ä½¿ç”¨ Sliding Window ç®—æ³•ï¼Œ ç±»ä¼¼äº 438. Find All Anagrams in a String
 
 Ref: Ref: https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/
 
@@ -45,7 +45,7 @@ public:
 		int begin = 0, end = 0;
 		int counter = stillneed.size();
 
-		int len = INT_MAX;		// ±£´æÂú×ãÌõ¼şµÄ´°¿ÚµÄ×îĞ¡³¤¶È
+		int len = INT_MAX;		// ä¿å­˜æ»¡è¶³æ¡ä»¶çš„çª—å£çš„æœ€å°é•¿åº¦
 
 		// loop at the begining of the source string
 		while (end < s.size())

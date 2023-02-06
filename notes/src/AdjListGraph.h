@@ -2,7 +2,7 @@
 
 /*
 
-»ùÓÚÍ¼µÄÁÚ½ÓÁ´±í±íÊ¾ÊµÏÖÍ¼µÄÒ»Ğ©»ù±¾Ëã·¨
+åŸºäºå›¾çš„é‚»æ¥é“¾è¡¨è¡¨ç¤ºå®ç°å›¾çš„ä¸€äº›åŸºæœ¬ç®—æ³•
 BFS,DFS,Prim MST, Kruskal MST
 
 */
@@ -25,7 +25,7 @@ using namespace std;
 struct AdjListNode {
 	int dest;
 	int weight;
-	shared_ptr<AdjListNode> next;			// Ê¹ÓÃÖÇÄÜÖ¸ÕëÀ´½øĞĞ¶¯Ì¬ÄÚ´æ·ÖÅä£¬²»»á³öÏÖÄÚ´æĞ¹Â©
+	shared_ptr<AdjListNode> next;			// ä½¿ç”¨æ™ºèƒ½æŒ‡é’ˆæ¥è¿›è¡ŒåŠ¨æ€å†…å­˜åˆ†é…ï¼Œä¸ä¼šå‡ºç°å†…å­˜æ³„æ¼
 	AdjListNode(int dest_, int weight_ = 0) : dest(dest_), weight(weight_), next(nullptr) { }
 };
 
@@ -55,14 +55,14 @@ void DFSUtil(const AdjListGraph& G, int start, unordered_set<int>& visited, vect
 
 //////////////////////////////////////////////////////////////////////////
 // Prim and Kruskal, MST
-// £¨¶ÔÏó£º´øÈ¨ÎŞÏòÁ¬Í¨Í¼£©
+// ï¼ˆå¯¹è±¡ï¼šå¸¦æƒæ— å‘è¿é€šå›¾ï¼‰
 //////////////////////////////////////////////////////////////////////////
 
 void primMST(const AdjListGraph& G, int start);
 int minKeyVertex(const vector<int>& key, const vector<bool>& mstSet);
 void printPrimMST(const vector<int>& parent);
 
-// ²¢²é¼¯
+// å¹¶æŸ¥é›†
 struct DisjointSet {
 	int node_num;
 	vector<int> parent;
@@ -108,7 +108,7 @@ void kruskalMST(const AdjListGraph& G);
 void printKruskalMST(const vector<Edge>& edges_of_MST);
 
 //////////////////////////////////////////////////////////////////////////
-// Dijkstra¡¯s shortest path algorithm
+// Dijkstraâ€™s shortest path algorithm
 //////////////////////////////////////////////////////////////////////////
 
 void dijkstra(const AdjListGraph& G, int start);

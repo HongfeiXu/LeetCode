@@ -30,10 +30,10 @@ DP
 Target: MinCost[cost.size()]
 
 MinCost[i], i = 1,2,3,...,cost.size().
-·ÖÎöÌâÄ¿£¬Ã¿´Î¿ÉÒÔÉÏÐÐÒ»»òÕßÁ½¼¶½×ÌÝ¡£Ôò
-ÎÊÌâµÄµÝ¹é±íÊ¾£º
+åˆ†æžé¢˜ç›®ï¼Œæ¯æ¬¡å¯ä»¥ä¸Šè¡Œä¸€æˆ–è€…ä¸¤çº§é˜¶æ¢¯ã€‚åˆ™
+é—®é¢˜çš„é€’å½’è¡¨ç¤ºï¼š
 MinCost[i] = min{MinCost[i-1] + cost[i-1], MinCost[i-2] + cost[i-2]}
-¾ßÓÐÖØµþµÄ×ÓÎÊÌâ£¬Ó¦ÓÃ DP ½â¾ö¡£
+å…·æœ‰é‡å çš„å­é—®é¢˜ï¼Œåº”ç”¨ DP è§£å†³ã€‚
 */
 
 #include <vector>

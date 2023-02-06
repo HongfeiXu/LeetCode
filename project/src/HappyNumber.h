@@ -50,7 +50,7 @@ public:
 		return n;
 	}
 
-	// 正整数拆分为数位
+	// 姝ｆ暣鏁版媶鍒嗕负鏁颁綅
 	void num2ToDigit(int n, vector<int>& digits)
 	{
 		if (n / 10 != 0)

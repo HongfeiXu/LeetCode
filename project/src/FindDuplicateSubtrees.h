@@ -25,23 +25,23 @@ and
 Therefore, you need to return above trees' root in the form of a list.
 
 Approach:
-ÊÜµ½ ConstructStringFromBinaryTree µÄÆô·¢£¬ÎÒÃÇ¿ÉÒÔÓÃÒ»¸ö×Ö·û´®±íÊ¾³öÒ»¿Ã¶ş²æÊ÷µÄËùÓĞĞÅÏ¢£¬±ÈÈç
+å—åˆ° ConstructStringFromBinaryTree çš„å¯å‘ï¼Œæˆ‘ä»¬å¯ä»¥ç”¨ä¸€ä¸ªå­—ç¬¦ä¸²è¡¨ç¤ºå‡ºä¸€æ£µäºŒå‰æ ‘çš„æ‰€æœ‰ä¿¡æ¯ï¼Œæ¯”å¦‚
 
    1
   / \
  2   3
     / \
    4   5
-¿É±íÊ¾Îª£º1(2()())(3(4()())(5()()))
+å¯è¡¨ç¤ºä¸ºï¼š1(2()())(3(4()())(5()()))
 
-ÄÇÃ´ÎÒÃÇ¿ÉÒÔÔÚ³ÌĞòÖĞ¼ÇÂ¼Ã¿¸ö×ÓÊ÷¶ÔÓ¦µÄ×Ö·û´®£¬
-È»ºóÑ°ÕÒ¾ßÓĞÏàÍ¬×Ö·û´®µÄ×ÓÊ÷£¬±£´æÎª½á¹û¡£
+é‚£ä¹ˆæˆ‘ä»¬å¯ä»¥åœ¨ç¨‹åºä¸­è®°å½•æ¯ä¸ªå­æ ‘å¯¹åº”çš„å­—ç¬¦ä¸²ï¼Œ
+ç„¶åå¯»æ‰¾å…·æœ‰ç›¸åŒå­—ç¬¦ä¸²çš„å­æ ‘ï¼Œä¿å­˜ä¸ºç»“æœã€‚
 
-Approach 2 £¨use unordered_map£©:
-ÀàËÆµÄ£¬ÒòÎªÊÇ¸ù¾İ×Ö·û´®µÄÏàÍ¬À´Ñ°ÕÒÖØ¸´µÄ×ÓÊ÷£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ unordered_map ÕâÒ»Êı¾İ½á¹¹£¬
+Approach 2 ï¼ˆuse unordered_mapï¼‰:
+ç±»ä¼¼çš„ï¼Œå› ä¸ºæ˜¯æ ¹æ®å­—ç¬¦ä¸²çš„ç›¸åŒæ¥å¯»æ‰¾é‡å¤çš„å­æ ‘ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ unordered_map è¿™ä¸€æ•°æ®ç»“æ„ï¼Œ
 unordered_map<string, vector<TreeNode*>>
-½«½á¹ûĞÅÏ¢´æ´¢µ½´ËÈİÆ÷ÖĞµÄºÃ´¦ÊÇ£¬×îºóÍ¨¹ı²é¿´ÄÄĞ© string ¶ÔÓ¦µÄ vector ÖĞ²»Ö¹Ò»¸öÔªËØ£¬¼´ÎªÖØ¸´µÄ×ÓÊ÷ĞÅÏ¢¡£
-Ê¹ÓÃ unordered_map ±ÜÃâÁË¶¨Òå¹ØÓÚ NodeString µÄ±È½ÏÔËËã·û¡£
+å°†ç»“æœä¿¡æ¯å­˜å‚¨åˆ°æ­¤å®¹å™¨ä¸­çš„å¥½å¤„æ˜¯ï¼Œæœ€åé€šè¿‡æŸ¥çœ‹å“ªäº› string å¯¹åº”çš„ vector ä¸­ä¸æ­¢ä¸€ä¸ªå…ƒç´ ï¼Œå³ä¸ºé‡å¤çš„å­æ ‘ä¿¡æ¯ã€‚
+ä½¿ç”¨ unordered_map é¿å…äº†å®šä¹‰å…³äº NodeString çš„æ¯”è¾ƒè¿ç®—ç¬¦ã€‚
 
 */
 
@@ -82,16 +82,16 @@ public:
 	{
 		vector<TreeNode*> result;
 
-		vector<NodeString> node_string_vec;				// ±£´æËùÓĞ×ÓÊ÷ÔÚÏÈĞò±éÀúÏÂĞÎ³ÉµÄ×Ö·û´®
-		preorder_traverse(root, node_string_vec);		// Óë ConstructStringFromBinaryTree Ë¼ÏëÏàÍ¬£¬Éú³ÉËùÓĞ×ÓÊ÷µÄ×Ö·û´®
-		// ½«ËùÓĞ×ÓÊ÷¶ÔÓ¦µÄ×Ö·û´®ĞÅÏ¢°´ÕÕ×Ö·û´®´óĞ¡ÅÅĞò£¬È»ºóÑ°ÕÒÖØ¸´×Ö·û´®
+		vector<NodeString> node_string_vec;				// ä¿å­˜æ‰€æœ‰å­æ ‘åœ¨å…ˆåºéå†ä¸‹å½¢æˆçš„å­—ç¬¦ä¸²
+		preorder_traverse(root, node_string_vec);		// ä¸ ConstructStringFromBinaryTree æ€æƒ³ç›¸åŒï¼Œç”Ÿæˆæ‰€æœ‰å­æ ‘çš„å­—ç¬¦ä¸²
+		// å°†æ‰€æœ‰å­æ ‘å¯¹åº”çš„å­—ç¬¦ä¸²ä¿¡æ¯æŒ‰ç…§å­—ç¬¦ä¸²å¤§å°æ’åºï¼Œç„¶åå¯»æ‰¾é‡å¤å­—ç¬¦ä¸²
 		sort(node_string_vec.begin(), node_string_vec.end());
 		for (int i = 0; i < node_string_vec.size();)
 		{
 			int j = i + 1;
 			while ((j < node_string_vec.size()) && node_string_vec[i] == node_string_vec[j])
 				++j;
-			// Èç¹ûÓĞ³¬¹ı1¸ö node ×ÓÊ÷¶ÔÓ¦µÄ×Ö·û´®ÏàÍ¬£¬Ôò¸Ã×ÓÊ÷ÎªÖØ¸´×ÓÊ÷£¬Ìí¼Óµ½½á¹ûÖĞ£¬²¢Ìø¹ıÏàÍ¬µÄ×ÓÊ÷
+			// å¦‚æœæœ‰è¶…è¿‡1ä¸ª node å­æ ‘å¯¹åº”çš„å­—ç¬¦ä¸²ç›¸åŒï¼Œåˆ™è¯¥å­æ ‘ä¸ºé‡å¤å­æ ‘ï¼Œæ·»åŠ åˆ°ç»“æœä¸­ï¼Œå¹¶è·³è¿‡ç›¸åŒçš„å­æ ‘
 			if (j - i > 1)	
 				result.push_back(node_string_vec[i].node);
 			i = j;
@@ -99,7 +99,7 @@ public:
 		return result;
 	}
 
-	// ·ÃÎÊnode£¬½«nodeÎª¸ùµÄ×ÓÊ÷×ª»»ÎªÏÈĞò·ÃÎÊµÄ×Ö·û´®£¬Æä±êÖ¾³öÆäÖĞµÄ¿Õ½Úµã¡£
+	// è®¿é—®nodeï¼Œå°†nodeä¸ºæ ¹çš„å­æ ‘è½¬æ¢ä¸ºå…ˆåºè®¿é—®çš„å­—ç¬¦ä¸²ï¼Œå…¶æ ‡å¿—å‡ºå…¶ä¸­çš„ç©ºèŠ‚ç‚¹ã€‚
 	string preorder_traverse(TreeNode* node, vector<NodeString>& node_string_vec)
 	{
 		string subtree_string;
@@ -120,7 +120,7 @@ public:
 	{
 		vector<TreeNode*> dups;
 
-		unordered_map<string, vector<TreeNode*>> string2node;		// ºÜºÃµÄÒ»¸öÊ¹ÓÃ unordered_map µÄÀı×Ó
+		unordered_map<string, vector<TreeNode*>> string2node;		// å¾ˆå¥½çš„ä¸€ä¸ªä½¿ç”¨ unordered_map çš„ä¾‹å­
 		preorder_traverse(root, string2node);
 
 		for (auto it = string2node.begin(); it != string2node.end(); ++it)

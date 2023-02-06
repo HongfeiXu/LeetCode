@@ -18,7 +18,7 @@ canConstruct("aa", "ab") -> false
 canConstruct("aa", "aab") -> true
 
 Approach:
-Ê¹ÓÃ unordered_map ¼ÇÂ¼ ransomNote/magazine ÖĞÃ¿¸ö×Ö·ûÒÔ¼°Æä³öÏÖµÄ´ÎÊı£¬·½±ãºóÃæµÄ²éÕÒ£¬±È½Ï
+ä½¿ç”¨ unordered_map è®°å½• ransomNote/magazine ä¸­æ¯ä¸ªå­—ç¬¦ä»¥åŠå…¶å‡ºç°çš„æ¬¡æ•°ï¼Œæ–¹ä¾¿åé¢çš„æŸ¥æ‰¾ï¼Œæ¯”è¾ƒ
 
 */
 
@@ -36,7 +36,7 @@ public:
 	bool canConstruct(string ransomNote, string magazine)
 	{
 		sort(ransomNote.begin(), ransomNote.end());
-		unordered_map<char, int> ransomNoteInfo;	// ´æ´¢ ransomNote ÖĞÃ¿¸ö×ÖÄ¸ÒÔ¼°Æä³öÏÖµÄ´ÎÊı
+		unordered_map<char, int> ransomNoteInfo;	// å­˜å‚¨ ransomNote ä¸­æ¯ä¸ªå­—æ¯ä»¥åŠå…¶å‡ºç°çš„æ¬¡æ•°
 		for (int i = 0; i < ransomNote.size();)
 		{
 			int j = i + 1;
@@ -48,7 +48,7 @@ public:
 		}
 
 		sort(magazine.begin(), magazine.end());
-		unordered_map<char, int> magazineInfo;		// ´æ´¢ magazineInfo ÖĞÃ¿¸ö×ÖÄ¸ÒÔ¼°Æä³öÏÖµÄ´ÎÊı
+		unordered_map<char, int> magazineInfo;		// å­˜å‚¨ magazineInfo ä¸­æ¯ä¸ªå­—æ¯ä»¥åŠå…¶å‡ºç°çš„æ¬¡æ•°
 		for (int i = 0; i < magazine.size();)
 		{
 			int j = i + 1;
@@ -61,10 +61,10 @@ public:
 
 		for (const auto & item : ransomNoteInfo)
 		{
-			// Èç¹û ransomNote ÖĞ×Ö·ûÔÚ magazineInfoÖĞÃ»ÓĞ³öÏÖ£¬Ôò·µ»Ø false
+			// å¦‚æœ ransomNote ä¸­å­—ç¬¦åœ¨ magazineInfoä¸­æ²¡æœ‰å‡ºç°ï¼Œåˆ™è¿”å› false
 			if (magazineInfo.find(item.first) == magazineInfo.end())
 				return false;
-			// Èô ransomNote ÖĞ×Ö·ûÔÚ magazineInfo ÖĞ³öÏÖ£¬µ« magazineInfo ÖĞ³öÏÖ´ÎÊı²»¹»£¬Ôò·µ»Ø false
+			// è‹¥ ransomNote ä¸­å­—ç¬¦åœ¨ magazineInfo ä¸­å‡ºç°ï¼Œä½† magazineInfo ä¸­å‡ºç°æ¬¡æ•°ä¸å¤Ÿï¼Œåˆ™è¿”å› false
 			else if (magazineInfo[item.first] < item.second)
 				return false;
 		}

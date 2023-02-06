@@ -26,8 +26,8 @@ public:
 		if (nums.empty())
 			return 0;
 
-		int result = 1;			// ¼ÇÂ¼½á¹û
-		int temp_result = 1;	// ¼ÇÂ¼µ±Ç°ÕıÔÚ·ÃÎÊµÄÁ¬ĞøµİÔöÊı×ÖµÄ³¤¶È
+		int result = 1;			// è®°å½•ç»“æœ
+		int temp_result = 1;	// è®°å½•å½“å‰æ­£åœ¨è®¿é—®çš„è¿ç»­é€’å¢æ•°å­—çš„é•¿åº¦
 
 		for (unsigned i = 0; i < nums.size() - 1; i++)
 		{

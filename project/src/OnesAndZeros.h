@@ -16,7 +16,7 @@ Example 1:
 Input: Array = {"10", "0001", "111001", "1", "0"}, m = 5, n = 3
 Output: 4
 
-Explanation: This are totally 4 strings can be formed by the using of 5 0s and 3 1s, which are ¡°10,¡±0001¡±,¡±1¡±,¡±0¡±
+Explanation: This are totally 4 strings can be formed by the using of 5 0s and 3 1s, which are â€œ10,â€0001â€,â€1â€,â€0â€
 Example 2:
 Input: Array = {"10", "0", "1"}, m = 1, n = 1
 Output: 2
@@ -29,31 +29,31 @@ Backtracking
 
 Approach v2:
 
-0-1±³°üÎÊÌâµÄ±äĞÎ   WOWOWOW
+0-1èƒŒåŒ…é—®é¢˜çš„å˜å½¢   WOWOWOW
 
-ÕâÀïÉÌÆ·ÎªËùÓĞµÄ×Ö·û´®£¬±³°üµÄÈİÁ¿ÓÉÁ½¸ö±äÁ¿¾ö¶¨£¬¼´0µÄ¸öÊıºÍ1µÄ¸öÊı
-Éè mf[i, m, n] ±íÊ¾Ç° i ¸ö×Ö·û´®×°ÈëÈİÁ¿×î´óÎª m ¸ö 0 ºÍ n ¸ö 1 µÄ±³°üÖĞµÄ×î´ó×Ö·û´®ÊıÄ¿ 
-Ôò¶ÔµÚi¸ö×Ö·û´®£¬ÓĞÁ½ÖÖÇé¿ö£¬·Å½ø±³°ü»òÕß²»·Å½ø±³°ü
-if strs[i].zeros > m || strs[i].ones > n£¬ÔòÎŞ·¨·Å½ø±³°ü£¬mf[i, m, n] = mf[i-1, m, n]
-else mf[i, m, n] = max(mf[i-1, m, n], mf[i-1, m - zeros, n- ones] + 1) ´ËÊ±¿ÉÒÔ½«´Î×Ö·û´®²»·ÅÈë±³°ü»òÕß·ÅÈë±³°ü£¬È¡½Ï´óÖµ¡£
+è¿™é‡Œå•†å“ä¸ºæ‰€æœ‰çš„å­—ç¬¦ä¸²ï¼ŒèƒŒåŒ…çš„å®¹é‡ç”±ä¸¤ä¸ªå˜é‡å†³å®šï¼Œå³0çš„ä¸ªæ•°å’Œ1çš„ä¸ªæ•°
+è®¾ mf[i, m, n] è¡¨ç¤ºå‰ i ä¸ªå­—ç¬¦ä¸²è£…å…¥å®¹é‡æœ€å¤§ä¸º m ä¸ª 0 å’Œ n ä¸ª 1 çš„èƒŒåŒ…ä¸­çš„æœ€å¤§å­—ç¬¦ä¸²æ•°ç›® 
+åˆ™å¯¹ç¬¬iä¸ªå­—ç¬¦ä¸²ï¼Œæœ‰ä¸¤ç§æƒ…å†µï¼Œæ”¾è¿›èƒŒåŒ…æˆ–è€…ä¸æ”¾è¿›èƒŒåŒ…
+if strs[i].zeros > m || strs[i].ones > nï¼Œåˆ™æ— æ³•æ”¾è¿›èƒŒåŒ…ï¼Œmf[i, m, n] = mf[i-1, m, n]
+else mf[i, m, n] = max(mf[i-1, m, n], mf[i-1, m - zeros, n- ones] + 1) æ­¤æ—¶å¯ä»¥å°†æ¬¡å­—ç¬¦ä¸²ä¸æ”¾å…¥èƒŒåŒ…æˆ–è€…æ”¾å…¥èƒŒåŒ…ï¼Œå–è¾ƒå¤§å€¼ã€‚
 
-×¢£º
-i=0,1,2,...,strs.size()£¬i == 0 Ê±±íÊ¾Ã»ÓĞ×Ö·û´®·ÅÈë±³°ü£¬¹Êmf[0,m,n] = 0
-m == 0 && n == 0 Ê±±íÊ¾£¬±³°üÎª¿Õ£¬£¨Èç¹û×Ö·û´®ÖĞÃ»ÓĞ¿Õ×Ö·ûµÄ»°¡£¡£¡££©£¬Ôò±³°üÖĞ×Ö·û´®µÄÊıÄ¿ÏÔÈ»Ò²Îª0£¬¹Ê m[i][0][0] = 0
+æ³¨ï¼š
+i=0,1,2,...,strs.size()ï¼Œi == 0 æ—¶è¡¨ç¤ºæ²¡æœ‰å­—ç¬¦ä¸²æ”¾å…¥èƒŒåŒ…ï¼Œæ•…mf[0,m,n] = 0
+m == 0 && n == 0 æ—¶è¡¨ç¤ºï¼ŒèƒŒåŒ…ä¸ºç©ºï¼Œï¼ˆå¦‚æœå­—ç¬¦ä¸²ä¸­æ²¡æœ‰ç©ºå­—ç¬¦çš„è¯ã€‚ã€‚ã€‚ï¼‰ï¼Œåˆ™èƒŒåŒ…ä¸­å­—ç¬¦ä¸²çš„æ•°ç›®æ˜¾ç„¶ä¹Ÿä¸º0ï¼Œæ•… m[i][0][0] = 0
 
-mf[strs.size(), m, n] ¼´ÎªËùÇó£¬×¢£ºÕâÀï strs.size() ±íÊ¾ÓĞ strs.size() ¸ö×Ö·û´®£¬¶ø²»ÓÃ strs.size() - 1
-Ö±½ÓÓÃµİ¹éÊµÏÖ£¬ÒÀÈ»ÊÇ Time Limit Exceeded
+mf[strs.size(), m, n] å³ä¸ºæ‰€æ±‚ï¼Œæ³¨ï¼šè¿™é‡Œ strs.size() è¡¨ç¤ºæœ‰ strs.size() ä¸ªå­—ç¬¦ä¸²ï¼Œè€Œä¸ç”¨ strs.size() - 1
+ç›´æ¥ç”¨é€’å½’å®ç°ï¼Œä¾ç„¶æ˜¯ Time Limit Exceeded
 
 Approach v3:
 DP
-¶¯Ì¬¹æ»®·½·¨ÊµÏÖ Approach v2 µÄËã·¨
+åŠ¨æ€è§„åˆ’æ–¹æ³•å®ç° Approach v2 çš„ç®—æ³•
 
 Time: O(strs.size() * m * n)
 Space: O(strs.size() * m * n)
 
 Approach v4:
 Space Optimized
-ÒòÎªÃ¿Ò»´Îµü´úiÊ±Ö»ÓÃµ½ÁËi-1µÄÊı¾İ£¬¹ÊÖ»ĞèÒª´æ´¢Á½ĞĞ¾Í×ã¹»Íê³ÉµİÍÆ
+å› ä¸ºæ¯ä¸€æ¬¡è¿­ä»£iæ—¶åªç”¨åˆ°äº†i-1çš„æ•°æ®ï¼Œæ•…åªéœ€è¦å­˜å‚¨ä¸¤è¡Œå°±è¶³å¤Ÿå®Œæˆé€’æ¨
 Time: O(strs.size() * m * n)
 Space: O(m * n)
 
@@ -93,7 +93,7 @@ public:
 		}
 	}
 
-	// ·µ»Ø s ÖĞµÄ 0 ºÍ 1 µÄ¸öÊı
+	// è¿”å› s ä¸­çš„ 0 å’Œ 1 çš„ä¸ªæ•°
 	pair<int, int> cntOfZerosAndOnes(const string& s)
 	{
 		pair<int, int> result(0,0);
@@ -130,7 +130,7 @@ public:
 			return max(findMaxFormAux(strs, i - 1, m, n), findMaxFormAux(strs, i - 1, m - cnt_of_zeros_and_ones.first, n - cnt_of_zeros_and_ones.second) + 1);
 	}
 
-	// ·µ»Ø s ÖĞµÄ 0 ºÍ 1 µÄ¸öÊı
+	// è¿”å› s ä¸­çš„ 0 å’Œ 1 çš„ä¸ªæ•°
 	pair<int, int> cntOfZerosAndOnes(const string& s)
 	{
 		pair<int, int> result(0, 0);
@@ -170,7 +170,7 @@ public:
 		return mf[strs.size()][m][n];
 	}
 
-	// ·µ»Ø s ÖĞµÄ 0 ºÍ 1 µÄ¸öÊı
+	// è¿”å› s ä¸­çš„ 0 å’Œ 1 çš„ä¸ªæ•°
 	pair<int, int> cntOfZerosAndOnes(const string& s)
 	{
 		pair<int, int> result(0, 0);
@@ -210,7 +210,7 @@ public:
 		return mf[strs.size()%2][m][n];
 	}
 
-	// ·µ»Ø s ÖĞµÄ 0 ºÍ 1 µÄ¸öÊı
+	// è¿”å› s ä¸­çš„ 0 å’Œ 1 çš„ä¸ªæ•°
 	pair<int, int> cntOfZerosAndOnes(const string& s)
 	{
 		pair<int, int> result(0, 0);

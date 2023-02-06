@@ -19,15 +19,15 @@ What if elements of nums2 are stored on disk, and the memory is limited such tha
 
 
 Approach:
-Ê¹ÓÃÁ½¸ö unordered_map À´·Ö±ğ¼ÇÂ¼ nums1¡¢nums2 ÖĞÊı×Ö¼°³öÏÖ´ÎÊı
-¶ÔÓÚÄÇĞ©¹²Í¬´æÔÚµÄÊı×Ö£¬³öÏÖ´ÎÊı½ÏĞ¡µÄ¼´ÎªÏà½»µÄ²¿·Ö¡£
+ä½¿ç”¨ä¸¤ä¸ª unordered_map æ¥åˆ†åˆ«è®°å½• nums1ã€nums2 ä¸­æ•°å­—åŠå‡ºç°æ¬¡æ•°
+å¯¹äºé‚£äº›å…±åŒå­˜åœ¨çš„æ•°å­—ï¼Œå‡ºç°æ¬¡æ•°è¾ƒå°çš„å³ä¸ºç›¸äº¤çš„éƒ¨åˆ†ã€‚
 
 Approach Follow up1:
 What if the given array is already sorted? How would you optimize your algorithm?
-¼û Solution_v2¡£ºÜniceµÄ·ÖÀàÌÖÂÛ·½Ê½¡£
+è§ Solution_v2ã€‚å¾ˆniceçš„åˆ†ç±»è®¨è®ºæ–¹å¼ã€‚
 
 What if nums1's size is small compared to nums2's size? Which algorithm is better?
-ÏÔÈ»£¬´ËÊ± Solution_v2 ¸üºÏÊÊ£¬´Ë·½·¨ÖĞ nums2·ÃÎÊÍêºó£¬¾Í»á½áÊøÔËĞĞ¡£¶øSolutionÔòĞèÒª¹¹½¨ÍêÕûµÄ unordered_map
+æ˜¾ç„¶ï¼Œæ­¤æ—¶ Solution_v2 æ›´åˆé€‚ï¼Œæ­¤æ–¹æ³•ä¸­ nums2è®¿é—®å®Œåï¼Œå°±ä¼šç»“æŸè¿è¡Œã€‚è€ŒSolutionåˆ™éœ€è¦æ„å»ºå®Œæ•´çš„ unordered_map
 
 What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
 

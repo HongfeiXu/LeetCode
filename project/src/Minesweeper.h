@@ -129,7 +129,7 @@ public:
 		return board;
 	}
 
-	// 相邻的八个空格中炸弹个数
+	// 鐩搁偦鐨勫叓涓┖鏍间腑鐐稿脊涓暟
 	int numOfAdjacentMine(vector<vector<char>>& board, int pos_x, int pos_y)
 	{
 		int height = board.size();

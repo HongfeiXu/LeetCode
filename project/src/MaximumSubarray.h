@@ -30,7 +30,7 @@ maxSubArray(A, i) = (maxSubArray(A, i - 1) > 0 ? maxSubArray(A, i - 1) : 0) + A[
 Approach v3:
 
 Kadane Algorithm
-ผ๛ LargestSubContiguousSubarray.md
+่ง LargestSubContiguousSubarray.md
 
 */
 

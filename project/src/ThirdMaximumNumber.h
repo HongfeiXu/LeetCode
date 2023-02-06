@@ -83,13 +83,13 @@ public:
 				bubbling(nums);
 			}
 
-			int cnt = 1;	// ´Ó¸ßÎ»µ½µÍÎ»£¬ÕÒµ½µÚ3´óµÄÊı£¬µ±cnt==3Ê±¼´Îª¸ÃÊı×Ö¡£
+			int cnt = 1;	// ä»é«˜ä½åˆ°ä½ä½ï¼Œæ‰¾åˆ°ç¬¬3å¤§çš„æ•°ï¼Œå½“cnt==3æ—¶å³ä¸ºè¯¥æ•°å­—ã€‚
 			for (int j = nums.size() - 2; j >= 0; j--)
 			{
 				if (nums[j] != nums[j + 1])
 					cnt++;
 				else
-					bubbling(nums);	// ÓĞÖØ¸´µÄÊı×Ö£¬ÔòĞèÒª½øĞĞ¶îÍâµÄÃ°Åİ
+					bubbling(nums);	// æœ‰é‡å¤çš„æ•°å­—ï¼Œåˆ™éœ€è¦è¿›è¡Œé¢å¤–çš„å†’æ³¡
 				if (cnt == 3)
 					return nums[j];
 			}
@@ -105,7 +105,7 @@ public:
 		long third_max = LONG_MIN;
 		for (unsigned i = 0; i < nums.size(); i++)
 		{
-			if (nums[i] == max || nums[i] == second_max)	// È¥³ıÖØ¸´µÄÊı×Ö
+			if (nums[i] == max || nums[i] == second_max)	// å»é™¤é‡å¤çš„æ•°å­—
 				continue;
 			if (nums[i] > max)
 			{

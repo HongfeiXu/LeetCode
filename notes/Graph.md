@@ -29,7 +29,7 @@ Following two are the most commonly used representations of graph.
 
 ![Adjaceny Matrix](https://github.com/HongfeiXu/LeetCode/blob/master/images/adjacency_matrix_representation.png?raw=true)
 
-Pros: Representation is easier to implement and follow. Removing an edge takes `O(1)` time. Queries like whether there is an edge from vertex ¡®u¡¯ to vertex ¡®v¡¯ are efficient and can be done `O(1)`.
+Pros: Representation is easier to implement and follow. Removing an edge takes `O(1)` time. Queries like whether there is an edge from vertex â€˜uâ€™ to vertex â€˜vâ€™ are efficient and can be done `O(1)`.
 
 Cons: Consumes more space `O(V^2)`. Even if the graph is sparse(contains less number of edges), it consumes the same space. Adding a vertex is `O(V^2)` time.
 
@@ -49,7 +49,7 @@ Cons: Queries like whether there is an edge from vertex u to vertex v are not ef
 struct AdjListNode {
 	int dest;
 	int weight;
-	shared_ptr<AdjListNode> next;			// Ê¹ÓÃÖÇÄÜÖ¸ÕëÀ´½øĞĞ¶¯Ì¬ÄÚ´æ·ÖÅä£¬²»»á³öÏÖÄÚ´æĞ¹Â©
+	shared_ptr<AdjListNode> next;			// ä½¿ç”¨æ™ºèƒ½æŒ‡é’ˆæ¥è¿›è¡ŒåŠ¨æ€å†…å­˜åˆ†é…ï¼Œä¸ä¼šå‡ºç°å†…å­˜æ³„æ¼
 	AdjListNode(int dest_, int weight_ = 0) : dest(dest_), weight(weight_), next(nullptr) { }
 };
 
@@ -73,7 +73,7 @@ void printGraph(AdjListGraph& graph);
 
 ## 2. BFS and DFS
 
-×¢£ºÏÂÃæµÄÊµÏÖÖĞ£¬BFSµÄÊµÏÖ»áµÃµ½´Ó start ½ÚµãÄÜ¹»µ½´ïµÄËùÓĞÆäËû½ÚµãµÄ¹ã¶ÈËÑË÷ĞòÁĞ£¬²»±£Ö¤ÊÇGµÄËùÓĞ¶¥µã¡£DFSµÄÊµÏÖ£¬ÓÉÓÚÍâ²ãÑ­»·¶ÔËùÓĞµ±Ç°Î´±»·ÃÎÊµÄ½Úµãµ÷ÓÃ DFSUtil »òÕß DFS_Iteartive_Util£¬ËùÒÔGÖĞËùÓĞ½Úµã¶¼»á±»·ÃÎÊµ½¡£
+æ³¨ï¼šä¸‹é¢çš„å®ç°ä¸­ï¼ŒBFSçš„å®ç°ä¼šå¾—åˆ°ä» start èŠ‚ç‚¹èƒ½å¤Ÿåˆ°è¾¾çš„æ‰€æœ‰å…¶ä»–èŠ‚ç‚¹çš„å¹¿åº¦æœç´¢åºåˆ—ï¼Œä¸ä¿è¯æ˜¯Gçš„æ‰€æœ‰é¡¶ç‚¹ã€‚DFSçš„å®ç°ï¼Œç”±äºå¤–å±‚å¾ªç¯å¯¹æ‰€æœ‰å½“å‰æœªè¢«è®¿é—®çš„èŠ‚ç‚¹è°ƒç”¨ DFSUtil æˆ–è€… DFS_Iteartive_Utilï¼Œæ‰€ä»¥Gä¸­æ‰€æœ‰èŠ‚ç‚¹éƒ½ä¼šè¢«è®¿é—®åˆ°ã€‚
 
 ```c++
 vector<int> BFS(const AdjListGraph& G, int start)
@@ -92,7 +92,7 @@ vector<int> BFS(const AdjListGraph& G, int start)
 		auto pv = G.array[u].head;
 		while (pv != nullptr)
 		{
-			// Èô¶¥µã v Ã»ÓĞ±»·ÃÎÊ£¬Ôò·ÅÈëQÖĞ£¬²¢±ê¼ÇÎªÒÑ·ÃÎÊ
+			// è‹¥é¡¶ç‚¹ v æ²¡æœ‰è¢«è®¿é—®ï¼Œåˆ™æ”¾å…¥Qä¸­ï¼Œå¹¶æ ‡è®°ä¸ºå·²è®¿é—®
 			if (visited.find(pv->dest) == visited.end())
 			{
 				Q.push(pv->dest);
@@ -119,13 +119,13 @@ std::vector<int> DFS(const AdjListGraph& G)
 
 void DFSUtil(const AdjListGraph& G, int start, unordered_set<int>& visited, vector<int>& result)
 {
-	// ¼ÇÂ¼½á¹û£¬²¢±ê¼ÇÎªÒÑ·ÃÎÊ
+	// è®°å½•ç»“æœï¼Œå¹¶æ ‡è®°ä¸ºå·²è®¿é—®
 	result.push_back(start);
 	visited.insert(start);
 	auto pv = G.array[start].head;
 	while (pv != nullptr)
 	{
-		// Èç¹û½Úµã v Ã»ÓĞ±»·ÃÎÊ£¬Ôò¶ÔÆä½øĞĞÉî¶È±éÀú
+		// å¦‚æœèŠ‚ç‚¹ v æ²¡æœ‰è¢«è®¿é—®ï¼Œåˆ™å¯¹å…¶è¿›è¡Œæ·±åº¦éå†
 		if (visited.find(pv->dest) == visited.end())
 			DFSUtil(G, pv->dest, visited, result);
 		pv = pv->next;
@@ -151,7 +151,7 @@ void DFS_Iterative_Util(const AdjListGraph& G, int start, unordered_set<int>& vi
 	S.push(start);
 	while (!S.empty())
 	{
-		// ³öÕ»Õ»¶¥ÔªËØ£¬·ÃÎÊÖ®
+		// å‡ºæ ˆæ ˆé¡¶å…ƒç´ ï¼Œè®¿é—®ä¹‹
 		int u = S.top();
 		S.pop();
 		result.push_back(u);
@@ -174,7 +174,7 @@ void DFS_Iterative_Util(const AdjListGraph& G, int start, unordered_set<int>& vi
 **What is Minimum Spanning Tree?**   
 Given a **connected and undirected graph**, a spanning tree of that graph is a subgraph that is a tree and connects all the vertices together. A single graph can have many different spanning trees. A minimum spanning tree (MST) or minimum weight spanning tree for a weighted, connected and undirected graph is a spanning tree with weight less than or equal to the weight of every other spanning tree. The weight of a spanning tree is the sum of weights given to each edge of the spanning tree.
 
-### Kruskal¡¯s Minimum Spanning Tree Algorithm
+### Kruskalâ€™s Minimum Spanning Tree Algorithm
 
 1. Sort all the edges in non-decreasing order of their weight.
 2. Pick the smallest edge. Check if it forms a cycle with the spanning tree formed so far. If cycle is not formed, include this edge. Else, discard it.
@@ -183,8 +183,8 @@ Given a **connected and undirected graph**, a spanning tree of that graph is a s
 The step#2 uses **Union-Find algorithm** to detect cycle. So we recommend to read following post as a prerequisite.
 
 ```c++
-// ²¢²é¼¯
-// ²¢²é¼¯
+// å¹¶æŸ¥é›†
+// å¹¶æŸ¥é›†
 struct DisjointSet {
 	int node_num;
 	vector<int> parent;
@@ -201,16 +201,16 @@ struct DisjointSet {
 	{
 		assert(x < node_num);
 		if (x != parent[x])
-			// Â·¾¶Ñ¹Ëõ
+			// è·¯å¾„å‹ç¼©
 			parent[x] = findSet(parent[x]);
 		return parent[x];
 	}
-	// ºÏ²¢ x y ËùÔÚµÄÁ½¸ö¼¯ºÏÎªÒ»¸ö
+	// åˆå¹¶ x y æ‰€åœ¨çš„ä¸¤ä¸ªé›†åˆä¸ºä¸€ä¸ª
 	void unionSet(int x, int y)
 	{
 		x = findSet(x);
 		y = findSet(y);
-		// °´ÖÈºÏ²¢
+		// æŒ‰ç§©åˆå¹¶
 		if (rank[x] > rank[y])
 			parent[y] = x;
 		else if (rank[x] < rank[y])
@@ -245,9 +245,9 @@ void kruskalMST(const AdjListGraph& G)
 		return lhs.weight < rhs.weight;
 	};
 
-	// ´æ´¢ MST ÖĞµÄ±ß
+	// å­˜å‚¨ MST ä¸­çš„è¾¹
 	vector<Edge> edges_of_MST;
-	// ´æ´¢ËùÓĞGµÄ±ß£¨Ã¿Ìõ±ß´æ´¢ÁËÁ½´Î£©
+	// å­˜å‚¨æ‰€æœ‰Gçš„è¾¹ï¼ˆæ¯æ¡è¾¹å­˜å‚¨äº†ä¸¤æ¬¡ï¼‰
 	vector<Edge> edges_of_G;
 	for (int i = 0; i < G.V; ++i)
 	{
@@ -276,14 +276,14 @@ void kruskalMST(const AdjListGraph& G)
 
 
 
-### Prim¡¯s Minimum Spanning Tree
+### Primâ€™s Minimum Spanning Tree
 
-**How does Prim¡¯s Algorithm Work?** Like Kruskal¡¯s algorithm, Prim¡¯s algorithm is also a Greedy algorithm. It starts with an empty spanning tree. The idea is to maintain two sets of vertices. The first set contains the vertices already included in the MST, the other set contains the vertices not yet included. **At every step, it considers all the edges that connect the two sets, and picks the minimum weight edge from these edges.** After picking the edge, it moves the other endpoint of the edge to the set containing MST.
+**How does Primâ€™s Algorithm Work?** Like Kruskalâ€™s algorithm, Primâ€™s algorithm is also a Greedy algorithm. It starts with an empty spanning tree. The idea is to maintain two sets of vertices. The first set contains the vertices already included in the MST, the other set contains the vertices not yet included. **At every step, it considers all the edges that connect the two sets, and picks the minimum weight edge from these edges.** After picking the edge, it moves the other endpoint of the edge to the set containing MST.
 
 **Algorithm**
 1. Create a set mstSet that keeps track of vertices already included in MST.
 2. Assign a key value to all vertices in the input graph. Initialize all key values as INFINITE. Assign key value as 0 for the first vertex so that it is picked first.
-3. While mstSet doesn¡¯t include all vertices   
+3. While mstSet doesnâ€™t include all vertices   
   ---a. Pick a vertex u which is not there in mstSet and has minimum key value.   
   ---b. Include u to mstSet.   
   ---c. Update key value of all adjacent vertices of u. To update the key values, iterate through all adjacent vertices. For every adjacent vertex v, if weight of edge u-v is less than the previous key value of v, update the key value as weight of u-v.
@@ -309,7 +309,7 @@ void printPrimMST(const vector<int>& parent)
 	cout << "Edges of Prim MST" << endl;
 	for (int i = 0; i < parent.size(); ++i)
 	{
-		cout << parent[i] << " - " << i << endl;	// Êä³öÃ¿¸ö½ÚµãÒÔ¼°Æä¸¸½ÚµãËù×é³ÉµÄ±ß
+		cout << parent[i] << " - " << i << endl;	// è¾“å‡ºæ¯ä¸ªèŠ‚ç‚¹ä»¥åŠå…¶çˆ¶èŠ‚ç‚¹æ‰€ç»„æˆçš„è¾¹
 	}
 }
 
@@ -319,15 +319,15 @@ void primMST(const AdjListGraph& G, int start)
 		return;
 	vector<int> parent(G.V);
 	vector<int> key(G.V, INT_MAX);
-	vector<bool> mstSet(G.V, false);		// ±ê¼Ç¶¥µãÊÇ·ñÒÑ¾­¼ÓÈë MST ÖĞ
-	key[start] = 0;			// ÒÔ start Îª¸ù¹¹Ôì MST
+	vector<bool> mstSet(G.V, false);		// æ ‡è®°é¡¶ç‚¹æ˜¯å¦å·²ç»åŠ å…¥ MST ä¸­
+	key[start] = 0;			// ä»¥ start ä¸ºæ ¹æ„é€  MST
 	parent[start] = -1;
 	for (int count = 0; count < G.V - 1; ++count)
 	{
-		// Ñ°ÕÒ²»ÔÚ MST ÖĞ¡¢key Öµ×îĞ¡µÄ½Úµã£¬¼ÓÈë MST ÖĞ
+		// å¯»æ‰¾ä¸åœ¨ MST ä¸­ã€key å€¼æœ€å°çš„èŠ‚ç‚¹ï¼ŒåŠ å…¥ MST ä¸­
 		int u = minKeyVertex(key, mstSet);
 		mstSet[u] = true;
-		// ¸üĞÂ u µÄÁÚ¾Ó½Úµã
+		// æ›´æ–° u çš„é‚»å±…èŠ‚ç‚¹
 		auto pv = G.array[u].head;
 		while (pv != nullptr)
 		{
@@ -348,20 +348,20 @@ void primMST(const AdjListGraph& G, int start)
 
 ## 4. Shortest Paths
 
-### Dijkstra¡¯s shortest path algorithm
+### Dijkstraâ€™s shortest path algorithm
 
 >Ref: https://www.geeksforgeeks.org/greedy-algorithms-set-6-dijkstras-shortest-path-algorithm/
 
 Given a directed and weighted graph and a source vertex in graph, find shortest paths from source to all vertices in the given graph.   
 
-µÏ¿ÆË¹ÌØÀ­Ëã·¨Ê¹ÓÃÁË¹ã¶ÈÓÅÏÈËÑË÷½â¾ö¸³È¨ÓĞÏòÍ¼µÄµ¥Ô´×î¶ÌÂ·¾¶ÎÊÌâ¡£
+è¿ªç§‘æ–¯ç‰¹æ‹‰ç®—æ³•ä½¿ç”¨äº†å¹¿åº¦ä¼˜å…ˆæœç´¢è§£å†³èµ‹æƒæœ‰å‘å›¾çš„å•æºæœ€çŸ­è·¯å¾„é—®é¢˜ã€‚
 
-**Dijkstra¡¯s algorithm is very similar to Prim¡¯s algorithm for minimum spanning tree.** Like Prim¡¯s MST, we generate a SPT (shortest path tree) with given source as root. We maintain two sets, one set contains vertices included in shortest path tree, other set includes vertices not yet included in shortest path tree. **At every step of the algorithm, we find a vertex which is in the other set (set of not yet included) and has minimum distance from source.**
+**Dijkstraâ€™s algorithm is very similar to Primâ€™s algorithm for minimum spanning tree.** Like Primâ€™s MST, we generate a SPT (shortest path tree) with given source as root. We maintain two sets, one set contains vertices included in shortest path tree, other set includes vertices not yet included in shortest path tree. **At every step of the algorithm, we find a vertex which is in the other set (set of not yet included) and has minimum distance from source.**
 
 **Algorithm**
 1. Create a set sptSet (shortest path tree set) that keeps track of vertices included in shortest path tree, i.e., whose minimum distance from source is calculated and finalized. Initially, this set is empty.
 2. Assign a distance value to all vertices in the input graph. Initialize all distance values as INFINITE. Assign distance value as 0 for the source vertex so that it is picked first.
-3. While sptSet doesn¡¯t include all vertices   
+3. While sptSet doesnâ€™t include all vertices   
   ---a. Pick a vertex u which is not there in sptSet and has minimum distance value.   
   ---b. Include u to sptSet.   
   ---c. Update distance value of all adjacent vertices of u. To update the distance values, iterate through all adjacent vertices. For every adjacent vertex v, if sum of distance value of u (from source) and weight of edge u-v, is less than the distance value of v, then update the distance value of v.   
@@ -381,8 +381,8 @@ int minDistanceVertex(const vector<int>& dist, const vector<bool>& sptSet)
 	int min_dist_vert;
 	for (int i = 0; i < dist.size(); ++i)
 	{
-		// Ñ°ÕÒÃ»ÓĞ¼ÓÈë SPT ÖĞµÄ½ÚµãÖĞ£¬¾ßÓĞ×îĞ¡ dist ÖµµÄ½Úµã
-		// ÕâÀï²ÉÓÃ <= ºÅ£¬ÊÇÎªÁËÔÚµ±Ç°ÓàÏÂ½ÚµãµÄ dist Öµ¾ùÎª INT_MAX Ê±£¬·µ»ØÆäÖĞµÄÒ»¸ö½Úµã£¬Èç¹ûÎª < ºÅ£¬Ôò·µ»ØÖµÎŞĞ§
+		// å¯»æ‰¾æ²¡æœ‰åŠ å…¥ SPT ä¸­çš„èŠ‚ç‚¹ä¸­ï¼Œå…·æœ‰æœ€å° dist å€¼çš„èŠ‚ç‚¹
+		// è¿™é‡Œé‡‡ç”¨ <= å·ï¼Œæ˜¯ä¸ºäº†åœ¨å½“å‰ä½™ä¸‹èŠ‚ç‚¹çš„ dist å€¼å‡ä¸º INT_MAX æ—¶ï¼Œè¿”å›å…¶ä¸­çš„ä¸€ä¸ªèŠ‚ç‚¹ï¼Œå¦‚æœä¸º < å·ï¼Œåˆ™è¿”å›å€¼æ— æ•ˆ
 		if (dist[i] <= min_dist && sptSet[i] == false)
 		{
 			min_dist = dist[i];
@@ -395,13 +395,13 @@ int minDistanceVertex(const vector<int>& dist, const vector<bool>& sptSet)
 void dijkstra(const AdjListGraph& G, int start)
 {
 	assert(start < G.V && start >= 0);
-	vector<int> parent(G.V, -1);			// ¼ÇÂ¼Ã¿¸ö¶¥µãµÄ¸¸½Úµã£¬ÓÃÀ´Êä³ö×î¶ÌÂ·¾¶Ê÷£¬Ö»ÒªÇóÊä³ö×î¶ÌÂ·¾¶µÄ³¤¶È£¬Ôò²»ĞèÒª parent
-	vector<bool> sptSet(G.V, false);		// ±ê¼Ç¶¥µãÊÇ·ñÒÑ¾­¼ÓÈë sptSet ÖĞ
-	vector<int> dist(G.V, INT_MAX);			// Ã¿¸ö¶¥µãµ½ÆğÊ¼¶¥µãµÄ¾àÀë³õÊ¼Îª INT_MAX
+	vector<int> parent(G.V, -1);			// è®°å½•æ¯ä¸ªé¡¶ç‚¹çš„çˆ¶èŠ‚ç‚¹ï¼Œç”¨æ¥è¾“å‡ºæœ€çŸ­è·¯å¾„æ ‘ï¼Œåªè¦æ±‚è¾“å‡ºæœ€çŸ­è·¯å¾„çš„é•¿åº¦ï¼Œåˆ™ä¸éœ€è¦ parent
+	vector<bool> sptSet(G.V, false);		// æ ‡è®°é¡¶ç‚¹æ˜¯å¦å·²ç»åŠ å…¥ sptSet ä¸­
+	vector<int> dist(G.V, INT_MAX);			// æ¯ä¸ªé¡¶ç‚¹åˆ°èµ·å§‹é¡¶ç‚¹çš„è·ç¦»åˆå§‹ä¸º INT_MAX
 	dist[start] = 0;
 	parent[start] = -1;
-	// ½øĞĞ G.V - 1 ´Îµü´ú¼´¿É£¬ÒòÎªÈôÔÚ½øĞĞµÚ G.V ´Îµü´ú£¬¶ÔÓÚÕâ¸ö×îºóµÄ½Úµã£¬ËùÓĞÏàÁÚµÄ½ÚµãÒÑ¾­±»¼ÓÈë SPT ÖĞÁË£¬Ã»ÓĞ±ØÒªÔÙ½øĞĞ´Ë´Î·ÃÎÊ£¬
-	// ÎÒÃÇ¸ù¾İ G.V - 1 ´Îµü´úËù¸üĞÂµÄ parent µÄĞÅÏ¢¾Í¿ÉÒÔÈ·¶¨ SPT 
+	// è¿›è¡Œ G.V - 1 æ¬¡è¿­ä»£å³å¯ï¼Œå› ä¸ºè‹¥åœ¨è¿›è¡Œç¬¬ G.V æ¬¡è¿­ä»£ï¼Œå¯¹äºè¿™ä¸ªæœ€åçš„èŠ‚ç‚¹ï¼Œæ‰€æœ‰ç›¸é‚»çš„èŠ‚ç‚¹å·²ç»è¢«åŠ å…¥ SPT ä¸­äº†ï¼Œæ²¡æœ‰å¿…è¦å†è¿›è¡Œæ­¤æ¬¡è®¿é—®ï¼Œ
+	// æˆ‘ä»¬æ ¹æ® G.V - 1 æ¬¡è¿­ä»£æ‰€æ›´æ–°çš„ parent çš„ä¿¡æ¯å°±å¯ä»¥ç¡®å®š SPT 
 	for (int count = 0; count < G.V - 1; ++count)
 	{
 		int u = minDistanceVertex(dist, sptSet);
@@ -409,9 +409,9 @@ void dijkstra(const AdjListGraph& G, int start)
 		auto pv = G.array[u].head;
 		while (pv != nullptr)
 		{
-			// ÈôÁÚ¾Ó½Úµã v Î´±»·ÃÎÊÇÒ¾àÀëÖµ´óÓÚ dist[u] + pv->weight£¬Ôò¸üĞÂÆä dist Öµ
-			// ÕâÀï dist[u] != INT_MAX  ÊÇ±£Ö¤ u µ±Ç°ÊÇ¿ÉÒÔÓë MST Á¬Í¨µÄ£¬
-			// Èç¹ûµ±Ç°¾ßÓĞ×îĞ¡¾àÀëµÄ½Úµã u Óë MST ²»Á¬Í¨£¬ÔòÆäÁÚ¾Ó½ÚµãµÄ dist Öµ½«ÒÀÈ»Îª INT_MAX
+			// è‹¥é‚»å±…èŠ‚ç‚¹ v æœªè¢«è®¿é—®ä¸”è·ç¦»å€¼å¤§äº dist[u] + pv->weightï¼Œåˆ™æ›´æ–°å…¶ dist å€¼
+			// è¿™é‡Œ dist[u] != INT_MAX  æ˜¯ä¿è¯ u å½“å‰æ˜¯å¯ä»¥ä¸ MST è¿é€šçš„ï¼Œ
+			// å¦‚æœå½“å‰å…·æœ‰æœ€å°è·ç¦»çš„èŠ‚ç‚¹ u ä¸ MST ä¸è¿é€šï¼Œåˆ™å…¶é‚»å±…èŠ‚ç‚¹çš„ dist å€¼å°†ä¾ç„¶ä¸º INT_MAX
 			if (sptSet[pv->dest] == false && dist[u] != INT_MAX && dist[u] + pv->weight < dist[pv->dest])
 			{
 				dist[pv->dest] = dist[u] + pv->weight;
@@ -432,9 +432,9 @@ Ref: https://www.geeksforgeeks.org/detect-cycle-in-a-graph/
 
 ![cycle](https://github.com/HongfeiXu/LeetCode/blob/master/images/cycle.png?raw=true)
 
-**·¨Ò»**
+**æ³•ä¸€**
 
-DFS ±éÀúÍ¼ÖĞ½Úµã£¬¿´ÊÇ·ñ´æÔÚ**ºóÏò±ß**£¬Èô´æÔÚÔòÓĞ»·£¬·ñÔòÎŞ»·¡£ÎªÁËÅĞ¶ÏÊÇ·ñ´æÔÚºóÏò±ß£¬ÕâÀïÎÒÃÇÍ¨¹ı¼ÇÂ¼µ±Ç°µİ¹éÕ»ÖĞµÄ½ÚµãµÄ·½Ê½À´½øĞĞ²Ù×÷¡£¼ûÏÂÃæµÄÏêÏ¸½âÊÍ£º
+DFS éå†å›¾ä¸­èŠ‚ç‚¹ï¼Œçœ‹æ˜¯å¦å­˜åœ¨**åå‘è¾¹**ï¼Œè‹¥å­˜åœ¨åˆ™æœ‰ç¯ï¼Œå¦åˆ™æ— ç¯ã€‚ä¸ºäº†åˆ¤æ–­æ˜¯å¦å­˜åœ¨åå‘è¾¹ï¼Œè¿™é‡Œæˆ‘ä»¬é€šè¿‡è®°å½•å½“å‰é€’å½’æ ˆä¸­çš„èŠ‚ç‚¹çš„æ–¹å¼æ¥è¿›è¡Œæ“ä½œã€‚è§ä¸‹é¢çš„è¯¦ç»†è§£é‡Šï¼š
 
 For a disconnected graph, we get the DFS forrest as output. To detect cycle, we can check for cycle in individual trees by checking back edges.
 
@@ -489,9 +489,9 @@ bool isCylicUtilDirectGraph(int u, const AdjListGraph& G, vector<bool>& visited,
 
 Time Complexity of this method is same as time complexity of DFS traversal which is O(V+E).
 
-**·¨¶ş**
+**æ³•äºŒ**
 
-Ïà±È·¨Ò»¸üÖ±¹Û
+ç›¸æ¯”æ³•ä¸€æ›´ç›´è§‚
 
 Detect Cycle in a directed graph using colors. The solution is from CLRS book. 
 
@@ -565,11 +565,11 @@ bool isCyclicUtilDirectGraphColor(int u, const AdjListGraph& G, vector<color>& c
 }
 ```
 
-**·¨Èı**
+**æ³•ä¸‰**
 
-Ñ°ÕÒÈë¶ÈÎª0µÄµã£¬Öğ½¥É¾³ı£¬²¢¸üĞÂÆäº¢×Ó½ÚµãµÄÈë¶È£¬Èô×îÖÕÈ«²¿½ÚµãÈë¶È¶¼Îª0£¬Ôò²»´æÔÚ»·£¬·ñÔò£¬´æÔÚ»·¡£ÉÔÎ¢ĞŞ¸ÄÔò±äÎª Topological Sorting µÄ·¨¶ş¡£×¢£ºÓàÏÂµÄ½Úµã²»Ò»¶¨È«ÔÚ»·ÉÏ¡£¿ÉÄÜÓĞ»·ÉÏ½Úµãu³ö·¢µ½µÄÒ¶×Ó½Úµãv£¬vµÄÈë¶È²»»á±»¼õµ½0.
+å¯»æ‰¾å…¥åº¦ä¸º0çš„ç‚¹ï¼Œé€æ¸åˆ é™¤ï¼Œå¹¶æ›´æ–°å…¶å­©å­èŠ‚ç‚¹çš„å…¥åº¦ï¼Œè‹¥æœ€ç»ˆå…¨éƒ¨èŠ‚ç‚¹å…¥åº¦éƒ½ä¸º0ï¼Œåˆ™ä¸å­˜åœ¨ç¯ï¼Œå¦åˆ™ï¼Œå­˜åœ¨ç¯ã€‚ç¨å¾®ä¿®æ”¹åˆ™å˜ä¸º Topological Sorting çš„æ³•äºŒã€‚æ³¨ï¼šä½™ä¸‹çš„èŠ‚ç‚¹ä¸ä¸€å®šå…¨åœ¨ç¯ä¸Šã€‚å¯èƒ½æœ‰ç¯ä¸ŠèŠ‚ç‚¹uå‡ºå‘åˆ°çš„å¶å­èŠ‚ç‚¹vï¼Œvçš„å…¥åº¦ä¸ä¼šè¢«å‡åˆ°0.
 
-**½Ï DFS ·½·¨ºÃÓÃ°¡¡£**
+**è¾ƒ DFS æ–¹æ³•å¥½ç”¨å•Šã€‚**
 
 ```c++
 bool isCyclicDirectGraphInDegree(const AdjListGraph& G)
@@ -606,7 +606,7 @@ bool isCyclicDirectGraphInDegree(const AdjListGraph& G)
 			pv = pv->next;
 		}
 	}
-	// Èç¹û×îÖÕ»¹ÓĞ½ÚµãµÄÈë¶È²»Îª0£¬ËµÃ÷´æÔÚ»·£¬·ñÔòÎŞ»·
+	// å¦‚æœæœ€ç»ˆè¿˜æœ‰èŠ‚ç‚¹çš„å…¥åº¦ä¸ä¸º0ï¼Œè¯´æ˜å­˜åœ¨ç¯ï¼Œå¦åˆ™æ— ç¯
 	return G.V != count;
 }
 ```
@@ -615,7 +615,7 @@ bool isCyclicDirectGraphInDegree(const AdjListGraph& G)
 
 Ref: https://www.geeksforgeeks.org/union-find/
 
-**Union-Find Algorithm** can be used to check whether an undirected graph contains cycle or not.This method assumes that graph doesn¡¯t contain any self-loops.
+**Union-Find Algorithm** can be used to check whether an undirected graph contains cycle or not.This method assumes that graph doesnâ€™t contain any self-loops.
 We can keeps track of the subsets in a 1D array, lets call it parent[].
 
 For each edge, make subsets using both the vertices of the edge. If both the vertices are in the same subset, a cycle is found.
@@ -667,11 +667,11 @@ Ref: https://www.geeksforgeeks.org/topological-sorting/
 
 Topological sorting for **Directed Acyclic Graph (DAG)** is a linear ordering of vertices such that for every directed edge uv, vertex u comes before v in the ordering. Topological Sorting for a graph is not possible if the graph is not a DAG.
 
-**·¨Ò» DFS + a temporary stack**
+**æ³•ä¸€ DFS + a temporary stack**
 
 Algorithm to find Topological Sorting:
 
-We can modify DFS to find Topological Sorting of a graph. In DFS, we start from a vertex, we first print it and then recursively call DFS for its adjacent vertices. In topological sorting, **we use a temporary stack**. We don¡¯t print the vertex immediately, we first recursively call topological sorting for all its adjacent vertices, then push it to a stack. Finally, print contents of stack. **Note that a vertex is pushed to stack only when all of its adjacent vertices (and their adjacent vertices and so on) are already in stack.**
+We can modify DFS to find Topological Sorting of a graph. In DFS, we start from a vertex, we first print it and then recursively call DFS for its adjacent vertices. In topological sorting, **we use a temporary stack**. We donâ€™t print the vertex immediately, we first recursively call topological sorting for all its adjacent vertices, then push it to a stack. Finally, print contents of stack. **Note that a vertex is pushed to stack only when all of its adjacent vertices (and their adjacent vertices and so on) are already in stack.**
 
 ![topologicalSort](https://github.com/HongfeiXu/LeetCode/blob/master/images/topologicalSort.png?raw=true)
 
@@ -721,7 +721,7 @@ void topologicalSortUtil(const AdjListGraph& G, int u, vector<bool>& visited, st
 
 **Time Complexity:** The above algorithm is simply DFS with an extra stack. So time complexity is same as DFS which is O(V+E).
 
-**·¨¶ş BFS + Èë¶È**
+**æ³•äºŒ BFS + å…¥åº¦**
 
 Ref: https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/
 
@@ -743,7 +743,7 @@ Step-4: Repeat Step 3 until the queue is empty.
 
 Step-5: If count of visited nodes is not equal to the number of nodes in the graph then the topological sort is not possible for the given graph.
 
-**×¢£ºÕâÀïÄÜ´¦ÀíÓĞÏòÍ¼ÖĞ°üº¬»·µÄÇé¿ö¡£²¢ÇÒ½Ï DFS µÄ·½·¨ºÃÓÃ¡£**
+**æ³¨ï¼šè¿™é‡Œèƒ½å¤„ç†æœ‰å‘å›¾ä¸­åŒ…å«ç¯çš„æƒ…å†µã€‚å¹¶ä¸”è¾ƒ DFS çš„æ–¹æ³•å¥½ç”¨ã€‚**
 
 ```c++
 void topologicalSortInDegree(const AdjListGraph& G)
@@ -821,12 +821,12 @@ Graph coloring problem is to assign colors to certain elements of a graph subjec
 
 #### Basic Greedy Coloring Algorithm
 
-Unfortunately, there is no efficient algorithm available for coloring a graph with minimum number of colors as the problem is a known NP Complete problem. There are approximate algorithms to solve the problem though. Following is the basic Greedy Algorithm to assign colors. **It doesn¡¯t guarantee to use minimum colors, but it guarantees an upper bound on the number of colors. The basic algorithm never uses more than d+1 colors where d is the maximum degree of a vertex in the given graph.**
+Unfortunately, there is no efficient algorithm available for coloring a graph with minimum number of colors as the problem is a known NP Complete problem. There are approximate algorithms to solve the problem though. Following is the basic Greedy Algorithm to assign colors. **It doesnâ€™t guarantee to use minimum colors, but it guarantees an upper bound on the number of colors. The basic algorithm never uses more than d+1 colors where d is the maximum degree of a vertex in the given graph.**
 
 ```
 1. Color first vertex with first color.
 2. Do following for remaining V-1 vertices.
-¡­.. a) Consider the currently picked vertex and color it with the
+â€¦.. a) Consider the currently picked vertex and color it with the
 lowest numbered color that has not been used on any previously
 colored vertices adjacent to it. If all previously used colors
 appear on vertices adjacent to v, assign a new color to it.
@@ -836,21 +836,21 @@ appear on vertices adjacent to v, assign a new color to it.
  std::vector<int> greedyColoring(const AdjListGraph& G)
 {
 	vector<int> result(G.V, -1);
-	vector<bool> avaliable(G.V, true);  // ¼ÇÂ¼ÑÕÉ«iÊÇ·ñ»¹Ã»ÓĞ±»µ±Ç°½ÚµãµÄÏàÁÚ½ÚµãÊ¹ÓÃ
+	vector<bool> avaliable(G.V, true);  // è®°å½•é¢œè‰²iæ˜¯å¦è¿˜æ²¡æœ‰è¢«å½“å‰èŠ‚ç‚¹çš„ç›¸é‚»èŠ‚ç‚¹ä½¿ç”¨
 
-	result[0] = 0;		// ¸ø½Úµã0µÚÒ»¸öÑÕÉ«0
-	// ´¦ÀíÓàÏÂµÄ G.V - 1 ¸ö½Úµã
+	result[0] = 0;		// ç»™èŠ‚ç‚¹0ç¬¬ä¸€ä¸ªé¢œè‰²0
+	// å¤„ç†ä½™ä¸‹çš„ G.V - 1 ä¸ªèŠ‚ç‚¹
 	for (int u = 1; u < G.V; ++u)
 	{
 		auto pv = G.array[u].head;
 		while (pv != nullptr)
 		{
-			// Èô pv->dest ÓĞÑÕÉ«£¬Ôò½«ÆäÑÕÉ«ÔÚ avaliable ÖĞ±ê¼ÇÎªÎŞ·¨Ê¹ÓÃ
+			// è‹¥ pv->dest æœ‰é¢œè‰²ï¼Œåˆ™å°†å…¶é¢œè‰²åœ¨ avaliable ä¸­æ ‡è®°ä¸ºæ— æ³•ä½¿ç”¨
 			if (result[pv->dest] != -1)
 				avaliable[result[pv->dest]] = false;
 			pv = pv->next;
 		}
-		// ´Ó avaliable  ÖĞÕÒ³öµÚÒ»¸ö¿ÉÒÔ±»Ê¹ÓÃµÄÑÕÉ«¸³¸ø u
+		// ä» avaliable  ä¸­æ‰¾å‡ºç¬¬ä¸€ä¸ªå¯ä»¥è¢«ä½¿ç”¨çš„é¢œè‰²èµ‹ç»™ u
 		for (int i = 0; i < avaliable.size(); ++i)
 		{
 			if (avaliable[i])
@@ -868,7 +868,7 @@ appear on vertices adjacent to v, assign a new color to it.
 
  #### Check whether a given graph is Bipartite or not
 
- >ÅĞ¶ÏÒ»¸öÎŞÏòÍ¼ÊÇ·ñÎª¶ş²¿Í¼¡£ ¼´ÅĞ¶Ï´ËÎŞÏòÍ¼ÊÇÊÇ 2-colorable µÄ¡£ 
+ >åˆ¤æ–­ä¸€ä¸ªæ— å‘å›¾æ˜¯å¦ä¸ºäºŒéƒ¨å›¾ã€‚ å³åˆ¤æ–­æ­¤æ— å‘å›¾æ˜¯æ˜¯ 2-colorable çš„ã€‚ 
  >Ref: https://www.geeksforgeeks.org/bipartite-graph/
  >Ref: https://www.geeksforgeeks.org/backttracking-set-5-m-coloring-problem/
 
@@ -876,13 +876,13 @@ appear on vertices adjacent to v, assign a new color to it.
 
  ![bipartite_graph](https://github.com/HongfeiXu/LeetCode/blob/master/images/bipartitegraph-1.jpg?raw=true)
 
-** ·¨Ò»£ºBFS**
+** æ³•ä¸€ï¼šBFS**
 
  ```
  Following is a simple algorithm to find out whether a given graph is Birpartite or not using Breadth First Search (BFS).
 1. Assign RED color to the source vertex (putting into set U).
 2. Color all the neighbors with BLUE color (putting into set V).
-3. Color all neighbor¡¯s neighbor with RED color (putting into set U).
+3. Color all neighborâ€™s neighbor with RED color (putting into set U).
 4. This way, assign color to all vertices such that it satisfies all the constraints of m way coloring problem where m = 2.
 5. While assigning colors, if we find a neighbor which is colored with same color as current vertex, then the graph cannot be colored with 2 vertices (or graph is not Bipartite)
  ```
@@ -950,11 +950,11 @@ void test()
 
 **Time Complexity** of the above approach is same as that Breadth First Search. In above implementation is O(V^2) where V is number of vertices. If graph is represented using adjacency list, then the complexity becomes O(V+E).
 
-**·¨¶ş£ºDFS**
+**æ³•äºŒï¼šDFS**
 
 TODO
 
-**·¨Èı£ºBacktracking algorithm m coloring problem**
+**æ³•ä¸‰ï¼šBacktracking algorithm m coloring problem**
 
 TODO
 
@@ -964,20 +964,20 @@ TODO
 >Ref: https://blog.csdn.net/hitwhylz/article/details/23089415
 >Ref: https://zh.wikipedia.org/wiki/A*%E6%90%9C%E5%AF%BB%E7%AE%97%E6%B3%95
 
-A*ËÑË÷Ëã·¨£¬Ë×³ÆAĞÇËã·¨¡£ÕâÊÇÒ»ÖÖÔÚÍ¼ĞÎÆ½ÃæÉÏ£¬ÓĞ¶à¸ö½ÚµãµÄÂ·¾¶£¬Çó³ö×îµÍÍ¨¹ı³É±¾µÄËã·¨¡£³£ÓÃÓÚÓÎÏ·ÖĞµÄNPCµÄÒÆ¶¯¼ÆËã£¬»òÍøÂçÓÎÏ·µÄBOTµÄÒÆ¶¯¼ÆËãÉÏ¡£
+A*æœç´¢ç®—æ³•ï¼Œä¿—ç§°Aæ˜Ÿç®—æ³•ã€‚è¿™æ˜¯ä¸€ç§åœ¨å›¾å½¢å¹³é¢ä¸Šï¼Œæœ‰å¤šä¸ªèŠ‚ç‚¹çš„è·¯å¾„ï¼Œæ±‚å‡ºæœ€ä½é€šè¿‡æˆæœ¬çš„ç®—æ³•ã€‚å¸¸ç”¨äºæ¸¸æˆä¸­çš„NPCçš„ç§»åŠ¨è®¡ç®—ï¼Œæˆ–ç½‘ç»œæ¸¸æˆçš„BOTçš„ç§»åŠ¨è®¡ç®—ä¸Šã€‚
 
-¸ÃËã·¨×ÛºÏÁËBest-First SearchºÍDijkstraËã·¨µÄÓÅµã£ºÔÚ½øĞĞÆô·¢Ê½ËÑË÷Ìá¸ßËã·¨Ğ§ÂÊµÄÍ¬Ê±£¬¿ÉÒÔ±£Ö¤ÕÒµ½Ò»Ìõ×îÓÅÂ·¾¶£¨»ùÓÚÆÀ¹Àº¯Êı£©¡£
+è¯¥ç®—æ³•ç»¼åˆäº†Best-First Searchå’ŒDijkstraç®—æ³•çš„ä¼˜ç‚¹ï¼šåœ¨è¿›è¡Œå¯å‘å¼æœç´¢æé«˜ç®—æ³•æ•ˆç‡çš„åŒæ—¶ï¼Œå¯ä»¥ä¿è¯æ‰¾åˆ°ä¸€æ¡æœ€ä¼˜è·¯å¾„ï¼ˆåŸºäºè¯„ä¼°å‡½æ•°ï¼‰ã€‚
 
-ÔÚ´ËËã·¨ÖĞ£¬Èç¹ûÒÔ`g(n)`±íÊ¾´ÓÆğµãµ½ÈÎÒâ¶¥µã`n`µÄÊµ¼Ê¾àÀë£¬`h(n)`±íÊ¾ÈÎÒâ¶¥µã`n`µ½Ä¿±ê¶¥µãµÄ¹ÀËã¾àÀë£¨¸ù¾İËù²ÉÓÃµÄÆÀ¹Àº¯ÊıµÄ²»Í¬¶ø±ä»¯£©£¬ÄÇÃ´A*Ëã·¨µÄ¹ÀËãº¯ÊıÎª£º
+åœ¨æ­¤ç®—æ³•ä¸­ï¼Œå¦‚æœä»¥`g(n)`è¡¨ç¤ºä»èµ·ç‚¹åˆ°ä»»æ„é¡¶ç‚¹`n`çš„å®é™…è·ç¦»ï¼Œ`h(n)`è¡¨ç¤ºä»»æ„é¡¶ç‚¹`n`åˆ°ç›®æ ‡é¡¶ç‚¹çš„ä¼°ç®—è·ç¦»ï¼ˆæ ¹æ®æ‰€é‡‡ç”¨çš„è¯„ä¼°å‡½æ•°çš„ä¸åŒè€Œå˜åŒ–ï¼‰ï¼Œé‚£ä¹ˆA*ç®—æ³•çš„ä¼°ç®—å‡½æ•°ä¸ºï¼š
 
 `f(n) = g(n) + h(n)`
 
-Õâ¸ö¹«Ê½×ñÑ­ÒÔÏÂÌØĞÔ£º
+è¿™ä¸ªå…¬å¼éµå¾ªä»¥ä¸‹ç‰¹æ€§ï¼š
 
-1. Èç¹û`g(n)`Îª0£¬¼´Ö»¼ÆËãÈÎÒâ¶¥µãnµ½Ä¿±êµÄÆÀ¹Àº¯Êı`h(n)`£¬¶ø²»¼ÆËãÆğµãµ½¶¥µã`n`µÄ¾àÀë£¬ÔòËã·¨×ª»¯ÎªÊ¹ÓÃÌ°ĞÄ²ßÂÔµÄBest-First Search£¬ËÙ¶È×î¿ì£¬µ«¿ÉÄÜµÃ²»³ö×îÓÅ½â£»
-2. Èç¹û`h(n)`²»¸ßÓÚÊµ¼Êµ½Ä¿±ê¶¥µãµÄ¾àÀë£¬ÔòÒ»¶¨¿ÉÒÔÇó³ö×îÓÅ½â£¬¶øÇÒ`h(n)`Ô½Ğ¡£¬ĞèÒª¼ÆËãµÄ½ÚµãÔ½¶à£¬Ëã·¨Ğ§ÂÊÔ½µÍ£¬³£¼ûµÄÆÀ¹Àº¯ÊıÓĞ¡ª¡ªÅ·¼¸ÀïµÃ¾àÀë¡¢Âü¹ş¶Ù¾àÀë¡¢ÇĞ±ÈÑ©·ò¾àÀë£»
-3. Èç¹û`h(n)`Îª0£¬¼´Ö»ĞèÇó³öÆğµãµ½ÈÎÒâ¶¥µã`n`µÄ×î¶ÌÂ·¾¶`g(n)`£¬¶ø²»¼ÆËãÈÎºÎÆÀ¹Àº¯Êı`h(n)`£¬Ôò×ª»¯Îªµ¥Ô´×î¶ÌÂ·¾¶ÎÊÌâ£¬¼´DijkstraËã·¨£¬´ËÊ±ĞèÒª¼ÆËã×î¶àµÄ¶¨µã£»
-4. Èç¹û`h(n)`´óÓÚÊµ¼Êµ½Ä¿±ê¶¥µãµÄ¾àÀë£¬²»±£Ö¤ÄÜÕÒµ½×î¶ÌÂ·¾¶£¬µ«ËÙ¶È±È½Ï¿ì¡£
+1. å¦‚æœ`g(n)`ä¸º0ï¼Œå³åªè®¡ç®—ä»»æ„é¡¶ç‚¹nåˆ°ç›®æ ‡çš„è¯„ä¼°å‡½æ•°`h(n)`ï¼Œè€Œä¸è®¡ç®—èµ·ç‚¹åˆ°é¡¶ç‚¹`n`çš„è·ç¦»ï¼Œåˆ™ç®—æ³•è½¬åŒ–ä¸ºä½¿ç”¨è´ªå¿ƒç­–ç•¥çš„Best-First Searchï¼Œé€Ÿåº¦æœ€å¿«ï¼Œä½†å¯èƒ½å¾—ä¸å‡ºæœ€ä¼˜è§£ï¼›
+2. å¦‚æœ`h(n)`ä¸é«˜äºå®é™…åˆ°ç›®æ ‡é¡¶ç‚¹çš„è·ç¦»ï¼Œåˆ™ä¸€å®šå¯ä»¥æ±‚å‡ºæœ€ä¼˜è§£ï¼Œè€Œä¸”`h(n)`è¶Šå°ï¼Œéœ€è¦è®¡ç®—çš„èŠ‚ç‚¹è¶Šå¤šï¼Œç®—æ³•æ•ˆç‡è¶Šä½ï¼Œå¸¸è§çš„è¯„ä¼°å‡½æ•°æœ‰â€•â€•æ¬§å‡ é‡Œå¾—è·ç¦»ã€æ›¼å“ˆé¡¿è·ç¦»ã€åˆ‡æ¯”é›ªå¤«è·ç¦»ï¼›
+3. å¦‚æœ`h(n)`ä¸º0ï¼Œå³åªéœ€æ±‚å‡ºèµ·ç‚¹åˆ°ä»»æ„é¡¶ç‚¹`n`çš„æœ€çŸ­è·¯å¾„`g(n)`ï¼Œè€Œä¸è®¡ç®—ä»»ä½•è¯„ä¼°å‡½æ•°`h(n)`ï¼Œåˆ™è½¬åŒ–ä¸ºå•æºæœ€çŸ­è·¯å¾„é—®é¢˜ï¼Œå³Dijkstraç®—æ³•ï¼Œæ­¤æ—¶éœ€è¦è®¡ç®—æœ€å¤šçš„å®šç‚¹ï¼›
+4. å¦‚æœ`h(n)`å¤§äºå®é™…åˆ°ç›®æ ‡é¡¶ç‚¹çš„è·ç¦»ï¼Œä¸ä¿è¯èƒ½æ‰¾åˆ°æœ€çŸ­è·¯å¾„ï¼Œä½†é€Ÿåº¦æ¯”è¾ƒå¿«ã€‚
 
 ```c
 function A*(start, goal)
@@ -1042,7 +1042,7 @@ function reconstruct_path(cameFrom, current)
     return total_path
 ```
 
-C++ÊµÏÖÈçÏÂ£º
+C++å®ç°å¦‚ä¸‹ï¼š
 
 ```c++
 #pragma once
@@ -1064,7 +1064,7 @@ Just Implement A* Search Algorithm!
 
 using namespace std;
 
-// ´ú±íÍ¼ÖĞµÄÃ¿¸ö½Úµã£¬¹Ø¼ü×ÖÎª pos£¬ÓÃÀ´
+// ä»£è¡¨å›¾ä¸­çš„æ¯ä¸ªèŠ‚ç‚¹ï¼Œå…³é”®å­—ä¸º posï¼Œç”¨æ¥
 class Node {
 public:
 	pair<int, int> parent_pos;
@@ -1094,14 +1094,14 @@ bool isDestination(const pair<int, int>& pos, const pair<int, int>& des)
 	return pos == des;
 }
 
-// ÕâÀïµÄÆÀ¹Àº¯ÊıÎªÅ·¼¸ÀïµÃ¾àÀëEuclidean Distance
-// TODO: ³¢ÊÔÂü¹ş¶Ù¾àÀë£¬ÇĞ±ÈÑ©·ò¾àÀë
+// è¿™é‡Œçš„è¯„ä¼°å‡½æ•°ä¸ºæ¬§å‡ é‡Œå¾—è·ç¦»Euclidean Distance
+// TODO: å°è¯•æ›¼å“ˆé¡¿è·ç¦»ï¼Œåˆ‡æ¯”é›ªå¤«è·ç¦»
 double calculateHValue(const pair<int, int>& curr, const pair<int, int>& des)
 {
 	return sqrt((curr.first - des.first)*(curr.first - des.first) + (curr.second - des.second) * (curr.second - des.second));
 }
 
-// ´Ó des ÏòÇ°°´ÕÕ parent_pos È·¶¨Â·¾¶£¬Ö±µ½µ½´ï src Í£Ö¹
+// ä» des å‘å‰æŒ‰ç…§ parent_pos ç¡®å®šè·¯å¾„ï¼Œç›´åˆ°åˆ°è¾¾ src åœæ­¢
 void reconstructPath(const vector<vector<Node>>& cells, const pair<int, int>& src, const pair<int, int>& des)
 {
 	vector<pair<int, int>> path;
@@ -1123,12 +1123,12 @@ void reconstructPath(const vector<vector<Node>>& cells, const pair<int, int>& sr
 	cout << endl;
 }
 
-// Ñ°ÕÒÁÚ¾Ó½Úµã£¬£¨²»°üÀ¨ block ÒÔ¼°·Ç·¨µÄÎ»ÖÃ£¨³¬³ögridµÄÎ»ÖÃ£©£©
-// ÁíÍâ£¬ÕâÀïÔÊĞíÂ·¾¶´©Ç½Í¨¹ı£¨ÑØ×Å¶Ô½ÇÏßÍ¨¹ı£©
-// ²»¸ºÔğÇåÀí neighbor_nodes
+// å¯»æ‰¾é‚»å±…èŠ‚ç‚¹ï¼Œï¼ˆä¸åŒ…æ‹¬ block ä»¥åŠéæ³•çš„ä½ç½®ï¼ˆè¶…å‡ºgridçš„ä½ç½®ï¼‰ï¼‰
+// å¦å¤–ï¼Œè¿™é‡Œå…è®¸è·¯å¾„ç©¿å¢™é€šè¿‡ï¼ˆæ²¿ç€å¯¹è§’çº¿é€šè¿‡ï¼‰
+// ä¸è´Ÿè´£æ¸…ç† neighbor_nodes
 void calculateNeighborNodes(const vector<vector<int>>& grid, const pair<int, int>& curr, vector<pair<int, int>>& neighbor_nodes)
 {
-	// ±£´æ8¸ö·½ÏòµÄºòÑ¡ÁÚ¾Ó½Úµã
+	// ä¿å­˜8ä¸ªæ–¹å‘çš„å€™é€‰é‚»å±…èŠ‚ç‚¹
 	vector<pair<int, int>> candidates(8, { 0,0 });
 	candidates[0] = { curr.first - 1, curr.second };
 	candidates[1] = { curr.first + 1, curr.second };
@@ -1140,14 +1140,14 @@ void calculateNeighborNodes(const vector<vector<int>>& grid, const pair<int, int
 	candidates[7] = { curr.first + 1, curr.second + 1 };
 	for (int i = 0; i < 8; ++i)
 	{
-		// ×¢Òâ£¬ÒªÏÈÅĞ¶ÏÊÇ·ñºÏ·¨£¬È»ºóÔÚÅĞ¶ÏÊÇ·ñ block
+		// æ³¨æ„ï¼Œè¦å…ˆåˆ¤æ–­æ˜¯å¦åˆæ³•ï¼Œç„¶ååœ¨åˆ¤æ–­æ˜¯å¦ block
 		if(isInvalid(grid, candidates[i]) ||isBlocked(grid, candidates[i]))
 			continue;
 		neighbor_nodes.push_back(candidates[i]);
 	}
 }
 
-// ¼ÆËã curr ½Úµã ºÍÁÚ¾Ó½ÚµãÖ®¼äµÄ¾àÀë£¬¶Ô½ÇÏß·½ÏòµÄÁÚ¾Ó¾àÀëÎª 1.4£¬ÆäÓàÎª1.0
+// è®¡ç®— curr èŠ‚ç‚¹ å’Œé‚»å±…èŠ‚ç‚¹ä¹‹é—´çš„è·ç¦»ï¼Œå¯¹è§’çº¿æ–¹å‘çš„é‚»å±…è·ç¦»ä¸º 1.4ï¼Œå…¶ä½™ä¸º1.0
 double distanceBetween(const pair<int, int>& curr, const pair<int, int>& neighbor)
 {
 	if (abs(curr.first - neighbor.first) == 1 && abs(curr.second - neighbor.second) == 1)
@@ -1176,12 +1176,12 @@ void aStarSearch(const vector<vector<int>>& grid, const pair<int, int>& src, con
 
 	int m = grid.size(), n = grid[0].size();
 
-	// ´æ´¢µ±Ç°ÒÑ¾­·¢ÏÖµ«Ã»ÓĞÆÀ¹ÀµÄ½Úµã£¬°üÀ¨ f Öµ ºÍ½ÚµãÔÚ grid ÖĞµÄÎ»ÖÃ
+	// å­˜å‚¨å½“å‰å·²ç»å‘ç°ä½†æ²¡æœ‰è¯„ä¼°çš„èŠ‚ç‚¹ï¼ŒåŒ…æ‹¬ f å€¼ å’ŒèŠ‚ç‚¹åœ¨ grid ä¸­çš„ä½ç½®
 	set<pair<double, pair<int, int>>> open_set;
-	// ´æ´¢ÒÑ¾­ÆÀ¹À¹ıµÄ½Úµã
+	// å­˜å‚¨å·²ç»è¯„ä¼°è¿‡çš„èŠ‚ç‚¹
 	set<pair<int, int>> closed_set;
-	// ´æ´¢ËùÓĞ½ÚµãµÄĞÅÏ¢£¬°üÀ¨½ÚµãµÄ¸¸½ÚµãÎ»ÖÃ£¬½ÚµãµÄg,h,fÖµ¡£
-	// Ä¬ÈÏ½ÚµãµÄg,f,hÖµ¾ùÎª FLT_MAX
+	// å­˜å‚¨æ‰€æœ‰èŠ‚ç‚¹çš„ä¿¡æ¯ï¼ŒåŒ…æ‹¬èŠ‚ç‚¹çš„çˆ¶èŠ‚ç‚¹ä½ç½®ï¼ŒèŠ‚ç‚¹çš„g,h,få€¼ã€‚
+	// é»˜è®¤èŠ‚ç‚¹çš„g,f,hå€¼å‡ä¸º FLT_MAX
 	vector<vector<Node>> cells(m, vector<Node>(n));
 
 	cells[src.first][src.second].g = 0;
@@ -1191,7 +1191,7 @@ void aStarSearch(const vector<vector<int>>& grid, const pair<int, int>& src, con
 	while (!open_set.empty())
 	{
 		pair<int, int> curr_pos = (*open_set.begin()).second;
-		// ³ö¶ÓÅĞ¶Ï
+		// å‡ºé˜Ÿåˆ¤æ–­
 		if (curr_pos == des)
 		{
 			cout << "Reconstruct path: " << endl;
@@ -1207,21 +1207,21 @@ void aStarSearch(const vector<vector<int>>& grid, const pair<int, int>& src, con
 		{
 			if (closed_set.find(neighbor) != closed_set.end())
 				continue;
-			// neighbor ²»ÔÚ open_set ÖĞ£¨fÖµÎ´±»¸üĞÂ£©
+			// neighbor ä¸åœ¨ open_set ä¸­ï¼ˆfå€¼æœªè¢«æ›´æ–°ï¼‰
 			if (cells[neighbor.first][neighbor.second].f == FLT_MAX)
 			{
 				cells[neighbor.first][neighbor.second].parent_pos = curr_pos;
 				cells[neighbor.first][neighbor.second].g = cells[curr_pos.first][curr_pos.second].g + distanceBetween(curr_pos, neighbor);
 				cells[neighbor.first][neighbor.second].h = calculateHValue(neighbor, des);
 				cells[neighbor.first][neighbor.second].f = cells[neighbor.first][neighbor.second].g + cells[neighbor.first][neighbor.second].h;
-				// ½« neighbor ¼ÓÈë open_set ÖĞ
+				// å°† neighbor åŠ å…¥ open_set ä¸­
 				open_set.insert({ cells[neighbor.first][neighbor.second].f, neighbor });
 			}
-			// neighbor ÔÚ open_set ÖĞ
+			// neighbor åœ¨ open_set ä¸­
 			else
 			{
 				double tentative_g = cells[curr_pos.first][curr_pos.second].g + distanceBetween(curr_pos, neighbor);
-				// Èç¹û´Ócurrµ½neighor±È¾ßÓĞ¸üĞ¡µÄgÖµ£¬Ôò¸üĞÂ neighbor µÄ¸¸½Úµã£¬ÒÔ¼° g,h,f Öµ
+				// å¦‚æœä»curråˆ°neighoræ¯”å…·æœ‰æ›´å°çš„gå€¼ï¼Œåˆ™æ›´æ–° neighbor çš„çˆ¶èŠ‚ç‚¹ï¼Œä»¥åŠ g,h,f å€¼
 				if (tentative_g < cells[neighbor.first][neighbor.second].g)
 				{
 					cells[neighbor.first][neighbor.second].parent_pos = curr_pos;

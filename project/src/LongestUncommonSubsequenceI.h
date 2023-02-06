@@ -27,13 +27,13 @@ Both strings' lengths will not exceed 100.
 Only letters from a ~ z will appear in input strings.
 
 Approach:
-ÕâÊÇÒ»µÀÖÇÁ¦Ìâ¡£¡£¡£
-¹Ø¼üÔÚÓÚÅªÇå³þ¡°×ÓÐòÁÐ¡±¡¢¡°×î³¤²»Í¬×ÓÐòÁÐ¡±µÄº¬Òå¡£
+è¿™æ˜¯ä¸€é“æ™ºåŠ›é¢˜ã€‚ã€‚ã€‚
+å…³é”®åœ¨äºŽå¼„æ¸…æ¥šâ€œå­åºåˆ—â€ã€â€œæœ€é•¿ä¸åŒå­åºåˆ—â€çš„å«ä¹‰ã€‚
 
-·ÖÇé¿öÌÖÂÛ
-Èç¹û a b ³¤¶È²»Í¬£¬Ôò½Ï³¤µÄÄÇ¸öÊÇ½á¹û¡£
-Èô a b ³¤¶ÈÏàÍ¬£¬ÔòÈç¹û a==b£¬Ôò²»´æÔÚ²»Í¬×ÓÐòÁÐ
-Èô a != b ÔòÈÎÒâa»òb¾ùÎª×î³¤²»Í¬×ÓÐòÁÐ
+åˆ†æƒ…å†µè®¨è®º
+å¦‚æžœ a b é•¿åº¦ä¸åŒï¼Œåˆ™è¾ƒé•¿çš„é‚£ä¸ªæ˜¯ç»“æžœã€‚
+è‹¥ a b é•¿åº¦ç›¸åŒï¼Œåˆ™å¦‚æžœ a==bï¼Œåˆ™ä¸å­˜åœ¨ä¸åŒå­åºåˆ—
+è‹¥ a != b åˆ™ä»»æ„aæˆ–bå‡ä¸ºæœ€é•¿ä¸åŒå­åºåˆ—
 
 */
 

@@ -17,11 +17,11 @@ convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 
 Approach:
 
-ÓÃ vector<string> row_string À´±£´æ×ª»»ºóµÄÃ¿Ò»¸öÐÐ×Ö·û´®¡£
-ÕâÀïÎÒÃÇÖ»ÐèÒªË³Ðò±éÀúÔ­À´µÄ×Ö·û´®£¬ÓÃ row À´È·¶¨µ±Ç°¸üÐÂµÄÎ»ÖÃ£¬½«µ±Ç°×Ö·û¼ÓÈëµ½ row_string[row] µÄÄ©Î²£¬
-²¢ÇÒÓÃ down À´¿ØÖÆ²Ù×÷µÄ·½Ïò£¨ÏòÏÂ»òÕßÏòÉÏ£©£¬´Ó¶ø¸üÐÂ row Öµ¡££¨ÏòÏÂ ++row£¬ÏòÉÏ --row£©¡£
-ÇÒµ± row == 0 Ê±£¬¸üÐÂ down Îª true£¬±íÊ¾ÏòÏÂ£»
-µ± row == numRows - 1 Ê±£¬¸üÐÂ down Îª false£¬±íÊ¾ÏòÉÏ¡£
+ç”¨ vector<string> row_string æ¥ä¿å­˜è½¬æ¢åŽçš„æ¯ä¸€ä¸ªè¡Œå­—ç¬¦ä¸²ã€‚
+è¿™é‡Œæˆ‘ä»¬åªéœ€è¦é¡ºåºéåŽ†åŽŸæ¥çš„å­—ç¬¦ä¸²ï¼Œç”¨ row æ¥ç¡®å®šå½“å‰æ›´æ–°çš„ä½ç½®ï¼Œå°†å½“å‰å­—ç¬¦åŠ å…¥åˆ° row_string[row] çš„æœ«å°¾ï¼Œ
+å¹¶ä¸”ç”¨ down æ¥æŽ§åˆ¶æ“ä½œçš„æ–¹å‘ï¼ˆå‘ä¸‹æˆ–è€…å‘ä¸Šï¼‰ï¼Œä»Žè€Œæ›´æ–° row å€¼ã€‚ï¼ˆå‘ä¸‹ ++rowï¼Œå‘ä¸Š --rowï¼‰ã€‚
+ä¸”å½“ row == 0 æ—¶ï¼Œæ›´æ–° down ä¸º trueï¼Œè¡¨ç¤ºå‘ä¸‹ï¼›
+å½“ row == numRows - 1 æ—¶ï¼Œæ›´æ–° down ä¸º falseï¼Œè¡¨ç¤ºå‘ä¸Šã€‚
 
 Time: O(s.size())
 Space: O(s.size())

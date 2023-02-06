@@ -24,7 +24,7 @@ public:
 		int sign = 1;
 		int offset = 0;
 
-		// Ìø¹ý¿Õ¸ñ
+		// è·³è¿‡ç©ºæ ¼
 		while (offset < str.size() && str[offset] == ' ')
 			++offset;
 		if (str[offset] == '+')
@@ -35,22 +35,22 @@ public:
 			sign = -1;
 		}
 
-		// ·ÃÎÊÁ¬ÐøµÄÊý×Ö×Ö·û
+		// è®¿é—®è¿žç»­çš„æ•°å­—å­—ç¬¦
 		int a = INT_MAX / 10;
 		int b = INT_MAX % 10;
 		for (int i = offset; i < str.size(); ++i)
 		{
-			// Óöµ½·ÇÊý×Ö£¬ÍË³öÑ­»·
+			// é‡åˆ°éžæ•°å­—ï¼Œé€€å‡ºå¾ªçŽ¯
 			if (str[i] < '0' || str[i] > '9')
 				break;
 
 			int digit = str[i] - '0';
 			if (num > a || (num == a && digit > b))
 			{
-				// ³¬¹ý·¶Î§ INT_MAX
+				// è¶…è¿‡èŒƒå›´ INT_MAX
 				if (sign == 1)
 					return INT_MAX;
-				// ´ïµ½»ò³¬¹ý·¶Î§ INT_MIN
+				// è¾¾åˆ°æˆ–è¶…è¿‡èŒƒå›´ INT_MIN
 				else
 					return INT_MIN;
 			}

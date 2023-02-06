@@ -11,9 +11,9 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 
 Approach:
 
-½¨Á¢Ò»¸ö unordered_map
+å»ºç«‹ä¸€ä¸ª unordered_map
 key: nums[i]
-value: nums[i] ³öÏÖµÄ´ÎÊı
+value: nums[i] å‡ºç°çš„æ¬¡æ•°
 
 Time:O(n)
 Space:O(n)
@@ -27,7 +27,7 @@ Bit Manipulation
 
 0^n = n
 n^n = 0
-ÁíÍâ£ºÒì»òÂú×ã½»»»ÂÉºÍ½áºÏÂÉ
+å¦å¤–ï¼šå¼‚æˆ–æ»¡è¶³äº¤æ¢å¾‹å’Œç»“åˆå¾‹
 
 ref: https://leetcode.com/problems/single-number/solution/
 
@@ -49,12 +49,12 @@ public:
 		unordered_map<int, int> um;
 		for (int i = 0; i < nums.size(); ++i)
 		{
-			if (um[nums[i]] == 1)	// ÈôÊı×ÖÒÑ¾­³öÏÖ¹ıÒ»´Î£¬ÔòÔÙ´Î³öÏÖÊ±´Ó unordered_map ÖĞÉ¾³ı
+			if (um[nums[i]] == 1)	// è‹¥æ•°å­—å·²ç»å‡ºç°è¿‡ä¸€æ¬¡ï¼Œåˆ™å†æ¬¡å‡ºç°æ—¶ä» unordered_map ä¸­åˆ é™¤
 				um.erase(nums[i]);
-			else					// ·ñÔò£¬ÈôÊı×ÖµÚÒ»´Î³öÏÖ£¬Ôò½« value ÉèÎª1
+			else					// å¦åˆ™ï¼Œè‹¥æ•°å­—ç¬¬ä¸€æ¬¡å‡ºç°ï¼Œåˆ™å°† value è®¾ä¸º1
 				um[nums[i]] = 1;
 		}
-		return um.begin()->first;	// ×îºó£¬ um ÖĞÖ»Ê£ÏÂÄÇ¸ö³öÏÖ½öÒ»´ÎµÄÊı×Ö
+		return um.begin()->first;	// æœ€åï¼Œ um ä¸­åªå‰©ä¸‹é‚£ä¸ªå‡ºç°ä»…ä¸€æ¬¡çš„æ•°å­—
 	}
 };
 

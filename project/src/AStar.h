@@ -6,7 +6,7 @@ Just Implement A* Search Algorithm!
 
 Ref: https://www.gamedev.net/articles/programming/artificial-intelligence/a-pathfinding-for-beginners-r2003/
 Ref: https://www.geeksforgeeks.org/a-search-algorithm/
-Ref: ÓÎÏ·±à³ÌËã·¨Óë¼¼ÇÉ
+Ref: æ¸¸æˆç¼–ç¨‹ç®—æ³•ä¸æŠ€å·§
 */
 
 #include <set>
@@ -49,14 +49,14 @@ bool isDestination(const pair<int, int>& pos, const pair<int, int>& des)
 	return pos == des;
 }
 
-// ÕâÀïµÄÆÀ¹Àº¯ÊıÎªÅ·¼¸ÀïµÃ¾àÀëEuclidean Distance
-// TODO: ³¢ÊÔÂü¹ş¶Ù¾àÀë£¬ÇĞ±ÈÑ©·ò¾àÀë
+// è¿™é‡Œçš„è¯„ä¼°å‡½æ•°ä¸ºæ¬§å‡ é‡Œå¾—è·ç¦»Euclidean Distance
+// TODO: å°è¯•æ›¼å“ˆé¡¿è·ç¦»ï¼Œåˆ‡æ¯”é›ªå¤«è·ç¦»
 double calculateHValue(const pair<int, int>& curr, const pair<int, int>& des)
 {
 	return sqrt((curr.first - des.first)*(curr.first - des.first) + (curr.second - des.second) * (curr.second - des.second));
 }
 
-// ´Ó des ÏòÇ°°´ÕÕ parent_pos È·¶¨Â·¾¶£¬Ö±µ½µ½´ï src Í£Ö¹
+// ä» des å‘å‰æŒ‰ç…§ parent_pos ç¡®å®šè·¯å¾„ï¼Œç›´åˆ°åˆ°è¾¾ src åœæ­¢
 void reconstructPath(const vector<vector<Node>>& cells, const pair<int, int>& src, const pair<int, int>& des)
 {
 	vector<pair<int, int>> path;
@@ -78,12 +78,12 @@ void reconstructPath(const vector<vector<Node>>& cells, const pair<int, int>& sr
 	cout << endl;
 }
 
-// Ñ°ÕÒÁÚ¾Ó½Úµã£¬£¨²»°üÀ¨ block ÒÔ¼°·Ç·¨µÄÎ»ÖÃ£¨³¬³ögridµÄÎ»ÖÃ£©£©
-// ÁíÍâ£¬ÕâÀïÔÊĞíÂ·¾¶´©Ç½Í¨¹ı£¨ÑØ×Å¶Ô½ÇÏßÍ¨¹ı£©
-// ²»¸ºÔğÇåÀí neighbor_nodes
+// å¯»æ‰¾é‚»å±…èŠ‚ç‚¹ï¼Œï¼ˆä¸åŒ…æ‹¬ block ä»¥åŠéæ³•çš„ä½ç½®ï¼ˆè¶…å‡ºgridçš„ä½ç½®ï¼‰ï¼‰
+// å¦å¤–ï¼Œè¿™é‡Œå…è®¸è·¯å¾„ç©¿å¢™é€šè¿‡ï¼ˆæ²¿ç€å¯¹è§’çº¿é€šè¿‡ï¼‰
+// ä¸è´Ÿè´£æ¸…ç† neighbor_nodes
 void calculateNeighborNodes(const vector<vector<int>>& grid, const pair<int, int>& curr, vector<pair<int, int>>& neighbor_nodes)
 {
-	// ±£´æ8¸ö·½ÏòµÄºòÑ¡ÁÚ¾Ó½Úµã
+	// ä¿å­˜8ä¸ªæ–¹å‘çš„å€™é€‰é‚»å±…èŠ‚ç‚¹
 	vector<pair<int, int>> candidates(8, { 0,0 });
 	candidates[0] = { curr.first - 1, curr.second };
 	candidates[1] = { curr.first + 1, curr.second };
@@ -95,14 +95,14 @@ void calculateNeighborNodes(const vector<vector<int>>& grid, const pair<int, int
 	candidates[7] = { curr.first + 1, curr.second + 1 };
 	for (int i = 0; i < 8; ++i)
 	{
-		// ×¢Òâ£¬ÒªÏÈÅĞ¶ÏÊÇ·ñºÏ·¨£¬È»ºóÔÚÅĞ¶ÏÊÇ·ñ block
+		// æ³¨æ„ï¼Œè¦å…ˆåˆ¤æ–­æ˜¯å¦åˆæ³•ï¼Œç„¶ååœ¨åˆ¤æ–­æ˜¯å¦ block
 		if(isInvalid(grid, candidates[i]) ||isBlocked(grid, candidates[i]))
 			continue;
 		neighbor_nodes.push_back(candidates[i]);
 	}
 }
 
-// ¼ÆËã curr ½Úµã ºÍÁÚ¾Ó½ÚµãÖ®¼äµÄ¾àÀë£¬¶Ô½ÇÏß·½ÏòµÄÁÚ¾Ó¾àÀëÎª 1.4£¬ÆäÓàÎª1.0
+// è®¡ç®— curr èŠ‚ç‚¹ å’Œé‚»å±…èŠ‚ç‚¹ä¹‹é—´çš„è·ç¦»ï¼Œå¯¹è§’çº¿æ–¹å‘çš„é‚»å±…è·ç¦»ä¸º 1.4ï¼Œå…¶ä½™ä¸º1.0
 double distanceBetween(const pair<int, int>& curr, const pair<int, int>& neighbor)
 {
 	if (abs(curr.first - neighbor.first) == 1 && abs(curr.second - neighbor.second) == 1)
@@ -131,12 +131,12 @@ void aStarSearch(const vector<vector<int>>& grid, const pair<int, int>& src, con
 
 	int m = grid.size(), n = grid[0].size();
 
-	// ´æ´¢µ±Ç°ÒÑ¾­·¢ÏÖµ«Ã»ÓĞÆÀ¹ÀµÄ½Úµã£¬°üÀ¨ f Öµ ºÍ½ÚµãÔÚ grid ÖĞµÄÎ»ÖÃ
+	// å­˜å‚¨å½“å‰å·²ç»å‘ç°ä½†æ²¡æœ‰è¯„ä¼°çš„èŠ‚ç‚¹ï¼ŒåŒ…æ‹¬ f å€¼ å’ŒèŠ‚ç‚¹åœ¨ grid ä¸­çš„ä½ç½®
 	set<pair<double, pair<int, int>>> open_set;
-	// ´æ´¢ÒÑ¾­ÆÀ¹À¹ıµÄ½Úµã
+	// å­˜å‚¨å·²ç»è¯„ä¼°è¿‡çš„èŠ‚ç‚¹
 	set<pair<int, int>> closed_set;
-	// ´æ´¢ËùÓĞ½ÚµãµÄĞÅÏ¢£¬°üÀ¨½ÚµãµÄ¸¸½ÚµãÎ»ÖÃ£¬½ÚµãµÄg,h,fÖµ¡£
-	// Ä¬ÈÏ½ÚµãµÄg,f,hÖµ¾ùÎª FLT_MAX
+	// å­˜å‚¨æ‰€æœ‰èŠ‚ç‚¹çš„ä¿¡æ¯ï¼ŒåŒ…æ‹¬èŠ‚ç‚¹çš„çˆ¶èŠ‚ç‚¹ä½ç½®ï¼ŒèŠ‚ç‚¹çš„g,h,få€¼ã€‚
+	// é»˜è®¤èŠ‚ç‚¹çš„g,f,hå€¼å‡ä¸º FLT_MAX
 	vector<vector<Node>> cells(m, vector<Node>(n));
 
 	cells[src.first][src.second].g = 0;
@@ -146,7 +146,7 @@ void aStarSearch(const vector<vector<int>>& grid, const pair<int, int>& src, con
 	while (!open_set.empty())
 	{
 		pair<int, int> curr_pos = (*open_set.begin()).second;
-		// ³ö¶ÓÅĞ¶Ï
+		// å‡ºé˜Ÿåˆ¤æ–­
 		if (curr_pos == des)
 		{
 			cout << "Reconstruct path: " << endl;
@@ -162,21 +162,21 @@ void aStarSearch(const vector<vector<int>>& grid, const pair<int, int>& src, con
 		{
 			if (closed_set.find(neighbor) != closed_set.end())
 				continue;
-			// neighbor ²»ÔÚ open_set ÖĞ£¨fÖµÎ´±»¸üĞÂ£©
+			// neighbor ä¸åœ¨ open_set ä¸­ï¼ˆfå€¼æœªè¢«æ›´æ–°ï¼‰
 			if (cells[neighbor.first][neighbor.second].f == FLT_MAX)
 			{
 				cells[neighbor.first][neighbor.second].parent_pos = curr_pos;
 				cells[neighbor.first][neighbor.second].g = cells[curr_pos.first][curr_pos.second].g + distanceBetween(curr_pos, neighbor);
 				cells[neighbor.first][neighbor.second].h = calculateHValue(neighbor, des);
 				cells[neighbor.first][neighbor.second].f = cells[neighbor.first][neighbor.second].g + cells[neighbor.first][neighbor.second].h;
-				// ½« neighbor ¼ÓÈë open_set ÖĞ
+				// å°† neighbor åŠ å…¥ open_set ä¸­
 				open_set.insert({ cells[neighbor.first][neighbor.second].f, neighbor });
 			}
-			// neighbor ÔÚ open_set ÖĞ
+			// neighbor åœ¨ open_set ä¸­
 			else
 			{
 				double tentative_g = cells[curr_pos.first][curr_pos.second].g + distanceBetween(curr_pos, neighbor);
-				// Èç¹û´Ócurrµ½neighbor±ÈÔ­ÏÈ¸¸½Úµãµ½neighbor¾ßÓĞ¸üĞ¡µÄgÖµ£¬Ôò¸üĞÂ neighbor µÄ¸¸½Úµã£¬ÒÔ¼° g,h,f Öµ
+				// å¦‚æœä»curråˆ°neighboræ¯”åŸå…ˆçˆ¶èŠ‚ç‚¹åˆ°neighborå…·æœ‰æ›´å°çš„gå€¼ï¼Œåˆ™æ›´æ–° neighbor çš„çˆ¶èŠ‚ç‚¹ï¼Œä»¥åŠ g,h,f å€¼
 				if (tentative_g < cells[neighbor.first][neighbor.second].g)
 				{
 					cells[neighbor.first][neighbor.second].parent_pos = curr_pos;

@@ -21,13 +21,13 @@ The range of node's value is in the range of 32-bit signed integer.
 
 Approach:
 BFS
-Time: O(n)  n Îª½Úµã×ÜÊı
-Space: O(m) m Îª×î´óµÄÒ»²ã½ÚµãÊı
+Time: O(n)  n ä¸ºèŠ‚ç‚¹æ€»æ•°
+Space: O(m) m ä¸ºæœ€å¤§çš„ä¸€å±‚èŠ‚ç‚¹æ•°
 
 Approach v2:
 DFS
 Time: O(n)
-Space: O(h) h ÎªÊ÷µÄ½Úµã²ãÊı£¨ÒòÎªµİ¹é²ãÊıÒ²×î¶àÎªh£©
+Space: O(h) h ä¸ºæ ‘çš„èŠ‚ç‚¹å±‚æ•°ï¼ˆå› ä¸ºé€’å½’å±‚æ•°ä¹Ÿæœ€å¤šä¸ºhï¼‰
 Ref: https://leetcode.com/problems/average-of-levels-in-binary-tree/solution/
 
 */
@@ -56,7 +56,7 @@ public:
 		while (!Q.empty())
 		{
 			int size = Q.size();
-			double total = 0;				// µ±Ç°Ò»²ãµÄ×ÜºÍ
+			double total = 0;				// å½“å‰ä¸€å±‚çš„æ€»å’Œ
 			for(int i = 0; i < size; ++i)
 			{
 				TreeNode* temp = Q.front();

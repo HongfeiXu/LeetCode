@@ -17,10 +17,10 @@ The solution is guaranteed to be unique.
 Approach:
 
 Greedy
-Ã¿¾­¹ýÒ»¸ö¼ÓÓÍÕ¾¾Í¼ÓÍê¼ÓÓÍÕ¾ËùÓÐµÄÆûÓÍ¡£
-ÓÃ cost - gas µÃµ½ gap Êý×é£¬±íÊ¾Ã¿¸ö¼ÓÓÍÕ¾ÆûÓÍÁ¿Ïà¶ÔÓÚ½ÓÏÂÀ´Ò»¶ÎÂ·³ÌÏûºÄÆûÓÍÁ¿ËùÊ£ÓàµÄÆûÓÍ¡£
-²Î¿¼Largest Sum Contiguous Subarray ÎÊÌâ Kadane Ëã·¨µÄË¼Ïë£¬ÕÒµ½ÕýÈ·µÄÆðÊ¼Î»ÖÃ¡£
-×¢£ºÒ»¸ö½áÂÛÊÇ£¬Èç¹ûËùÓÐ¼ÓÓÍÕ¾µÄ×ÜÓÍÁ¿²»Ð¡ÓÚ×ÜºÄÓÍÁ¿£¬ÔòÒ»¶¨´æÔÚÒ»¸öÕýÈ·µÄÆðÊ¼Î»ÖÃ£¬¿ÉÒÔ×ßÍêÕû¸öÂ·³Ì¡£
+æ¯ç»è¿‡ä¸€ä¸ªåŠ æ²¹ç«™å°±åŠ å®ŒåŠ æ²¹ç«™æ‰€æœ‰çš„æ±½æ²¹ã€‚
+ç”¨ cost - gas å¾—åˆ° gap æ•°ç»„ï¼Œè¡¨ç¤ºæ¯ä¸ªåŠ æ²¹ç«™æ±½æ²¹é‡ç›¸å¯¹äºŽæŽ¥ä¸‹æ¥ä¸€æ®µè·¯ç¨‹æ¶ˆè€—æ±½æ²¹é‡æ‰€å‰©ä½™çš„æ±½æ²¹ã€‚
+å‚è€ƒLargest Sum Contiguous Subarray é—®é¢˜ Kadane ç®—æ³•çš„æ€æƒ³ï¼Œæ‰¾åˆ°æ­£ç¡®çš„èµ·å§‹ä½ç½®ã€‚
+æ³¨ï¼šä¸€ä¸ªç»“è®ºæ˜¯ï¼Œå¦‚æžœæ‰€æœ‰åŠ æ²¹ç«™çš„æ€»æ²¹é‡ä¸å°äºŽæ€»è€—æ²¹é‡ï¼Œåˆ™ä¸€å®šå­˜åœ¨ä¸€ä¸ªæ­£ç¡®çš„èµ·å§‹ä½ç½®ï¼Œå¯ä»¥èµ°å®Œæ•´ä¸ªè·¯ç¨‹ã€‚
 
 */
 
@@ -37,32 +37,32 @@ public:
 		vector<int> gap(len, 0);		// gas[i] - cost[i]
 		for (int i = 0; i < len; ++i)
 			gap[i] = gas[i] - cost[i];
-		// Èç¹û×ÜµÄÏûºÄ´óÓÚ×ÜµÄÆûÓÍÁ¿£¬ÔòÒ»¶¨²»ÄÜÍê³ÉÑ­»·
+		// å¦‚æžœæ€»çš„æ¶ˆè€—å¤§äºŽæ€»çš„æ±½æ²¹é‡ï¼Œåˆ™ä¸€å®šä¸èƒ½å®Œæˆå¾ªçŽ¯
 		if (accumulate(gap.begin(), gap.end(), 0) < 0)
 			return -1;
-		// ·´Ö®£¬ÔòÒ»¶¨ÄÜÍê³ÉÑ­»·£¬ÐèÒªÑ°ÕÒÆðÊ¼Î»ÖÃ
+		// åä¹‹ï¼Œåˆ™ä¸€å®šèƒ½å®Œæˆå¾ªçŽ¯ï¼Œéœ€è¦å¯»æ‰¾èµ·å§‹ä½ç½®
 		int start = 0;
 		while (1)
 		{
-			// ÈôµÚÒ»¸ögapÖµ¾ÍÊÇ¸ºÊý£¬ÔòÌøµ½ÏÂÒ»¸öÆûÓÍÕ¾
+			// è‹¥ç¬¬ä¸€ä¸ªgapå€¼å°±æ˜¯è´Ÿæ•°ï¼Œåˆ™è·³åˆ°ä¸‹ä¸€ä¸ªæ±½æ²¹ç«™
 			int currSum = gap[start];
 			if (currSum < 0)
 			{
 				start = (start + 1) % len;
 				continue;
 			}
-			// ´Ó start+1 ¿ªÊ¼×ßÒ»¸öÑ­»·
+			// ä»Ž start+1 å¼€å§‹èµ°ä¸€ä¸ªå¾ªçŽ¯
 			for (int i = (start + 1) % len; i != start; i = (i + 1) % len)
 			{
 				currSum += gap[i];
-				// Óöµ½Ò»¸ö¿ç²»¹ýÈ¥µÄ¿²£¨ÆûÓÍ²»×ã¹»£©
+				// é‡åˆ°ä¸€ä¸ªè·¨ä¸è¿‡åŽ»çš„åŽï¼ˆæ±½æ²¹ä¸è¶³å¤Ÿï¼‰
 				if (currSum < 0)
 				{
 					start = (i + 1) % len;
 					break;
 				}
 			}
-			// Èô×îÖÕ currSum >= 0£¬ÔòËµÃ÷´Ó start ´¦¿ªÊ¼Íê³ÉÁËÒ»¸öÑ­»·
+			// è‹¥æœ€ç»ˆ currSum >= 0ï¼Œåˆ™è¯´æ˜Žä»Ž start å¤„å¼€å§‹å®Œæˆäº†ä¸€ä¸ªå¾ªçŽ¯
 			if (currSum >= 0)
 				return start;
 		}

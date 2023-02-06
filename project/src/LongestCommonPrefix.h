@@ -20,7 +20,7 @@ class Solution {
 public:
 	string longestCommonPrefix(vector<string>& strs)
 	{
-		// ±ß½çÌõ¼ş
+		// è¾¹ç•Œæ¡ä»¶
 		if (strs.size() == 0)
 			return string("");
 		if (strs.size() == 1)

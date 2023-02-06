@@ -33,14 +33,14 @@ Ref: http://www.cnblogs.com/grandyang/p/6143071.html
 Time: O(n)
 Space: O(1)
 
-¶Ô×Ö·û´® abcd£¬ÒÔ d ½áÎ²µÄ×Ó´®ÓÐ abcd£¬bcd£¬cd£¬d£¬ÎÒÃÇ·¢ÏÖ bcd »ò cd ÕâÐ©ÒÔ d ½áÎ²µÄ×Ö·û´®µÄ×Ó×Ö·û´®¶¼ÔÚ abcd ÖÐ£¬
-µÃ³ö£ºÒÔÄ³¸ö×Ö·û½áÎ²µÄ×î´ó×Ö·û´®°üº¬ÆäËûÒÔ¸Ã×Ö·û½áÊøµÄ×Ö·û´®µÄËùÓÐ×Ó×Ö·û´®¡£
-Òò´Ë£¬ÎÒÃÇÐèÒªÕÒ³öÒÔÃ¿¸ö×Ö·û£¨a~z£©Îª½áÊø×Ö·ûµÄ×î³¤Á¬Ðø×Ö·û´®¾ÍÐÐÁË¡£ÓÃÊý×é cnt ¼ÇÂ¼ÏÂÀ´Æä³¤¶È£¬×îÖÕÈ«²¿Ïà¼Ó¼´Îª½á¹û¡£
+å¯¹å­—ç¬¦ä¸² abcdï¼Œä»¥ d ç»“å°¾çš„å­ä¸²æœ‰ abcdï¼Œbcdï¼Œcdï¼Œdï¼Œæˆ‘ä»¬å‘çŽ° bcd æˆ– cd è¿™äº›ä»¥ d ç»“å°¾çš„å­—ç¬¦ä¸²çš„å­å­—ç¬¦ä¸²éƒ½åœ¨ abcd ä¸­ï¼Œ
+å¾—å‡ºï¼šä»¥æŸä¸ªå­—ç¬¦ç»“å°¾çš„æœ€å¤§å­—ç¬¦ä¸²åŒ…å«å…¶ä»–ä»¥è¯¥å­—ç¬¦ç»“æŸçš„å­—ç¬¦ä¸²çš„æ‰€æœ‰å­å­—ç¬¦ä¸²ã€‚
+å› æ­¤ï¼Œæˆ‘ä»¬éœ€è¦æ‰¾å‡ºä»¥æ¯ä¸ªå­—ç¬¦ï¼ˆa~zï¼‰ä¸ºç»“æŸå­—ç¬¦çš„æœ€é•¿è¿žç»­å­—ç¬¦ä¸²å°±è¡Œäº†ã€‚ç”¨æ•°ç»„ cnt è®°å½•ä¸‹æ¥å…¶é•¿åº¦ï¼Œæœ€ç»ˆå…¨éƒ¨ç›¸åŠ å³ä¸ºç»“æžœã€‚
 
 #######################################
 Approach_v2:
 Same as the approach above
-Ö»ÊÇ¿¼ÂÇÒÔÃ¿¸ö×Ö·ûÎª¿ªÊ¼×Ö·ûµÄ×î³¤Á¬Ðø×Ö·û´®£¬ÐèÒªÄæÐò±éÀú×Ö·û´®¡£
+åªæ˜¯è€ƒè™‘ä»¥æ¯ä¸ªå­—ç¬¦ä¸ºå¼€å§‹å­—ç¬¦çš„æœ€é•¿è¿žç»­å­—ç¬¦ä¸²ï¼Œéœ€è¦é€†åºéåŽ†å­—ç¬¦ä¸²ã€‚
 
 */
 
@@ -60,18 +60,18 @@ public:
 
 		vector<int> cnt(26, 0);
 
-		int succesive_cnt = 1;	// ¼ÇÂ¼ÒÔµ±Ç°·ÃÎÊµÄÔªËØ½áÎ²µÄ×î³¤Á¬Ðø×Ó´®µÄ³¤¶È
+		int succesive_cnt = 1;	// è®°å½•ä»¥å½“å‰è®¿é—®çš„å…ƒç´ ç»“å°¾çš„æœ€é•¿è¿žç»­å­ä¸²çš„é•¿åº¦
 		cnt[p[0] - 'a'] = 1;
 
 		for (int i = 1; i < p.size(); ++i)
 		{
-			// Èô p[i-1]¡¢p[i] Á¬Ðø£¬ÔòÔö¼Ó successive_cnt
+			// è‹¥ p[i-1]ã€p[i] è¿žç»­ï¼Œåˆ™å¢žåŠ  successive_cnt
 			if (isSuccessive(p[i - 1], p[i]))
 				++succesive_cnt;
-			// Èô p[i-1]¡¢p[i] ²»Á¬Ðø£¬ÔòÖØÉè successive_cnt Îª 1
+			// è‹¥ p[i-1]ã€p[i] ä¸è¿žç»­ï¼Œåˆ™é‡è®¾ successive_cnt ä¸º 1
 			else
 				succesive_cnt = 1;
-			// ¸üÐÂ cnt[p[i]]
+			// æ›´æ–° cnt[p[i]]
 			cnt[p[i] - 'a'] = max(cnt[p[i] - 'a'], succesive_cnt);
 
 		}

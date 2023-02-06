@@ -60,19 +60,19 @@ Explanation:The maximum width existing in the fourth level with the length 8 (6,
 Note: Answer will in the range of 32-bit signed integer.
 
 Approach:
-²ã´Î±éÀú£¨BFS£©
+å±‚æ¬¡éå†ï¼ˆBFSï¼‰
 
-»ùÓÚ¶ÓÁĞ£¬ ¶ÓÁĞÖĞ±£´æµ±Ç°²ãµÄ½Úµã
-ÁíÍâ£¬ĞÂ½¨Ò»¸ö¶ÓÁĞ£¬¶ÓÁĞÖĞ±£´æµ±Ç°²ã½ÚµãÔÚ¶ÔÓ¦µÄÂú¶ş²æÊ÷ÖĞµÄÏÂ±ê
-±È½ÏÃ¿Ò»²ãµÄµÚÒ»¸ö½ÚµãºÍ×îºóÒ»¸ö½ÚµãµÄÏÂ±êÖ®¼äµÄ²îÖµ£¬È¡×î´óµÄÎª½á¹û
+åŸºäºé˜Ÿåˆ—ï¼Œ é˜Ÿåˆ—ä¸­ä¿å­˜å½“å‰å±‚çš„èŠ‚ç‚¹
+å¦å¤–ï¼Œæ–°å»ºä¸€ä¸ªé˜Ÿåˆ—ï¼Œé˜Ÿåˆ—ä¸­ä¿å­˜å½“å‰å±‚èŠ‚ç‚¹åœ¨å¯¹åº”çš„æ»¡äºŒå‰æ ‘ä¸­çš„ä¸‹æ ‡
+æ¯”è¾ƒæ¯ä¸€å±‚çš„ç¬¬ä¸€ä¸ªèŠ‚ç‚¹å’Œæœ€åä¸€ä¸ªèŠ‚ç‚¹çš„ä¸‹æ ‡ä¹‹é—´çš„å·®å€¼ï¼Œå–æœ€å¤§çš„ä¸ºç»“æœ
 
 Time: O(n)
 Space: O(n)
 
 Approach v2:
 DFS
-ÔÚdfsÊ±£¬´«µİµ±Ç°½ÚµãµÄ²ãÊı£¬ÒÔ¼°µ±Ç°½ÚµãµÄÏÂ±ê£¨ÔÚÂú¶ş²æÊ÷ÖĞµÄ£©£¬²¢ÇÒµÚÒ»´Ë·ÃÎÊµ½µ±Ç°²ãµÄ½ÚµãÎª×î×ó½Úµã
-Ö®ºó£º
+åœ¨dfsæ—¶ï¼Œä¼ é€’å½“å‰èŠ‚ç‚¹çš„å±‚æ•°ï¼Œä»¥åŠå½“å‰èŠ‚ç‚¹çš„ä¸‹æ ‡ï¼ˆåœ¨æ»¡äºŒå‰æ ‘ä¸­çš„ï¼‰ï¼Œå¹¶ä¸”ç¬¬ä¸€æ­¤è®¿é—®åˆ°å½“å‰å±‚çš„èŠ‚ç‚¹ä¸ºæœ€å·¦èŠ‚ç‚¹
+ä¹‹åï¼š
 for each node, a candidate width is index - leftmost_index[layer] + 1
 we take the maximum of the candidate answers
 
@@ -99,13 +99,13 @@ public:
 			return 0;
 		int result = 0;
 		queue<TreeNode*> q;
-		queue<int> index_queue;		// ±£´æµ±Ç°²ã½ÚµãÔÚ¶ÔÓ¦µÄÂú¶ş²æÊ÷ÖĞµÄÏÂ±ê£¬¶Ô´Ë¶ÓÁĞ index_ queue µÄ¸üĞÂÓ¦¸ÃÓë q µÄ²½µ÷±£³ÖÒ»ÖÂ
+		queue<int> index_queue;		// ä¿å­˜å½“å‰å±‚èŠ‚ç‚¹åœ¨å¯¹åº”çš„æ»¡äºŒå‰æ ‘ä¸­çš„ä¸‹æ ‡ï¼Œå¯¹æ­¤é˜Ÿåˆ— index_ queue çš„æ›´æ–°åº”è¯¥ä¸ q çš„æ­¥è°ƒä¿æŒä¸€è‡´
 		q.push(root);
 		index_queue.push(1);
 		while (!q.empty())
 		{
 			int cnt_of_layer = q.size();
-			int width_of_layer = index_queue.back() - index_queue.front() + 1;	// ¼ÆËãµ±Ç°²ãµÄ¿í¶È
+			int width_of_layer = index_queue.back() - index_queue.front() + 1;	// è®¡ç®—å½“å‰å±‚çš„å®½åº¦
 			for (int i = 0; i < cnt_of_layer; ++i)
 			{
 				TreeNode* temp_node = q.front();
@@ -115,15 +115,15 @@ public:
 				if (temp_node->left != nullptr)
 				{
 					q.push(temp_node->left);
-					index_queue.push(temp_index * 2);		// ×óº¢×ÓµÄÏÂ±êÎª¸¸½ÚµãÏÂ±êµÄ¶ş±¶
+					index_queue.push(temp_index * 2);		// å·¦å­©å­çš„ä¸‹æ ‡ä¸ºçˆ¶èŠ‚ç‚¹ä¸‹æ ‡çš„äºŒå€
 				}
 				if (temp_node->right != nullptr)
 				{
 					q.push(temp_node->right);
-					index_queue.push(temp_index * 2 + 1);	// ÓÒº¢×ÓµÄÏÂ±êÎª¸¸½ÚµãÏÂ±êµÄ¶ş±¶+1
+					index_queue.push(temp_index * 2 + 1);	// å³å­©å­çš„ä¸‹æ ‡ä¸ºçˆ¶èŠ‚ç‚¹ä¸‹æ ‡çš„äºŒå€+1
 				}
 			}
-			// ¸üĞÂ result ÖµÎª×î´óµÄ¿í¶È
+			// æ›´æ–° result å€¼ä¸ºæœ€å¤§çš„å®½åº¦
 			result = max(width_of_layer, result);
 		}
 		return result;
@@ -145,7 +145,7 @@ public:
 	{
 		if (root == nullptr)
 			return;
-		// µ±Ç°²ãµÚÒ»´Î±»·ÃÎÊ£¬Ôò·ÃÎÊµ½µÄ½ÚµãÎªµ±Ç°²ãµÄ×î×ó½Úµã
+		// å½“å‰å±‚ç¬¬ä¸€æ¬¡è¢«è®¿é—®ï¼Œåˆ™è®¿é—®åˆ°çš„èŠ‚ç‚¹ä¸ºå½“å‰å±‚çš„æœ€å·¦èŠ‚ç‚¹
 		if (leftmost_index.size() == layer)		
 			leftmost_index.push_back(index);
 		// for each node, a candidate width is index - leftmost_index[layer] + 1

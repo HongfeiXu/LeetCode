@@ -19,10 +19,10 @@ Explanation:
 The two boomerangs are [[1,0],[0,0],[2,0]] and [[1,0],[2,0],[0,0]]
 
 Approach:
-ÎªÁË±ÜÃâÇó¸ùÔËËã£¬ÎÒÃÇÊ¹ÓÃ¾àÀëÖµµÃÆ½·½¡£
-¼ÆËã¶¥µãÖ®¼äµÄ¾àÀëÆ½·½£¬°´ÕÕ¾àÀëÆ½·½½¨Á¢hash±í£¬±íµÄÃ¿Ò»ÐÐÖÐ´æ·Å¾ßÓÐÏàÍ¬¾àÀëµÄ¶¥µã¶Ô¡£
-ÒÀ´Î´¦ÀíÃ¿Ò»¸ö±íÐÐ£¬¼ÆÊý¿ÉÒÔ¹¹³É Boomerang µÄ¶¥µãÔª×éÊý£¬ÓÉÓÚÖØ¸´¼ÆÊýµÄÔ­Òò×îºó³ýÒÔ2Îª½á¹û¡£
-ºÜÂý£¬ºÜÔ­Ê¼µÄÒ»ÖÖ×ö·¨¡£
+ä¸ºäº†é¿å…æ±‚æ ¹è¿ç®—ï¼Œæˆ‘ä»¬ä½¿ç”¨è·ç¦»å€¼å¾—å¹³æ–¹ã€‚
+è®¡ç®—é¡¶ç‚¹ä¹‹é—´çš„è·ç¦»å¹³æ–¹ï¼ŒæŒ‰ç…§è·ç¦»å¹³æ–¹å»ºç«‹hashè¡¨ï¼Œè¡¨çš„æ¯ä¸€è¡Œä¸­å­˜æ”¾å…·æœ‰ç›¸åŒè·ç¦»çš„é¡¶ç‚¹å¯¹ã€‚
+ä¾æ¬¡å¤„ç†æ¯ä¸€ä¸ªè¡¨è¡Œï¼Œè®¡æ•°å¯ä»¥æž„æˆ Boomerang çš„é¡¶ç‚¹å…ƒç»„æ•°ï¼Œç”±äºŽé‡å¤è®¡æ•°çš„åŽŸå› æœ€åŽé™¤ä»¥2ä¸ºç»“æžœã€‚
+å¾ˆæ…¢ï¼Œå¾ˆåŽŸå§‹çš„ä¸€ç§åšæ³•ã€‚
 O(n^2)
 
 
@@ -41,10 +41,10 @@ class Solution {
 public:
 	int numberOfBoomerangs(vector<pair<int, int>>& points)
 	{
-		unordered_map<int, vector<pair<int, int>>> um;	// ¼ÇÂ¼Ã¿¸ö¾àÀëÒÔ¼°¾ßÓÐ¸Ã¾àÀëÖµµÄ¶¥µã¶Ô
+		unordered_map<int, vector<pair<int, int>>> um;	// è®°å½•æ¯ä¸ªè·ç¦»ä»¥åŠå…·æœ‰è¯¥è·ç¦»å€¼çš„é¡¶ç‚¹å¯¹
 		int result = 0;
 
-		// ¼ÆËãËùÓÐ¶¥µãÖ®¼äµÄ¾àÀëÖµ
+		// è®¡ç®—æ‰€æœ‰é¡¶ç‚¹ä¹‹é—´çš„è·ç¦»å€¼
 		for (int i = 0; i < points.size(); ++i)
 		{
 			for (int j = 0; j < points.size(); ++j)
@@ -74,7 +74,7 @@ public:
 				{
 					for (int j = i + 1; j < line.second.size(); ++j)
 					{
-						// ÈôÁ½¸ö¶¥µã¶ÔÍêÈ«ÏàÍ¬»òÕßÍêÈ«²»Í¬£¬Ìø¹ý
+						// è‹¥ä¸¤ä¸ªé¡¶ç‚¹å¯¹å®Œå…¨ç›¸åŒæˆ–è€…å®Œå…¨ä¸åŒï¼Œè·³è¿‡
 						if((line.second[i].first == line.second[j].second && 
 						    line.second[i].second == line.second[j].first) ||
 						   (line.second[i].first != line.second[j].first &&
@@ -82,7 +82,7 @@ public:
 						    line.second[i].second != line.second[j].first &&
 						    line.second[i].second != line.second[j].second))
 							continue;
-						// ÈôÁ½¸ö¶¥µã¶ÔÖÐÓÐÒ»¸ö¶¥µãÏàÍ¬£¬Ôò¿ÉÒÔ¹¹³É Boomerangs
+						// è‹¥ä¸¤ä¸ªé¡¶ç‚¹å¯¹ä¸­æœ‰ä¸€ä¸ªé¡¶ç‚¹ç›¸åŒï¼Œåˆ™å¯ä»¥æž„æˆ Boomerangs
 						++result;
 					}
 				}
@@ -104,10 +104,10 @@ public:
 	{
 		int result = 0;
 
-		// ¼ÆËãËùÓÐ¶¥µãÖ®¼äµÄ¾àÀëÖµ
+		// è®¡ç®—æ‰€æœ‰é¡¶ç‚¹ä¹‹é—´çš„è·ç¦»å€¼
 		for (int i = 0; i < points.size(); ++i)
 		{
-			unordered_map<int, int> um;			// ´æ´¢µ±Ç°¶¥µãÓëÆäËû¶¥µãµÄ¾àÀëÖµ£¬ÒÔ¼°¾ßÓÐ¸Ã¾àÀëÖµµÄ¶¥µãµÄ¸öÊý
+			unordered_map<int, int> um;			// å­˜å‚¨å½“å‰é¡¶ç‚¹ä¸Žå…¶ä»–é¡¶ç‚¹çš„è·ç¦»å€¼ï¼Œä»¥åŠå…·æœ‰è¯¥è·ç¦»å€¼çš„é¡¶ç‚¹çš„ä¸ªæ•°
 			for (int j = 0; j < points.size(); ++j)
 			{
 				if(i == j)
@@ -116,7 +116,7 @@ public:
 				++um[d];
 			}
 			for (auto item : um)
-				result += item.second * (item.second - 1);	// ¶ÔÓÚÃ¿Ò»¸öÏàÍ¬µÄ¾àÀëÖµd£¬Èç¹ûÓÐk¸ö¶¥µãÓë points[i]µÄ¾àÀëÎªd£¬Ôò¿ÉÒÔ¹¹³É k * (k-1) ¸ö Boomrangs£¨ÅÅÁÐÎÊÌâ£©
+				result += item.second * (item.second - 1);	// å¯¹äºŽæ¯ä¸€ä¸ªç›¸åŒçš„è·ç¦»å€¼dï¼Œå¦‚æžœæœ‰kä¸ªé¡¶ç‚¹ä¸Ž points[i]çš„è·ç¦»ä¸ºdï¼Œåˆ™å¯ä»¥æž„æˆ k * (k-1) ä¸ª Boomrangsï¼ˆæŽ’åˆ—é—®é¢˜ï¼‰
 		}
 		return result;
 	}

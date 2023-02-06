@@ -9,13 +9,13 @@ Given a roman numeral, convert it to an integer.
 Input is guaranteed to be within the range from 1 to 3999.
 
 Approach:
-����ǰ�������������ֱȽϣ�����Ⱥ��������С�����ȥ��ǰ���֣�������ڵ��ں������֣�����ϵ�ǰ���֡�
-�������һ�����֣�һ���Ǽ��ϵġ�
+将当前数字与后面的数字比较，如果比后面的数字小，则减去当前数字，如果大于等于后面数字，则加上当前数字。
+对于最后一个数字，一定是加上的。
 Ref:http://www.cnblogs.com/grandyang/p/4120857.html
 
 Approach2:
-����ǰ������ǰ������ֱȽϣ����С�ڵ���ǰ�����֣�����ϵ�ǰ���֣�������ڵ���ǰ�����֣�����ϵ�ǰ���ֲ���ȥǰ�����ֵĶ�����
-���ڵ�һ�����֣��Ƚ��м��ϴ�����
+将当前数字与前面的数字比较，如果小于等于前面数字，则加上当前数字，如果大于等于前面数字，则加上当前数字并减去前面数字的二倍。
+对于第一个数字，先进行加上处理。
 Ref:http://www.cnblogs.com/grandyang/p/4120857.html
 
 */

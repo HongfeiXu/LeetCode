@@ -36,16 +36,16 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 
 Approach:
 Time Limit Exceeded
-¶Ôp½¨Á¢Ò»¸ö unordered_map£¬ (K, V) = (Character, Frequence of the Characters)
-È»ºó±éÀús£¬¶ÔÃ¿¸öÎ»ÖÃ£¬È¡Ò»¸ö³¤Îª p.size() µÄ×Ó´®£¬½¨Á¢ unordered_map£¬¿´Á½¸ö unordered_map ÊÇ·ñÏàÍ¬
+å¯¹på»ºç«‹ä¸€ä¸ª unordered_mapï¼Œ (K, V) = (Character, Frequence of the Characters)
+ç„¶åéå†sï¼Œå¯¹æ¯ä¸ªä½ç½®ï¼Œå–ä¸€ä¸ªé•¿ä¸º p.size() çš„å­ä¸²ï¼Œå»ºç«‹ unordered_mapï¼Œçœ‹ä¸¤ä¸ª unordered_map æ˜¯å¦ç›¸åŒ
 
 Approach_v2:
 
-Ê¹ÓÃ Sliding Window algorithm template ½â¾öÕâÀà×Ó´®ËÑË÷ÎÊÌâ¡£COOL¡£Ïê¼ûRef¡£
+ä½¿ç”¨ Sliding Window algorithm template è§£å†³è¿™ç±»å­ä¸²æœç´¢é—®é¢˜ã€‚COOLã€‚è¯¦è§Refã€‚
 
-¶Ô p ½¨Á¢Ò»¸ö unordered_map£¬ÃüÃûÎª stillneed£¬±íÊ¾ÔÚµ±Ç°µÄ´°¿ÚÖĞ£¬ĞèÒª¸÷¸ö×Ö·ûµÄÊıÄ¿¡£
-´°¿ÚÓÃ begin£¬end ±íÊ¾¡£
-ÓÃ counter ¼ÇÂ¼µ±Ç°´°¿ÚÄÚµÄ×Ö·ûÔÚ¸öÊıÉÏÊÇ·ñÂú×ãÁËÒªÇó£¬¿ÉÒÔ¶àÓÚ p ÖĞÒªÇóµÄ¸÷¸ö×Ö·ûÊı¡£
+å¯¹ p å»ºç«‹ä¸€ä¸ª unordered_mapï¼Œå‘½åä¸º stillneedï¼Œè¡¨ç¤ºåœ¨å½“å‰çš„çª—å£ä¸­ï¼Œéœ€è¦å„ä¸ªå­—ç¬¦çš„æ•°ç›®ã€‚
+çª—å£ç”¨ beginï¼Œend è¡¨ç¤ºã€‚
+ç”¨ counter è®°å½•å½“å‰çª—å£å†…çš„å­—ç¬¦åœ¨ä¸ªæ•°ä¸Šæ˜¯å¦æ»¡è¶³äº†è¦æ±‚ï¼Œå¯ä»¥å¤šäº p ä¸­è¦æ±‚çš„å„ä¸ªå­—ç¬¦æ•°ã€‚
 
 Ref: https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/
 

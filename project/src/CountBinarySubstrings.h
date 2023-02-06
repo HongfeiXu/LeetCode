@@ -26,7 +26,7 @@ s.length will be between 1 and 50,000.
 s will only consist of "0" or "1" characters.
 
 Approach:
-Í¨¹ı¹Û²ì·¢ÏÖ£¬
+é€šè¿‡è§‚å¯Ÿå‘ç°ï¼Œ
 	00011001
 -->	000 11 00 1
 --> 3 + 2 + 2 + 1
@@ -52,7 +52,7 @@ public:
 
 		int result = 0;
 
-		// ÏÈ¼ÆËã³öËùÓĞÁ¬ĞøµÄ0»òÕß1µÄ¸öÊı
+		// å…ˆè®¡ç®—å‡ºæ‰€æœ‰è¿ç»­çš„0æˆ–è€…1çš„ä¸ªæ•°
 		vector<int> consecutive_cnt;
 		for (int i = 0; i < s.size();)
 		{
@@ -63,7 +63,7 @@ public:
 			i = j;
 		}
 
-		// È¥ÏàÁÚµÄĞ¡µÄÄÇ¸öÊı¼ÓÈë result
+		// å»ç›¸é‚»çš„å°çš„é‚£ä¸ªæ•°åŠ å…¥ result
 		for (int i = 0; i < consecutive_cnt.size() - 1; ++i)
 			result += min(consecutive_cnt[i], consecutive_cnt[i + 1]);
 

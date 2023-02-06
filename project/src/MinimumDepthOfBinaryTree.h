@@ -36,18 +36,18 @@ public:
 		int result;
 		if (root == nullptr)
 			return 0;
-		// depth Ϊ���������о��и��̵ĴӸ��ڵ㵽Ҷ�ڵ�·���ĳ��ȼ���1��Ҳ���ǵ�ǰ������̵ĸ��ڵ㵽Ҷ�ڵ��·������
+		// depth 为左右子树中具有更短的从根节点到叶节点路径的长度加上1，也就是当前树的最短的根节点到叶节点的路径长度
 		int depth_left = minDepth(root->left);
 		int depth_right = minDepth(root->right);
 
-		// ��������Ϊ�գ��򷵻��������о�����̵ĴӸ��ڵ㵽Ҷ�ڵ�·���ĳ��ȼ���1
-		// ������ֱ�ӷ������ߵ�·�����Ƚ�Сֵ��1�����£����·������Ӧ��Ϊ2��������1
+		// 若左子树为空，则返回右子树中具有最短的从根节点到叶节点路径的长度加上1
+		// 而不能直接返回两者的路径长度较小值加1，如下，最短路径长度应该为2，而不是1
 		//     1
 		//      \
 		//       2
 		if (depth_left == 0)
 			result = depth_right + 1;
-		// ��������Ϊ�գ����Ƶ�
+		// 若右子树为空，类似的
 		else if (depth_right == 0)
 			result = depth_left + 1;
 		else

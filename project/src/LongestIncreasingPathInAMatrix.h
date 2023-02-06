@@ -33,10 +33,10 @@ Approach MY:
 
 beat 71.61 %
 
-½áºÏÁËDPµÄÉî¶ÈÓÅÏÈËÑË÷£¬²¢Ê¹ÓÃ¸¨Öú±í¸ñ¼ÇÂ¼ÒÑ¾­±»·ÃÎÊ¹ıµÄ½ÚµãĞÅÏ¢£¨´Ó¸Ã½áµãÆğÊ¼µÄ×î³¤µÄµİÔöÂ·¾¶³¤¶È£©
+ç»“åˆäº†DPçš„æ·±åº¦ä¼˜å…ˆæœç´¢ï¼Œå¹¶ä½¿ç”¨è¾…åŠ©è¡¨æ ¼è®°å½•å·²ç»è¢«è®¿é—®è¿‡çš„èŠ‚ç‚¹ä¿¡æ¯ï¼ˆä»è¯¥ç»“ç‚¹èµ·å§‹çš„æœ€é•¿çš„é€’å¢è·¯å¾„é•¿åº¦ï¼‰
 
 
-Ò»¸ö½ÚµãµÄ×î³¤µİÔöÂ·¾¶³¤¶È = max{ ¿Éµ½´ïµÄ£¨µİÔö£©ÏàÁÚ½ÚµãµÄ×î³¤µİÔöÂ·¾¶³¤¶È } + 1
+ä¸€ä¸ªèŠ‚ç‚¹çš„æœ€é•¿é€’å¢è·¯å¾„é•¿åº¦ = max{ å¯åˆ°è¾¾çš„ï¼ˆé€’å¢ï¼‰ç›¸é‚»èŠ‚ç‚¹çš„æœ€é•¿é€’å¢è·¯å¾„é•¿åº¦ } + 1
 
 */
 
@@ -57,8 +57,8 @@ public:
 			return 0;
 		M = matrix.size();
 		N = matrix[0].size();
-		vector<vector<int>> table(M, vector<int>(N, 0));			// ´Óµ±Ç°½Úµã³ö·¢£¬×î³¤µÄµİÔöÂ·¾¶³¤¶È£¬ÈôÂ·¾¶³¤¶ÈÎª0±íÊ¾µ±Ç°½ÚµãÎ´±»·ÃÎÊ
-																	//vector<vector<bool>> visited(M, vector<bool>(N, false));	// µ±Ç°½ÚµãÊÇ·ñÒÑ¾­±»·ÃÎÊ
+		vector<vector<int>> table(M, vector<int>(N, 0));			// ä»å½“å‰èŠ‚ç‚¹å‡ºå‘ï¼Œæœ€é•¿çš„é€’å¢è·¯å¾„é•¿åº¦ï¼Œè‹¥è·¯å¾„é•¿åº¦ä¸º0è¡¨ç¤ºå½“å‰èŠ‚ç‚¹æœªè¢«è®¿é—®
+																	//vector<vector<bool>> visited(M, vector<bool>(N, false));	// å½“å‰èŠ‚ç‚¹æ˜¯å¦å·²ç»è¢«è®¿é—®
 
 		int result = 0;
 		for (int i = 0; i < M; ++i)
@@ -72,24 +72,24 @@ public:
 		return(x >= 0 && x < M && y >= 0 && y < N);
 	}
 
-	// Éî¶ÈÓÅÏÈËÑË÷£¬Çó´Ó x£¬y Î»ÖÃ³ö·¢µÄ×î³¤µİÔöÂ·¾¶³¤¶È
+	// æ·±åº¦ä¼˜å…ˆæœç´¢ï¼Œæ±‚ä» xï¼Œy ä½ç½®å‡ºå‘çš„æœ€é•¿é€’å¢è·¯å¾„é•¿åº¦
 	int dfs(int x, int y, vector<vector<int>>& matrix, vector<vector<int>>& table)
 	{
-		if (table[x][y] != 0)		// Èç¹ûµ±Ç°½ÚµãÒÔ¼°±»·ÃÎÊ¹ı£¬ÔòÖ±½Ó·µ»Ø
+		if (table[x][y] != 0)		// å¦‚æœå½“å‰èŠ‚ç‚¹ä»¥åŠè¢«è®¿é—®è¿‡ï¼Œåˆ™ç›´æ¥è¿”å›
 			return table[x][y];
 		int longest = 0;
-		for (auto dir : dirs)		// µ±Ç°½ÚµãÎ´±»·ÃÎÊ£¬Éî¶È±éÀúËÄ¸ö·½Ïò
+		for (auto dir : dirs)		// å½“å‰èŠ‚ç‚¹æœªè¢«è®¿é—®ï¼Œæ·±åº¦éå†å››ä¸ªæ–¹å‘
 		{
 			int newX = x + dir.first;
 			int newY = y + dir.second;
 			if (!check(newX, newY))
 				continue;
 			int curr = 0;
-			if (matrix[x][y] < matrix[newX][newY])	// ÈôĞÂÎ»ÖÃµÄ½Úµã´óÓÚÔ­À´µÄ½Úµã£¬Ôò¸üĞÂ curr
+			if (matrix[x][y] < matrix[newX][newY])	// è‹¥æ–°ä½ç½®çš„èŠ‚ç‚¹å¤§äºåŸæ¥çš„èŠ‚ç‚¹ï¼Œåˆ™æ›´æ–° curr
 				curr = dfs(newX, newY, matrix, table);
 			longest = max(longest, curr);
 		}
-		table[x][y] = longest + 1;	// ¸üĞÂ table[x][y]
+		table[x][y] = longest + 1;	// æ›´æ–° table[x][y]
 		return table[x][y];
 	}
 };

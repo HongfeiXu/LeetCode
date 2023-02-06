@@ -22,7 +22,7 @@ return its level order traversal as:
 
 Approach:
 BFS
-queueё╛ц©╢нЁЖ╤ср╩╡Ц╫з╣Цё╛хК╤собр╩╡Ц╫з╣Ц
+queueО╪▄Ф╞▐Ф╛║Е┤╨И≤÷Д╦─Е╠┌Х┼┌Г┌╧О╪▄Е┘╔И≤÷Д╦▀Д╦─Е╠┌Х┼┌Г┌╧
 
 Approach v2:
 DFS
@@ -52,13 +52,13 @@ public:
 		vector<vector<int>> result;
 		if (root == nullptr)
 			return result;
-		queue<TreeNode*> Q;		// ╠ё╢Фр╩╡Ц╫з╣Ц
+		queue<TreeNode*> Q;		// Д©²Е╜≤Д╦─Е╠┌Х┼┌Г┌╧
 		Q.push(root);
 		while (!Q.empty())
 		{
 			int size = Q.size();
 			vector<int> curr_layer;
-			// ЁЖ╤с╣╠г╟р╩╡Ц╫з╣Цё╛╡╒лМ╪собр╩╡Ц╫з╣Ц
+			// Е┤╨И≤÷Е╫⌠Е┴█Д╦─Е╠┌Х┼┌Г┌╧О╪▄Е╧╤Ф╥╩Е┼═Д╦▀Д╦─Е╠┌Х┼┌Г┌╧
 			for (int i = 0; i < size; ++i)
 			{
 				TreeNode* temp = Q.front();

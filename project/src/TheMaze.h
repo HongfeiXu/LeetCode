@@ -57,7 +57,7 @@ Ref: https://leetcode.com/articles/the-maze/
 
 DFS
 dfs(maze, start, destination, visited)
-´ÓÆğÊ¼Î»ÖÃ¿ªÊ¼£¬ÓĞËÄ¸ö·½Ïò¿ÉÒÔÑ¡Ôñ£¬Ê¹ÓÃÉî¶ÈËÑË÷µÄ·½Ê½
+ä»èµ·å§‹ä½ç½®å¼€å§‹ï¼Œæœ‰å››ä¸ªæ–¹å‘å¯ä»¥é€‰æ‹©ï¼Œä½¿ç”¨æ·±åº¦æœç´¢çš„æ–¹å¼
 
 Approach_v2:
 Ref: https://leetcode.com/articles/the-maze/
@@ -78,7 +78,7 @@ public:
 	{
 		M = maze.size();
 		N = maze[0].size();
-		vector<vector<bool>> visited(M, vector<bool>(N, false));	// ¼ÇÂ¼±»·ÃÎÊÁËµÄ½Úµã£¬·ÀÖ¹ÖØ¸´·ÃÎÊ
+		vector<vector<bool>> visited(M, vector<bool>(N, false));	// è®°å½•è¢«è®¿é—®äº†çš„èŠ‚ç‚¹ï¼Œé˜²æ­¢é‡å¤è®¿é—®
 		return(dfs(maze, { start[0], start[1] }, { destination[0], destination[1] }, visited));
 	}
 
@@ -93,7 +93,7 @@ public:
 		for (auto dir : dirs)
 		{
 			pair<int, int> end = start;
-			// ¹öÇò
+			// æ»šçƒ
 			while (end.first >= 0 && end.first < M && end.second >= 0 && end.second < N && maze[end.first][end.second] != 1)
 				end.first += dir.first, end.second += dir.second;
 			end.first -= dir.first;
@@ -128,7 +128,7 @@ public:
 			for (auto dir : dirs)
 			{
 				pair<int, int> next = curr;
-				// ¹öÇò
+				// æ»šçƒ
 				while (next.first >= 0 && next.first < M && next.second >= 0 && next.second < N && maze[next.first][next.second] != 1)
 				{
 					next.first += dir.first;
@@ -137,7 +137,7 @@ public:
 				next.first -= dir.first;
 				next.second -= dir.second;
 
-				// ÈôÎ´±»·ÃÎÊ£¬ÔòÈë¶Ó
+				// è‹¥æœªè¢«è®¿é—®ï¼Œåˆ™å…¥é˜Ÿ
 				if (!visited[next.first][next.second])
 				{
 					Q.push(next);

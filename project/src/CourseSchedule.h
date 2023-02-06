@@ -25,15 +25,15 @@ You may assume that there are no duplicate edges in the input prerequisites.
 ######################################################
 Approach:
 
-Ö»ÒªÃ»ÓĞÑ­»·ÒÀÀµµÄ¿Î³Ì£¬ÔòÒ»¶¨¿ÉÒÔÍê³ÉËùÓĞ¿Î³Ì¡£
-ÅĞ¶ÏÓĞÏòÍ¼£¨¿¼ÂÇÒ»°ãÇé¿ö£¬¼´£º·ÇÁ¬Í¨Í¼£©ÊÇ·ñÓĞ»·¡£
+åªè¦æ²¡æœ‰å¾ªç¯ä¾èµ–çš„è¯¾ç¨‹ï¼Œåˆ™ä¸€å®šå¯ä»¥å®Œæˆæ‰€æœ‰è¯¾ç¨‹ã€‚
+åˆ¤æ–­æœ‰å‘å›¾ï¼ˆè€ƒè™‘ä¸€èˆ¬æƒ…å†µï¼Œå³ï¼šéè¿é€šå›¾ï¼‰æ˜¯å¦æœ‰ç¯ã€‚
 DFS + recursive_stack
 
 ######################################################
 Approach v2:
 
 DFS + color
-¸üÖ±¹Û
+æ›´ç›´è§‚
 
 ######################################################
 Approach v3:
@@ -41,10 +41,10 @@ Approach v3:
 BFS
 Ref: http://www.cnblogs.com/grandyang/p/4484571.html
 
-´ÓÈë¶ÈµÄ½Ç¶È¿¼ÂÇ£¬Ò»²ã²ãÉ¾³ıÈë¶ÈÎª0µÄ½Úµã£¬É¾³ıµ±Ç°²ãÈë¶ÈÎª0µÄ½ÚµãÊ±Ò²Òª¸üĞÂÆäº¢×Ó½Úµã¡£
-Èô×îÖÕ»¹ÓĞ½ÚµãµÄÈë¶È²»Îª0£¬ÔòËµÃ÷ÓĞ»·£¬·ñÔòÎŞ»·¡£
+ä»å…¥åº¦çš„è§’åº¦è€ƒè™‘ï¼Œä¸€å±‚å±‚åˆ é™¤å…¥åº¦ä¸º0çš„èŠ‚ç‚¹ï¼Œåˆ é™¤å½“å‰å±‚å…¥åº¦ä¸º0çš„èŠ‚ç‚¹æ—¶ä¹Ÿè¦æ›´æ–°å…¶å­©å­èŠ‚ç‚¹ã€‚
+è‹¥æœ€ç»ˆè¿˜æœ‰èŠ‚ç‚¹çš„å…¥åº¦ä¸ä¸º0ï¼Œåˆ™è¯´æ˜æœ‰ç¯ï¼Œå¦åˆ™æ— ç¯ã€‚
 
-Ö÷Òª´¦ÀíÁ½²¿·ÖÄÚÈİ£º1. ¸÷½ÚµãµÄÈë¶È£¬2. ¸÷½ÚµãµÄº¢×Ó½Úµã
+ä¸»è¦å¤„ç†ä¸¤éƒ¨åˆ†å†…å®¹ï¼š1. å„èŠ‚ç‚¹çš„å…¥åº¦ï¼Œ2. å„èŠ‚ç‚¹çš„å­©å­èŠ‚ç‚¹
 
 
 */
@@ -65,8 +65,8 @@ public:
 		// construct adjacency matrix
 		auto graph = makeGraph(numCourses, prerequisites);
 
-		vector<bool> visited(numCourses, false);			// ¼ÇÂ¼ÒÔ¼°±»·ÃÎÊµÄ½Úµã
-		vector<bool> recursive_stack(numCourses, false);	// ¼ÇÂ¼µ±Ç°Éî¶ÈËÑË÷Õ»ÖĞµÄ½Úµã
+		vector<bool> visited(numCourses, false);			// è®°å½•ä»¥åŠè¢«è®¿é—®çš„èŠ‚ç‚¹
+		vector<bool> recursive_stack(numCourses, false);	// è®°å½•å½“å‰æ·±åº¦æœç´¢æ ˆä¸­çš„èŠ‚ç‚¹
 		bool is_cyclic = false;
 
 		// Call the recursive helper function to detect cycle in different
@@ -79,10 +79,10 @@ public:
 				break;
 			}
 		}
-		return !is_cyclic;		// ÓĞ»·ÔòÎŞ·¨Íê³ÉËùÓĞ¿Î³Ì£¬ÎŞ»·Ôò¿ÉÒÔÍê³ÉËùÓĞ¿Î³Ì
+		return !is_cyclic;		// æœ‰ç¯åˆ™æ— æ³•å®Œæˆæ‰€æœ‰è¯¾ç¨‹ï¼Œæ— ç¯åˆ™å¯ä»¥å®Œæˆæ‰€æœ‰è¯¾ç¨‹
 	}
 
-	// Ê¹ÓÃ unordered_set ´æ´¢ÁÚ½Ó¾ØÕóµÄĞÅÏ¢
+	// ä½¿ç”¨ unordered_set å­˜å‚¨é‚»æ¥çŸ©é˜µçš„ä¿¡æ¯
 	vector<unordered_set<int>> makeGraph(int numCourses, vector<pair<int, int>>& prerequisites)
 	{
 		vector<unordered_set<int>> graph(numCourses);
@@ -125,7 +125,7 @@ public:
 		{
 			if (colors[i] == WHITE)
 			{
-				// Èô´æÔÚ»ØÂ·£¬ÔòÎŞ·¨Íê³É
+				// è‹¥å­˜åœ¨å›è·¯ï¼Œåˆ™æ— æ³•å®Œæˆ
 				if (isCyclic(i, graph, colors))
 					return false;
 			}
@@ -152,7 +152,7 @@ class Solution_v3 {
 public:
 	bool canFinish(int numCourses, vector<pair<int, int>>& prerequisites)
 	{
-		vector<vector<int>> adj(numCourses);		// Ê¹ÓÃ vector ¸ü±£ÏÕ£¬
+		vector<vector<int>> adj(numCourses);		// ä½¿ç”¨ vector æ›´ä¿é™©ï¼Œ
 		vector<int> in(numCourses, 0);
 		for (const auto& edge : prerequisites)
 		{
@@ -171,11 +171,11 @@ public:
 			--numCourses;
 			int u = q.front();
 			q.pop();
-			// ¸üĞÂ u µÄº¢×Ó½Úµã v µÄÈë¶È
+			// æ›´æ–° u çš„å­©å­èŠ‚ç‚¹ v çš„å…¥åº¦
 			for (auto v : adj[u])
 			{
 				--in[v];
-				// Èô v µÄÈë¶È¼õÖÁ 0£¬ÔòÈë¶Ó¡£
+				// è‹¥ v çš„å…¥åº¦å‡è‡³ 0ï¼Œåˆ™å…¥é˜Ÿã€‚
 				if (in[v] == 0)
 					q.push(v);
 			}

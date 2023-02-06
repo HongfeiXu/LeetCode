@@ -20,27 +20,27 @@ Output: 1->1->2->3->4->4->5->6
 ====================================
 Approach1: Merge lists one by one
 
-Ê¹ÓÃ mergeTwoLists µÄ·½·¨½øĞĞ mergeKLists¡£Ã¿Ò»´ÎÌí¼ÓÒ»¸ö list µ½½á¹û result ÖĞ¡£
-¼´£¬½« merge k lists µÄÎÊÌâ×ª»¯Îª k-1 ´Î merge 2 lists ÎÊÌâ¡£
+ä½¿ç”¨ mergeTwoLists çš„æ–¹æ³•è¿›è¡Œ mergeKListsã€‚æ¯ä¸€æ¬¡æ·»åŠ ä¸€ä¸ª list åˆ°ç»“æœ result ä¸­ã€‚
+å³ï¼Œå°† merge k lists çš„é—®é¢˜è½¬åŒ–ä¸º k-1 æ¬¡ merge 2 lists é—®é¢˜ã€‚
 
-Time: O(kN), k ÊÇÁ´±íµÄÊıÄ¿£¬NÊÇ½ÚµãµÄÊıÄ¿¡£
+Time: O(kN), k æ˜¯é“¾è¡¨çš„æ•°ç›®ï¼ŒNæ˜¯èŠ‚ç‚¹çš„æ•°ç›®ã€‚
 Space: O(1)
 
 ====================================
 Approach2: Brute Force
 Ref: https://leetcode.com/problems/merge-k-sorted-lists/solution/
 
-±éÀúËùÓĞÁ´±í£¬½«ÔªËØ·ÅÈëÒ»¸övectorÖĞ£¬ÅÅĞò£¬²¢×îÖÕ¹¹Ôìlist
+éå†æ‰€æœ‰é“¾è¡¨ï¼Œå°†å…ƒç´ æ”¾å…¥ä¸€ä¸ªvectorä¸­ï¼Œæ’åºï¼Œå¹¶æœ€ç»ˆæ„é€ list
 
-Time: O(Nlog(N))£¬NÊÇ½ÚµãµÄÊıÄ¿¡£
+Time: O(Nlog(N))ï¼ŒNæ˜¯èŠ‚ç‚¹çš„æ•°ç›®ã€‚
 Space: O(N)
 
 ====================================
 Approach3: Prioriy Queue
 Ref: https://leetcode.com/problems/merge-k-sorted-lists/solution/
 
-ÀàËÆÓÚ mergeTwoLists µÄ·½·¨£¨Ã¿´Î´Ó2¸ölistµÄµÚÒ»¸öÔªËØÖĞ£¬Ñ¡Ôñ½ÏĞ¡µÄ½ÚµãÁ´½Óµ½½á¹ûÁ´±íÄ©Î²£©£¬
-Ã¿´Î´Ó k ¸ö list µÄµÚÒ»¸öÔªËØÖĞ£¬Ñ¡Ôñ×îĞ¡µÄ½Úµã·ÅÈë½á¹ûÁ´±íÖĞ¡£Ö±µ½ËùÓĞÁ´±íÖĞ¶¼Ã»ÓĞÔªËØÎ»ÖÃ¡£
+ç±»ä¼¼äº mergeTwoLists çš„æ–¹æ³•ï¼ˆæ¯æ¬¡ä»2ä¸ªlistçš„ç¬¬ä¸€ä¸ªå…ƒç´ ä¸­ï¼Œé€‰æ‹©è¾ƒå°çš„èŠ‚ç‚¹é“¾æ¥åˆ°ç»“æœé“¾è¡¨æœ«å°¾ï¼‰ï¼Œ
+æ¯æ¬¡ä» k ä¸ª list çš„ç¬¬ä¸€ä¸ªå…ƒç´ ä¸­ï¼Œé€‰æ‹©æœ€å°çš„èŠ‚ç‚¹æ”¾å…¥ç»“æœé“¾è¡¨ä¸­ã€‚ç›´åˆ°æ‰€æœ‰é“¾è¡¨ä¸­éƒ½æ²¡æœ‰å…ƒç´ ä½ç½®ã€‚
 
 Time: O(Nlog(k))
 Space: O(1)
@@ -49,22 +49,22 @@ Space: O(1)
 Approach4: Merge with Divide and Conquer
 Ref: https://leetcode.com/problems/merge-k-sorted-lists/solution/
 
-Approach1 µÄ¸Ä½ø£¬1ÖĞ£¬»áÓĞºÜ¶à´ÎÖØ¸´µÄ±È½Ï¡£
-ÕâÀï£¬ÎÒÃÇ½øĞĞ·Ö¶øÖÎÖ®µÄ·½Ê½¡££¨¹é²¢ÅÅĞò£©ÀıÈç£º
+Approach1 çš„æ”¹è¿›ï¼Œ1ä¸­ï¼Œä¼šæœ‰å¾ˆå¤šæ¬¡é‡å¤çš„æ¯”è¾ƒã€‚
+è¿™é‡Œï¼Œæˆ‘ä»¬è¿›è¡Œåˆ†è€Œæ²»ä¹‹çš„æ–¹å¼ã€‚ï¼ˆå½’å¹¶æ’åºï¼‰ä¾‹å¦‚ï¼š
 
 list0, list1, list2, list3, list4, list5
 =>
 list0+1, list2+3, list4+5
-¼ÇÎª£º
+è®°ä¸ºï¼š
 list_a, list_b, list_c
 =>
 list_a+b, list_c
-¼ÇÎª£º
+è®°ä¸ºï¼š
 list_x, list_y
 =>
 list_x+y
 
-Ã¿¸ö½Úµã»á±»ºÏ²¢ log(k) ´Î¡£
+æ¯ä¸ªèŠ‚ç‚¹ä¼šè¢«åˆå¹¶ log(k) æ¬¡ã€‚
 
 Time: O(Nlog(k))
 Space: O(1)
@@ -148,7 +148,7 @@ public:
 		if (b == e)
 			return nullptr;
 		ListNode* head = new ListNode(*b);
-		ListNode* pre = head;	// Ö¸ÏòÁ´±íµÄ×îºóÒ»¸ö½Úµã
+		ListNode* pre = head;	// æŒ‡å‘é“¾è¡¨çš„æœ€åä¸€ä¸ªèŠ‚ç‚¹
 		++b;
 		while (b != e)
 		{
@@ -172,7 +172,7 @@ public:
 		auto cmp = [](ListNode* lhs, ListNode* rhs) { return lhs->val > rhs->val; };
 		priority_queue<ListNode*, vector<ListNode*>, decltype(cmp)> q(cmp);
 		
-		// ³õÊ¼»¯ÓÅÏÈ¼¶¶ÓÁĞ£¬½«¸÷¸öÁ´±íµÄµÚÒ»¸ö½Úµã²åÈëÓÅÏÈ¼¶¶ÓÁĞ
+		// åˆå§‹åŒ–ä¼˜å…ˆçº§é˜Ÿåˆ—ï¼Œå°†å„ä¸ªé“¾è¡¨çš„ç¬¬ä¸€ä¸ªèŠ‚ç‚¹æ’å…¥ä¼˜å…ˆçº§é˜Ÿåˆ—
 		for (int i = 0; i < lists.size(); ++i)
 		{
 			if (lists[i] != nullptr)
@@ -182,19 +182,19 @@ public:
 			}
 		}
 
-		// ½á¹ûÁ´±íµÄÍ·½áµã£¨²»°üº¬ÓĞĞ§Êı¾İ£©
+		// ç»“æœé“¾è¡¨çš„å¤´ç»“ç‚¹ï¼ˆä¸åŒ…å«æœ‰æ•ˆæ•°æ®ï¼‰
 		ListNode* dummy = new ListNode(-1);
-		ListNode* last = dummy;	// µ±Ç°½á¹ûÁ´±íµÄ×îºóÒ»¸ö½Úµã
+		ListNode* last = dummy;	// å½“å‰ç»“æœé“¾è¡¨çš„æœ€åä¸€ä¸ªèŠ‚ç‚¹
 
 		while (!q.empty())
 		{
-			// ×îĞ¡µÄ½ÚµãÁ´½Óµ½½á¹ûÁ´±íÄ©Î²
+			// æœ€å°çš„èŠ‚ç‚¹é“¾æ¥åˆ°ç»“æœé“¾è¡¨æœ«å°¾
 			last->next = q.top();
-			// ´ÓÓÅÏÈ¼¶¶ÓÁĞÖĞÉ¾³ı¸Ã½Úµã
+			// ä»ä¼˜å…ˆçº§é˜Ÿåˆ—ä¸­åˆ é™¤è¯¥èŠ‚ç‚¹
 			q.pop();
-			// ¸üĞÂ last Ö¸ÏòĞÂµÄ½á¹ûÁ´±í×îºó½Úµã
+			// æ›´æ–° last æŒ‡å‘æ–°çš„ç»“æœé“¾è¡¨æœ€åèŠ‚ç‚¹
 			last = last->next;
-			// Èç¹û¸Ã×îĞ¡½Úµã²»ÊÇËùÔÚÁ´±íµÄ×îºóÒ»¸ö½Úµã£¬ÔòÏòÓÅÏÈ¼¶¶ÓÁĞÖĞ²åÈëÆäÏÂÒ»¸öÁÚ¾Ó½Úµã
+			// å¦‚æœè¯¥æœ€å°èŠ‚ç‚¹ä¸æ˜¯æ‰€åœ¨é“¾è¡¨çš„æœ€åä¸€ä¸ªèŠ‚ç‚¹ï¼Œåˆ™å‘ä¼˜å…ˆçº§é˜Ÿåˆ—ä¸­æ’å…¥å…¶ä¸‹ä¸€ä¸ªé‚»å±…èŠ‚ç‚¹
 			if (last->next != nullptr)
 				q.push(last->next);
 		}
@@ -213,7 +213,7 @@ public:
 		if (lists.empty())
 			return nullptr;
 
-		// ·ÖÖÎ·¨
+		// åˆ†æ²»æ³•
 		int amount = lists.size();
 		int interval = 1;
 		for (interval = 1; interval < amount; interval *= 2)

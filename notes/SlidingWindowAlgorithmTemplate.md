@@ -42,7 +42,7 @@ public:
 				// save / update (min/max) the result if find a target
 				// result collections or result in value
 				// example:
-				// ÔÚ×Ö·û´®sÖĞ£¬Ñ°ÕÒ¾ßÓĞpÖĞËùÓĞ×Ö·ûµÄ×Ó´®Î»ÖÃ
+				// åœ¨å­—ç¬¦ä¸²sä¸­ï¼Œå¯»æ‰¾å…·æœ‰pä¸­æ‰€æœ‰å­—ç¬¦çš„å­ä¸²ä½ç½®
 				if (end - begin == p.size())
 					result.push_back(begin);
 
@@ -125,7 +125,7 @@ public:
 
 **76. Minimum Window Substring**
 
->ÓëÉÏÃæµÄÎÊÌâ `438. Find All Anagrams in a String` Ö»ÓĞËÄĞĞ´úÂëµÄ²î±ğ
+>ä¸ä¸Šé¢çš„é—®é¢˜ `438. Find All Anagrams in a String` åªæœ‰å››è¡Œä»£ç çš„å·®åˆ«
 
 ```c++
 class Solution {
@@ -144,7 +144,7 @@ public:
 		int begin = 0, end = 0;
 		int counter = stillneed.size();
 
-		int len = INT_MAX;		// ±£´æÂú×ãÌõ¼şµÄ´°¿ÚµÄ×îĞ¡³¤¶È
+		int len = INT_MAX;		// ä¿å­˜æ»¡è¶³æ¡ä»¶çš„çª—å£çš„æœ€å°é•¿åº¦
 
 		// loop at the begining of the source string
 		while (end < s.size())
@@ -192,7 +192,7 @@ public:
 			return 0;
 
 		unordered_map<char, int> um;
-		int begin = 0, end = 0;			// [begin, end) Îªµ±Ç°´°¿Ú
+		int begin = 0, end = 0;			// [begin, end) ä¸ºå½“å‰çª—å£
 		int max_len = 0, counter = 0;
 
 		while (end < s.length())
@@ -203,11 +203,11 @@ public:
 				++counter;
 			++end;
 
-			// Èô´°¿ÚÖĞÓĞÖØ¸´×ÖÄ¸£¨×î¶àÖ»ÓĞÁ½¸ö×ÖÄ¸ÊÇÏàÍ¬µÄ£©£¬Í¨¹ıÒÆ¶¯´°¿ÚÊ¼¶ËÉ¾³ı×ÖÄ¸
+			// è‹¥çª—å£ä¸­æœ‰é‡å¤å­—æ¯ï¼ˆæœ€å¤šåªæœ‰ä¸¤ä¸ªå­—æ¯æ˜¯ç›¸åŒçš„ï¼‰ï¼Œé€šè¿‡ç§»åŠ¨çª—å£å§‹ç«¯åˆ é™¤å­—æ¯
 			while (counter > 0)
 			{
 				char c = s[begin];
-				if (um[c] > 1)	// ÕÒµ½ÖØ¸´×ÖÄ¸£¬´Ë´ÎÑ­»·ºó²»ÔÙ½Ó×ÅÉ¾³ı£¬¶øÊÇÈ¥½Ó×ÅÒÆ¶¯´°¿ÚÄ©¶Ë
+				if (um[c] > 1)	// æ‰¾åˆ°é‡å¤å­—æ¯ï¼Œæ­¤æ¬¡å¾ªç¯åä¸å†æ¥ç€åˆ é™¤ï¼Œè€Œæ˜¯å»æ¥ç€ç§»åŠ¨çª—å£æœ«ç«¯
 					--counter;
 				--um[s[begin]];
 				++begin;
@@ -224,8 +224,8 @@ public:
 
 **30. Substring with Concatenation of All Words**
 
->ÀàËÆÓÚ `438. Find All Anagrams in a String`£¬Ö»ÊÇ°Ñ×Ö·û»»³ÉÁË³¤¶ÈÏàÍ¬µÄµ¥´Ê¡£
-ÁíÍâ£¬ĞèÒªÒ»¸ö´óµÄÑ­»·£¬¿ØÖÆ´°¿ÚµÄÆğÊ¼Î»ÖÃ [0, word_len)
+>ç±»ä¼¼äº `438. Find All Anagrams in a String`ï¼Œåªæ˜¯æŠŠå­—ç¬¦æ¢æˆäº†é•¿åº¦ç›¸åŒçš„å•è¯ã€‚
+å¦å¤–ï¼Œéœ€è¦ä¸€ä¸ªå¤§çš„å¾ªç¯ï¼Œæ§åˆ¶çª—å£çš„èµ·å§‹ä½ç½® [0, word_len)
 
 ```c++
 class Solution {
@@ -289,12 +289,12 @@ public:
 	int lengthOfLongestSubstringTwoDistinct(string s)
 	{
 		int begin = 0, end = 0;
-		int counter = 0;		// ¼ÇÂ¼µ±Ç°´°¿ÚÖĞÓĞ¶àÉÙ¸ö²»Í¬µÄ×ÖÄ¸
+		int counter = 0;		// è®°å½•å½“å‰çª—å£ä¸­æœ‰å¤šå°‘ä¸ªä¸åŒçš„å­—æ¯
 		
 		int max_len = INT_MIN;
 		int curr_len;
 
-		unordered_map<char, int> um;	// ¼ÇÂ¼µ±Ç°´°¿ÚÖĞ×ÖÄ¸³öÏÖµÄ¸öÊı£¬Èô value Îª0£¬±íÊ¾µ±Ç°´°¿ÚÖĞ²»´æÔÚ¸ÃÊı×Ö
+		unordered_map<char, int> um;	// è®°å½•å½“å‰çª—å£ä¸­å­—æ¯å‡ºç°çš„ä¸ªæ•°ï¼Œè‹¥ value ä¸º0ï¼Œè¡¨ç¤ºå½“å‰çª—å£ä¸­ä¸å­˜åœ¨è¯¥æ•°å­—
 
 		while (end < s.size())
 		{
@@ -330,12 +330,12 @@ public:
 	int lengthOfSubstringKDistance(string s, int k)
 	{
 		int begin = 0, end = 0;
-		int counter = 0;			// ¼ÇÂ¼µ±Ç°´°¿ÚÖĞÓĞ¶àÉÙ¸ö²»Í¬µÄ×ÖÄ¸
+		int counter = 0;			// è®°å½•å½“å‰çª—å£ä¸­æœ‰å¤šå°‘ä¸ªä¸åŒçš„å­—æ¯
 		
 		int max_len = INT_MIN;
 		int curr_len;
 
-		unordered_map<char, int> um;	// ¼ÇÂ¼µ±Ç°´°¿ÚÖĞÃ¿¸ö×ÖÄ¸³öÏÖµÄ¸öÊı£¬Èô value Îª0£¬±íÊ¾µ±Ç°´°¿ÚÖĞ²»´æÔÚ¸ÃÊı×Ö
+		unordered_map<char, int> um;	// è®°å½•å½“å‰çª—å£ä¸­æ¯ä¸ªå­—æ¯å‡ºç°çš„ä¸ªæ•°ï¼Œè‹¥ value ä¸º0ï¼Œè¡¨ç¤ºå½“å‰çª—å£ä¸­ä¸å­˜åœ¨è¯¥æ•°å­—
 
 		while (end < s.size())
 		{

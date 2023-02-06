@@ -22,11 +22,11 @@ return its bottom-up level order traversal as:
 
 Approach:
 
-BFS，返回的时候逆转顺序
+BFS锛岃繑鍥炵殑鏃跺�欓�嗚浆椤哄簭
 
 Approach v2:
 
-DFS，返回时逆转顺序
+DFS锛岃繑鍥炴椂閫嗚浆椤哄簭
 
 */
 

@@ -6,7 +6,7 @@
 
 Related Topics: Backtracking
 
-The n-queens puzzle is the problem of placing n queens on an n¡Án chessboard such that no two queens attack each other.
+The n-queens puzzle is the problem of placing n queens on an nÃ—n chessboard such that no two queens attack each other.
 Given an integer n, return all distinct solutions to the n-queens puzzle.
 Each solution contains a distinct board configuration of the n-queens' placement,
 where 'Q' and '.' both indicate a queen and an empty space respectively.
@@ -30,9 +30,9 @@ There exist two distinct solutions to the 4-queens puzzle:
 Approach: 
 Backtracking
 
-ÓÉÓÚÃ¿Ò»ĞĞÒ»¶¨»áÓĞÒ»¸ö queen¡£
-ÎÒÃÇµÄË¼Â·ÊÇ£¬
-ÒÀ´Î°²ÅÅµÚ i ĞĞµÄ queen µ½µÚ 0,1,2,3,...,n-1 ÁĞ£¬Èç¹û°²ÅÅµ½µÚ j ÁĞºó£¬¸Ã queen ÓëÇ° i-1 ĞĞµÄ queen Ã»ÓĞ³åÍ»£¬Ôò¼ÌĞøÏòÏÂµİ¹é°²ÅÅµÚ i+1 ĞĞµÄ queen¡£
+ç”±äºæ¯ä¸€è¡Œä¸€å®šä¼šæœ‰ä¸€ä¸ª queenã€‚
+æˆ‘ä»¬çš„æ€è·¯æ˜¯ï¼Œ
+ä¾æ¬¡å®‰æ’ç¬¬ i è¡Œçš„ queen åˆ°ç¬¬ 0,1,2,3,...,n-1 åˆ—ï¼Œå¦‚æœå®‰æ’åˆ°ç¬¬ j åˆ—åï¼Œè¯¥ queen ä¸å‰ i-1 è¡Œçš„ queen æ²¡æœ‰å†²çªï¼Œåˆ™ç»§ç»­å‘ä¸‹é€’å½’å®‰æ’ç¬¬ i+1 è¡Œçš„ queenã€‚
 
 ####################################################
 Approach_v2:
@@ -53,13 +53,13 @@ using namespace std;
 
 class Solution {
 private:
-	// i: ÕıÔÚ´¦ÀíµÚ i ĞĞµÄ queen£¬Ñ°ÕÒÒ»¸öºÏÊÊµÄÁĞÎ»ÖÃ£¬²»ÓëÇ°ÃæµÄ i-1 ĞĞµÄ queen ³åÍ»
-	// matrix: ±£´æµÚ i ĞĞµÄ queen ËùÔÚµÄÁĞÎ»ÖÃ
-	// n: queen µÄ¸öÊı
-	// result: ±£´æ½á¹û
+	// i: æ­£åœ¨å¤„ç†ç¬¬ i è¡Œçš„ queenï¼Œå¯»æ‰¾ä¸€ä¸ªåˆé€‚çš„åˆ—ä½ç½®ï¼Œä¸ä¸å‰é¢çš„ i-1 è¡Œçš„ queen å†²çª
+	// matrix: ä¿å­˜ç¬¬ i è¡Œçš„ queen æ‰€åœ¨çš„åˆ—ä½ç½®
+	// n: queen çš„ä¸ªæ•°
+	// result: ä¿å­˜ç»“æœ
 	void solveNQueensAux(int i, vector<int> &matrix, int n, vector<vector<string>> &result)
 	{
-		// ËùÓĞ queen ¶¼ÕÒµ½ÁËºÏÊÊµÄÎ»ÖÃ£¨»¥Ïà²»»á¹¥»÷£©
+		// æ‰€æœ‰ queen éƒ½æ‰¾åˆ°äº†åˆé€‚çš„ä½ç½®ï¼ˆäº’ç›¸ä¸ä¼šæ”»å‡»ï¼‰
 		if (i == n)
 		{
 			vector<string> currSolution;
@@ -68,7 +68,7 @@ private:
 			return;
 		}
 
-		// ½«µ±Ç°µÚiĞĞµÄ queen ÊÔÌ½ĞÔµÄ°²ÅÅÔÚµÚ 0,1,2,...,n-1 ÁĞ£¬Èç¹ûºÏ·¨£¬Ôòµİ¹éÏòÏÂ°²ÅÅµÚi-1ĞĞµÄqueen
+		// å°†å½“å‰ç¬¬iè¡Œçš„ queen è¯•æ¢æ€§çš„å®‰æ’åœ¨ç¬¬ 0,1,2,...,n-1 åˆ—ï¼Œå¦‚æœåˆæ³•ï¼Œåˆ™é€’å½’å‘ä¸‹å®‰æ’ç¬¬i-1è¡Œçš„queen
 		for (int j = 0; j < n; j++)
 		{
 			matrix.push_back(j);
@@ -124,9 +124,9 @@ class Solution_v2 {
 public:
 	vector<vector<string>> solveNQueens(int n)
 	{
-		// ³õÊ¼»¯ matrix Îª {0,1,2,3,...,n-1}£¬±íÊ¾µÚ i ĞĞµÄ»ÊºóÔÚµÚ matrix[i] ÁĞ
-		// ÓÉÓÚÎÒÃÇÊÇÓÃ²»Í¬µÄÊı×Ö³õÊ¼»¯Êı×éÖĞµÄÊı×Ö£¬Òò´ËÈÎÒâÁ½¸ö»Êºó¿Ï¶¨²»Í¬ÁĞ¡£
-		// ÎÒÃÇÖ»ĞèÒªÅĞ¶ÏµÃµ½µÄÃ¿Ò»¸öÅÅÁĞ¶ÔÓ¦µÄ°Ë¸ö»ÊºóÊÇ²»ÊÇÔÚÍ¬Ò»¶Ô½ÇĞ±ÏßÉÏ£¬
+		// åˆå§‹åŒ– matrix ä¸º {0,1,2,3,...,n-1}ï¼Œè¡¨ç¤ºç¬¬ i è¡Œçš„çš‡ååœ¨ç¬¬ matrix[i] åˆ—
+		// ç”±äºæˆ‘ä»¬æ˜¯ç”¨ä¸åŒçš„æ•°å­—åˆå§‹åŒ–æ•°ç»„ä¸­çš„æ•°å­—ï¼Œå› æ­¤ä»»æ„ä¸¤ä¸ªçš‡åè‚¯å®šä¸åŒåˆ—ã€‚
+		// æˆ‘ä»¬åªéœ€è¦åˆ¤æ–­å¾—åˆ°çš„æ¯ä¸€ä¸ªæ’åˆ—å¯¹åº”çš„å…«ä¸ªçš‡åæ˜¯ä¸æ˜¯åœ¨åŒä¸€å¯¹è§’æ–œçº¿ä¸Šï¼Œ
 		vector<int> matrix(n);
 		for (int i = 0; i < n; ++i)
 			matrix[i] = i;
@@ -134,8 +134,8 @@ public:
 		vector<int> curr_result;
 		vector<vector<string>> results;
 
-		// ±éÀúËùÓĞ 0,...,n-1 µÄÅÅÁĞ£¬i0,i1,...,i_n-1£¬±íÊ¾µ±Ç°µÚ 0 ĞĞµÄ»ÊºóÔÚ i0 ÁĞ£¬ÒÔ´ËÀàÍÆ¡£
-		// next_permutation »áµÃµ½ÏÂÒ»¸öÅÅÁĞ£¬²¢ÇÒµ±²»´æÔÚÉıĞòµÄÅÅÁĞÊ±
+		// éå†æ‰€æœ‰ 0,...,n-1 çš„æ’åˆ—ï¼Œi0,i1,...,i_n-1ï¼Œè¡¨ç¤ºå½“å‰ç¬¬ 0 è¡Œçš„çš‡ååœ¨ i0 åˆ—ï¼Œä»¥æ­¤ç±»æ¨ã€‚
+		// next_permutation ä¼šå¾—åˆ°ä¸‹ä¸€ä¸ªæ’åˆ—ï¼Œå¹¶ä¸”å½“ä¸å­˜åœ¨å‡åºçš„æ’åˆ—æ—¶
 		do
 		{
 			if (isValid(matrix))
@@ -148,7 +148,7 @@ public:
 		return results;
 	}
 
-	// ÅĞ¶ÏÈÎÒâÁ½¸ö»ÊºóÊÇ·ñÔÚÍ¬Ò»Õı»ò¸±¶Ô½ÇÏßÉÏ
+	// åˆ¤æ–­ä»»æ„ä¸¤ä¸ªçš‡åæ˜¯å¦åœ¨åŒä¸€æ­£æˆ–å‰¯å¯¹è§’çº¿ä¸Š
 	bool isValid(const vector<int>& matrix)
 	{
 		for (int i = 0; i < matrix.size() - 1; ++i)
@@ -203,6 +203,6 @@ Q...
 ...Q
 .Q..
 
-Çë°´ÈÎÒâ¼ü¼ÌĞø. . .
+è¯·æŒ‰ä»»æ„é”®ç»§ç»­. . .
 
 */

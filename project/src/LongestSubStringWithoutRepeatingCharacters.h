@@ -16,21 +16,21 @@ Given "pwwkew", the answer is "wke", with the length of 3.
 Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
 Approach:
-Sliding Window ·½·¨ [begin, end)
-Ê¹ÓÃÒ»¸ö unordered_map<char, int> ¼ÇÂ¼µ±Ç°´°¿ÚÖĞÃ¿¸ö×ÖÄ¸³öÏÖµÄ´ÎÊı
+Sliding Window æ–¹æ³• [begin, end)
+ä½¿ç”¨ä¸€ä¸ª unordered_map<char, int> è®°å½•å½“å‰çª—å£ä¸­æ¯ä¸ªå­—æ¯å‡ºç°çš„æ¬¡æ•°
 
-Èô s[end] ÔÚ um ÖĞµÄÖµÎª 0£¬Ôò½« s[end] Ìí¼Óµ½ um£¬¼ÌĞø ++end
-Èô s[end] ÔÚ um ÖĞÖµ²»Îª 0£¬Ôò[begin, end)Îªµ±Ç°Ò»¸ö²»´æÔÚÖØ¸´×ÖÄ¸µÄ³¤×Ó´®£¬Ôò¸üĞÂ max_len£¬²¢ÇÒÇĞ»»µ½ ++begin µÄÄ£Ê½
+è‹¥ s[end] åœ¨ um ä¸­çš„å€¼ä¸º 0ï¼Œåˆ™å°† s[end] æ·»åŠ åˆ° umï¼Œç»§ç»­ ++end
+è‹¥ s[end] åœ¨ um ä¸­å€¼ä¸ä¸º 0ï¼Œåˆ™[begin, end)ä¸ºå½“å‰ä¸€ä¸ªä¸å­˜åœ¨é‡å¤å­—æ¯çš„é•¿å­ä¸²ï¼Œåˆ™æ›´æ–° max_lenï¼Œå¹¶ä¸”åˆ‡æ¢åˆ° ++begin çš„æ¨¡å¼
 
-++begin ²¿·Ö
-½« s[begin] ´Ó um ÖĞ¼õÈ¥£¬Ã¿´Î¶¼¼ì²â s[end] µÄÖµÊÇ·ñ±äÎª 1£¬Èô±äÎª1£¬Ôò´ËÊ±ÎŞÖØ¸´×ÖÄ¸£¬++end,È»ºó·µ»Ø++endÄ£Ê½¡£
+++begin éƒ¨åˆ†
+å°† s[begin] ä» um ä¸­å‡å»ï¼Œæ¯æ¬¡éƒ½æ£€æµ‹ s[end] çš„å€¼æ˜¯å¦å˜ä¸º 1ï¼Œè‹¥å˜ä¸º1ï¼Œåˆ™æ­¤æ—¶æ— é‡å¤å­—æ¯ï¼Œ++end,ç„¶åè¿”å›++endæ¨¡å¼ã€‚
 
 Approach v2:
-·½·¨ÓëÉÏÃæÀàËÆ£¬Ö»ÊÇÊ¹ÓÃ unordered_set ¶ø²»ÊÇ unordered_map£¬ÒòÎªÎÒÃÇÖ»ĞèÒª¼ÇÂ¼´æÔÚÒ»´ÎµÄ×ÖÄ¸
+æ–¹æ³•ä¸ä¸Šé¢ç±»ä¼¼ï¼Œåªæ˜¯ä½¿ç”¨ unordered_set è€Œä¸æ˜¯ unordered_mapï¼Œå› ä¸ºæˆ‘ä»¬åªéœ€è¦è®°å½•å­˜åœ¨ä¸€æ¬¡çš„å­—æ¯
 
 Approach v3:
 
-Ê¹ÓÃ Sliding Window algorithm template ½â¾öÕâÀà×Ó´®ËÑË÷ÎÊÌâ¡£COOL¡£Ïê¼ûRef¡£
+ä½¿ç”¨ Sliding Window algorithm template è§£å†³è¿™ç±»å­ä¸²æœç´¢é—®é¢˜ã€‚COOLã€‚è¯¦è§Refã€‚
 Ref: https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/92007/
 
 */
@@ -49,15 +49,15 @@ public:
 		if (s.empty())
 			return 0;
 
-		int begin = 0, end = 0;	// [begin, end) Îªµ±Ç°´°¿Ú
+		int begin = 0, end = 0;	// [begin, end) ä¸ºå½“å‰çª—å£
 		int max_len = 1;
 		unordered_map<char, int> um;
 		
-		int a_switch = 1;		// Èô ¿ª¹Ø Îª1£¬Ôò ++end£¬Èô¿ª¹ØÎª0£¬Ôò ++begin
+		int a_switch = 1;		// è‹¥ å¼€å…³ ä¸º1ï¼Œåˆ™ ++endï¼Œè‹¥å¼€å…³ä¸º0ï¼Œåˆ™ ++begin
 
 		while (end != s.size())
 		{
-			// ++end Ä£Ê½
+			// ++end æ¨¡å¼
 			if (um[s[end]] == 0)
 			{
 				++um[s[end]];
@@ -70,12 +70,12 @@ public:
 				a_switch = 0;
 			}
 
-			// ++begin Ä£Ê½
+			// ++begin æ¨¡å¼
 			while (a_switch == 0)
 			{
 				--um[s[begin]];
-				//if (um[s[end]] == 1)	// ÈôÖ®Ç°ÖØ¸´µÄ×ÖÄ¸±»µ¯³öÒ»¸ö£¬Ôò¼ÌĞø ++end
-				if(s[end] == s[begin])	// ÈôÉ¾³ıÔªËØÎª end Ö¸ÏòµÄÄÇ¸öÔªËØ£¬Ôò¼ÌĞø ++end
+				//if (um[s[end]] == 1)	// è‹¥ä¹‹å‰é‡å¤çš„å­—æ¯è¢«å¼¹å‡ºä¸€ä¸ªï¼Œåˆ™ç»§ç»­ ++end
+				if(s[end] == s[begin])	// è‹¥åˆ é™¤å…ƒç´ ä¸º end æŒ‡å‘çš„é‚£ä¸ªå…ƒç´ ï¼Œåˆ™ç»§ç»­ ++end
 				{
 					a_switch = 1;
 					++end;
@@ -83,7 +83,7 @@ public:
 				++begin;
 			}
 		}
-		// Èô×î³¤µÄ×Ö·û´®³öÏÖÔÚ s µÄÄ©Î²£¬ÔòĞèÒªÔÚ´ËÅĞ¶Ï max_len Óë end-begin µÄ´óĞ¡£¬È¡½Ï´óµÄÄÇ¸ö
+		// è‹¥æœ€é•¿çš„å­—ç¬¦ä¸²å‡ºç°åœ¨ s çš„æœ«å°¾ï¼Œåˆ™éœ€è¦åœ¨æ­¤åˆ¤æ–­ max_len ä¸ end-begin çš„å¤§å°ï¼Œå–è¾ƒå¤§çš„é‚£ä¸ª
 		max_len = max(max_len, end - begin);
 		return max_len;
 	}
@@ -96,32 +96,32 @@ public:
 		if (s.empty())
 			return 0;
 
-		int begin = 0, end = 0;	// [begin, end) Îªµ±Ç°´°¿Ú
+		int begin = 0, end = 0;	// [begin, end) ä¸ºå½“å‰çª—å£
 		int max_len = 1;
-		unordered_set<char> us;	// ´æ·ÅÎŞÖØ¸´µÄ [begin,end) ÖĞµÄÔªËØ
+		unordered_set<char> us;	// å­˜æ”¾æ— é‡å¤çš„ [begin,end) ä¸­çš„å…ƒç´ 
 
-		int a_switch = 1;		// Èô ¿ª¹Ø Îª1£¬Ôò ++end£¬Èô¿ª¹ØÎª0£¬Ôò ++begin
+		int a_switch = 1;		// è‹¥ å¼€å…³ ä¸º1ï¼Œåˆ™ ++endï¼Œè‹¥å¼€å…³ä¸º0ï¼Œåˆ™ ++begin
 
 		while (end != s.size())
 		{
-			// ++end Ä£Ê½
+			// ++end æ¨¡å¼
 			if (us.find(s[end]) == us.end())
 			{
 				us.insert(s[end]);
 				++end;
 			}
-			// Èô½« s[end] ·ÅÈëÔò»á³öÏÖÖØ¸´£¬Òò´ËĞèÒª ++begin£¬´Ó¶øÉ¾³ıµôÆäÖĞµÄÒ»¸öÓë s[end]ÏàµÈµÄ×Ö·û
+			// è‹¥å°† s[end] æ”¾å…¥åˆ™ä¼šå‡ºç°é‡å¤ï¼Œå› æ­¤éœ€è¦ ++beginï¼Œä»è€Œåˆ é™¤æ‰å…¶ä¸­çš„ä¸€ä¸ªä¸ s[end]ç›¸ç­‰çš„å­—ç¬¦
 			else
 			{
 				max_len = max(max_len, end - begin);
 				a_switch = 0;
 			}
 
-			// ++begin Ä£Ê½
+			// ++begin æ¨¡å¼
 			while (a_switch == 0)
 			{
 				us.erase(s[begin]);
-				// Èô s[begin] ÎªÓë s[end] ÏàµÈµÄ×Ö·û£¬Ôò´ËÊ±¿ÉÒÔ½« s[end] Ìí¼Óµ½ us ÖĞ
+				// è‹¥ s[begin] ä¸ºä¸ s[end] ç›¸ç­‰çš„å­—ç¬¦ï¼Œåˆ™æ­¤æ—¶å¯ä»¥å°† s[end] æ·»åŠ åˆ° us ä¸­
 				if (s[end] == s[begin])	
 				{
 					a_switch = 1;
@@ -131,7 +131,7 @@ public:
 				++begin;
 			}
 		}
-		// Èô×î³¤µÄ×Ö·û´®³öÏÖÔÚ s µÄÄ©Î²£¬ÔòĞèÒªÔÚ´ËÅĞ¶Ï max_len Óë end-begin µÄ´óĞ¡£¬È¡½Ï´óµÄÄÇ¸ö
+		// è‹¥æœ€é•¿çš„å­—ç¬¦ä¸²å‡ºç°åœ¨ s çš„æœ«å°¾ï¼Œåˆ™éœ€è¦åœ¨æ­¤åˆ¤æ–­ max_len ä¸ end-begin çš„å¤§å°ï¼Œå–è¾ƒå¤§çš„é‚£ä¸ª
 		max_len = max(max_len, end - begin);
 		return max_len;
 	}
@@ -145,7 +145,7 @@ public:
 			return 0;
 
 		unordered_map<char, int> um;
-		int begin = 0, end = 0;			// [begin, end) Îªµ±Ç°´°¿Ú
+		int begin = 0, end = 0;			// [begin, end) ä¸ºå½“å‰çª—å£
 		int max_len = 0, counter = 0;
 
 		while (end < s.length())
@@ -156,11 +156,11 @@ public:
 				++counter;
 			++end;
 
-			// Èô´°¿ÚÖĞÓĞÖØ¸´×ÖÄ¸£¨×î¶àÖ»ÓĞÁ½¸ö×ÖÄ¸ÊÇÏàÍ¬µÄ£©£¬Í¨¹ıÒÆ¶¯´°¿ÚÊ¼¶ËÉ¾³ı×ÖÄ¸
+			// è‹¥çª—å£ä¸­æœ‰é‡å¤å­—æ¯ï¼ˆæœ€å¤šåªæœ‰ä¸¤ä¸ªå­—æ¯æ˜¯ç›¸åŒçš„ï¼‰ï¼Œé€šè¿‡ç§»åŠ¨çª—å£å§‹ç«¯åˆ é™¤å­—æ¯
 			while (counter > 0)
 			{
 				char c = s[begin];
-				if (um[c] > 1)	// ÕÒµ½ÖØ¸´×ÖÄ¸£¬´Ë´ÎÑ­»·ºó²»ÔÙ½Ó×ÅÉ¾³ı£¬¶øÊÇÈ¥½Ó×ÅÒÆ¶¯´°¿ÚÄ©¶Ë
+				if (um[c] > 1)	// æ‰¾åˆ°é‡å¤å­—æ¯ï¼Œæ­¤æ¬¡å¾ªç¯åä¸å†æ¥ç€åˆ é™¤ï¼Œè€Œæ˜¯å»æ¥ç€ç§»åŠ¨çª—å£æœ«ç«¯
 					--counter;
 				--um[s[begin]];
 				++begin;
@@ -168,7 +168,7 @@ public:
 
 			max_len = max(max_len, end - begin);
 		}
-		// Èô×î³¤µÄ×Ö·û´®³öÏÖÔÚ s µÄÄ©Î²£¬ÔòĞèÒªÔÚ´ËÅĞ¶Ï max_len Óë end-begin µÄ´óĞ¡£¬È¡½Ï´óµÄÄÇ¸ö
+		// è‹¥æœ€é•¿çš„å­—ç¬¦ä¸²å‡ºç°åœ¨ s çš„æœ«å°¾ï¼Œåˆ™éœ€è¦åœ¨æ­¤åˆ¤æ–­ max_len ä¸ end-begin çš„å¤§å°ï¼Œå–è¾ƒå¤§çš„é‚£ä¸ª
 		max_len = max(max_len, end - begin);
 	
 		return max_len;

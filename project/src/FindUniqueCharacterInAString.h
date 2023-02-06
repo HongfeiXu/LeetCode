@@ -17,9 +17,9 @@ Note: You may assume the string contain only lowercase letters.
 
 Approach:
 
-��ǰ�������������ǰ��ĸ�ں���Ҳ���֣������ unordered_set �У�
-����֮��ÿ����ĸ������ʱ�������ж��Ƿ��Լ������������У�����Ѿ����ڣ�����һ���Ƿ�unique�ģ�ֱ��������һ�ε���
-�����ǰ���ʵ���ĸ��֮���ÿ����ĸ����ͬ����һ���ǵ�һ�� unique �ġ�
+从前向后遍历，如果当前字母在后面也出现，则放入 unordered_set 中，
+对于之后每个字母，访问时，首先判断是否以及在上述容器中，如果已经存在，则其一定是非unique的，直接跳到下一次迭代
+如果当前访问的字母与之后的每个字母都不同，则一定是第一个 unique 的。
 */
 
 #include <string>
@@ -34,7 +34,7 @@ public:
 		unordered_set<char> non_unique_chars;
 		for (int i = 0; i < s.size(); ++i)
 		{
-			// �����ǰ�ַ��Լ�ȷ������ unique �ģ��������һ�ε���
+			// 如果当前字符以及确定不是 unique 的，则进行下一次迭代
 			if (non_unique_chars.find(s[i]) != non_unique_chars.end())
 				continue;
 			int j;

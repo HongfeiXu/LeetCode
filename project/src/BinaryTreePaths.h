@@ -53,22 +53,22 @@ public:
 
 	void dfs(TreeNode* root, string curr_path, vector<string>& all_paths)
 	{
-		// µ±Ç°½Úµã×ª»»Îª×Ö·û´®
+		// å½“å‰èŠ‚ç‚¹è½¬æ¢ä¸ºå­—ç¬¦ä¸²
 		string to_append;
 
-		// Èç¹ûÂ·¾¶²»Îª¿Õ£¬ÔòÌí¼Ó "->" £¬·ñÔò£¬Îª¸ù½Úµã£¬Ç°Ãæ²»ÓÃ¼Ó "->"
+		// å¦‚æžœè·¯å¾„ä¸ä¸ºç©ºï¼Œåˆ™æ·»åŠ  "->" ï¼Œå¦åˆ™ï¼Œä¸ºæ ¹èŠ‚ç‚¹ï¼Œå‰é¢ä¸ç”¨åŠ  "->"
 		if (!curr_path.empty())
 			to_append.append("->");
 		to_append.append(to_string(root->val));
 		curr_path.append(to_append);
 
-		// Èô root ÎªÒ¶½Úµã£¬ÔòÕÒµ½ÁËÒ»Ìõ´Ó¸ùµ½Ò¶µÄÂ·¾¶£¬Ìí¼Óµ½ all_paths ÖÐ
+		// è‹¥ root ä¸ºå¶èŠ‚ç‚¹ï¼Œåˆ™æ‰¾åˆ°äº†ä¸€æ¡ä»Žæ ¹åˆ°å¶çš„è·¯å¾„ï¼Œæ·»åŠ åˆ° all_paths ä¸­
 		if (root->left == nullptr && root->right == nullptr)
 		{
 			all_paths.push_back(curr_path);
 			return;
 		}
-		// Èô root ²»ÊÇÒ¶½Úµã£¬Ôò¼ÌÐøÏòÏÂ±éÀú²»Îª¿ÕµÄ×ÓÊ÷
+		// è‹¥ root ä¸æ˜¯å¶èŠ‚ç‚¹ï¼Œåˆ™ç»§ç»­å‘ä¸‹éåŽ†ä¸ä¸ºç©ºçš„å­æ ‘
 		if (root->left != nullptr)
 			dfs(root->left, curr_path, all_paths);
 		if (root->right != nullptr)

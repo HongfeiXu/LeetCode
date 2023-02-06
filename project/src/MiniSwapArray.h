@@ -2,7 +2,7 @@
 
 /*
 
-À©³ä£ºMini Swap Array
+æ‰©å……ï¼šMini Swap Array
 
 Assume we have an integer array row of length N, which contains integers from 0 up to N-1 but in random order. 
 You are free to choose any two numbers and swap them. What is the minimum number of swaps needed 

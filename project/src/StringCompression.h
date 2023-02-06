@@ -48,8 +48,8 @@ All characters have an ASCII value in [35, 126].
 1 <= len(chars) <= 1000.
 
 Approach:
-Á½¸öÖ¸Õë£¬Ò»¸ö¶Á×Ö·û£¬Ò»¸öÐ´Ñ¹ËõºóµÄ×Ö·û
-ÕâÀïÔÚ´¦Àí×Ö·û³öÏÖ´ÎÊýµÄ int ÀàÐÍÊý×Ö£¬Ê¹ÓÃÁË to_string º¯Êý
+ä¸¤ä¸ªæŒ‡é’ˆï¼Œä¸€ä¸ªè¯»å­—ç¬¦ï¼Œä¸€ä¸ªå†™åŽ‹ç¼©åŽçš„å­—ç¬¦
+è¿™é‡Œåœ¨å¤„ç†å­—ç¬¦å‡ºçŽ°æ¬¡æ•°çš„ int ç±»åž‹æ•°å­—ï¼Œä½¿ç”¨äº† to_string å‡½æ•°
 
 */
 
@@ -73,7 +73,7 @@ public:
 			{
 				++j;
 			}
-			int consecutive_char_cnt = j - curr;	// µ±Ç°×Ö·û chars[curr] Á¬Ðø³öÏÖµÄ´ÎÊý
+			int consecutive_char_cnt = j - curr;	// å½“å‰å­—ç¬¦ chars[curr] è¿žç»­å‡ºçŽ°çš„æ¬¡æ•°
 			if (consecutive_char_cnt == 1)
 			{
 				chars[end] = chars[curr];
@@ -84,7 +84,7 @@ public:
 			{
 				chars[end] = chars[curr];
 				++end;
-				// ÕâÀïÊ¹ÓÃÁË to_string ½«Êý×Ö×ª»»Îª×Ö·û´®£¬Ê¹µÃ×î´ó¶îÍâ¿Õ¼äÎª O(lgN)
+				// è¿™é‡Œä½¿ç”¨äº† to_string å°†æ•°å­—è½¬æ¢ä¸ºå­—ç¬¦ä¸²ï¼Œä½¿å¾—æœ€å¤§é¢å¤–ç©ºé—´ä¸º O(lgN)
 				string consecutive_char_cnt_str = to_string(consecutive_char_cnt);
 				for (int k = 0; k < consecutive_char_cnt_str.size(); ++k)
 				{

@@ -49,8 +49,8 @@ The length of the given string will in the range [1, 10,000].
 
 Approach:
 
-¶ÔÓÚÃ¿Ò»ÂÖ·¢ÑÔ£¬¶ÔÓÚµ±Ç°²ÎÒéÔ± a£¬ÈôÎª Radiant ³ÉÔ±£¬²¢ÇÒÈÔÓĞ Dire ÖĞµÄ²ÎÒéÔ±¾ßÓĞ·¢ÑÔÈ¨£¬Ôò a »áĞĞÊ¹È¨Àû1£¬ban µôDire ÖĞÏÂÒ»¸öÒª·¢ÑÔµÄ³ÉÔ±¡£
-Èô£¬Dire ÖĞµÄ²ÎÒéÔ±¾ùÃ»ÓĞ·¢ÑÔÈ¨£¬Ôò a Ğû²¼³É¹¦¡£Èôµ±Ç°²ÎÒéÔ± a Îª Dire£¬Ôò¾ßÓĞÀàËÆµÄÑ¡Ôñ¡£
+å¯¹äºæ¯ä¸€è½®å‘è¨€ï¼Œå¯¹äºå½“å‰å‚è®®å‘˜ aï¼Œè‹¥ä¸º Radiant æˆå‘˜ï¼Œå¹¶ä¸”ä»æœ‰ Dire ä¸­çš„å‚è®®å‘˜å…·æœ‰å‘è¨€æƒï¼Œåˆ™ a ä¼šè¡Œä½¿æƒåˆ©1ï¼Œban æ‰Dire ä¸­ä¸‹ä¸€ä¸ªè¦å‘è¨€çš„æˆå‘˜ã€‚
+è‹¥ï¼ŒDire ä¸­çš„å‚è®®å‘˜å‡æ²¡æœ‰å‘è¨€æƒï¼Œåˆ™ a å®£å¸ƒæˆåŠŸã€‚è‹¥å½“å‰å‚è®®å‘˜ a ä¸º Direï¼Œåˆ™å…·æœ‰ç±»ä¼¼çš„é€‰æ‹©ã€‚
 
 O(n^2)
 
@@ -64,9 +64,9 @@ or else D will ban its next senate from R's party.
 
 The idea is to use two queues to save the index of each senate from R's and D's parties, respectively. 
 During each round, we delete the banned senate's index; and plus the remainning senate's index with n(the length of the input string senate), 
-then move it to the back of its respective queue.£¨Õâ¸ö²Ù×÷Ê¹µÃµ±Ç°½ÏÔç·¢ÑÔµÄÄÇ¸ö²ÎÒéÔ±µÃÒÔ´æÔÚ£¬²¢ÇÒ¼ÓÉÏn²¢Ìí¼Óµ½¶ÓÁĞÄ©Î²£¬µÈ´ıÏÂÒ»ÂÖ·¢ÑÔ£©
+then move it to the back of its respective queue.ï¼ˆè¿™ä¸ªæ“ä½œä½¿å¾—å½“å‰è¾ƒæ—©å‘è¨€çš„é‚£ä¸ªå‚è®®å‘˜å¾—ä»¥å­˜åœ¨ï¼Œå¹¶ä¸”åŠ ä¸Šnå¹¶æ·»åŠ åˆ°é˜Ÿåˆ—æœ«å°¾ï¼Œç­‰å¾…ä¸‹ä¸€è½®å‘è¨€ï¼‰
 
-¶Ô¶ÓÁĞµÄÊ¹ÓÃºÜÉñÆæ£¬²¢ÇÒ±È½Ïºó¼ÓnÔÚÌí¼Óµ½¶ÓÁĞÄ©Î²µÈ´ıÏÂÒ»ÂÖ·¢ÑÔµÄË¼Â·ºÜ¿á¡£
+å¯¹é˜Ÿåˆ—çš„ä½¿ç”¨å¾ˆç¥å¥‡ï¼Œå¹¶ä¸”æ¯”è¾ƒååŠ nåœ¨æ·»åŠ åˆ°é˜Ÿåˆ—æœ«å°¾ç­‰å¾…ä¸‹ä¸€è½®å‘è¨€çš„æ€è·¯å¾ˆé…·ã€‚
 
 */
 
@@ -85,11 +85,11 @@ public:
 		{
 			if (senate[i] == 'R')
 			{
-				int next_D = next(senate, 'D', i);	// ²éÕÒÏÂÒ»¸ö·¢ÑÔµÄ R
-				if (next_D == -1)	// ²»´æÔÚÄÜ¹»·¢ÑÔµÄ R
+				int next_D = next(senate, 'D', i);	// æŸ¥æ‰¾ä¸‹ä¸€ä¸ªå‘è¨€çš„ R
+				if (next_D == -1)	// ä¸å­˜åœ¨èƒ½å¤Ÿå‘è¨€çš„ R
 					return "Radiant";
-				else                // ´æÔÚÄÜ¹»·¢ÑÔµÄR
-					senate[next_D] = 'X';			// ban µô R µÄÈ¨Àû
+				else                // å­˜åœ¨èƒ½å¤Ÿå‘è¨€çš„R
+					senate[next_D] = 'X';			// ban æ‰ R çš„æƒåˆ©
 			}
 			else if (senate[i] == 'D')
 			{
@@ -104,7 +104,7 @@ public:
 		}
 	}
 
-	// ²éÕÒÏÂÒ»¸öÒª·¢ÑÔµÄ target ÕóÓªµÄ²ÎÒéÔ±
+	// æŸ¥æ‰¾ä¸‹ä¸€ä¸ªè¦å‘è¨€çš„ target é˜µè¥çš„å‚è®®å‘˜
 	int next(const string& senate, char target, int pos)
 	{
 		int len = senate.size();
@@ -113,7 +113,7 @@ public:
 			if (senate[i] == target)
 				return i;
 		}
-		// ²»´æÔÚ£¬Ôò·µ»Ø-1
+		// ä¸å­˜åœ¨ï¼Œåˆ™è¿”å›-1
 		return -1;
 	}
 };

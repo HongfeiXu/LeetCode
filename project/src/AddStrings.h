@@ -15,7 +15,7 @@ You must not use any built-in BigInteger library or convert the inputs to intege
 
 Approach:
 
-´ÓµÍÎ»µ½¸ßÎ»£¨ÓëstringÏÂ±êÏà·´£©£¬ÒÀ´Î¼ÆËãÃ¿Ò»Î»µÄÏà¼Ó½á¹û£¬½øÎ»Îª0»ò1£¬ÓÃÁÙÊ±±äÁ¿±£´æ¡£³õÊ¼Ê±£¬½øÎ»Îª0.
+ä»ä½ä½åˆ°é«˜ä½ï¼ˆä¸stringä¸‹æ ‡ç›¸åï¼‰ï¼Œä¾æ¬¡è®¡ç®—æ¯ä¸€ä½çš„ç›¸åŠ ç»“æœï¼Œè¿›ä½ä¸º0æˆ–1ï¼Œç”¨ä¸´æ—¶å˜é‡ä¿å­˜ã€‚åˆå§‹æ—¶ï¼Œè¿›ä½ä¸º0.
 
 */
 
@@ -31,31 +31,31 @@ public:
 	{
 		string result;
 
-		// ÎªÁË·½±ãºóÃæµÄ´¦Àí
-		// ½« num1 Óë num2 ±äÎªÏàÍ¬Î»ÊıµÄÊı×Ö
+		// ä¸ºäº†æ–¹ä¾¿åé¢çš„å¤„ç†
+		// å°† num1 ä¸ num2 å˜ä¸ºç›¸åŒä½æ•°çš„æ•°å­—
 		if (num1.size() > num2.size())
 			swap(num1, num2);
-		size_t gap = num2.size() - num1.size();	// Ê¹ÓÃ gap ÊÇÒòÎª num2.size() - num1.size() ÔÚÑ­»·ÖĞ»á¸Ä±ä
+		size_t gap = num2.size() - num1.size();	// ä½¿ç”¨ gap æ˜¯å› ä¸º num2.size() - num1.size() åœ¨å¾ªç¯ä¸­ä¼šæ”¹å˜
 		for (size_t i = 0; i < gap; ++i)
 			num1.insert(num1.begin(), '0');
 
 		size_t len = num1.size();
 
-		int carry = 0;							// ±£´æ½øÎ»£¬×îµÍÎ»½øĞĞÏà¼ÓÔËËãÊ±£¬½øÎ»Ò»¶¨Îª0
+		int carry = 0;							// ä¿å­˜è¿›ä½ï¼Œæœ€ä½ä½è¿›è¡Œç›¸åŠ è¿ç®—æ—¶ï¼Œè¿›ä½ä¸€å®šä¸º0
 		for (int i = 0; i < len; ++i)
 		{
 			int oneDigitSum = num1[len - 1 - i] - '0' + num2[len - 1 - i] - '0' + carry;
 			if (oneDigitSum > 9)
 			{
 				char temp = (oneDigitSum % 10) + '0';
-				result.insert(result.begin(), temp);		// ½«µ±Ç°ÊıÎ»ºÍµÄ½á¹û±£´æµ½ result£¬Í¨¹ıÍ·²å·¨²åÈë
-				carry = 1;		// Ïò¸ßÎ»½øÎ»1
+				result.insert(result.begin(), temp);		// å°†å½“å‰æ•°ä½å’Œçš„ç»“æœä¿å­˜åˆ° resultï¼Œé€šè¿‡å¤´æ’æ³•æ’å…¥
+				carry = 1;		// å‘é«˜ä½è¿›ä½1
 			}
 			else
 			{
 				char temp = oneDigitSum + '0';
 				result.insert(result.begin(), temp);
-				carry = 0;		// Ïò¸ßÎ»½øÎ»0
+				carry = 0;		// å‘é«˜ä½è¿›ä½0
 			}
 		}
 		if (carry != 0)

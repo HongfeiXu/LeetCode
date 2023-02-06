@@ -36,13 +36,13 @@ public:
 	bool repeatedSubstringPattern(string s)
 	{
 		int length = s.length();
-		for (int i = 1; i <= length / 2; i++)	// i Îª×Ó´®µÄ³¤¶È£¬ÒÀ´Î´Ó 1 Ôö³¤µ½ length/2
+		for (int i = 1; i <= length / 2; i++)	// i ä¸ºå­ä¸²çš„é•¿åº¦ï¼Œä¾æ¬¡ä»Ž 1 å¢žé•¿åˆ° length/2
 		{
-			if(length % i != 0)		// Èç¹û s µÄ³¤¶È²»ÊÇ i µÄÕûÊý±¶£¬ÔòÌø¹ý
+			if(length % i != 0)		// å¦‚æžœ s çš„é•¿åº¦ä¸æ˜¯ i çš„æ•´æ•°å€ï¼Œåˆ™è·³è¿‡
 				continue;
-			string si(s.begin(), s.begin() + i);	// ¹¹Ôì si
+			string si(s.begin(), s.begin() + i);	// æž„é€  si
 			int j = i;
-			while (j < length && si == string(s.begin() + j, s.begin() + j + i))	// ÒÀ´ÎÏòºó±È½Ï£¬Èç¹ûÈ«²¿ÏàÍ¬£¬Ôò j==length
+			while (j < length && si == string(s.begin() + j, s.begin() + j + i))	// ä¾æ¬¡å‘åŽæ¯”è¾ƒï¼Œå¦‚æžœå…¨éƒ¨ç›¸åŒï¼Œåˆ™ j==length
 			{
 				j += i;
 			}

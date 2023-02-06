@@ -26,10 +26,10 @@ Approach[AC]:
 
 Middle Out
 Expand Around Center
-��ɢ����
-����һ����Ϊ m ���ַ����� s0,s1,s2,...,s_m-1
-�� 2*m-1��λ�ÿ�����Ϊ��ɢ���ģ�ȷ��������ɢ���ĵ���Ļ��Ĵ���
-��ɢ���ģ� s0,s1,s2,...,s_m-1 �Լ� s0��s1���м�,s1��s2���м�,...,s_m-2��s_m-1 ���м䣬���� 2*m-1��λ�á�
+发散法。
+对于一个长为 m 的字符串， s0,s1,s2,...,s_m-1
+有 2*m-1个位置可以作为发散中心，确定各个发散中心的最长的回文串。
+发散中心： s0,s1,s2,...,s_m-1 以及 s0与s1的中间,s1与s2的中间,...,s_m-2与s_m-1 的中间，共计 2*m-1个位置。
 
 Time: O(n^2)
 Space: O(1)
@@ -37,26 +37,26 @@ Space: O(1)
 ********************************************************************
 Approach v2[AC]:
 Ref: https://leetcode.com/problems/longest-palindromic-substring/solution/
-Ӧ�� Longest Common Substring��������Ӵ���
+应用 Longest Common Substring（最长公共子串）
 
-����һ����Ϊ m ���ַ�����s0,s1,s2,...,s_m-1
-������Ϊ m' = s_m-1,...,s2,s1,s0
-���������ַ����Ĺ����Ӵ��������Ҫ��� m �Ļ����Ӵ���
+对于一个长为 m 的字符串，s0,s1,s2,...,s_m-1
+其逆序为 m' = s_m-1,...,s2,s1,s0
+则这两个字符串的公共子串则可能是要求的 m 的回文子串。
 
-ע�� abcdc - cdcba  -> cdc��������Ӵ���Ҳ��������Ӵ�
-     bcdacb - bcadcb -> bc��������Ӵ���������������Ӵ�
-�����Ҫ���ҵ���ÿһ�������Ӵ������жϣ����Ƿ�Ϊ���Ĵ���
-���ﲻ��Ҫ����ȥ�ж� bc �Ƿ�Ϊ���Ĵ���ֻ��Ҫ��bc��ԭ���г��ֵ���ʼλ��pos_a�Լ��������г��ֵĽ�����β��λ��pos_b�����pos_a+pos_b==m���ǻ����Ӵ���
-���磺
+注： abcdc - cdcba  -> cdc是最长公共子串，也是最长回文子串
+     bcdacb - bcadcb -> bc是最长公共子串，但不是最长回文子串
+因此需要对找到的每一个公共子串进行判断，看是否为回文串。
+这里不需要真正去判断 bc 是否为回文串，只需要看bc在原串中出现的起始位置pos_a以及在逆序串中出现的结束（尾后）位置pos_b，如果pos_a+pos_b==m则是回文子串。
+例如：
 aaab - baaa
-��dp[3][4] = 3
+有dp[3][4] = 3
 pos_a = 3 - dp[3][4] = 0, pos_b = 4, pos_a + pos_b == 4
-���� aaa Ϊ���Ĵ�
+所以 aaa 为回文串
 
 abcdba - abdcba
-��dp[2][2] = 2
+有dp[2][2] = 2
 pos_a = 2 - dp[2][2] = 0, pos_b = 2, pos_a + pos_b = 2 != 6
-���� ab ���ǻ��Ĵ�
+所以 ab 不是回文串
 
 
 Time: O(n^2)
@@ -75,15 +75,15 @@ Space: O(1)
 ********************************************************************
 Approach v4:
 
-DP���������ı����������ǹ۲���Щ�ظ��Ĳ������ظ������⣩���������� abcba������Ѿ������ bcb �ǻ��Ĵ��������� a==a���� abcba Ҳ�ǻ��Ĵ���
-���Ƕ���
-P(i,j) = true, ��ʾ s[i],s[i+1],...,s[j] Ϊ���Ĵ������У�
+DP，结合上面的暴力法，我们观察哪些重复的操作（重复子问题），对于例子 abcba，如果已经计算出 bcb 是回文串，则由于 a==a，故 abcba 也是回文串。
+我们定义
+P(i,j) = true, 表示 s[i],s[i+1],...,s[j] 为回文串，则有：
 
 	P(i,j) = (P(i+1,j-1) && s[i] == s[j])
 	P(i,i) = true
 	P(i,i+1) = (s[i] == s[i+1])
 
-���ȵõ����г���Ϊ1��2�Ļ��Ĵ���Ȼ��Ѱ�ҳ���Ϊ3�Ļ��Ĵ���������ȥ��ֱ������Ϊstr_len��
+首先得到所有长度为1和2的回文串，然后寻找长度为3的回文串，依次下去，直到长度为str_len。
 
 Time: O(n^2)
 Space: O(n^2)
@@ -102,7 +102,7 @@ public:
 	{
 		string result = "";
 		int N = s.size();
-		// �� s[i] Ϊ��ɢ���ģ����ҷ�ɢ
+		// 以 s[i] 为发散中心，左右发散
 		for (int i = 0; i < N; ++i)
 		{
 			int left = i, right = i;
@@ -115,7 +115,7 @@ public:
 			if (len > result.size())
 				result.assign(s, left + 1, len);
 		}
-		// ��s[i] �� s[i+1] ���м�λ��Ϊ��ɢ���ģ����ҷ�ɢ
+		// 以s[i] 和 s[i+1] 的中间位置为发散中心，左右发散
 		for (int i = 0; i < N - 1; ++i)
 		{
 			int left = i, right = i + 1;
@@ -146,8 +146,8 @@ public:
 		{
 			for (unsigned j = 1; j <= len; ++j)
 			{
-				// �����ǰ������׺���ȴ��� result��
-				// check if the substring��s indices are the same as the reversed substring��s original indices.
+				// 如果当前公共后缀长度大于 result，
+				// check if the substring’s indices are the same as the reversed substring’s original indices.
 				if (dp[i][j] > result.size() && i - dp[i][j] + j == len)
 				{
 					result.assign(s.begin() + i - dp[i][j], s.begin() + i);
@@ -160,7 +160,7 @@ public:
 	void lcs(const string& X, const string& Y, vector<vector<int>>& dp)
 	{
 		unsigned m = X.size(), n = Y.size();
-		// dp[i][j] Ϊ X[0..i-1] �� Y[0..j-1] ���������׺����
+		// dp[i][j] 为 X[0..i-1] 与 Y[0..j-1] 的最长公共后缀长度
 		dp.assign(m + 1, vector<int>(n + 1, 0));
 		
 		for (unsigned i = 1; i <= m; ++i)
@@ -182,7 +182,7 @@ public:
 	string longestPalindrome(string s)
 	{
 		string result = "";
-		// s[i],s[i+1],...,s[j] ���� candidate
+		// s[i],s[i+1],...,s[j] 构造 candidate
 		for (int i = 0; i < s.size(); ++i)
 		{
 			// prune

@@ -48,15 +48,15 @@ The graph is undirected: if any element j is in graph[i], then i will be in grap
 Approach:
 Ref: https://www.geeksforgeeks.org/bipartite-graph/
 
-�ж�һ������ͼ��û���ظ��ߣ�û���Ի�·���Ƿ�Ϊ����ͼ
-��ɫ���⣬���������ɫ�ܹ������нڵ���ɫ�����ڽڵ���ɫ��ͬ������Ϊ����ͼ�������Ƕ���ͼ��
+判断一个无向图（没有重复边，没有自回路）是否为二部图
+着色问题，如果两个颜色能够将所有节点着色（相邻节点颜色不同），则为二部图，否则不是二部图。
 
 BFS
-����������ʼ����u��
-���uû����ɫ������һ����ɫ��ɫ��ӡ�
-����u��Ȼ�����u�������ھӽڵ�v�����vû����ɫ��������һ����ɫ��ɫ���������С����v��ɫ����u��ɫ��ͬ���򷵻�false��
+对于任意起始顶点u：
+如果u没有着色，则用一种颜色着色入队。
+出队u，然后访问u的所有邻居节点v。如果v没有着色，则用另一种颜色着色，并进队列。如果v着色且与u颜色相同，则返回false。
 
-�������ͼ�����Ƿ���ͨ�ģ�������Ҫ�������е�ǰû�б���ɫ�Ľڵ㡣
+这里，由于图可能是非连通的，所以需要访问所有当前没有被着色的节点。
 
 Better then Approach 1.
 Time: O(V+E)
@@ -64,8 +64,8 @@ Time: O(V+E)
 Approach 2:
 
 DFS
-�������ⶥ��u��
-���uû�б���ɫ����ɫ֮��Ȼ��ݹ������һ����ɫ��ɫ��u���е��ھӽڵ㣬��������нڵ��Ѿ�����ɫ��������ɫ��u����ɫ�Ƿ���ͬ�������ͬ�򷵻� false��
+对于任意顶点u：
+如果u没有被着色，着色之。然后递归的用另一个颜色着色它u所有的邻居节点，如果其中有节点已经被着色，检查该颜色与u的颜色是否相同，如果相同则返回 false。
 
 
 */
@@ -99,7 +99,7 @@ public:
 
 	bool isBipartiteUtil(vector<vector<int>>& graph, int start, vector<int>& color_vec)
 	{
-		// Assign first color to source����ͬ�ڷ�һ����������ӵ�ʱ��������ɫ�������ʡȥ visited ���飩
+		// Assign first color to source（不同于法一，这里在入队的时候设置颜色，则可以省去 visited 数组）
 		color_vec[start] = 1;
 		queue<int> Q;
 		Q.push(start);
@@ -146,7 +146,7 @@ public:
 	bool validColor(vector<vector<int>>& graph, int u, vector<int>& color_vec, int color)
 	{
 		// u is colored
-		// ��� u ���е���ɫ��Ҫ��������ɫ��ͬ���򷵻� true
+		// 如果 u 已有的颜色和要给它的颜色相同，则返回 true
 		if (color_vec[u] != -1)
 			return color_vec[u] == color;
 		// u is not colored

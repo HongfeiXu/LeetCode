@@ -24,18 +24,18 @@ Note:
 Bonus points if you could solve it both recursively and iteratively.
 
 Approach:
-ÓÃµ±Ç°µÄ tree ¹¹Ôì³öÒ»¸öºÍËü¶Ô³ÆµÄ tree_symmetric£¬È»ºóÅÐ¶ÏÕâÁ½¸öÊ÷ ÊÇ·ñÏàµÈ
-ÈôÏàµÈ£¬ÔòËµÃ÷ tree ¶Ô³Æ£¬·ñÔò²»¶Ô³Æ
+ç”¨å½“å‰çš„ tree æž„é€ å‡ºä¸€ä¸ªå’Œå®ƒå¯¹ç§°çš„ tree_symmetricï¼Œç„¶åŽåˆ¤æ–­è¿™ä¸¤ä¸ªæ ‘ æ˜¯å¦ç›¸ç­‰
+è‹¥ç›¸ç­‰ï¼Œåˆ™è¯´æ˜Ž tree å¯¹ç§°ï¼Œå¦åˆ™ä¸å¯¹ç§°
 
 Time: O(n)
 Space: O(n)
 
 Approach_v2:
-ÕâÀïÎÒÃÇÖ»ÐèÒªÅÐ¶Ï×ó×ÓÊ÷ÓëÓÒ×ÓÊ÷ÊÇ·ñ¶Ô³Æ£¬Èô¶Ô³ÆÔò tree ¶Ô³Æ
-Ê¹ÓÃ dfs µÄ·½·¨Í¬Ê±±éÀú×ó×ÓÊ÷ºÍÓÒ×ÓÊ÷£¬ÀàËÆ 100. Same Tree Approach_v4 µÄ±éÀú·½Ê½£¬
-Ö»ÊÇÕâÀïÊÇ½« l µÄ×ó×ÓÊ÷Óë r µÄÓÒ×ÓÊ÷£¬l µÄÓÒ×ÓÊ÷Óë r µÄ×ó×ÓÊ÷½øÐÐ±È½Ï¡£
-Èôl->val == r->val && l->left == r->right && l->right == r->left
-ÔòËµÃ÷ l Óë r ¶Ô³Æ
+è¿™é‡Œæˆ‘ä»¬åªéœ€è¦åˆ¤æ–­å·¦å­æ ‘ä¸Žå³å­æ ‘æ˜¯å¦å¯¹ç§°ï¼Œè‹¥å¯¹ç§°åˆ™ tree å¯¹ç§°
+ä½¿ç”¨ dfs çš„æ–¹æ³•åŒæ—¶éåŽ†å·¦å­æ ‘å’Œå³å­æ ‘ï¼Œç±»ä¼¼ 100. Same Tree Approach_v4 çš„éåŽ†æ–¹å¼ï¼Œ
+åªæ˜¯è¿™é‡Œæ˜¯å°† l çš„å·¦å­æ ‘ä¸Ž r çš„å³å­æ ‘ï¼Œl çš„å³å­æ ‘ä¸Ž r çš„å·¦å­æ ‘è¿›è¡Œæ¯”è¾ƒã€‚
+è‹¥l->val == r->val && l->left == r->right && l->right == r->left
+åˆ™è¯´æ˜Ž l ä¸Ž r å¯¹ç§°
 
 Time: O(n)
 Space: O(1)
@@ -74,11 +74,11 @@ public:
 	{
 		if (root == nullptr)
 			return nullptr;
-		// ¿½±´µ±Ç°¸ù½Úµã
+		// æ‹·è´å½“å‰æ ¹èŠ‚ç‚¹
 		TreeNode* p = new TreeNode(root->val);
-		// ¿½±´×ó×ÓÊ÷£¬×÷ÎªÓÒ×ÓÊ÷
+		// æ‹·è´å·¦å­æ ‘ï¼Œä½œä¸ºå³å­æ ‘
 		p->right = copySymmetricTree(root->left);
-		// ¿½±´ÓÒ×ÓÊ÷£¬×÷Îª×ó×ÓÊ÷
+		// æ‹·è´å³å­æ ‘ï¼Œä½œä¸ºå·¦å­æ ‘
 		p->left = copySymmetricTree(root->right);
 		return p;
 	}
@@ -93,13 +93,13 @@ public:
 		return isSymmetric(root->left, root->right);
 	}
 
-	// ÅÐ¶ÏÁ½¸ö¶þ²æÊ÷ÊÇ·ñ¶Ô³Æ
+	// åˆ¤æ–­ä¸¤ä¸ªäºŒå‰æ ‘æ˜¯å¦å¯¹ç§°
 	bool isSymmetric(TreeNode* l, TreeNode* r)
 	{
-		// Èôl£¬rÖÐÓÐ¿Õ½Úµã£¬ÔòÁ½ÕßÏàÍ¬·µ»Øtrue£¬²»Í¬·µ»Øfalse
+		// è‹¥lï¼Œrä¸­æœ‰ç©ºèŠ‚ç‚¹ï¼Œåˆ™ä¸¤è€…ç›¸åŒè¿”å›žtrueï¼Œä¸åŒè¿”å›žfalse
 		if (l == nullptr || r == nullptr)
 			return l == r;
-		// µ±Ç°½ÚµãÏàÍ¬£¬ÇÒlµÄ×ó×ÓÊ÷µÈÓÚrµÄÓÒ×ÓÊ÷£¬lµÄÓÒ×ÓÊ÷µÈÓÚrµÄ×ó×ÓÊ÷£¬ÔòlºÍr¶Ô³Æ
+		// å½“å‰èŠ‚ç‚¹ç›¸åŒï¼Œä¸”lçš„å·¦å­æ ‘ç­‰äºŽrçš„å³å­æ ‘ï¼Œlçš„å³å­æ ‘ç­‰äºŽrçš„å·¦å­æ ‘ï¼Œåˆ™lå’Œrå¯¹ç§°
 		return (l->val == r->val && isSymmetric(l->left, r->right) && isSymmetric(l->right, r->left));
 	}
 };

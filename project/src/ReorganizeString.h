@@ -21,15 +21,15 @@ Note:
 S will consist of lowercase letters and have length in range [1, 500].
 
 Approach:
-ÕâÌâÀàËÆÓÚ 621. Task Scheduler
-ÏÈ°²ÅÅ³öÏÖ´ÎÊı×î¶àµÄ×ÖÄ¸£¬È»ºó½«ÆäËû×ÖÄ¸¾ùÔÈ²åÈëÆäÖĞ£¬²»¹ıÕâÀïĞèÒªÇó³ö×îÖÕ×Ö·ûµÄÒ»ÖÖ¿ÉÄÜÅÅÁĞÇé¿ö£¨Èç¹û´æÔÚµÄ»°£©£¬Èç¹û²»´æÔÚ¾Í·µ»Ø¿Õ×Ö·û´®¡£
+è¿™é¢˜ç±»ä¼¼äº 621. Task Scheduler
+å…ˆå®‰æ’å‡ºç°æ¬¡æ•°æœ€å¤šçš„å­—æ¯ï¼Œç„¶åå°†å…¶ä»–å­—æ¯å‡åŒ€æ’å…¥å…¶ä¸­ï¼Œä¸è¿‡è¿™é‡Œéœ€è¦æ±‚å‡ºæœ€ç»ˆå­—ç¬¦çš„ä¸€ç§å¯èƒ½æ’åˆ—æƒ…å†µï¼ˆå¦‚æœå­˜åœ¨çš„è¯ï¼‰ï¼Œå¦‚æœä¸å­˜åœ¨å°±è¿”å›ç©ºå­—ç¬¦ä¸²ã€‚
 
-ÏÈÅĞ¶ÏÄÜ·ñÊµÏÖ£¬Èç¹û²»ÄÜÖ±½Ó·µ»Ø¿Õ´®
-ÈôÄÜÊµÏÖ£¬½øĞĞ½á¹ûµÄ¹¹Ôì¡£
-¹¹Ôì¹ı³ÌÈçÏÂËùÊ¾
+å…ˆåˆ¤æ–­èƒ½å¦å®ç°ï¼Œå¦‚æœä¸èƒ½ç›´æ¥è¿”å›ç©ºä¸²
+è‹¥èƒ½å®ç°ï¼Œè¿›è¡Œç»“æœçš„æ„é€ ã€‚
+æ„é€ è¿‡ç¨‹å¦‚ä¸‹æ‰€ç¤º
 aaaabbbbccd
-=> ab*ab*ab* + ab				·Ö¿é + Î²²¿
-=> abcabcab* + ab				ÒÀ´Î¾ùÔÈµÄ²åÈë c c d
+=> ab*ab*ab* + ab				åˆ†å— + å°¾éƒ¨
+=> abcabcab* + ab				ä¾æ¬¡å‡åŒ€çš„æ’å…¥ c c d
 => abcabcabd + ab
 => bcabcabdab
 
@@ -71,27 +71,27 @@ public:
 		sort(cnt_of_each_letter.begin(), cnt_of_each_letter.end(), cmp);
 
 		int most_letter = cnt_of_each_letter[0].second;
-		int cnt_of_most = 0;	// ¼ÇÂ¼¾ßÓĞ most_letter ´Î³öÏÖµÄ letter µÄ¸öÊı£¬Èç aaabbbc£¬i = 2
+		int cnt_of_most = 0;	// è®°å½•å…·æœ‰ most_letter æ¬¡å‡ºç°çš„ letter çš„ä¸ªæ•°ï¼Œå¦‚ aaabbbcï¼Œi = 2
 		while (cnt_of_each_letter[cnt_of_most].second == most_letter)
 			++cnt_of_most;
-		// Èô¾ßÓĞ most_letter ´Î³öÏÖµÄ ltter Ö»ÓĞ 1 ¸ö£¬Ôò¿ÉÄÜ³öÏÖÎŞ·¨ reorganize µÄÇé¿ö£¬Èç¹û¶àÓÚ1¸ö£¬ÔòÒ»¶¨¿ÉÒÔ reorganize
+		// è‹¥å…·æœ‰ most_letter æ¬¡å‡ºç°çš„ ltter åªæœ‰ 1 ä¸ªï¼Œåˆ™å¯èƒ½å‡ºç°æ— æ³• reorganize çš„æƒ…å†µï¼Œå¦‚æœå¤šäº1ä¸ªï¼Œåˆ™ä¸€å®šå¯ä»¥ reorganize
 		if (cnt_of_most == 1)
 		{
 			int gap = most_letter - 1;
 			int letter_left = S.size() - most_letter;
-			if (gap > letter_left)	// ´ËÊ±ÎŞ·¨Íê³É reorganize
+			if (gap > letter_left)	// æ­¤æ—¶æ— æ³•å®Œæˆ reorganize
 				return "";
 		}
 
-		vector<vector<char>> parts(most_letter - 1, vector<char>());	// ±£´æÃ¿¸öÄ£¿éÄÚµÄ×Ö·û
-		vector<char> tail;												// ±£´æÎ²²¿µÄ×Ö·û
+		vector<vector<char>> parts(most_letter - 1, vector<char>());	// ä¿å­˜æ¯ä¸ªæ¨¡å—å†…çš„å­—ç¬¦
+		vector<char> tail;												// ä¿å­˜å°¾éƒ¨çš„å­—ç¬¦
 		for (int i = 0; i < cnt_of_most; ++i)
 			tail.push_back(cnt_of_each_letter[i].first);
-		for (int i = 0; i < parts.size(); ++i)							// ½«³öÏÖ´ÎÊı×î¶àµÄ×Ö·û·Ö±ğ´æÈëÃ¿¸öÄ£¿éÖĞ£¬ÕâĞ©×Ö·ûÒ²¼´ÎªÎ²²¿×Ö·û
+		for (int i = 0; i < parts.size(); ++i)							// å°†å‡ºç°æ¬¡æ•°æœ€å¤šçš„å­—ç¬¦åˆ†åˆ«å­˜å…¥æ¯ä¸ªæ¨¡å—ä¸­ï¼Œè¿™äº›å­—ç¬¦ä¹Ÿå³ä¸ºå°¾éƒ¨å­—ç¬¦
 			parts[i].insert(parts[i].end(), tail.begin(), tail.end());
 
-		int curr_part_id = 0;	// Ê¹ÓÃ curr_part_id Ö¸ÏòÒªÌí¼Ó×Ö·ûµÄÄ£¿é
-								// °´ÊıÁ¿´Ó¸ßµ½µÍ±éÀú³ıÁË×î¶àµÄ×Ö·ûÖ®ÍâµÄÆäËû×Ö·û£¬ÒÀ´ÎÆ½¾ùµÄÏò¸÷Ä£¿éÖĞÌí¼Ó×Ö·û
+		int curr_part_id = 0;	// ä½¿ç”¨ curr_part_id æŒ‡å‘è¦æ·»åŠ å­—ç¬¦çš„æ¨¡å—
+								// æŒ‰æ•°é‡ä»é«˜åˆ°ä½éå†é™¤äº†æœ€å¤šçš„å­—ç¬¦ä¹‹å¤–çš„å…¶ä»–å­—ç¬¦ï¼Œä¾æ¬¡å¹³å‡çš„å‘å„æ¨¡å—ä¸­æ·»åŠ å­—ç¬¦
 		for (int i = cnt_of_most; i < cnt_of_each_letter.size(); ++i)
 		{
 			for (int j = 0; j < cnt_of_each_letter[i].second; ++j)
@@ -101,7 +101,7 @@ public:
 			}
 		}
 
-		// ½«ËùÓĞÄ£¿éµÄ×Ö·ûÒ»´ÎÁ¬½ÓÔÚÒ»Æğ£¬²¢ÇÒ¼ÓÉÏ tail ÖĞµÄ×Ö·û
+		// å°†æ‰€æœ‰æ¨¡å—çš„å­—ç¬¦ä¸€æ¬¡è¿æ¥åœ¨ä¸€èµ·ï¼Œå¹¶ä¸”åŠ ä¸Š tail ä¸­çš„å­—ç¬¦
 		string result;
 		for (int i = 0; i < parts.size(); ++i)
 			result.insert(result.end(), parts[i].begin(), parts[i].end());

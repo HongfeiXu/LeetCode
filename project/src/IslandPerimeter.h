@@ -24,14 +24,14 @@ https://leetcode.com/static/images/problemset/island.png
 
 Approach:
 
-Éµ·½·¨£ºÉ¨ÃèËùÓÐÍø¸ñ£¬¶ÔÃ¿¸öÍø¸ñ£¬ÕÒµ½Æä4¸öÏàÁÚÍø¸ñµÄ×ø±ê£¬Í¨¹ýÕâ4¸ö×ø±êÈ·¶¨¸ÃÍø¸ñµÄº£°¶Ïß³¤¶È¡£
+å‚»æ–¹æ³•ï¼šæ‰«ææ‰€æœ‰ç½‘æ ¼ï¼Œå¯¹æ¯ä¸ªç½‘æ ¼ï¼Œæ‰¾åˆ°å…¶4ä¸ªç›¸é‚»ç½‘æ ¼çš„åæ ‡ï¼Œé€šè¿‡è¿™4ä¸ªåæ ‡ç¡®å®šè¯¥ç½‘æ ¼çš„æµ·å²¸çº¿é•¿åº¦ã€‚
 
 Approach_v2:
 
 island
 neighbor
 return island * 4 -  2 * neighbor
-´ÓÉÏµ½ÏÂ£¬´Ó×óµ½ÓÒ£¬É¨ÃèÃ¿¸öÍø¸ñ£¬Èô¸ÃÍø¸ñÎªÂ½µØ£¬Ôò island++£¬²¢ÇÒ¿´ÆäÓÒÁÚ¾Ó¡¢ÏÂÁÚ¾ÓÊÇ·ñÎªÂ½µØ£¬ÈôÊÇÔò ++neighbor
+ä»Žä¸Šåˆ°ä¸‹ï¼Œä»Žå·¦åˆ°å³ï¼Œæ‰«ææ¯ä¸ªç½‘æ ¼ï¼Œè‹¥è¯¥ç½‘æ ¼ä¸ºé™†åœ°ï¼Œåˆ™ island++ï¼Œå¹¶ä¸”çœ‹å…¶å³é‚»å±…ã€ä¸‹é‚»å±…æ˜¯å¦ä¸ºé™†åœ°ï¼Œè‹¥æ˜¯åˆ™ ++neighbor
 
 */
 
@@ -62,7 +62,7 @@ public:
 		return result;
 	}
 
-	// ¶ÔÓÚÃ¿Ò»¿éÂ½µØ£¬ÇóËüµÄº£°¶Ïß³¤¶È
+	// å¯¹äºŽæ¯ä¸€å—é™†åœ°ï¼Œæ±‚å®ƒçš„æµ·å²¸çº¿é•¿åº¦
 	int oneGridPerimeter(vector<vector<int>>& grid, int i, int j)
 	{
 		int result = 0;

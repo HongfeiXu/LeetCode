@@ -27,10 +27,10 @@ The length of the given array is in range [2, 10,000], and will be even.
 The number in given array is in range [-100,000, 100,000].
 
 Approach:
-¶ÔÓÚ N ¸öÌÇ¹û
-Ê×ÏÈÈ·¶¨ÌÇµÄÖÖÀàÊý M£¬
-Èô M >= N / 2£¬ÔòÃÃÃÃÄÜµÃµ½×î¶à N/2 ÖÖÌÇ¹û
-Èô M < N / 2£¬ÔòÃÃÃÃ×ö¶àÄÜµÃµ½ M ÖÐÌÇ¹û
+å¯¹äºŽ N ä¸ªç³–æžœ
+é¦–å…ˆç¡®å®šç³–çš„ç§ç±»æ•° Mï¼Œ
+è‹¥ M >= N / 2ï¼Œåˆ™å¦¹å¦¹èƒ½å¾—åˆ°æœ€å¤š N/2 ç§ç³–æžœ
+è‹¥ M < N / 2ï¼Œåˆ™å¦¹å¦¹åšå¤šèƒ½å¾—åˆ° M ä¸­ç³–æžœ
 
 */
 

@@ -15,11 +15,11 @@ The result can be in any order.
 
 Approach:
 
-ÏÈÅÅÐò£¬È»ºóÒ»Í¬±éÀú
+å…ˆæŽ’åºï¼Œç„¶åŽä¸€åŒéåŽ†
 
 Approach_v2:
 
-ÒòÎªÕâÀïÖ»±£´æÒ»¸öÖØ¸´×ÖÄ¸£¬ËùÒÔÊ¹ÓÃ unordered_set À´±£´æÃ¿¸öµ¥´ÊÖÐµÄ×ÖÄ¸µÄÒ»¸ö¸±±¾
+å› ä¸ºè¿™é‡Œåªä¿å­˜ä¸€ä¸ªé‡å¤å­—æ¯ï¼Œæ‰€ä»¥ä½¿ç”¨ unordered_set æ¥ä¿å­˜æ¯ä¸ªå•è¯ä¸­çš„å­—æ¯çš„ä¸€ä¸ªå‰¯æœ¬
 
 
 */

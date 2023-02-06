@@ -10,21 +10,21 @@ Return a deep copy of the list.
 
 Approach:
 Time: O(n)
-¶îÍâ¿Õ¼ä: O(n)
-ÕâÀïÐèÒª×¢ÒâµÄ¾ÍÊÇ£¬Ã¿´ÎÐèÒª¿½±´Ò»¸ö½ÚµãÊ±£¬Èô¸Ã½ÚµãÒÑ¾­´æÔÚ£¬ÔòÖ±½Ó¿½±´ÆäµØÖ·¼´¿É£¬Èô¸Ã½Úµã»¹²»´æÔÚ£¬ÔòÐèÒªÐÂ½¨¸Ã½Úµã¡£
-Ê¹ÓÃÒ»¸ö unordered_map À´½¨Á¢ Ô­ list ºÍ ÐÂ list ÖÐ¸÷¸ö½ÚµãµÄÁªÏµ¡£
-²¢ÇÒ¿ÉÒÔ¸ù¾Ý unordered_map À´ÅÐ¶Ï½ÚµãÊÇ·ñÒÑ¾­ÔÚÐÂ list ÖÐ´æÔÚ¡££¨ÀàËÆÓÚ133. Clone Graph£©
+é¢å¤–ç©ºé—´: O(n)
+è¿™é‡Œéœ€è¦æ³¨æ„çš„å°±æ˜¯ï¼Œæ¯æ¬¡éœ€è¦æ‹·è´ä¸€ä¸ªèŠ‚ç‚¹æ—¶ï¼Œè‹¥è¯¥èŠ‚ç‚¹å·²ç»å­˜åœ¨ï¼Œåˆ™ç›´æŽ¥æ‹·è´å…¶åœ°å€å³å¯ï¼Œè‹¥è¯¥èŠ‚ç‚¹è¿˜ä¸å­˜åœ¨ï¼Œåˆ™éœ€è¦æ–°å»ºè¯¥èŠ‚ç‚¹ã€‚
+ä½¿ç”¨ä¸€ä¸ª unordered_map æ¥å»ºç«‹ åŽŸ list å’Œ æ–° list ä¸­å„ä¸ªèŠ‚ç‚¹çš„è”ç³»ã€‚
+å¹¶ä¸”å¯ä»¥æ ¹æ® unordered_map æ¥åˆ¤æ–­èŠ‚ç‚¹æ˜¯å¦å·²ç»åœ¨æ–° list ä¸­å­˜åœ¨ã€‚ï¼ˆç±»ä¼¼äºŽ133. Clone Graphï¼‰
 
 Approach v2:
 Time: O(n)
-¶îÍâ¿Õ¼ä: O(n)
-µÝ¹éÇó½â£¬¶ÔÓÚµ±Ç°·ÃÎÊµ½µÄ½Úµã£¬Èç¹ûÔÚ ÐÂ list ÖÐ²»´æÔÚ£¬ÔòÐÂ½¨Ö®£¬²¢ÇÒµÝ¹éÉèÖÃ next ºÍ random Ö¸Õë£¬È»ºó·µ»Øµ±Ç°½Úµã¡£
-Èôµ±Ç°½ÚµãÔÚ ÐÂ list ÖÐ´æÔÚ£¬ÔòÖ±½Ó·µ»ØÖ®¡£
+é¢å¤–ç©ºé—´: O(n)
+é€’å½’æ±‚è§£ï¼Œå¯¹äºŽå½“å‰è®¿é—®åˆ°çš„èŠ‚ç‚¹ï¼Œå¦‚æžœåœ¨ æ–° list ä¸­ä¸å­˜åœ¨ï¼Œåˆ™æ–°å»ºä¹‹ï¼Œå¹¶ä¸”é€’å½’è®¾ç½® next å’Œ random æŒ‡é’ˆï¼Œç„¶åŽè¿”å›žå½“å‰èŠ‚ç‚¹ã€‚
+è‹¥å½“å‰èŠ‚ç‚¹åœ¨ æ–° list ä¸­å­˜åœ¨ï¼Œåˆ™ç›´æŽ¥è¿”å›žä¹‹ã€‚
 
 Approach v3:
 
-ÔÚÁ´±íÄÚ¿½±´½Úµã£¬¿½±´Ö¸Õë£¬È»ºó·Ö½âÁ´±íÎªÁ½¸ö¡£ËÙ¶È½Ï¿ì¡£
-¶îÍâ¿Õ¼äÕ¼ÓÃ O(1)
+åœ¨é“¾è¡¨å†…æ‹·è´èŠ‚ç‚¹ï¼Œæ‹·è´æŒ‡é’ˆï¼Œç„¶åŽåˆ†è§£é“¾è¡¨ä¸ºä¸¤ä¸ªã€‚é€Ÿåº¦è¾ƒå¿«ã€‚
+é¢å¤–ç©ºé—´å ç”¨ O(1)
 Time: O(N)
 
 Ref: https://leetcode.com/problems/copy-list-with-random-pointer/discuss/43491/A-solution-with-constant-space-complexity-O(1)-and-linear-time-complexity-O(N)
@@ -54,15 +54,15 @@ public:
 		hash_table[list_1] = list_2;
 		while (list_1 != nullptr)
 		{
-			// Èç¹û list_1->next ÔÚ list_2 ÖÐ²»´æÔÚ£¬ÔòÐèÒªÐÂ½¨¸Ã½Úµã
+			// å¦‚æžœ list_1->next åœ¨ list_2 ä¸­ä¸å­˜åœ¨ï¼Œåˆ™éœ€è¦æ–°å»ºè¯¥èŠ‚ç‚¹
 			if (list_1->next != nullptr && hash_table.find(list_1->next) == hash_table.end())
 				hash_table[list_1->next] = new RandomListNode(list_1->next->label);
-			// Èç¹û list_1->random ÔÚ list_2 ÖÐ²»´æÔÚ£¬ÔòÐèÒªÐÂ½¨¸Ã½Úµã
+			// å¦‚æžœ list_1->random åœ¨ list_2 ä¸­ä¸å­˜åœ¨ï¼Œåˆ™éœ€è¦æ–°å»ºè¯¥èŠ‚ç‚¹
 			if (list_1->random != nullptr && hash_table.find(list_1->random) == hash_table.end())
 				hash_table[list_1->random] = new RandomListNode(list_1->random->label);
 			hash_table[list_1]->next = list_1->next == nullptr ? nullptr : hash_table[list_1->next];
 			hash_table[list_1]->random = list_1->random == nullptr ? nullptr : hash_table[list_1->random];
-			// ·ÃÎÊÏÂÒ»¸ö½Úµã
+			// è®¿é—®ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
 			list_1 = list_1->next;
 		}
 		return list_2;
@@ -75,10 +75,10 @@ public:
 
 	RandomListNode *copyRandomList(RandomListNode *head)
 	{
-		// µÝ¹éÍË³öÌõ¼þ
+		// é€’å½’é€€å‡ºæ¡ä»¶
 		if (head == nullptr)
 			return nullptr;
-		// ²»´æÔÚ£¬ÔòÐÂ½¨£¬Èô´æÔÚÔòÖ±½Ó·µ»Ø
+		// ä¸å­˜åœ¨ï¼Œåˆ™æ–°å»ºï¼Œè‹¥å­˜åœ¨åˆ™ç›´æŽ¥è¿”å›ž
 		if (hash_table.find(head) == hash_table.end())
 		{
 			hash_table[head] = new RandomListNode(head->label);
@@ -96,7 +96,7 @@ public:
 		if (head == nullptr)
 			return head;
 
-		// ¿½±´Ã¿¸ö½Úµã£¬²¢ÇÒ²åÈëÔÚµ±Ç°½ÚµãµÄÏÂÒ»¸öÎ»ÖÃ
+		// æ‹·è´æ¯ä¸ªèŠ‚ç‚¹ï¼Œå¹¶ä¸”æ’å…¥åœ¨å½“å‰èŠ‚ç‚¹çš„ä¸‹ä¸€ä¸ªä½ç½®
 		RandomListNode* p = head;
 		while (p != nullptr)
 		{
@@ -106,7 +106,7 @@ public:
 			p = next;
 		}
 
-		// ¿½±´ random Ö¸Õë
+		// æ‹·è´ random æŒ‡é’ˆ
 		p = head;
 		while (p != nullptr)
 		{
@@ -115,7 +115,7 @@ public:
 			p = p->next->next;
 		}
 
-		// ²ð·Ö list
+		// æ‹†åˆ† list
 		RandomListNode* list_copy = head->next;
 		RandomListNode* pre = head;
 		RandomListNode* cur = head->next;

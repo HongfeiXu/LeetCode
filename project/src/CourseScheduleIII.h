@@ -28,7 +28,7 @@ You can't take two courses simultaneously.
 ########################################################################
 Approach #1 Brute Force [Time Limit Exceeded]:
 
-¿¼ÂÇËùÓĞ¿Î³ÌµÄÅÅÁĞ£¬¶ÔÃ¿Ò»ÖÖÅÅÁĞ£¬¾¡¿ÉÄÜÑ¡Ôñ×î¶àµÄ¿Î³Ì¡£
+è€ƒè™‘æ‰€æœ‰è¯¾ç¨‹çš„æ’åˆ—ï¼Œå¯¹æ¯ä¸€ç§æ’åˆ—ï¼Œå°½å¯èƒ½é€‰æ‹©æœ€å¤šçš„è¯¾ç¨‹ã€‚
 
 Time: O((n+1)!)
 Spcae: O(n)
@@ -65,12 +65,12 @@ This is because, the course with a smaller duration, if can be taken, can surely
 schedule(courses, i, time) = max(taken, not_taken) 
 
 if(time + duration_i <= end_day_i)
-	// Ñ¡Ôñµ±Ç°¿Î³ÌÌõ¼şÏÂ£¨´Ó¿Î³Ì i µ½¿Î³Ì courses.size() - 1£©ËùÄÜ¹»°²ÅÅµÄ×î´ó¿Î³ÌÊı
+	// é€‰æ‹©å½“å‰è¯¾ç¨‹æ¡ä»¶ä¸‹ï¼ˆä»è¯¾ç¨‹ i åˆ°è¯¾ç¨‹ courses.size() - 1ï¼‰æ‰€èƒ½å¤Ÿå®‰æ’çš„æœ€å¤§è¯¾ç¨‹æ•°
 	taken = 1  + schedule(courses, i + 1, time + duration_i)
-// ²»Ñ¡Ôñµ±Ç°¿Î³ÌÌõ¼şÏÂ£¨´Ó¿Î³Ì i µ½¿Î³Ì courses.size() - 1£©ËùÄÜ¹»°²ÅÅµÄ×î´ó¿Î³ÌÊı
+// ä¸é€‰æ‹©å½“å‰è¯¾ç¨‹æ¡ä»¶ä¸‹ï¼ˆä»è¯¾ç¨‹ i åˆ°è¯¾ç¨‹ courses.size() - 1ï¼‰æ‰€èƒ½å¤Ÿå®‰æ’çš„æœ€å¤§è¯¾ç¨‹æ•°
 not_taken = schedule(courses, i + 1, time)
 
-ÓÃ memo[i][j] ¼ÇÂ¼ schedule(courses, i, j, memo) µÄ½á¹û¡£
+ç”¨ memo[i][j] è®°å½• schedule(courses, i, j, memo) çš„ç»“æœã€‚
 This helps to prune the search space to a great extent.
 
 Complexity Analysis:
@@ -82,18 +82,18 @@ Approach #3 Iterative Solution [Time Limit Exceeded]
 
 As discussed in the previous approaches, we need to sort the given courses array based on the end days. 
 Thus, we consider the courses in the ascending order of their end days.
-¹Ø×¢Á½¸ö±äÁ¿£º
+å…³æ³¨ä¸¤ä¸ªå˜é‡ï¼š
 time: current time
 count: the number of courses taken till now
 
-¶Ôµ±Ç°¿Î³Ì i, 
+å¯¹å½“å‰è¯¾ç¨‹ i, 
 if time + duration_i <= end_day_i
 	time = time + duration_i
 	++count
 else
-	´ÓÇ°ÃæµÄÒÑ¾­Ìí¼ÓµÄ¿Î³ÌÖĞÕÒµ½¾ßÓĞ×î´ó duration µÄ¿Î³Ì j
+	ä»å‰é¢çš„å·²ç»æ·»åŠ çš„è¯¾ç¨‹ä¸­æ‰¾åˆ°å…·æœ‰æœ€å¤§ duration çš„è¯¾ç¨‹ j
 	if duration_j > duration_i
-		// ÓÃ¿Î³Ì i Ìæ»»¿Î³Ì j£¬Ê¹µÃÓàÏÂ¸ü¶àµÄÊ±¼äÓÃÀ´°²ÅÅ i+1...n-1 ÕâĞ©¿Î³Ì
+		// ç”¨è¯¾ç¨‹ i æ›¿æ¢è¯¾ç¨‹ jï¼Œä½¿å¾—ä½™ä¸‹æ›´å¤šçš„æ—¶é—´ç”¨æ¥å®‰æ’ i+1...n-1 è¿™äº›è¯¾ç¨‹
 		time = time - (duration_j - duration_i)
 
 Complexity Analysis:
@@ -105,23 +105,23 @@ Approach #4 Optimized Iterative [Accepted]
 Time: O(n * count)
 Space: O(1)
 
-Ë¼ÏëÓë Approach #3 ÏàÍ¬
-ÔÚ¸üĞÂ count Ê±£¬¸üĞÂ courses[count]£¬Ê¹µÃÇ°ÃæµÄ count+1 ¸ö¿Î³Ì¾ÍÊÇµ±Ç°±»Ìí¼ÓÁËµÄ¿Î³Ì
+æ€æƒ³ä¸ Approach #3 ç›¸åŒ
+åœ¨æ›´æ–° count æ—¶ï¼Œæ›´æ–° courses[count]ï¼Œä½¿å¾—å‰é¢çš„ count+1 ä¸ªè¯¾ç¨‹å°±æ˜¯å½“å‰è¢«æ·»åŠ äº†çš„è¯¾ç¨‹
 
 ########################################################################
 Approach #5 Using Extra List [Accepted]
 
-Ë¼ÏëÓë Approach #3 ÏàÍ¬
-Ö»ÊÇÕâÀï²ÉÓÃÒ»¸ö¶îÍâµÄÁ´±íÀ´´æ·ÅÒÑ¾­Ìí¼ÓÁËµÄ¿Î³Ì
+æ€æƒ³ä¸ Approach #3 ç›¸åŒ
+åªæ˜¯è¿™é‡Œé‡‡ç”¨ä¸€ä¸ªé¢å¤–çš„é“¾è¡¨æ¥å­˜æ”¾å·²ç»æ·»åŠ äº†çš„è¯¾ç¨‹
 
 ########################################################################
 Approach #6 Iterative Solution With priority_queue [Accepted]
 
-Ë¼ÏëÓë Approach #3 ÏàÍ¬£¬´ÓÇ°ÃæµÄÒÑ¾­Ìí¼ÓµÄ¿Î³ÌÖĞÕÒµ½¾ßÓĞ×î´ó duration µÄ¿Î³Ì j ½ÏºÄÊ±£¬Èç¹û°´ÕÕ¿Î³ÌµÄ³ÖĞøÊ±¼ä¹¹½¨´ó¶¥¶Ñ¡£
-´ó¶¥¶ÑÖĞ´æ·ÅÒÑ¾­Ìí¼ÓµÄ¿Î³Ì¡£
-Ôò¿ÉÒÔÒÔ O(1) µÄËÙ¶ÈÕÒµ½ j£¬Èç¹ûĞèÒªÌæ»»£¬ÔòÉ¾³ı j¡¢Ìí¼Ó i µÄÊ±¼äÎª O(log(n))
-¹Ê£¬
-Time: O(nlog(n))£¬×î¿ìµÄ·½Ê½
+æ€æƒ³ä¸ Approach #3 ç›¸åŒï¼Œä»å‰é¢çš„å·²ç»æ·»åŠ çš„è¯¾ç¨‹ä¸­æ‰¾åˆ°å…·æœ‰æœ€å¤§ duration çš„è¯¾ç¨‹ j è¾ƒè€—æ—¶ï¼Œå¦‚æœæŒ‰ç…§è¯¾ç¨‹çš„æŒç»­æ—¶é—´æ„å»ºå¤§é¡¶å †ã€‚
+å¤§é¡¶å †ä¸­å­˜æ”¾å·²ç»æ·»åŠ çš„è¯¾ç¨‹ã€‚
+åˆ™å¯ä»¥ä»¥ O(1) çš„é€Ÿåº¦æ‰¾åˆ° jï¼Œå¦‚æœéœ€è¦æ›¿æ¢ï¼Œåˆ™åˆ é™¤ jã€æ·»åŠ  i çš„æ—¶é—´ä¸º O(log(n))
+æ•…ï¼Œ
+Time: O(nlog(n))ï¼Œæœ€å¿«çš„æ–¹å¼
 Space: O(n)
 
 */
@@ -139,14 +139,14 @@ class Solution_v2 {
 public:
 	int scheduleCourse(vector<vector<int>>& courses)
 	{
-		// °´¿Î³ÌµÄ×î³Ù½ØÖ¹ÈÕÆÚ½øĞĞÅÅĞò
+		// æŒ‰è¯¾ç¨‹çš„æœ€è¿Ÿæˆªæ­¢æ—¥æœŸè¿›è¡Œæ’åº
 		auto cmp = [](const vector<int>& lhs, const vector<int>& rhs)
 		{
 			return lhs.back() < rhs.back();
 		};
 		sort(courses.begin(), courses.end(), cmp);
 		vector<vector<int>> memo(courses.size(), vector<int>(courses.back().back() + 1, -1));
-		return schedule(courses, 0, 0, memo);	// course ±àºÅ¡¢Ê±¼ä¶¼´Ó 0 ¿ªÊ¼
+		return schedule(courses, 0, 0, memo);	// course ç¼–å·ã€æ—¶é—´éƒ½ä» 0 å¼€å§‹
 	}
 	// memo[i][j] is used to store the result of the function call schedule(courses, i, time)
 	int schedule(vector<vector<int>>& courses, int i, int t, vector<vector<int>>& memo)
@@ -168,7 +168,7 @@ class Solution_v3 {
 public:
 	int scheduleCourse(vector<vector<int>>& courses)
 	{
-		// °´¿Î³ÌµÄ×î³Ù½ØÖ¹ÈÕÆÚ½øĞĞÅÅĞò
+		// æŒ‰è¯¾ç¨‹çš„æœ€è¿Ÿæˆªæ­¢æ—¥æœŸè¿›è¡Œæ’åº
 		auto cmp = [](const vector<int>& lhs, const vector<int>& rhs)
 		{
 			return lhs.back() < rhs.back();
@@ -178,31 +178,31 @@ public:
 		vector<bool> ban(courses.size(), false);
 		for (int i = 0; i < courses.size(); ++i)
 		{
-			// i ¿ÉÒÔÍê³É
+			// i å¯ä»¥å®Œæˆ
 			if (courses[i].front() + time <= courses[i].back())
 			{
 				time += courses[i].front();
 				++count;
 			}
-			// i ÎŞ·¨Ö±½ÓÍê³É£¬³¢ÊÔÉ¾³ıÇ°ÃæµÄ¿Î³Ì£¬È»ºóÔÙÌí¼Ó¿Î³Ì i
+			// i æ— æ³•ç›´æ¥å®Œæˆï¼Œå°è¯•åˆ é™¤å‰é¢çš„è¯¾ç¨‹ï¼Œç„¶åå†æ·»åŠ è¯¾ç¨‹ i
 			else
 			{
-				// ²éÕÒÇ°Ãæ¾ßÓĞ×î´ó duration ÇÒ duration > duration_i µÄ¿Î³Ì
+				// æŸ¥æ‰¾å‰é¢å…·æœ‰æœ€å¤§ duration ä¸” duration > duration_i çš„è¯¾ç¨‹
 				int max_j = i;
 				for (int j = 0; j < i; ++j)
 				{
 					if (!ban[j] && courses[j].front() > courses[max_j].front())
 						max_j = j;
 				}
-				// Èç¹ûÕÒµ½Âú×ãÌõ¼şµÄ max_j
+				// å¦‚æœæ‰¾åˆ°æ»¡è¶³æ¡ä»¶çš„ max_j
 				if (max_j != i)
 				{
 					time -= (courses[max_j].front() - courses[i].front());
-					ban[max_j] = true;	// Ö®ºó²»ÔÚ¿¼ÂÇ max_j ¿Î³Ì
+					ban[max_j] = true;	// ä¹‹åä¸åœ¨è€ƒè™‘ max_j è¯¾ç¨‹
 				}
-				// ·ñÔò£¬²»½øĞĞÌæ»»
+				// å¦åˆ™ï¼Œä¸è¿›è¡Œæ›¿æ¢
 				else
-					ban[i] = true;		// Ö®ºó²»ÔÚ¿¼ÂÇ i ¿Î³Ì
+					ban[i] = true;		// ä¹‹åä¸åœ¨è€ƒè™‘ i è¯¾ç¨‹
 			}
 		}
 		return count;
@@ -214,7 +214,7 @@ class Solution_v4 {
 public:
 	int scheduleCourse(vector<vector<int>>& courses)
 	{
-		// °´¿Î³ÌµÄ×î³Ù½ØÖ¹ÈÕÆÚ½øĞĞÅÅĞò
+		// æŒ‰è¯¾ç¨‹çš„æœ€è¿Ÿæˆªæ­¢æ—¥æœŸè¿›è¡Œæ’åº
 		auto cmp = [](const vector<int>& lhs, const vector<int>& rhs)
 		{
 			return lhs.back() < rhs.back();
@@ -223,24 +223,24 @@ public:
 		int time = 0, count = 0;
 		for (int i = 0; i < courses.size(); ++i)
 		{
-			// i ¿ÉÒÔÍê³É
+			// i å¯ä»¥å®Œæˆ
 			if (courses[i].front() + time <= courses[i].back())
 			{
 				time += courses[i].front();
-				// ¸üĞÂ courses[count]£¬Ê¹µÃÇ°ÃæµÄ count+1 ¸ö¿Î³Ì¾ÍÊÇµ±Ç°±»Ìí¼ÓÁËµÄ¿Î³Ì
+				// æ›´æ–° courses[count]ï¼Œä½¿å¾—å‰é¢çš„ count+1 ä¸ªè¯¾ç¨‹å°±æ˜¯å½“å‰è¢«æ·»åŠ äº†çš„è¯¾ç¨‹
 				courses[count++] = courses[i];
 			}
-			// i ÎŞ·¨Ö±½ÓÍê³É£¬³¢ÊÔÉ¾³ıÇ°ÃæµÄ¿Î³Ì£¬È»ºóÔÙÌí¼Ó¿Î³Ì i
+			// i æ— æ³•ç›´æ¥å®Œæˆï¼Œå°è¯•åˆ é™¤å‰é¢çš„è¯¾ç¨‹ï¼Œç„¶åå†æ·»åŠ è¯¾ç¨‹ i
 			else
 			{
-				// ÔÚÒÑ¾­Ìí¼ÓµÄ¿Î³ÌÖĞ£¬²éÕÒ¾ßÓĞ×î´ó duration ÇÒ duration > duration_i µÄ¿Î³Ì
+				// åœ¨å·²ç»æ·»åŠ çš„è¯¾ç¨‹ä¸­ï¼ŒæŸ¥æ‰¾å…·æœ‰æœ€å¤§ duration ä¸” duration > duration_i çš„è¯¾ç¨‹
 				int max_j = i;
 				for (int j = 0; j < count; ++j)
 				{
 					if (courses[j].front() > courses[max_j].front())
 						max_j = j;
 				}
-				// Èç¹ûÕÒµ½Âú×ãÌõ¼şµÄ max_j
+				// å¦‚æœæ‰¾åˆ°æ»¡è¶³æ¡ä»¶çš„ max_j
 				if (max_j != i)
 				{
 					time -= (courses[max_j].front() - courses[i].front());
@@ -256,7 +256,7 @@ class Solution_v5 {
 public:
 	int scheduleCourse(vector<vector<int>>& courses)
 	{
-		// °´¿Î³ÌµÄ×î³Ù½ØÖ¹ÈÕÆÚ½øĞĞÅÅĞò
+		// æŒ‰è¯¾ç¨‹çš„æœ€è¿Ÿæˆªæ­¢æ—¥æœŸè¿›è¡Œæ’åº
 		auto cmp = [](const vector<int>& lhs, const vector<int>& rhs)
 		{
 			return lhs.back() < rhs.back();
@@ -266,23 +266,23 @@ public:
 		vector<vector<int>> valid_list;
 		for (int i = 0; i < courses.size(); ++i)
 		{
-			// i ¿ÉÒÔÍê³É
+			// i å¯ä»¥å®Œæˆ
 			if (courses[i].front() + time <= courses[i].back())
 			{
 				time += courses[i].front();
 				valid_list.push_back(courses[i]);
 			}
-			// i ÎŞ·¨Ö±½ÓÍê³É£¬³¢ÊÔÉ¾³ıÇ°ÃæµÄ¿Î³Ì£¬È»ºóÔÙÌí¼Ó¿Î³Ì i
+			// i æ— æ³•ç›´æ¥å®Œæˆï¼Œå°è¯•åˆ é™¤å‰é¢çš„è¯¾ç¨‹ï¼Œç„¶åå†æ·»åŠ è¯¾ç¨‹ i
 			else
 			{
-				// ÔÚÒÑ¾­Ìí¼ÓµÄ¿Î³ÌÖĞ£¬²éÕÒ¾ßÓĞ×î´ó duration ÇÒ duration > duration_i µÄ¿Î³Ì
+				// åœ¨å·²ç»æ·»åŠ çš„è¯¾ç¨‹ä¸­ï¼ŒæŸ¥æ‰¾å…·æœ‰æœ€å¤§ duration ä¸” duration > duration_i çš„è¯¾ç¨‹
 				int max_j = 0;
 				for (int j = 1; j < static_cast<int>(valid_list.size()); ++j)
 				{
 					if (valid_list[j].front() > valid_list[max_j].front())
 						max_j = j;
 				}
-				// Èç¹ûÕÒµ½Âú×ãÌõ¼şµÄ max_j
+				// å¦‚æœæ‰¾åˆ°æ»¡è¶³æ¡ä»¶çš„ max_j
 				if (!valid_list.empty() && valid_list[max_j].front() > courses[i].front())
 				{
 					time -= (valid_list[max_j].front() - courses[i].front());
@@ -299,7 +299,7 @@ class Solution_v6 {
 public:
 	int scheduleCourse(vector<vector<int>>& courses)
 	{
-		// °´¿Î³ÌµÄ×î³Ù½ØÖ¹ÈÕÆÚ½øĞĞÅÅĞò
+		// æŒ‰è¯¾ç¨‹çš„æœ€è¿Ÿæˆªæ­¢æ—¥æœŸè¿›è¡Œæ’åº
 		auto cmp = [](const vector<int>& lhs, const vector<int>& rhs)
 		{
 			return lhs.back() < rhs.back();
@@ -309,7 +309,7 @@ public:
 		{
 			return lhs.front() < rhs.front();
 		};
-		// ´æ·ÅÇ°ÃæÒÑ¾­Ìí¼ÓµÄ¿Î³Ì£¬°´ÕÕ³ÖĞøÊ±¼ä¹¹½¨´ó¶¥¶Ñ
+		// å­˜æ”¾å‰é¢å·²ç»æ·»åŠ çš„è¯¾ç¨‹ï¼ŒæŒ‰ç…§æŒç»­æ—¶é—´æ„å»ºå¤§é¡¶å †
 		priority_queue<vector<int>, vector<vector<int>>, decltype(cmp_2)> q(cmp_2);	
 
 		int time = 0;
@@ -322,14 +322,14 @@ public:
 			}
 			else
 			{
-				// Èç¹ûÇ°ÃæÒÑ¾­Ìí¼ÓµÄ¿Î³ÌÖĞ£¬´æÔÚ³ÖĞøÊ±¼ä´óÓÚµ±Ç°¿Î³ÌµÄ¿Î³Ì£¬ÔòÌæ»»Ö®£¬²¢½«µ±Ç°¿Î³ÌÌí¼Óµ½´ó¶¥¶ÑÖĞ£¬Áô´ıºóÃæ¿ÉÄÜµÄÌæ»»
+				// å¦‚æœå‰é¢å·²ç»æ·»åŠ çš„è¯¾ç¨‹ä¸­ï¼Œå­˜åœ¨æŒç»­æ—¶é—´å¤§äºå½“å‰è¯¾ç¨‹çš„è¯¾ç¨‹ï¼Œåˆ™æ›¿æ¢ä¹‹ï¼Œå¹¶å°†å½“å‰è¯¾ç¨‹æ·»åŠ åˆ°å¤§é¡¶å †ä¸­ï¼Œç•™å¾…åé¢å¯èƒ½çš„æ›¿æ¢
 				if (!q.empty() && courses[i].front() < q.top().front())
 				{
 					time += (courses[i].front() - q.top().front());
 					q.pop();
 					q.push(courses[i]);
 				}
-				// Èç¹û²»´æÔÚ³ÖĞøÊ±¼ä´óÓÚµ±Ç°¿Î³ÌµÄ¿Î³Ì£¬Ôòµ±Ç°¿Î³ÌÎŞ·¨Ìí¼Ó
+				// å¦‚æœä¸å­˜åœ¨æŒç»­æ—¶é—´å¤§äºå½“å‰è¯¾ç¨‹çš„è¯¾ç¨‹ï¼Œåˆ™å½“å‰è¯¾ç¨‹æ— æ³•æ·»åŠ 
 			}
 		}
 		return q.size();

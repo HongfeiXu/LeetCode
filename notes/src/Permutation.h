@@ -2,7 +2,7 @@
 
 /*
 
-Çó×Ö·û´®µÄÈ«ÅÅÁĞ
+æ±‚å­—ç¬¦ä¸²çš„å…¨æ’åˆ—
 
 Date: 2018.3.20
 
@@ -15,7 +15,7 @@ Ref: http://blog.csdn.net/hackbuteer1/article/details/7462447
 Below are the permutations of string ABC.
 ABC ACB BAC BCA CBA CAB
 
-ÏÂÃæµÄÊµÏÖÖĞ£¬Ç°Á½¸öÎ´¿¼ÂÇÈ¥ÖØ£¬ºóÃæËÄ¸ö¾ù¿¼ÂÇÁËÈ¥³ıÖØ¸´µÄÈ«ÅÅÁĞ¡£
+ä¸‹é¢çš„å®ç°ä¸­ï¼Œå‰ä¸¤ä¸ªæœªè€ƒè™‘å»é‡ï¼Œåé¢å››ä¸ªå‡è€ƒè™‘äº†å»é™¤é‡å¤çš„å…¨æ’åˆ—ã€‚
 
 */
 
@@ -28,18 +28,18 @@ ABC ACB BAC BCA CBA CAB
 using namespace std;
 
 /*
-È«ÅÅÁĞµÄµİ¹éÊµÏÖ
-È«ÅÅÁĞ¾ÍÊÇ´ÓµÚÒ»¸öÊı×ÖÆğÃ¿¸öÊı·Ö±ğÓëËüºóÃæµÄÊı×Ö½»»»¡££¨Î´È¥ÖØ£©
+å…¨æ’åˆ—çš„é€’å½’å®ç°
+å…¨æ’åˆ—å°±æ˜¯ä»ç¬¬ä¸€ä¸ªæ•°å­—èµ·æ¯ä¸ªæ•°åˆ†åˆ«ä¸å®ƒåé¢çš„æ•°å­—äº¤æ¢ã€‚ï¼ˆæœªå»é‡ï¼‰
 */
 class SolutionRaw {
 public:
-	// ÅÅÁĞ a[left,left+1,...,right]
+	// æ’åˆ— a[left,left+1,...,right]
 	void permuteAux(string& a, int left, int right, vector<string>& result)
 	{
-		// Èô left == right£¬ËµÃ÷ËùÓĞ×Ö·ûµÄÎ»ÖÃÒÑ¾­È·¶¨£¬ÔòÎªÒ»¸öÅÅÁĞ½á¹û¡£
+		// è‹¥ left == rightï¼Œè¯´æ˜æ‰€æœ‰å­—ç¬¦çš„ä½ç½®å·²ç»ç¡®å®šï¼Œåˆ™ä¸ºä¸€ä¸ªæ’åˆ—ç»“æœã€‚
 		if (left == right)
 			result.push_back(a);
-		// i ´Ó left ¿ªÊ¼µ½ right ½áÊø£¬Ñ¡ÔñÒ»¸öÊı×Ö×÷Îª a[left]¡£
+		// i ä» left å¼€å§‹åˆ° right ç»“æŸï¼Œé€‰æ‹©ä¸€ä¸ªæ•°å­—ä½œä¸º a[left]ã€‚
 		for (int i = left; i <= right; ++i)
 		{
 			swap(a[left], a[i]);
@@ -60,7 +60,7 @@ public:
 
 
 /*
-È«ÅÅÁĞµÄµİ¹éÊµÏÖ(½èÖú STL std::rotate())
+å…¨æ’åˆ—çš„é€’å½’å®ç°(å€ŸåŠ© STL std::rotate())
 */
 class SolutionRotate {
 public:
@@ -97,13 +97,13 @@ public:
 
 
 /*
-È¥µôÖØ¸´µÄÈ«ÅÅÁĞµÄµİ¹éÊµÏÖ£¨»ùÓÚSolutionRaw£©
-ÔÚÈ«ÅÅÁĞÖĞÈ¥µôÖØ¸´µÄ¹æÔò£ºÈ¥ÖØµÄÈ«ÅÅÁĞ¾ÍÊÇ´ÓµÚÒ»¸öÊı×ÖÆğÃ¿¸öÊı·Ö±ğÓëËüºóÃæ·ÇÖØ¸´³öÏÖµÄÊı×Ö½»»»¡£
-ÏÂÃæ¸ø³öÍêÕû´úÂë£º
+å»æ‰é‡å¤çš„å…¨æ’åˆ—çš„é€’å½’å®ç°ï¼ˆåŸºäºSolutionRawï¼‰
+åœ¨å…¨æ’åˆ—ä¸­å»æ‰é‡å¤çš„è§„åˆ™ï¼šå»é‡çš„å…¨æ’åˆ—å°±æ˜¯ä»ç¬¬ä¸€ä¸ªæ•°å­—èµ·æ¯ä¸ªæ•°åˆ†åˆ«ä¸å®ƒåé¢éé‡å¤å‡ºç°çš„æ•°å­—äº¤æ¢ã€‚
+ä¸‹é¢ç»™å‡ºå®Œæ•´ä»£ç ï¼š
 */
 class SolutionHandleDup_v1 {
 public:
-	// ÔÚ [left, right) Çø¼äÖĞ²éÕÒÊÇ»ò·ñÓĞÓë a[right] ÏàÍ¬µÄ×Ö·û£¬ÈôÓĞÁË£¬Ôò²»ÄÜ½øĞĞ swap£¬ÒÔ´ËÀ´±ÜÃâÖØ¸´µÄÅÅÁĞ¡£
+	// åœ¨ [left, right) åŒºé—´ä¸­æŸ¥æ‰¾æ˜¯æˆ–å¦æœ‰ä¸ a[right] ç›¸åŒçš„å­—ç¬¦ï¼Œè‹¥æœ‰äº†ï¼Œåˆ™ä¸èƒ½è¿›è¡Œ swapï¼Œä»¥æ­¤æ¥é¿å…é‡å¤çš„æ’åˆ—ã€‚
 	bool canSwap(string& a, int left, int right)
 	{
 		for (int i = left; i < right; ++i)
@@ -114,13 +114,13 @@ public:
 		return true;
 	}
 
-	// ÅÅÁĞ a[left,left+1,...,right]
+	// æ’åˆ— a[left,left+1,...,right]
 	void permuteAux(string& a, int left, int right, vector<string>& result)
 	{
-		// Èô left == right£¬ËµÃ÷ËùÓĞ×Ö·ûµÄÎ»ÖÃÒÑ¾­È·¶¨£¬ÔòÎªÒ»¸öÅÅÁĞ½á¹û¡£
+		// è‹¥ left == rightï¼Œè¯´æ˜æ‰€æœ‰å­—ç¬¦çš„ä½ç½®å·²ç»ç¡®å®šï¼Œåˆ™ä¸ºä¸€ä¸ªæ’åˆ—ç»“æœã€‚
 		if (left == right)
 			result.push_back(a);
-		// i ´Ó left ¿ªÊ¼µ½ right ½áÊø£¬Ñ¡ÔñÒ»¸öÊı×Ö×÷Îª a[left]¡£
+		// i ä» left å¼€å§‹åˆ° right ç»“æŸï¼Œé€‰æ‹©ä¸€ä¸ªæ•°å­—ä½œä¸º a[left]ã€‚
 		for (int i = left; i <= right; ++i)
 		{
 			if (canSwap(a, left, i))
@@ -144,17 +144,17 @@ public:
 
 
 /*
-È¥ÖØÈ«ÅÅÁĞµÄµİ¹éÊµÏÖ(½èÖú unordered_set È¥ÖØ)
+å»é‡å…¨æ’åˆ—çš„é€’å½’å®ç°(å€ŸåŠ© unordered_set å»é‡)
 */
 class SolutionHandleDup_v2 {
 public:
-	// ÅÅÁĞ a[left,left+1,...,right]
+	// æ’åˆ— a[left,left+1,...,right]
 	void permuteAux(string& a, int left, int right, unordered_set<string>& result)
 	{
-		// Èô left == right£¬ËµÃ÷ËùÓĞ×Ö·ûµÄÎ»ÖÃÒÑ¾­È·¶¨£¬ÔòÎªÒ»¸öÅÅÁĞ½á¹û¡£
+		// è‹¥ left == rightï¼Œè¯´æ˜æ‰€æœ‰å­—ç¬¦çš„ä½ç½®å·²ç»ç¡®å®šï¼Œåˆ™ä¸ºä¸€ä¸ªæ’åˆ—ç»“æœã€‚
 		if (left == right)
 			result.insert(a);
-		// i ´Ó left ¿ªÊ¼µ½ right ½áÊø£¬Ñ¡ÔñÒ»¸öÊı×Ö×÷Îª a[left]¡£
+		// i ä» left å¼€å§‹åˆ° right ç»“æŸï¼Œé€‰æ‹©ä¸€ä¸ªæ•°å­—ä½œä¸º a[left]ã€‚
 		for (int i = left; i <= right; ++i)
 		{
 			swap(a[left], a[i]);
@@ -179,9 +179,9 @@ public:
 
 
 /*
-È¥µôÖØ¸´µÄÈ«ÅÅÁĞµÄ·Çµİ¹éÊµÏÖ£¨½èÖúSTLÖĞ next_permutation()£©
+å»æ‰é‡å¤çš„å…¨æ’åˆ—çš„éé€’å½’å®ç°ï¼ˆå€ŸåŠ©STLä¸­ next_permutation()ï¼‰
 Time: O(n*n!) 
-ÕâÀïÃ¿´Î next_permutation ×î¶à½øĞĞ a.size() / 2 ´Ë½»»»¡£
+è¿™é‡Œæ¯æ¬¡ next_permutation æœ€å¤šè¿›è¡Œ a.size() / 2 æ­¤äº¤æ¢ã€‚
 */
 class SolutionHandleDup_v3{
 public:
@@ -200,10 +200,10 @@ public:
 };
 
 /*
-È¥µôÖØ¸´µÄÈ«ÅÅÁĞµÄ·Çµİ¹éÊµÏÖ£¨×Ô¼ºĞ´ nextPermutation()£©
+å»æ‰é‡å¤çš„å…¨æ’åˆ—çš„éé€’å½’å®ç°ï¼ˆè‡ªå·±å†™ nextPermutation()ï¼‰
 Ref: http://en.cppreference.com/w/cpp/algorithm/next_permutation
 Ref: http://blog.csdn.net/hackbuteer1/article/details/7462447
-Ref: ¡¶STLÔ´ÂëÆÊÎö¡·
+Ref: ã€ŠSTLæºç å‰–æã€‹
 Time: O(n*n!)
 */
 class SolutionHandleDup_v4 {
@@ -220,36 +220,36 @@ public:
 		return result;
 	}
 	/*
-	²Î¿¼STL next_permutation() µÄĞ´·¨
-	nextPermutation »áÈ¡µÃ [first, last) Ëù±êÊ¾ĞòÁĞµÄÏÂÒ»¸öÅÅÁĞ×éºÏ¡£
-	Èç¹ûÃ»ÓĞÏÂÒ»¸öÅÅÁĞ×éºÏ£¬Ôò·µ»Ø false£»·ñÔò·µ»Ø true¡£
+	å‚è€ƒSTL next_permutation() çš„å†™æ³•
+	nextPermutation ä¼šå–å¾— [first, last) æ‰€æ ‡ç¤ºåºåˆ—çš„ä¸‹ä¸€ä¸ªæ’åˆ—ç»„åˆã€‚
+	å¦‚æœæ²¡æœ‰ä¸‹ä¸€ä¸ªæ’åˆ—ç»„åˆï¼Œåˆ™è¿”å› falseï¼›å¦åˆ™è¿”å› trueã€‚
 	*/
 	bool nextPermutation(string::iterator first, string::iterator last)
 	{
-		// Èô×Ö·û´®Îª¿Õ£¬ÔòÃ»ÓĞÏÂÒ»¸öÅÅÁĞ£¬·µ»Ø false
+		// è‹¥å­—ç¬¦ä¸²ä¸ºç©ºï¼Œåˆ™æ²¡æœ‰ä¸‹ä¸€ä¸ªæ’åˆ—ï¼Œè¿”å› false
 		if (first == last)
 			return false;
 		auto i = last;
-		// Èô×Ö·û´®ÖĞÖ»ÓĞÒ»¸ö×Ö·û£¬ÔòÃ»ÓĞÏÂÒ»¸öÅÅÁĞ£¬·µ»Ø false
+		// è‹¥å­—ç¬¦ä¸²ä¸­åªæœ‰ä¸€ä¸ªå­—ç¬¦ï¼Œåˆ™æ²¡æœ‰ä¸‹ä¸€ä¸ªæ’åˆ—ï¼Œè¿”å› false
 		if (first == --i)
 			return false;
 		while (true)
 		{
 			auto i1 = i;
-			// ´ÓºóÏòÇ°Ñ°ÕÒÌæ»»Êı£¬¼´Ç°Ò»¸öÔªËØiĞ¡ÓÚºóÒ»¸öÔªËØi1£¬i¼´ÎªÒªÌæ»»µÄÊı×Ö
+			// ä»åå‘å‰å¯»æ‰¾æ›¿æ¢æ•°ï¼Œå³å‰ä¸€ä¸ªå…ƒç´ iå°äºåä¸€ä¸ªå…ƒç´ i1ï¼Œiå³ä¸ºè¦æ›¿æ¢çš„æ•°å­—
 			if (*(--i) < *i1)
 			{
-				// ´ÓºóÏòÇ°Ñ°ÕÒµÚÒ»¸ö±È *i ´óµÄÊı×Ö *i2
+				// ä»åå‘å‰å¯»æ‰¾ç¬¬ä¸€ä¸ªæ¯” *i å¤§çš„æ•°å­— *i2
 				auto i2 = last;
 				while (!(*i < *--i2))
 					;
 
-				// ¹¹ÔìÏÂÒ»¸öÅÅÁĞ
-				iter_swap(i, i2);	// Ìæ»» *i, *i2
-				reverse(i1, last);	// Ìæ»»µã i ºóµÄÊıÈ«²¿·´×ª
+				// æ„é€ ä¸‹ä¸€ä¸ªæ’åˆ—
+				iter_swap(i, i2);	// æ›¿æ¢ *i, *i2
+				reverse(i1, last);	// æ›¿æ¢ç‚¹ i åçš„æ•°å…¨éƒ¨åè½¬
 				return true;
 			}
-			// iµ½×îÇ°ÃæÁË£¬Ã»ÓĞÕÒµ½Ìæ»»Êı£¬µ±Ç°×Ö·û´®Îª×î´óÅÅÁĞ£¬µßµ¹µÃµ½×îĞ¡ÅÅÁĞ£¬²¢·µ»Ø false¡£
+			// iåˆ°æœ€å‰é¢äº†ï¼Œæ²¡æœ‰æ‰¾åˆ°æ›¿æ¢æ•°ï¼Œå½“å‰å­—ç¬¦ä¸²ä¸ºæœ€å¤§æ’åˆ—ï¼Œé¢ å€’å¾—åˆ°æœ€å°æ’åˆ—ï¼Œå¹¶è¿”å› falseã€‚
 			if (i == first)
 			{
 				reverse(first, last);

@@ -47,7 +47,7 @@ public:
 		vector<int> result;
 		if (root == nullptr)
 			return result;
-		queue<TreeNode*> Q;		// Q 中保存树一行的节点
+		queue<TreeNode*> Q;		// Q 涓繚瀛樻爲涓�琛岀殑鑺傜偣
 		Q.push(root);
 		while (!Q.empty())
 		{

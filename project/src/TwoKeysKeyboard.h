@@ -25,7 +25,7 @@ The n will be in the range [1, 1000].
 
 Approach:
 
-·ÖÎö
+åˆ†æž
 n = 1, MinStep = 0
 n = 2, MinStep = 1, Operating: CP
 n = 3, MinStep = 3, Operating: CPP
@@ -34,25 +34,25 @@ n = 5, MinStep = 5, Operating: CPPPP
 n = 6, MinStep = 5, Operating: CPPCP\CPCPP
 ...
 
-ÓÉÓÚÕâÀïµÄ COPY ±ØÐëÊÇÍêÈ«¿½±´£¬ËùÒÔ£¬ÓÃÀ´¿½±´¹¹Ôì³ö½á¹ûµÄ×Ó¶ÎµÄ³¤¶È±ØÐëÎª n µÄÒò×Ó¡£
-±ÈÈçÕâÀïµÄ n = 6£¬ÏÈ¹¹Ôì³ö AAA£¬È»ºóÔÚ½øÐÐ CP ²Ù×÷£¬µÃµ½ AAAAAA£¬»òÕßÏÈ¹¹Ôì³ö AA È»ºóÔÚ½øÐÐ CPP ²Ù×÷µÄµ½ AAAAAA¡£
-ËùÒÔ£¬ÕâÀïÎÒÃÇÕÒ³ö n µÄËùÓÐÒò×Ó i ×÷ÎªÄ£¿éµÄ³¤¶È£¬Ôò n ±»·Ö¸îÎª n/i ¸öÄ£¿é£¬¶ÔÃ¿¸öÒò×Ó£¬µÝ¹é¼ÆËãÐèÒªµÄ²Ù×÷Êý£¬²¢½«²Ù×÷Êý¼ÓÉÏÄ£¿é·ÖÊýµÃµ½×îÖÕµÄ²Ù×÷Êý£¬È¡×îÐ¡µÄÄÇ¸ö¡£
-¹éÄÉµÃµ½¹«Ê½ÈçÏÂ£º
-Èô n == 1
+ç”±äºŽè¿™é‡Œçš„ COPY å¿…é¡»æ˜¯å®Œå…¨æ‹·è´ï¼Œæ‰€ä»¥ï¼Œç”¨æ¥æ‹·è´æž„é€ å‡ºç»“æžœçš„å­æ®µçš„é•¿åº¦å¿…é¡»ä¸º n çš„å› å­ã€‚
+æ¯”å¦‚è¿™é‡Œçš„ n = 6ï¼Œå…ˆæž„é€ å‡º AAAï¼Œç„¶åŽåœ¨è¿›è¡Œ CP æ“ä½œï¼Œå¾—åˆ° AAAAAAï¼Œæˆ–è€…å…ˆæž„é€ å‡º AA ç„¶åŽåœ¨è¿›è¡Œ CPP æ“ä½œçš„åˆ° AAAAAAã€‚
+æ‰€ä»¥ï¼Œè¿™é‡Œæˆ‘ä»¬æ‰¾å‡º n çš„æ‰€æœ‰å› å­ i ä½œä¸ºæ¨¡å—çš„é•¿åº¦ï¼Œåˆ™ n è¢«åˆ†å‰²ä¸º n/i ä¸ªæ¨¡å—ï¼Œå¯¹æ¯ä¸ªå› å­ï¼Œé€’å½’è®¡ç®—éœ€è¦çš„æ“ä½œæ•°ï¼Œå¹¶å°†æ“ä½œæ•°åŠ ä¸Šæ¨¡å—åˆ†æ•°å¾—åˆ°æœ€ç»ˆçš„æ“ä½œæ•°ï¼Œå–æœ€å°çš„é‚£ä¸ªã€‚
+å½’çº³å¾—åˆ°å…¬å¼å¦‚ä¸‹ï¼š
+è‹¥ n == 1
 	MinStep[1] = 0
-Èô n ¾ßÓÐ³ýÁË1ºÍÆä±¾ÉíµÄÆäËûÒò×Ó
-	MinStep[n] = min{MinStep[k] + n/k}, k Îª n µÄÒò×Ó£¨·Ç1ºÍÆä±¾Éí£©
-Èô n Ã»ÓÐ³ýÁË1ºÍÆä±¾ÉíµÄÆäËûÒò×Ó
+è‹¥ n å…·æœ‰é™¤äº†1å’Œå…¶æœ¬èº«çš„å…¶ä»–å› å­
+	MinStep[n] = min{MinStep[k] + n/k}, k ä¸º n çš„å› å­ï¼ˆéž1å’Œå…¶æœ¬èº«ï¼‰
+è‹¥ n æ²¡æœ‰é™¤äº†1å’Œå…¶æœ¬èº«çš„å…¶ä»–å› å­
 	MinSte[n] = n
 
-Ö±½ÓÊ¹ÓÃµÝ¹éÊµÏÖÖ®
+ç›´æŽ¥ä½¿ç”¨é€’å½’å®žçŽ°ä¹‹
 Time:?
 Space:O(1)
 
 
 Approach_v2:
 DP
-ÎªÉ¶±ÈÉÏÃæµÄµÝ¹é»¹ÒªÂýºÜ¶à
+ä¸ºå•¥æ¯”ä¸Šé¢çš„é€’å½’è¿˜è¦æ…¢å¾ˆå¤š
 
 Approach_v3:
 
@@ -65,8 +65,8 @@ The best cases occur when n is decreasing fast, and method is almost O(log(n))
 For example, when n = 1024 then n will be divided by 2 for only 10 iterations, which is much faster than O(n) DP method.
 The worst cases occur when n is some multiple of large prime, e.g. n = 997 but such cases are rare.
 
-¿´ÆðÀ´Õâ¸ö·½·¨ÊÇÌ°ÐÄ·¨£¬µ«Ã»ÓÐÕýÈ·ÐÔµÄÖ¤Ã÷¡£
-²»¹ýÖ±¹ÛÉÏ£¬½«Ä¿±ê n ¸ö×ÖÄ¸£¬¾¡¿ÉÄÜ·Ö³ÉÉÙµÄ²¿·Ö£¬Ã¿¸ö²¿·Ö¾¡¿ÉÄÜµÄ´ó£¬ºÃÏñÊÇ»á¼õÉÙ²Ù×÷µÄ´ÎÊý¡£
+çœ‹èµ·æ¥è¿™ä¸ªæ–¹æ³•æ˜¯è´ªå¿ƒæ³•ï¼Œä½†æ²¡æœ‰æ­£ç¡®æ€§çš„è¯æ˜Žã€‚
+ä¸è¿‡ç›´è§‚ä¸Šï¼Œå°†ç›®æ ‡ n ä¸ªå­—æ¯ï¼Œå°½å¯èƒ½åˆ†æˆå°‘çš„éƒ¨åˆ†ï¼Œæ¯ä¸ªéƒ¨åˆ†å°½å¯èƒ½çš„å¤§ï¼Œå¥½åƒæ˜¯ä¼šå‡å°‘æ“ä½œçš„æ¬¡æ•°ã€‚
 
 */
 
@@ -80,7 +80,7 @@ public:
 	{
 		if (n == 1)
 			return 0;
-		int res = n;	// ¶ÔÓÚ n ¸ö A£¬Èô n Ã»ÓÐ³ýÁË1ºÍ±¾ÉíµÄÒò×Ó£¬ÔòÐèÒª½øÐÐ n ´Î²Ù×÷µÃµ½¡£
+		int res = n;	// å¯¹äºŽ n ä¸ª Aï¼Œè‹¥ n æ²¡æœ‰é™¤äº†1å’Œæœ¬èº«çš„å› å­ï¼Œåˆ™éœ€è¦è¿›è¡Œ n æ¬¡æ“ä½œå¾—åˆ°ã€‚
 		for (int i = n - 1; i > 1; --i)
 		{
 			if (n % i == 0)
@@ -117,7 +117,7 @@ public:
 	int minSteps(int n)
 	{
 		int res = 0;
-		// ½«Ä¿±êµÄ n ¸ö A ·Ö³É¾¡¿ÉÄÜÉÙµÄ·ÝÊý d£¬È»ºó¶ÔÃ¿Ò»·Ý n/d ÔÙ¼ÌÐøÕâÖÖ·Ö¸î£¬ÈôÃ»ÓÐ³ýÁË1ºÍ×ÔÉíÖ®ÍâµÄÒò×Ó£¬ÔòÐèÒª n ´Î²Ù×÷¡£
+		// å°†ç›®æ ‡çš„ n ä¸ª A åˆ†æˆå°½å¯èƒ½å°‘çš„ä»½æ•° dï¼Œç„¶åŽå¯¹æ¯ä¸€ä»½ n/d å†ç»§ç»­è¿™ç§åˆ†å‰²ï¼Œè‹¥æ²¡æœ‰é™¤äº†1å’Œè‡ªèº«ä¹‹å¤–çš„å› å­ï¼Œåˆ™éœ€è¦ n æ¬¡æ“ä½œã€‚
 		for (int d = 2; d <= n; ++d)
 		{
 			while (n % d == 0)

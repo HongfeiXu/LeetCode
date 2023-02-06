@@ -14,12 +14,12 @@ Both num1 and num2 does not contain any leading zero.
 You must not use any built-in BigInteger library or convert the inputs to integer directly.
 
 Approach:
-Ö±½ÓµÄ·½·¨
-¼ÙÉè num1.size() < num2.size()
-Ôò£¬¶Ô num1 µÄÃ¿Ò»Î»½øĞĞµü´ú£¬Ã¿Ò»¸öµü´ú¹ı³ÌÖĞ£¬ÓÃ num2 ÓëÖ®Ïà³Ë£¬µÃµ½³Ë»ı£¬ÔÚ³Ë»ıºóÃæÌí¼ÓÈô¸É¸ö0£¬ÎªÏà³Ë½á¹û
-±£´æ num1.size£¨£©¸öÏà³Ë½á¹û£¬µ÷ÓÃ AddString() ¹ı³Ì¼ÆËã×îÖÕ½á¹û
+ç›´æ¥çš„æ–¹æ³•
+å‡è®¾ num1.size() < num2.size()
+åˆ™ï¼Œå¯¹ num1 çš„æ¯ä¸€ä½è¿›è¡Œè¿­ä»£ï¼Œæ¯ä¸€ä¸ªè¿­ä»£è¿‡ç¨‹ä¸­ï¼Œç”¨ num2 ä¸ä¹‹ç›¸ä¹˜ï¼Œå¾—åˆ°ä¹˜ç§¯ï¼Œåœ¨ä¹˜ç§¯åé¢æ·»åŠ è‹¥å¹²ä¸ª0ï¼Œä¸ºç›¸ä¹˜ç»“æœ
+ä¿å­˜ num1.sizeï¼ˆï¼‰ä¸ªç›¸ä¹˜ç»“æœï¼Œè°ƒç”¨ AddString() è¿‡ç¨‹è®¡ç®—æœ€ç»ˆç»“æœ
 
-Ó¦¸ÃÓĞ¸üºÃµÄ·½Ê½
+åº”è¯¥æœ‰æ›´å¥½çš„æ–¹å¼
 
 */
 
@@ -57,7 +57,7 @@ public:
 		else if (c == '1')
 			return num1;
 
-		int carry = 0;		// ¼ÇÂ¼½øÎ»£¬³õÖµÎª0
+		int carry = 0;		// è®°å½•è¿›ä½ï¼Œåˆå€¼ä¸º0
 		for (int i = 0; i < num1.size(); ++i)
 		{
 			int oneDigitMulti = (num1[num1.size() - 1 - i] - '0') * (c - '0') + carry;
@@ -84,31 +84,31 @@ public:
 	{
 		string result;
 
-		// ÎªÁË·½±ãºóÃæµÄ´¦Àí
-		// ½« num1 Óë num2 ±äÎªÏàÍ¬Î»ÊıµÄÊı×Ö
+		// ä¸ºäº†æ–¹ä¾¿åé¢çš„å¤„ç†
+		// å°† num1 ä¸ num2 å˜ä¸ºç›¸åŒä½æ•°çš„æ•°å­—
 		if (num1.size() > num2.size())
 			swap(num1, num2);
-		size_t gap = num2.size() - num1.size();	// Ê¹ÓÃ gap ÊÇÒòÎª num2.size() - num1.size() ÔÚÑ­»·ÖĞ»á¸Ä±ä
+		size_t gap = num2.size() - num1.size();	// ä½¿ç”¨ gap æ˜¯å› ä¸º num2.size() - num1.size() åœ¨å¾ªç¯ä¸­ä¼šæ”¹å˜
 		for (size_t i = 0; i < gap; ++i)
 			num1.insert(num1.begin(), '0');
 
 		size_t len = num1.size();
 
-		int carry = 0;							// ±£´æ½øÎ»£¬×îµÍÎ»½øĞĞÏà¼ÓÔËËãÊ±£¬½øÎ»Ò»¶¨Îª0
+		int carry = 0;							// ä¿å­˜è¿›ä½ï¼Œæœ€ä½ä½è¿›è¡Œç›¸åŠ è¿ç®—æ—¶ï¼Œè¿›ä½ä¸€å®šä¸º0
 		for (int i = 0; i < len; ++i)
 		{
 			int oneDigitSum = num1[len - 1 - i] - '0' + num2[len - 1 - i] - '0' + carry;
 			if (oneDigitSum > 9)
 			{
 				char temp = (oneDigitSum % 10) + '0';
-				result.insert(result.begin(), temp);		// ½«µ±Ç°ÊıÎ»ºÍµÄ½á¹û±£´æµ½ result£¬Í¨¹ıÍ·²å·¨²åÈë
-				carry = 1;		// Ïò¸ßÎ»½øÎ»1
+				result.insert(result.begin(), temp);		// å°†å½“å‰æ•°ä½å’Œçš„ç»“æœä¿å­˜åˆ° resultï¼Œé€šè¿‡å¤´æ’æ³•æ’å…¥
+				carry = 1;		// å‘é«˜ä½è¿›ä½1
 			}
 			else
 			{
 				char temp = oneDigitSum + '0';
 				result.insert(result.begin(), temp);
-				carry = 0;		// Ïò¸ßÎ»½øÎ»0
+				carry = 0;		// å‘é«˜ä½è¿›ä½0
 			}
 		}
 		if (carry != 0)

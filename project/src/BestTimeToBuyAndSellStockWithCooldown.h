@@ -45,7 +45,7 @@ sell[0] = 0
 Approach:
 DP, space optimized
 
-Àí½âÌâÄ¿µÄ»°£¬¿ÉÒÔÖ±½ÓĞ´³öÈçÏÂµİÍÆÊ½£¬²»ĞèÒª rest[i] ×÷ÎªÖĞ¼ä±äÁ¿
+ç†è§£é¢˜ç›®çš„è¯ï¼Œå¯ä»¥ç›´æ¥å†™å‡ºå¦‚ä¸‹é€’æ¨å¼ï¼Œä¸éœ€è¦ rest[i] ä½œä¸ºä¸­é—´å˜é‡
 buy[i] = max(sell[i-2] - prices[i], buy[i-1])
 sell[i] = max(buy[i-1] + prices[i], sell[i-1])
 buy[0] = -prices[0]
@@ -71,7 +71,7 @@ public:
 
 		buy[0] = -prices[0];
 		buy[1] = max(buy[0], -prices[1]);
-		sell[1] = max(buy[0] + prices[1], sell[0]);	// ÁíÍâ£ºsell[0] = 0
+		sell[1] = max(buy[0] + prices[1], sell[0]);	// å¦å¤–ï¼šsell[0] = 0
 
 		for (int i = 2; i < len; ++i)
 		{

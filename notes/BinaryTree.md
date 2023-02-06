@@ -9,13 +9,13 @@ struct TreeNode {
 };
 ```
 
-## ¶ş²æÊ÷µÄÇ°Ğò±éÀú(TODO)
+## äºŒå‰æ ‘çš„å‰åºéå†(TODO)
 
 ### 1. Recursive Approach
 
 ### 2. Iterating method 
 
-## ¶ş²æÊ÷µÄºóĞò±éÀú(TODO)
+## äºŒå‰æ ‘çš„ååºéå†(TODO)
 
 ### 1. Recursive Approach
 
@@ -23,12 +23,12 @@ struct TreeNode {
 
 
 
-## ¶ş²æÊ÷µÄÖĞĞò±éÀú
+## äºŒå‰æ ‘çš„ä¸­åºéå†
 
 ### 1. Recursive Approach
 
 Time: O(n)
-Space: Worst case O(n), average case O(log(n))£¬×¢£ºÕâÀï¿Õ¼ä¸´ÔÓ¶È²»°üÀ¨ÓÃÀ´±£´æ±éÀú½á¹ûËùĞèµÄ¿Õ¼ä¡££¨ÏÂÍ¬£©
+Space: Worst case O(n), average case O(log(n))ï¼Œæ³¨ï¼šè¿™é‡Œç©ºé—´å¤æ‚åº¦ä¸åŒ…æ‹¬ç”¨æ¥ä¿å­˜éå†ç»“æœæ‰€éœ€çš„ç©ºé—´ã€‚ï¼ˆä¸‹åŒï¼‰
 
 ```c++
 class Solution {
@@ -68,18 +68,18 @@ public:
 		TreeNode* p = root;
 		while (p != nullptr || !S.empty())
 		{
-			// ´Óµ±Ç°½Úµã¿ªÊ¼£¬ÑØ×óº¢×Ó·½ÏòÈëÕ»£¬Ö±µ½×î×óº¢×Ó
+			// ä»å½“å‰èŠ‚ç‚¹å¼€å§‹ï¼Œæ²¿å·¦å­©å­æ–¹å‘å…¥æ ˆï¼Œç›´åˆ°æœ€å·¦å­©å­
 			while (p != nullptr)
 			{
 				S.push(p);
 				p = p->left;
 			}
-			// ³öÕ»µÃµ½×î×óº¢×Ó
+			// å‡ºæ ˆå¾—åˆ°æœ€å·¦å­©å­
 			p = S.top();
 			S.pop();
-			// ·ÃÎÊ½Úµã
+			// è®¿é—®èŠ‚ç‚¹
 			result.push_back(p->val);
-			// ×ªÏò¸Ã×î×óº¢×ÓµÄÓÒ×ÓÊ÷
+			// è½¬å‘è¯¥æœ€å·¦å­©å­çš„å³å­æ ‘
 			p = p->right;
 		}
 		return result;
@@ -89,7 +89,7 @@ public:
 
 ### 3. Morris Traversal
 
-In this method, we have to use a new data structure-Threaded Binary Tree£¨ÏßË÷¶ş²æÊ÷£©, and the strategy is as follows:
+In this method, we have to use a new data structure-Threaded Binary Treeï¼ˆçº¿ç´¢äºŒå‰æ ‘ï¼‰, and the strategy is as follows:
 
 Step 1: Initialize current as root   
 Step 2: While current is not NULL,   
@@ -98,10 +98,10 @@ If current has left child
 2. Go to this left child, i.e., current = current.left   
 
 Else   
-1. Add current¡¯s value   
+1. Add currentâ€™s value   
 2. Go to the right, i.e., current = current.right   
 
-Time: O(n) Õ§Ò»¿´ÊÇ O(nlogn)£¬µ«ÊÇÓÉÓÚÃ¿Ìõ±ß×î¶à·ÃÎÊÁ½´Î£¬Ê±¼ä¸´ÔÓ¶ÈÎª O(n)
+Time: O(n) ä¹ä¸€çœ‹æ˜¯ O(nlogn)ï¼Œä½†æ˜¯ç”±äºæ¯æ¡è¾¹æœ€å¤šè®¿é—®ä¸¤æ¬¡ï¼Œæ—¶é—´å¤æ‚åº¦ä¸º O(n)
 Space: O(1)
 
 ```c++
@@ -113,22 +113,22 @@ public:
 		TreeNode* p = root;
 		while (p != nullptr)
 		{
-			// Èô×ó×ÓÊ÷²»Îª¿Õ£¬½øĞĞ¶ş²æÊ÷µÄ±äĞÎ²Ù×÷
+			// è‹¥å·¦å­æ ‘ä¸ä¸ºç©ºï¼Œè¿›è¡ŒäºŒå‰æ ‘çš„å˜å½¢æ“ä½œ
 			if (p->left != nullptr)
 			{
-				TreeNode* q = p->left;		// q ±£´æµ±Ç°½Úµã p µÄ×ó×ÓÊ÷µÄ×îÓÒ½Úµã
+				TreeNode* q = p->left;		// q ä¿å­˜å½“å‰èŠ‚ç‚¹ p çš„å·¦å­æ ‘çš„æœ€å³èŠ‚ç‚¹
 				while (q->right != nullptr)
 					q = q->right;
-				q->right = p;				// ½« p ÒÔ¼°ÆäÓÒ×ÓÊ÷£¬×÷Îª q µÄÓÒ×ÓÊ÷
+				q->right = p;				// å°† p ä»¥åŠå…¶å³å­æ ‘ï¼Œä½œä¸º q çš„å³å­æ ‘
 				TreeNode* temp = p->left;
-				p->left = nullptr;			// ½« p µÄ×óº¢×ÓÉèÎª¿Õ£¬·ÀÖ¹ÎŞÏŞÑ­»·
-				p = temp;					// p ¸üĞÂÎªĞÂµÄ¸ù½Úµã
+				p->left = nullptr;			// å°† p çš„å·¦å­©å­è®¾ä¸ºç©ºï¼Œé˜²æ­¢æ— é™å¾ªç¯
+				p = temp;					// p æ›´æ–°ä¸ºæ–°çš„æ ¹èŠ‚ç‚¹
 			}
-			// Èô×ó×ÓÊ÷Îª¿Õ£¬½øĞĞ·ÃÎÊ²Ù×÷
+			// è‹¥å·¦å­æ ‘ä¸ºç©ºï¼Œè¿›è¡Œè®¿é—®æ“ä½œ
 			else
 			{
-				result.push_back(p->val);	// ·ÃÎÊµ±Ç°½Úµã
-				p = p->right;				// p ¸üĞÂÎªµ±Ç°½ÚµãµÄÓÒº¢×Ó
+				result.push_back(p->val);	// è®¿é—®å½“å‰èŠ‚ç‚¹
+				p = p->right;				// p æ›´æ–°ä¸ºå½“å‰èŠ‚ç‚¹çš„å³å­©å­
 			}
 		}
 		return result;
@@ -136,8 +136,8 @@ public:
 };
 ```
 
-ÉÏÊöÕâÖÖÊµÏÖ·½·¨£¬»á¸Ä±äÊ÷µÄ½á¹¹£¬ÏÂÃæµÄ·½·¨ÔòÍ¨¹ıĞŞÕıÖĞĞò±éÀúÇ°Çı½ÚµãµÄÓÒº¢×ÓµÄ·½Ê½×îÖÕÊ¹µÃÊ÷µÄ½á¹¹Óë³õÊ¼Ê±ÏàÍ¬¡£   
-ÔÚÒ»Ğ©ÒªÇó²»µÃ¸Ä±ä¶şÊ÷½á¹¹µÄÇéĞÎÏÂÊ¹ÓÃ¡£
+ä¸Šè¿°è¿™ç§å®ç°æ–¹æ³•ï¼Œä¼šæ”¹å˜æ ‘çš„ç»“æ„ï¼Œä¸‹é¢çš„æ–¹æ³•åˆ™é€šè¿‡ä¿®æ­£ä¸­åºéå†å‰é©±èŠ‚ç‚¹çš„å³å­©å­çš„æ–¹å¼æœ€ç»ˆä½¿å¾—æ ‘çš„ç»“æ„ä¸åˆå§‹æ—¶ç›¸åŒã€‚   
+åœ¨ä¸€äº›è¦æ±‚ä¸å¾—æ”¹å˜äºŒæ ‘ç»“æ„çš„æƒ…å½¢ä¸‹ä½¿ç”¨ã€‚
 
 ```c++
 class Solution_v4 {
@@ -157,17 +157,17 @@ public:
 			{
 				// Find the inorder predecessor of current
 				TreeNode* pre = curr->left;
-				while (pre->right != nullptr && pre->right != curr)	// ×¢ÒâÕâÀïÓë Approach_v3 µÄ²»Í¬
+				while (pre->right != nullptr && pre->right != curr)	// æ³¨æ„è¿™é‡Œä¸ Approach_v3 çš„ä¸åŒ
 					pre = pre->right;
-				// pre->right == nullptr£¬ËµÃ÷×ó×ÓÊ÷µÄ×îÓÒ½Úµã»¹Ã»ÓĞ°Ñµ±Ç°½Úµã×÷ÎªÓÒº¢×Ó
+				// pre->right == nullptrï¼Œè¯´æ˜å·¦å­æ ‘çš„æœ€å³èŠ‚ç‚¹è¿˜æ²¡æœ‰æŠŠå½“å‰èŠ‚ç‚¹ä½œä¸ºå³å­©å­
 				// Make current as right child of its inorder predecessor
 				if (pre->right == nullptr)
 				{
 					pre->right = curr;
 					curr = curr->left;
 				}
-				// pre->right == curr£¬ËµÃ÷×ó×ÓÊ÷µÄ×îÓÒ½ÚµãµÄÓÒº¢×ÓÒÑ¾­ÊÇµ±Ç°½ÚµãÁË£¬ĞèÒª°ÑËüÖØÖÃ»ØÈ¥£¨ÒòÎªpreÏÔÈ»ÔÚµ±Ç°½ÚµãÖ®Ç°±»·ÃÎÊÁË£©£¬¼´½«ÓÒº¢×ÓÉèÎª¿Õ¡£
-				// Í¬Ê±£¬Ö±½Ó·ÃÎÊµ±Ç°½Úµã£¬ÒòÎªÔÚµ±Ç°½ÚµãÖ®Ç°µÄ½ÚµãÒÑ¾­±»·ÃÎÊ¹ıÁË¡£
+				// pre->right == currï¼Œè¯´æ˜å·¦å­æ ‘çš„æœ€å³èŠ‚ç‚¹çš„å³å­©å­å·²ç»æ˜¯å½“å‰èŠ‚ç‚¹äº†ï¼Œéœ€è¦æŠŠå®ƒé‡ç½®å›å»ï¼ˆå› ä¸ºpreæ˜¾ç„¶åœ¨å½“å‰èŠ‚ç‚¹ä¹‹å‰è¢«è®¿é—®äº†ï¼‰ï¼Œå³å°†å³å­©å­è®¾ä¸ºç©ºã€‚
+				// åŒæ—¶ï¼Œç›´æ¥è®¿é—®å½“å‰èŠ‚ç‚¹ï¼Œå› ä¸ºåœ¨å½“å‰èŠ‚ç‚¹ä¹‹å‰çš„èŠ‚ç‚¹å·²ç»è¢«è®¿é—®è¿‡äº†ã€‚
 				// Revert the changes made in if part to restore the original
 				// tree i.e., fix the right child of predecssor
 				else
@@ -190,10 +190,10 @@ public:
 3. https://leetcode.com/problems/binary-tree-inorder-traversal/solution/
 
 
-## ¶ş²æÊ÷µÄ²ã´Î±éÀú
+## äºŒå‰æ ‘çš„å±‚æ¬¡éå†
 
 
-### ÌâÄ¿ĞğÊö£º
+### é¢˜ç›®å™è¿°ï¼š
 ```
 Given binary tree [3,9,20,null,null,15,7],
     3
@@ -209,7 +209,7 @@ return its level order traversal as:
 ]
 ```
 
-### 1. BFS£¨»ùÓÚ¶ÓÁĞ£©
+### 1. BFSï¼ˆåŸºäºé˜Ÿåˆ—ï¼‰
 
 ```c++
 class Solution {
@@ -219,13 +219,13 @@ public:
 		vector<vector<int>> result;
 		if (root == nullptr)
 			return result;
-		queue<TreeNode*> Q;		// ±£´æÒ»²ã½Úµã
+		queue<TreeNode*> Q;		// ä¿å­˜ä¸€å±‚èŠ‚ç‚¹
 		Q.push(root);
 		while (!Q.empty())
 		{
 			int size = Q.size();
 			vector<int> curr_layer;
-			// ³ö¶Óµ±Ç°Ò»²ã½Úµã£¬²¢Ìí¼ÓÏÂÒ»²ã½Úµã
+			// å‡ºé˜Ÿå½“å‰ä¸€å±‚èŠ‚ç‚¹ï¼Œå¹¶æ·»åŠ ä¸‹ä¸€å±‚èŠ‚ç‚¹
 			for (int i = 0; i < size; ++i)
 			{
 				TreeNode* temp = Q.front();
@@ -243,7 +243,7 @@ public:
 };
 ```
 
-### 2. DFS£¨½«²ãÊı×÷Îª²ÎÊı´«µİ£©
+### 2. DFSï¼ˆå°†å±‚æ•°ä½œä¸ºå‚æ•°ä¼ é€’ï¼‰
 
 ```c++
 class Solution_v2 {
@@ -251,7 +251,7 @@ public:
 	vector<vector<int>> levelOrder(TreeNode* root)
 	{
 		vector<vector<int>> result;
-		dfs(root, 0£¬ result);
+		dfs(root, 0ï¼Œ result);
 		return result;
 	}
 

@@ -35,15 +35,15 @@ public:
 
 	void reverseAux(string& s, int i, int k)
 	{
-		// ×Ö·û´®s£¬´Ói¿ªÊ¼ÖÁÉÙÓĞk¸ö×Ö·û£¬·´×ªÕâk¸ö×Ö·û
+		// å­—ç¬¦ä¸²sï¼Œä»iå¼€å§‹è‡³å°‘æœ‰kä¸ªå­—ç¬¦ï¼Œåè½¬è¿™kä¸ªå­—ç¬¦
 		if (i + k <= s.size())
 		{
-			int last = i + k;		// ×Ó´®µÄ×îºóÒ»¸öÔªËØµÄÎ²ºóÎ»ÖÃ
+			int last = i + k;		// å­ä¸²çš„æœ€åä¸€ä¸ªå…ƒç´ çš„å°¾åä½ç½®
 			int mid = (i + last) / 2;
 			for (int j = 0; j < mid - i; ++j)
 				swap(s[i + j], s[last - 1 - j]);
 		}
-		else	// ×Ö·û´®s£¬´Ói¿ªÊ¼£¬»¹ÓĞ²»µ½k¸ö×Ö·û
+		else	// å­—ç¬¦ä¸²sï¼Œä»iå¼€å§‹ï¼Œè¿˜æœ‰ä¸åˆ°kä¸ªå­—ç¬¦
 		{
 			int last = s.size();
 			int mid = (i + last) / 2;

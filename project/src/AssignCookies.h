@@ -34,8 +34,8 @@ You need to output 2.
 Approach:
 
 Greedy.
-ÏÈÂú×ã×îÐ¡ÐèÇóµÄÐ¡º¢£¬²¢ÇÒ¾¡¿ÉÄÜÊ¹ÓÃ×îÐ¡µÄ±ý¸É¡£ÕâÑùÄÜ¹»×îÖÕÂú×ã×î¶àµÄÐ¡º¢¡£
-Time: O(nlogn), n Îª max(g.size(), s.size())
+å…ˆæ»¡è¶³æœ€å°éœ€æ±‚çš„å°å­©ï¼Œå¹¶ä¸”å°½å¯èƒ½ä½¿ç”¨æœ€å°çš„é¥¼å¹²ã€‚è¿™æ ·èƒ½å¤Ÿæœ€ç»ˆæ»¡è¶³æœ€å¤šçš„å°å­©ã€‚
+Time: O(nlogn), n ä¸º max(g.size(), s.size())
 
 */
 

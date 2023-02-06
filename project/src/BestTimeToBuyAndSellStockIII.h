@@ -11,8 +11,8 @@ Note:
 You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
 
 Approach:
-×î¶à½øÐÐÁ½´Î½»Ò×£¬¿ÉÒÔ½« prices Êý×é·ÖÎª×óÓÒÁ½¸ö²¿·Ö£¬¶Ô×ó±ßºÍÓÒ±ß·Ö±ð×î¶à½øÐÐÒ»´Î½»Ò×£¬²¢·Ö±ð¼ÆËã×î´ó½»Ò×¶î£¬²¢ÇóºÍ¡£
-×îÖÕ»á±È½ÏµÃ³ö×î´óµÄ×Ü½»Ò×¶î¡£
+æœ€å¤šè¿›è¡Œä¸¤æ¬¡äº¤æ˜“ï¼Œå¯ä»¥å°† prices æ•°ç»„åˆ†ä¸ºå·¦å³ä¸¤ä¸ªéƒ¨åˆ†ï¼Œå¯¹å·¦è¾¹å’Œå³è¾¹åˆ†åˆ«æœ€å¤šè¿›è¡Œä¸€æ¬¡äº¤æ˜“ï¼Œå¹¶åˆ†åˆ«è®¡ç®—æœ€å¤§äº¤æ˜“é¢ï¼Œå¹¶æ±‚å’Œã€‚
+æœ€ç»ˆä¼šæ¯”è¾ƒå¾—å‡ºæœ€å¤§çš„æ€»äº¤æ˜“é¢ã€‚
 Time Limit Exceeded
 Time: O(n^2)
 
@@ -21,25 +21,25 @@ Ref: http://blog.csdn.net/fightforyourdream/article/details/14503469
 Ref: http://blog.csdn.net/li563868273/article/details/51073838
 
 prices[0...n-1]
-ÕÒÑ°Ò»¸öµã j£¬ÓÃÀ´½« prices[0...n-1] ·Ö¸îÎª×óÓÒ prices[0...i] ºÍ prices[i+1...j] Á½¸ö²¿·Ö
-·Ö±ðÇóÁ½¶ÎµÄ×î´óprofit¡£
-O(n^2)µÄËã·¨ºÜÈÝÒ×Ïëµ½£¬¾ÍÊÇApporach_1
+æ‰¾å¯»ä¸€ä¸ªç‚¹ jï¼Œç”¨æ¥å°† prices[0...n-1] åˆ†å‰²ä¸ºå·¦å³ prices[0...i] å’Œ prices[i+1...j] ä¸¤ä¸ªéƒ¨åˆ†
+åˆ†åˆ«æ±‚ä¸¤æ®µçš„æœ€å¤§profitã€‚
+O(n^2)çš„ç®—æ³•å¾ˆå®¹æ˜“æƒ³åˆ°ï¼Œå°±æ˜¯Apporach_1
 
-½øÐÐÓÅ»¯£º
-¶ÔÓÚµãj+1£¬Çóprice[0..j+1]µÄ×î´óprofitÊ±£¬ºÜ¶à¹¤×÷ÊÇÖØ¸´µÄ£¬ÔÚÇóprice[0..j]µÄ×î´óprofitÖÐÒÑ¾­×ö¹ýÁË¡£
-ÀàËÆÓÚBest Time to Buy and Sell Stock£¬¿ÉÒÔÔÚO(1)µÄÊ±¼ä´Óprice[0..j]ÍÆ³öprice[0..j+1]µÄ×î´óprofit¡£
-µ«ÊÇÈçºÎ´Óprice[j..n-1]ÍÆ³öprice[j+1..n-1]£¿·´¹ýÀ´Ë¼¿¼£¬ÎÒÃÇ¿ÉÒÔÓÃO(1)µÄÊ±¼äÓÉprice[j+1..n-1]ÍÆ³öprice[j..n-1]¡£
+è¿›è¡Œä¼˜åŒ–ï¼š
+å¯¹äºŽç‚¹j+1ï¼Œæ±‚price[0..j+1]çš„æœ€å¤§profitæ—¶ï¼Œå¾ˆå¤šå·¥ä½œæ˜¯é‡å¤çš„ï¼Œåœ¨æ±‚price[0..j]çš„æœ€å¤§profitä¸­å·²ç»åšè¿‡äº†ã€‚
+ç±»ä¼¼äºŽBest Time to Buy and Sell Stockï¼Œå¯ä»¥åœ¨O(1)çš„æ—¶é—´ä»Žprice[0..j]æŽ¨å‡ºprice[0..j+1]çš„æœ€å¤§profitã€‚
+ä½†æ˜¯å¦‚ä½•ä»Žprice[j..n-1]æŽ¨å‡ºprice[j+1..n-1]ï¼Ÿåè¿‡æ¥æ€è€ƒï¼Œæˆ‘ä»¬å¯ä»¥ç”¨O(1)çš„æ—¶é—´ç”±price[j+1..n-1]æŽ¨å‡ºprice[j..n-1]ã€‚
 
-×îÖÕËã·¨£º
-Êý×é dp_left[i] ¼ÇÂ¼ÁË price[0..i] µÄ×î´ó profit£¬
-Êý×é dp_right[i] ¼ÇÂ¼ÁË price[i..n] µÄ×î´ó profit¡£
-ÒÑÖª dp_left[i]£¬Çó dp_left[i+1]ÊÇ¼òµ¥µÄ£¬Í¬ÑùÒÑÖª dp_right[i]£¬Çó dp_right[i-1]Ò²ºÜÈÝÒ×¡£
+æœ€ç»ˆç®—æ³•ï¼š
+æ•°ç»„ dp_left[i] è®°å½•äº† price[0..i] çš„æœ€å¤§ profitï¼Œ
+æ•°ç»„ dp_right[i] è®°å½•äº† price[i..n] çš„æœ€å¤§ profitã€‚
+å·²çŸ¥ dp_left[i]ï¼Œæ±‚ dp_left[i+1]æ˜¯ç®€å•çš„ï¼ŒåŒæ ·å·²çŸ¥ dp_right[i]ï¼Œæ±‚ dp_right[i-1]ä¹Ÿå¾ˆå®¹æ˜“ã€‚
 dp_left[i+1] = max(dp_left[i], prices[i+1] - min_price)
 dp_right[i-1] = max(dp_right[i], max_price - prices[i-1])
 
-×îºó£¬ÎÒÃÇÔÙÓÃ O(n) µÄÊ±¼äÕÒ³ö×î´óµÄ dp_left[i]+dp_right[i+1]£¬¼´ÎªÌâÄ¿ËùÇó¡£
+æœ€åŽï¼Œæˆ‘ä»¬å†ç”¨ O(n) çš„æ—¶é—´æ‰¾å‡ºæœ€å¤§çš„ dp_left[i]+dp_right[i+1]ï¼Œå³ä¸ºé¢˜ç›®æ‰€æ±‚ã€‚
 
-Ë¼¿¼£º½«ÎÊÌâÍÆ¹ãµ½×î¶à½øÐÐk´Î½»Ò×Ê±£¬ÄÜ»ñµÃµÄ×î´óÊÕÒæ¡£
+æ€è€ƒï¼šå°†é—®é¢˜æŽ¨å¹¿åˆ°æœ€å¤šè¿›è¡Œkæ¬¡äº¤æ˜“æ—¶ï¼Œèƒ½èŽ·å¾—çš„æœ€å¤§æ”¶ç›Šã€‚
 
 */
 
@@ -60,7 +60,7 @@ public:
 		return result;
 	}
 
-	// Ö»½øÐÐ×î¶àÒ»´Î½»Ò×µÄ×î´óÊÕÒæ
+	// åªè¿›è¡Œæœ€å¤šä¸€æ¬¡äº¤æ˜“çš„æœ€å¤§æ”¶ç›Š
 	int maxProfitAux(vector<int>& prices, int left, int right)
 	{
 		if (right - left <= 0)
@@ -88,18 +88,18 @@ public:
 		vector<int> dp_left(len, 0);
 		vector<int> dp_right(len, 0);
 
-		// Çó³ö dp_left
-		int min_price = prices[0];	// ×îµÍ¼ÛÂòÈë
+		// æ±‚å‡º dp_left
+		int min_price = prices[0];	// æœ€ä½Žä»·ä¹°å…¥
 		dp_left[0] = 0;
 		for (int i = 1; i < len; ++i)
 		{
-			// price[0...i] ×î¶à½»Ò×Ò»´ÎµÄ×î´óÀûÈóÎ» price[0...i-1] µÄ×î´óÀûÈóºÍ¡°µ±Ç°Âô³ö¼ÛÓëÖ®Ç°×îµÍÂòÈë¼ÛÖ®²î¡±µÄ½Ï´óÖµ
+			// price[0...i] æœ€å¤šäº¤æ˜“ä¸€æ¬¡çš„æœ€å¤§åˆ©æ¶¦ä½ price[0...i-1] çš„æœ€å¤§åˆ©æ¶¦å’Œâ€œå½“å‰å–å‡ºä»·ä¸Žä¹‹å‰æœ€ä½Žä¹°å…¥ä»·ä¹‹å·®â€çš„è¾ƒå¤§å€¼
 			dp_left[i] = max(dp_left[i - 1], prices[i] - min_price);	
-			// ¸üÐÂ×îµÍ¼Û
+			// æ›´æ–°æœ€ä½Žä»·
 			min_price = min(min_price, prices[i]);			
 		}
 
-		// Çó³ö dp_right
+		// æ±‚å‡º dp_right
 		int max_price = prices[len - 1];
 		for (int i = len - 2; i >= 0; --i)
 		{
@@ -107,7 +107,7 @@ public:
 			max_price = max(max_price, prices[i]);
 		}
 		
-		// ¼ÆËã·Ö¸îÎ»ÖÃÎª i Ê±µÄ×î´ó profit£¬È¡×î´óÖµ
+		// è®¡ç®—åˆ†å‰²ä½ç½®ä¸º i æ—¶çš„æœ€å¤§ profitï¼Œå–æœ€å¤§å€¼
 		int result = 0;
 		for (int i = 0; i < len; ++i)
 		{

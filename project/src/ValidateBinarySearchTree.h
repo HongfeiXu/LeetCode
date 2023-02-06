@@ -24,20 +24,20 @@ Example 2:
 Binary tree [1,2,3], return false.
 
 Approach:
-ÖÐÐò±éÀúBST£¬µÃµ½ÑÏ¸ñÉýÐòÐòÁÐ¡££¨ÌâÄ¿ÖÐÒªÇó±ØÐëÎªÑÏ¸ñÉýÐò£©
-ÈôÐòÁÐ·ÇÉýÐò£¬ÔòËµÃ÷²»ÊÇBST
+ä¸­åºéåŽ†BSTï¼Œå¾—åˆ°ä¸¥æ ¼å‡åºåºåˆ—ã€‚ï¼ˆé¢˜ç›®ä¸­è¦æ±‚å¿…é¡»ä¸ºä¸¥æ ¼å‡åºï¼‰
+è‹¥åºåˆ—éžå‡åºï¼Œåˆ™è¯´æ˜Žä¸æ˜¯BST
 
 Approach v2:
-ÒÀÈ»Ê¹ÓÃÖÐÐò±éÀúµÄ·½·¨£¬µ«ÕâÀï²»±£´æ±éÀúÐòÁÐ£¬
-¶øÊÇÔÚ±éÀúµÄÊ±ºò±£´æÇ°Ò»¸ö·ÃÎÊ½ÚµãµÄÖ¸Õëpre£¬Óëµ±Ç°·ÃÎÊ½ÚµãËùÔÚ×ÓÊ÷½øÐÐ±È½Ï¡£
+ä¾ç„¶ä½¿ç”¨ä¸­åºéåŽ†çš„æ–¹æ³•ï¼Œä½†è¿™é‡Œä¸ä¿å­˜éåŽ†åºåˆ—ï¼Œ
+è€Œæ˜¯åœ¨éåŽ†çš„æ—¶å€™ä¿å­˜å‰ä¸€ä¸ªè®¿é—®èŠ‚ç‚¹çš„æŒ‡é’ˆpreï¼Œä¸Žå½“å‰è®¿é—®èŠ‚ç‚¹æ‰€åœ¨å­æ ‘è¿›è¡Œæ¯”è¾ƒã€‚
 
 Approach v3:
 Wrong Answer
 DFS
-ÅÐ¶Ïµ±Ç°½ÚµãÓë×ó×ÓÊ÷¸ù½Úµã¡¢ÓÒ×ÓÊ÷¸ù½ÚµãÊÇ·ñÂú×ã BST¡£
-Èç¹û²»Âú×ãÔò·µ»Ø false¡£
-Èç¹ûÂú×ãÔò¼ÌÐøÏòÏÂÅÐ¶ÏÆä×ÓÊ÷¡£
-Âß¼­²»ÕýÈ·£¬±ÈÈçÏÂÃæÕâ¸öÀý×Ó£¬²»Âú×ãBST£¬µ«°´ÕÕÕâ¸ö·½·¨ÅÐ¶Ï»á·µ»Ø true¡£
+åˆ¤æ–­å½“å‰èŠ‚ç‚¹ä¸Žå·¦å­æ ‘æ ¹èŠ‚ç‚¹ã€å³å­æ ‘æ ¹èŠ‚ç‚¹æ˜¯å¦æ»¡è¶³ BSTã€‚
+å¦‚æžœä¸æ»¡è¶³åˆ™è¿”å›ž falseã€‚
+å¦‚æžœæ»¡è¶³åˆ™ç»§ç»­å‘ä¸‹åˆ¤æ–­å…¶å­æ ‘ã€‚
+é€»è¾‘ä¸æ­£ç¡®ï¼Œæ¯”å¦‚ä¸‹é¢è¿™ä¸ªä¾‹å­ï¼Œä¸æ»¡è¶³BSTï¼Œä½†æŒ‰ç…§è¿™ä¸ªæ–¹æ³•åˆ¤æ–­ä¼šè¿”å›ž trueã€‚
        10
       /   \
 	 5     15
@@ -66,7 +66,7 @@ public:
 	{
 		vector<int> traverse_seq;
 		midorderTraverse(root, traverse_seq);
-		// Èô traverse_seq ÓÐÐò£¬Ôò·µ»Ø true£¬·ñÔò·µ»Ø false
+		// è‹¥ traverse_seq æœ‰åºï¼Œåˆ™è¿”å›ž trueï¼Œå¦åˆ™è¿”å›ž false
 		for (int i = 1; i < traverse_seq.size(); ++i)
 		{
 			if (traverse_seq[i] <= traverse_seq[i - 1])
@@ -94,20 +94,20 @@ public:
 		TreeNode* pre = nullptr;
 		return midorderTraverse(root, pre);
 	}
-	// pre ±£´æÖÐÐò±éÀú·ÃÎÊµ½µ±Ç° root ×ÓÊ÷Ê±µÄÇ°Ò»¸ö½ÚµãµÄµØÖ·
+	// pre ä¿å­˜ä¸­åºéåŽ†è®¿é—®åˆ°å½“å‰ root å­æ ‘æ—¶çš„å‰ä¸€ä¸ªèŠ‚ç‚¹çš„åœ°å€
 	bool midorderTraverse(TreeNode* root, TreeNode* &pre)
 	{
 		if (root == nullptr)
 			return true;
-		// Èô×ó×ÓÊ÷²»Âú×ãBST£¬·µ»Ø false
+		// è‹¥å·¦å­æ ‘ä¸æ»¡è¶³BSTï¼Œè¿”å›ž false
 		if (!midorderTraverse(root->left, pre))
 			return false;
-		// Èôµ±Ç°½Úµã²»Âú×ãBST,·µ»Ø false
+		// è‹¥å½“å‰èŠ‚ç‚¹ä¸æ»¡è¶³BST,è¿”å›ž false
 		if (pre != nullptr && root->val <= pre->val)
 			return false;
-		// ¸üÐÂ pre
+		// æ›´æ–° pre
 		pre = root;
-		// ÈôÓÒ×ÓÊ÷²»Âú×ãBST£¬·µ»Ø false
+		// è‹¥å³å­æ ‘ä¸æ»¡è¶³BSTï¼Œè¿”å›ž false
 		if (!midorderTraverse(root->right, pre))
 			return false;
 		return true;
@@ -121,13 +121,13 @@ public:
 	{
 		if (root == nullptr)
 			return true;
-		// Èô×ó×ÓÊ÷´æÔÚ£¬ÔòÅÐ¶Ïµ±Ç°½ÚµãºÍ×ó×ÓÊ÷µÄ¸ù½ÚµãÊÇ·ñÂú×ã BST£¬²»Âú×ãÔò·µ»Ø false£¬Âú×ãÔò¼ÌÐøÅÐ¶Ï
+		// è‹¥å·¦å­æ ‘å­˜åœ¨ï¼Œåˆ™åˆ¤æ–­å½“å‰èŠ‚ç‚¹å’Œå·¦å­æ ‘çš„æ ¹èŠ‚ç‚¹æ˜¯å¦æ»¡è¶³ BSTï¼Œä¸æ»¡è¶³åˆ™è¿”å›ž falseï¼Œæ»¡è¶³åˆ™ç»§ç»­åˆ¤æ–­
 		if (root->left != nullptr && root->left->val >= root->val)
 			return false;
-		// ÈôÓÒ×ÓÊ÷´æÔÚ£¬ÔòÅÐ¶Ïµ±Ç°½ÚµãºÍÓÒ×ÓÊ÷µÄ¸ù½ÚµãÊÇ·ñÂú×ã BST£¬²»Âú×ãÔò·µ»Ø false£¬Âú×ãÔò¼ÌÐøÏòÏÂÅÐ¶Ï
+		// è‹¥å³å­æ ‘å­˜åœ¨ï¼Œåˆ™åˆ¤æ–­å½“å‰èŠ‚ç‚¹å’Œå³å­æ ‘çš„æ ¹èŠ‚ç‚¹æ˜¯å¦æ»¡è¶³ BSTï¼Œä¸æ»¡è¶³åˆ™è¿”å›ž falseï¼Œæ»¡è¶³åˆ™ç»§ç»­å‘ä¸‹åˆ¤æ–­
 		if (root->right != nullptr && root->right->val <= root->val)
 			return false;
-		// ¼ÌÐøÏòÏÂÅÐ¶Ï×ó×ÓÊ÷¡¢ÓÒ×ÓÊ÷µÄÇé¿ö
+		// ç»§ç»­å‘ä¸‹åˆ¤æ–­å·¦å­æ ‘ã€å³å­æ ‘çš„æƒ…å†µ
 		return isValidBST(root->left) && isValidBST(root->right);
 	}
 };

@@ -2,7 +2,7 @@
 
 /*
 Date: 2018.3.20
-ÊäÈëÒ»¸ö×Ö·û´®£¬Êä³ö¸Ã×Ö·û´®ÖÐ×Ö·ûµÄËùÓÐ×éºÏ¡£¾Ù¸öÀý×Ó£¬Èç¹ûÊäÈëabc£¬ËüµÄ×éºÏÓÐa¡¢b¡¢c¡¢ab¡¢ac¡¢bc¡¢abc¡£
+è¾“å…¥ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¾“å‡ºè¯¥å­—ç¬¦ä¸²ä¸­å­—ç¬¦çš„æ‰€æœ‰ç»„åˆã€‚ä¸¾ä¸ªä¾‹å­ï¼Œå¦‚æžœè¾“å…¥abcï¼Œå®ƒçš„ç»„åˆæœ‰aã€bã€cã€abã€acã€bcã€abcã€‚
 
 Ref: http://blog.csdn.net/hackbuteer1/article/details/7462447
 */
@@ -15,9 +15,9 @@ Ref: http://blog.csdn.net/hackbuteer1/article/details/7462447
 using namespace std;
 
 /*
-¶ÔÓÚ×Ö·û´®ÖÐÃ¿Ò»¸ö×Ö·û£¬ÔÚÃ¿¸ö×éºÏÖÐÖ»ÓÐÁ½ÖÖÇé¿ö£¬ÒªÃ´´æÔÚ£¬ÒªÃ´²»´æÔÚ¡£
-´ÓÊ××Ö·û¿ªÊ¼£¬µÝ¹éµÃµ½°üÀ¨¸Ã×Ö·ûµÄ×éºÏ£¬²»°üÀ¨¸Ã×Ö·ûµÄ×éºÏ¡£
-×îÖÕµÃµ½³¤¶ÈÎª1,2,3,...,s.size()µÄ×éºÏ
+å¯¹äºŽå­—ç¬¦ä¸²ä¸­æ¯ä¸€ä¸ªå­—ç¬¦ï¼Œåœ¨æ¯ä¸ªç»„åˆä¸­åªæœ‰ä¸¤ç§æƒ…å†µï¼Œè¦ä¹ˆå­˜åœ¨ï¼Œè¦ä¹ˆä¸å­˜åœ¨ã€‚
+ä»Žé¦–å­—ç¬¦å¼€å§‹ï¼Œé€’å½’å¾—åˆ°åŒ…æ‹¬è¯¥å­—ç¬¦çš„ç»„åˆï¼Œä¸åŒ…æ‹¬è¯¥å­—ç¬¦çš„ç»„åˆã€‚
+æœ€ç»ˆå¾—åˆ°é•¿åº¦ä¸º1,2,3,...,s.size()çš„ç»„åˆ
 */
 class Solution {
 public:
@@ -29,44 +29,44 @@ public:
 		return result;
 	}
 
-	// a ÎªÊäÈëµÄ×Ö·û´®
-	// i ±íÊ¾µ±Ç°ÒªÑ¡ÔñµÄ×Ö·û a[i]£¬ÒªÃ´·ÅÈëµ±Ç°×éºÏ£¬ÒªÃ´²»·ÅÈë
-	// curr ±íÊ¾µ±Ç°×éºÏ
-	// result ±£´æËùÓÐ×éºÏ
+	// a ä¸ºè¾“å…¥çš„å­—ç¬¦ä¸²
+	// i è¡¨ç¤ºå½“å‰è¦é€‰æ‹©çš„å­—ç¬¦ a[i]ï¼Œè¦ä¹ˆæ”¾å…¥å½“å‰ç»„åˆï¼Œè¦ä¹ˆä¸æ”¾å…¥
+	// curr è¡¨ç¤ºå½“å‰ç»„åˆ
+	// result ä¿å­˜æ‰€æœ‰ç»„åˆ
 	void combineAux(const string& a, int i, string& curr,  vector<string>& result)
 	{
 		if (i == a.size())
 		{
-			// Ìø¹ý¿Õ×éºÏ
+			// è·³è¿‡ç©ºç»„åˆ
 			if (curr.empty())
 				return;
 			result.push_back(curr);
 			return;
 		}
 
-		// ½« a[i] ·ÅÈëµ±Ç°×éºÏ
+		// å°† a[i] æ”¾å…¥å½“å‰ç»„åˆ
 		curr.push_back(a[i]);
 		combineAux(a, i + 1, curr, result);
 		curr.pop_back();	// backtrack
-		// ²»°Ñ a[i] ·ÅÈëµ±Ç°×éºÏ
+		// ä¸æŠŠ a[i] æ”¾å…¥å½“å‰ç»„åˆ
 		combineAux(a, i + 1, curr, result);
 	}
 };
 
 /*
-¼ÙÉèÎÒÃÇÏëÔÚ³¤¶ÈÎªnµÄ×Ö·û´®ÖÐÇóm¸ö×Ö·ûµÄ×éºÏ¡£ÎÒÃÇÏÈ´ÓÍ·É¨Ãè×Ö·û´®µÄµÚÒ»¸ö×Ö·û¡£
-Õë¶ÔµÚÒ»¸ö×Ö·û£¬ÎÒÃÇÓÐÁ½ÖÖÑ¡Ôñ£º
-µÚÒ»ÊÇ°ÑÕâ¸ö×Ö·û·Åµ½×éºÏÖÐÈ¥£¬½ÓÏÂÀ´ÎÒÃÇÐèÒªÔÚÊ£ÏÂµÄn-1¸ö×Ö·ûÖÐÑ¡È¡m-1¸ö×Ö·û£»
-µÚ¶þÊÇ²»°ÑÕâ¸ö×Ö·û·Åµ½×éºÏÖÐÈ¥£¬½ÓÏÂÀ´ÎÒÃÇÐèÒªÔÚÊ£ÏÂµÄn-1¸ö×Ö·ûÖÐÑ¡Ôñm¸ö×Ö·û¡£
+å‡è®¾æˆ‘ä»¬æƒ³åœ¨é•¿åº¦ä¸ºnçš„å­—ç¬¦ä¸²ä¸­æ±‚mä¸ªå­—ç¬¦çš„ç»„åˆã€‚æˆ‘ä»¬å…ˆä»Žå¤´æ‰«æå­—ç¬¦ä¸²çš„ç¬¬ä¸€ä¸ªå­—ç¬¦ã€‚
+é’ˆå¯¹ç¬¬ä¸€ä¸ªå­—ç¬¦ï¼Œæˆ‘ä»¬æœ‰ä¸¤ç§é€‰æ‹©ï¼š
+ç¬¬ä¸€æ˜¯æŠŠè¿™ä¸ªå­—ç¬¦æ”¾åˆ°ç»„åˆä¸­åŽ»ï¼ŒæŽ¥ä¸‹æ¥æˆ‘ä»¬éœ€è¦åœ¨å‰©ä¸‹çš„n-1ä¸ªå­—ç¬¦ä¸­é€‰å–m-1ä¸ªå­—ç¬¦ï¼›
+ç¬¬äºŒæ˜¯ä¸æŠŠè¿™ä¸ªå­—ç¬¦æ”¾åˆ°ç»„åˆä¸­åŽ»ï¼ŒæŽ¥ä¸‹æ¥æˆ‘ä»¬éœ€è¦åœ¨å‰©ä¸‹çš„n-1ä¸ªå­—ç¬¦ä¸­é€‰æ‹©mä¸ªå­—ç¬¦ã€‚
 
-ÇóstrÖÐ³¤¶ÈÎª1,2,3,...,str.size()µÄ×éºÏ£¬Ôò£¬Ö»ÐèÒªµ÷ÓÃ combineAux ´«Èë²»Í¬µÄ³¤¶È×÷Îª²ÎÊý¼´¿É¡£
+æ±‚strä¸­é•¿åº¦ä¸º1,2,3,...,str.size()çš„ç»„åˆï¼Œåˆ™ï¼Œåªéœ€è¦è°ƒç”¨ combineAux ä¼ å…¥ä¸åŒçš„é•¿åº¦ä½œä¸ºå‚æ•°å³å¯ã€‚
 */
 class Solution_v2 {
 public:
 	vector<string> combine(string str)
 	{
 		vector<string> result;
-		// ÒÀ´ÎµÃµ½³¤Îª 1,2,...,str.size() µÄ×éºÏ
+		// ä¾æ¬¡å¾—åˆ°é•¿ä¸º 1,2,...,str.size() çš„ç»„åˆ
 		for (int i = 1; i <= str.size(); ++i)
 		{
 			string curr = "";
@@ -76,38 +76,38 @@ public:
 	}
 
 	/*
-	ÔÚ×Ö·û´® strµÄ×Ó´® str[i,i+1,...,str.size() - 1] ÖÐÑ¡Ôñ³¤Îª m µÄ×Ö·û×éºÏ
-	str: ÊäÈë×Ö·û´®
-	i: µ±Ç°·ÃÎÊµ½µÄÎ»ÖÃ
-	curr: µ±Ç°×éºÏ
-	result: ½á¹û
+	åœ¨å­—ç¬¦ä¸² strçš„å­ä¸² str[i,i+1,...,str.size() - 1] ä¸­é€‰æ‹©é•¿ä¸º m çš„å­—ç¬¦ç»„åˆ
+	str: è¾“å…¥å­—ç¬¦ä¸²
+	i: å½“å‰è®¿é—®åˆ°çš„ä½ç½®
+	curr: å½“å‰ç»„åˆ
+	result: ç»“æžœ
 
-	str.size() - i  ÎªÓàÏÂµÄ×Ö·û³¤¶È
+	str.size() - i  ä¸ºä½™ä¸‹çš„å­—ç¬¦é•¿åº¦
 	*/
 	void combineAux(const string& str, int i, int m, string& curr, vector<string>& result)
 	{
-		// Ñ¡È¡Íê³É
+		// é€‰å–å®Œæˆ
 		if (m == 0)
 		{
 			result.push_back(curr);
 			return;
 		}
 
-		// ×Ö·û´®±éÀúÍê±Ïµ«Î´Íê³É m ´ÎÑ¡È¡
+		// å­—ç¬¦ä¸²éåŽ†å®Œæ¯•ä½†æœªå®Œæˆ m æ¬¡é€‰å–
 		//if (i == str.size())
 		//{
 		//	return;
 		//}
 
-		// ÈôÓàÏÂµÄ×Ö·ûÈ«²¿Ñ¡ÔñÒ²²»×ãÒÔ´ïµ½»¹ÐèÒªµÄ m£¬ÔòÖ±½Ó·µ»Ø£¨¼ôÖ¦£©
+		// è‹¥ä½™ä¸‹çš„å­—ç¬¦å…¨éƒ¨é€‰æ‹©ä¹Ÿä¸è¶³ä»¥è¾¾åˆ°è¿˜éœ€è¦çš„ mï¼Œåˆ™ç›´æŽ¥è¿”å›žï¼ˆå‰ªæžï¼‰
 		if (str.size() - i < m)
 			return;
 
-		// Ñ¡Ôñ str[i]£¬ÔòÔÚÓàÏÂµÄ×Ö·û str[i+1,...,str.size()-1] ÖÐÑ¡Ôñ m-1 ¸ö×Ö·û
+		// é€‰æ‹© str[i]ï¼Œåˆ™åœ¨ä½™ä¸‹çš„å­—ç¬¦ str[i+1,...,str.size()-1] ä¸­é€‰æ‹© m-1 ä¸ªå­—ç¬¦
 		curr.push_back(str[i]);
 		combineAux(str, i + 1, m - 1, curr, result);
 		curr.pop_back();
-		// ²»Ñ¡Ôñ str[i]£¬ÔòÔÚÓàÏÂµÄ×Ö·û str[i+1,...,str.size()-1] ÖÐÑ¡Ôñ m ¸ö×Ö·û
+		// ä¸é€‰æ‹© str[i]ï¼Œåˆ™åœ¨ä½™ä¸‹çš„å­—ç¬¦ str[i+1,...,str.size()-1] ä¸­é€‰æ‹© m ä¸ªå­—ç¬¦
 		combineAux(str, i + 1, m, curr, result);
 	}
 };

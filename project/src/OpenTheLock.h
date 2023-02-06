@@ -48,19 +48,19 @@ Every string in deadends and the string target will be a string of 4 digits from
 
 Approach:
 Ref:https://leetcode.com/problems/open-the-lock/solution/
-½«ÎÊÌâ¿´ÎªÍ¼µÄ×î¶ÌÂ·¾¶ÎÊÌâ¡£
-Í¼ÖĞÓĞ 10000 ¸ö½Úµã£¬½ÚµãµÄ¹Ø¼ü×ÖÎª '0000' µ½ '9999' ÕâĞ©×Ö·û´®¡£
-Èç¹ûÁ½¸ö×Ö·û´®Ö®¼äÏà²îÖ»ÓĞÒ»Î»£¬£¨»·ÈÆ×ÅµÄ£¬'0' ºÍ '9' Ïà²îÒ²Ö»ÓĞÒ»Î»£©£¬²¢ÇÒÕâÁ½¸ö×Ö·û´®¶¼²»ÊÇ deadend£¬ÔòÊÇÁ¬Í¨µÄ¡£
-×îÖÕ£¬ÎÒÃÇĞèÒªÕÒ³öÓÉ '0000' µ½Ä¿±ê 'abcd' µÄ×î¶ÌÂ·¾¶£¨È·¶¨Æä³¤¶È£©£¬Èç¹û²»´æÔÚÔò·µ»Ø -1¡£
+å°†é—®é¢˜çœ‹ä¸ºå›¾çš„æœ€çŸ­è·¯å¾„é—®é¢˜ã€‚
+å›¾ä¸­æœ‰ 10000 ä¸ªèŠ‚ç‚¹ï¼ŒèŠ‚ç‚¹çš„å…³é”®å­—ä¸º '0000' åˆ° '9999' è¿™äº›å­—ç¬¦ä¸²ã€‚
+å¦‚æœä¸¤ä¸ªå­—ç¬¦ä¸²ä¹‹é—´ç›¸å·®åªæœ‰ä¸€ä½ï¼Œï¼ˆç¯ç»•ç€çš„ï¼Œ'0' å’Œ '9' ç›¸å·®ä¹Ÿåªæœ‰ä¸€ä½ï¼‰ï¼Œå¹¶ä¸”è¿™ä¸¤ä¸ªå­—ç¬¦ä¸²éƒ½ä¸æ˜¯ deadendï¼Œåˆ™æ˜¯è¿é€šçš„ã€‚
+æœ€ç»ˆï¼Œæˆ‘ä»¬éœ€è¦æ‰¾å‡ºç”± '0000' åˆ°ç›®æ ‡ 'abcd' çš„æœ€çŸ­è·¯å¾„ï¼ˆç¡®å®šå…¶é•¿åº¦ï¼‰ï¼Œå¦‚æœä¸å­˜åœ¨åˆ™è¿”å› -1ã€‚
 
-×Ü½áÈçÏÂ£º
+æ€»ç»“å¦‚ä¸‹ï¼š
 Every node has 8 edges at most. The nodes in dead ends cannot be visited. Find the shortest path from the initial node to the target.
 
-Ê¹ÓÃ BFS ·½·¨¡£
+ä½¿ç”¨ BFS æ–¹æ³•ã€‚
 TODO...
-Èç¹ûÌâÄ¿ÒªÇóÊä³ö½âËøµÄ²½ÖèÄØ£¿¼´£¬Èç¹û´æÔÚ½âËøĞòÁĞ£¬·µ»Ø½âËøµÄÃ¿Ò»²½£¬¶ø²»ÊÇ²½ÖèÊı¡£
-ÄÇ¾ÍĞèÒª¹¹Ôì³ö¹ã¶ÈÓÅÏÈÊ÷£¿
-ÊÇµÄ£¬µ«ÎÒÃÇÖ»ĞèÒª¼ÇÂ¼Ã¿¸ö½ÚµãµÄ¸¸½Úµã¼´¿É¡£ÔÚ×îºó£¬ÓÉÄ¿±ê½ÚµãÏòÉÏÖ±µ½ÆğÊ¼½ÚµãµÃµ½ÄæĞòµÄÂ·¾¶¡£½»»»Ê×Î²Ë³Ğò¼´µÃµ½½á¹û¡£
+å¦‚æœé¢˜ç›®è¦æ±‚è¾“å‡ºè§£é”çš„æ­¥éª¤å‘¢ï¼Ÿå³ï¼Œå¦‚æœå­˜åœ¨è§£é”åºåˆ—ï¼Œè¿”å›è§£é”çš„æ¯ä¸€æ­¥ï¼Œè€Œä¸æ˜¯æ­¥éª¤æ•°ã€‚
+é‚£å°±éœ€è¦æ„é€ å‡ºå¹¿åº¦ä¼˜å…ˆæ ‘ï¼Ÿ
+æ˜¯çš„ï¼Œä½†æˆ‘ä»¬åªéœ€è¦è®°å½•æ¯ä¸ªèŠ‚ç‚¹çš„çˆ¶èŠ‚ç‚¹å³å¯ã€‚åœ¨æœ€åï¼Œç”±ç›®æ ‡èŠ‚ç‚¹å‘ä¸Šç›´åˆ°èµ·å§‹èŠ‚ç‚¹å¾—åˆ°é€†åºçš„è·¯å¾„ã€‚äº¤æ¢é¦–å°¾é¡ºåºå³å¾—åˆ°ç»“æœã€‚
 
 */
 
@@ -77,30 +77,30 @@ public:
 	int openLock(vector<string>& deadends, string target)
 	{
 		unordered_set<string> dds(deadends.begin(), deadends.end());
-		// ÈôÆğÊ¼½ÚµãÎª deadends£¬ÔòÖ±½Ó·µ»Ø -1
+		// è‹¥èµ·å§‹èŠ‚ç‚¹ä¸º deadendsï¼Œåˆ™ç›´æ¥è¿”å› -1
 		if (dds.find("0000") != dds.end())
 			return -1;
-		queue<string> bfs;				// ½øĞĞ¹ã¶ÈÓÅÏÈËÑË÷£¬ÆäÖĞ²»±£´æÎŞ·¨µ½´ïµÄ deadends ½Úµã
-		unordered_set<string> visited;	// ±£´æÒÔ¼°·ÃÎÊ¹ıµÃ½Úµã£¬Ê¹µÃÖ®ºó²»»á¶ş´Î·ÃÎÊ
+		queue<string> bfs;				// è¿›è¡Œå¹¿åº¦ä¼˜å…ˆæœç´¢ï¼Œå…¶ä¸­ä¸ä¿å­˜æ— æ³•åˆ°è¾¾çš„ deadends èŠ‚ç‚¹
+		unordered_set<string> visited;	// ä¿å­˜ä»¥åŠè®¿é—®è¿‡å¾—èŠ‚ç‚¹ï¼Œä½¿å¾—ä¹‹åä¸ä¼šäºŒæ¬¡è®¿é—®
 		bfs.push("0000");
 		visited.insert("0000");
 		int result = 0;
 		while (!bfs.empty())
 		{
 			int curr_layer_size = bfs.size();
-			// ³ö¶Óµ±Ç°²ã½Úµã£¬Èë¶ÓÏÂÒ»²ã½Úµã
+			// å‡ºé˜Ÿå½“å‰å±‚èŠ‚ç‚¹ï¼Œå…¥é˜Ÿä¸‹ä¸€å±‚èŠ‚ç‚¹
 			for (int i = 0; i < curr_layer_size; ++i)
 			{
 				string curr_node = bfs.front();
 				bfs.pop();
-				// µ½´ïÄ¿±ê£¬·µ»Ø¾àÀë
+				// åˆ°è¾¾ç›®æ ‡ï¼Œè¿”å›è·ç¦»
 				if (curr_node == target)
 					return result;
-				// µÃµ½ºòÑ¡ÁÚ½Ó½Úµã
+				// å¾—åˆ°å€™é€‰é‚»æ¥èŠ‚ç‚¹
 				vector<string> neighbor_nodes = getNeighbors(curr_node);
 				for (auto node : neighbor_nodes)
 				{
-					// ÈôºòÑ¡½Úµã²»ÊÇ deadend ²¢ÇÒÒ²Ã»ÓĞ±»·ÃÎÊ¹ı£¬ÔòÈë¶ÓÎªÏÂÒ»²ã½Úµã
+					// è‹¥å€™é€‰èŠ‚ç‚¹ä¸æ˜¯ deadend å¹¶ä¸”ä¹Ÿæ²¡æœ‰è¢«è®¿é—®è¿‡ï¼Œåˆ™å…¥é˜Ÿä¸ºä¸‹ä¸€å±‚èŠ‚ç‚¹
 					if (dds.find(node) == dds.end() && visited.find(node) == visited.end())
 					{
 						bfs.push(node);
@@ -108,13 +108,13 @@ public:
 					}
 				}
 			}
-			// ÏÂÒ»´Îµü´úÊ±ÒÑ¾­ÊÇÏÂÒ»²ã£¬¾àÀëÖµÔö¼Ó1
+			// ä¸‹ä¸€æ¬¡è¿­ä»£æ—¶å·²ç»æ˜¯ä¸‹ä¸€å±‚ï¼Œè·ç¦»å€¼å¢åŠ 1
 			++result;
 		}
 		return -1;
 	}
 
-	// »ñµÃÒ»¸ö½ÚµãµÄ°Ë¸öºòÑ¡ÁÚ½Ó½Úµã
+	// è·å¾—ä¸€ä¸ªèŠ‚ç‚¹çš„å…«ä¸ªå€™é€‰é‚»æ¥èŠ‚ç‚¹
 	vector<string> getNeighbors(const string& node)
 	{
 		vector<string> result;
@@ -132,35 +132,35 @@ public:
 
 class Solution_v2 {
 public:
-	queue<string> bfs;				// ½øĞĞ¹ã¶ÈÓÅÏÈËÑË÷£¬ÆäÖĞ²»±£´æÎŞ·¨µ½´ïµÄ deadends ½Úµã
-	unordered_set<string> visited;	// ±£´æÒÔ¼°·ÃÎÊ¹ıµÃ½Úµã£¬Ê¹µÃÖ®ºó²»»á¶ş´Î·ÃÎÊ
-	unordered_map<string, string> node_to_parent;	// ±£´æ½Úµã¼°Æä¸¸½Úµã£¬ÒÔ´Ë¹¹Ôì³ö¹ã¶ÈÓÅÏÈÊ÷
+	queue<string> bfs;				// è¿›è¡Œå¹¿åº¦ä¼˜å…ˆæœç´¢ï¼Œå…¶ä¸­ä¸ä¿å­˜æ— æ³•åˆ°è¾¾çš„ deadends èŠ‚ç‚¹
+	unordered_set<string> visited;	// ä¿å­˜ä»¥åŠè®¿é—®è¿‡å¾—èŠ‚ç‚¹ï¼Œä½¿å¾—ä¹‹åä¸ä¼šäºŒæ¬¡è®¿é—®
+	unordered_map<string, string> node_to_parent;	// ä¿å­˜èŠ‚ç‚¹åŠå…¶çˆ¶èŠ‚ç‚¹ï¼Œä»¥æ­¤æ„é€ å‡ºå¹¿åº¦ä¼˜å…ˆæ ‘
 
 	vector<string> openLock(vector<string>& deadends, string target)
 	{
 		vector<string> result;
 		int path_length = openLockAux(deadends, target);
-		if (path_length == -1)			// ÈôÂ·¾¶²»´æÔÚ£¬·µ»Ø¿ÕµÄ vector<string>
+		if (path_length == -1)			// è‹¥è·¯å¾„ä¸å­˜åœ¨ï¼Œè¿”å›ç©ºçš„ vector<string>
 			return result;
-		else if (path_length == 0)		// ÈôÂ·¾¶³¤¶ÈÎª0£¬ÔòËµÃ÷Ä¿±ê½Úµã¼´ÎªÆğÊ¼½Úµã
+		else if (path_length == 0)		// è‹¥è·¯å¾„é•¿åº¦ä¸º0ï¼Œåˆ™è¯´æ˜ç›®æ ‡èŠ‚ç‚¹å³ä¸ºèµ·å§‹èŠ‚ç‚¹
 		{
 			result.push_back("0000");
 			return result;
 		}
-		// ÈôÂ·¾¶´æÔÚ£¬²¢ÇÒÄ¿±ê½Úµã²»ÊÇÆğÊ¼½Úµã£¬Ôò£¬´ÓÄ¿±ê½Úµã¿ªÊ¼ÑØ×Å¸¸½Úµã·½ÏòÑ°ÕÒµ½ÆğÊ¼½Úµã£¬¹¹Ôì³öÄæĞòµÄÂ·¾¶
+		// è‹¥è·¯å¾„å­˜åœ¨ï¼Œå¹¶ä¸”ç›®æ ‡èŠ‚ç‚¹ä¸æ˜¯èµ·å§‹èŠ‚ç‚¹ï¼Œåˆ™ï¼Œä»ç›®æ ‡èŠ‚ç‚¹å¼€å§‹æ²¿ç€çˆ¶èŠ‚ç‚¹æ–¹å‘å¯»æ‰¾åˆ°èµ·å§‹èŠ‚ç‚¹ï¼Œæ„é€ å‡ºé€†åºçš„è·¯å¾„
 		while (target != "0000")
 		{
 			result.push_back(target);
 			target = node_to_parent[target];
 		}
 		result.push_back("0000");
-		return vector<string>(result.rbegin(), result.rend());	// ·µ»Ø´ÓÆğÊ¼½Úµãµ½Ä¿±ê½ÚµãµÄÂ·¾¶
+		return vector<string>(result.rbegin(), result.rend());	// è¿”å›ä»èµ·å§‹èŠ‚ç‚¹åˆ°ç›®æ ‡èŠ‚ç‚¹çš„è·¯å¾„
 	}
 
 	int openLockAux(const vector<string>& deadends, const string& target)
 	{
 		unordered_set<string> dds(deadends.begin(), deadends.end());
-		// ÈôÆğÊ¼½ÚµãÎª deadends£¬ÔòÖ±½Ó·µ»Ø -1
+		// è‹¥èµ·å§‹èŠ‚ç‚¹ä¸º deadendsï¼Œåˆ™ç›´æ¥è¿”å› -1
 		if (dds.find("0000") != dds.end())
 			return -1;
 		bfs.push("0000");
@@ -169,34 +169,34 @@ public:
 		while (!bfs.empty())
 		{
 			int curr_layer_size = bfs.size();
-			// ³ö¶Óµ±Ç°²ã½Úµã£¬Èë¶ÓÏÂÒ»²ã½Úµã
+			// å‡ºé˜Ÿå½“å‰å±‚èŠ‚ç‚¹ï¼Œå…¥é˜Ÿä¸‹ä¸€å±‚èŠ‚ç‚¹
 			for (int i = 0; i < curr_layer_size; ++i)
 			{
 				string curr_node = bfs.front();
 				bfs.pop();
-				// µ½´ïÄ¿±ê£¬·µ»Ø¾àÀë
+				// åˆ°è¾¾ç›®æ ‡ï¼Œè¿”å›è·ç¦»
 				if (curr_node == target)
 					return result;
-				// µÃµ½ºòÑ¡ÁÚ½Ó½Úµã
+				// å¾—åˆ°å€™é€‰é‚»æ¥èŠ‚ç‚¹
 				vector<string> neighbor_nodes = getNeighbors(curr_node);
 				for (auto node : neighbor_nodes)
 				{
-					// ÈôºòÑ¡½Úµã²»ÊÇ deadend ²¢ÇÒÒ²Ã»ÓĞ±»·ÃÎÊ¹ı£¬ÔòÈë¶ÓÎªÏÂÒ»²ã½Úµã
+					// è‹¥å€™é€‰èŠ‚ç‚¹ä¸æ˜¯ deadend å¹¶ä¸”ä¹Ÿæ²¡æœ‰è¢«è®¿é—®è¿‡ï¼Œåˆ™å…¥é˜Ÿä¸ºä¸‹ä¸€å±‚èŠ‚ç‚¹
 					if (dds.find(node) == dds.end() && visited.find(node) == visited.end())
 					{
 						bfs.push(node);
 						visited.insert(node);
-						node_to_parent.insert({ node, curr_node });		// ±£´æ½Úµã¼°¸¸½ÚµãµÄÓ³Éä¹ØÏµ
+						node_to_parent.insert({ node, curr_node });		// ä¿å­˜èŠ‚ç‚¹åŠçˆ¶èŠ‚ç‚¹çš„æ˜ å°„å…³ç³»
 					}
 				}
 			}
-			// ÏÂÒ»´Îµü´úÊ±ÒÑ¾­ÊÇÏÂÒ»²ã£¬¾àÀëÖµÔö¼Ó1
+			// ä¸‹ä¸€æ¬¡è¿­ä»£æ—¶å·²ç»æ˜¯ä¸‹ä¸€å±‚ï¼Œè·ç¦»å€¼å¢åŠ 1
 			++result;
 		}
 		return -1;
 	}
 
-	// »ñµÃÒ»¸ö½ÚµãµÄ°Ë¸öºòÑ¡ÁÚ½Ó½Úµã
+	// è·å¾—ä¸€ä¸ªèŠ‚ç‚¹çš„å…«ä¸ªå€™é€‰é‚»æ¥èŠ‚ç‚¹
 	vector<string> getNeighbors(const string& node)
 	{
 		vector<string> result;
@@ -238,6 +238,6 @@ void test()
 
 0000 1000 1100 1200 1201 1202 0202
 Time: 238ms
-Çë°´ÈÎÒâ¼ü¼ÌĞø. . .
+è¯·æŒ‰ä»»æ„é”®ç»§ç»­. . .
 
 */

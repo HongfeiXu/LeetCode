@@ -22,9 +22,9 @@ Not Concise.
 
 Approach_v2:
 
-µÚÒ»ÖÖ½â·¨Ì«·±Ëö
+ç¬¬ä¸€ç§è§£æ³•å¤ªç¹ç
 
-ÎÒÃÇ·¢ÏÖ£¬¶ÔÓÚ½á¹ûµÄÃ¿Ò»Î»£¬Ö»Òª l1,l2,carry ÖÐ´æÔÚÒ»¸ö¾Í¿ÉÒÔ½øÐÐ¼ÆËã£¬Òò´Ë¿ÉÒÔ·ÅÔÚÒ»¸ö while Ñ­»·ÖÐ¿¼ÂÇÖ®¡£²»ÐèÒªÏë·¨Ò»ÖÐ·Ö¶Î¿¼ÂÇÇé¿ö¡£
+æˆ‘ä»¬å‘çŽ°ï¼Œå¯¹äºŽç»“æžœçš„æ¯ä¸€ä½ï¼Œåªè¦ l1,l2,carry ä¸­å­˜åœ¨ä¸€ä¸ªå°±å¯ä»¥è¿›è¡Œè®¡ç®—ï¼Œå› æ­¤å¯ä»¥æ”¾åœ¨ä¸€ä¸ª while å¾ªçŽ¯ä¸­è€ƒè™‘ä¹‹ã€‚ä¸éœ€è¦æƒ³æ³•ä¸€ä¸­åˆ†æ®µè€ƒè™‘æƒ…å†µã€‚
 
 Concise and Clear.
 
@@ -45,7 +45,7 @@ public:
 		auto pre1 = p1;
 		auto pre2 = p2;
 
-		int full = 0;		// ¼ÇÂ¼ÊÇ·ñÐèÒª½øÎ»
+		int full = 0;		// è®°å½•æ˜¯å¦éœ€è¦è¿›ä½
 		while (p1 != nullptr && p2 != nullptr)
 		{
 			int curr_sum = p1->val + p2->val + full;
@@ -124,9 +124,9 @@ class Solution_v2 {
 public:
 	ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
 	{
-		ListNode* head = new ListNode(0);		// ´øÍ·½áµãµÄÁ´±í
+		ListNode* head = new ListNode(0);		// å¸¦å¤´ç»“ç‚¹çš„é“¾è¡¨
 		ListNode* tail = head;
-		int carry = 0;	// ½øÎ»
+		int carry = 0;	// è¿›ä½
 		while (l1 || l2 || carry)
 		{
 			int curr_sum = (l1 ? l1->val : 0) + (l2 ? l2->val : 0) + carry;

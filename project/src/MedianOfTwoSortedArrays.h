@@ -22,7 +22,7 @@ The median is (2 + 3)/2 = 2.5
 
 Approach:
 
-Î´½áºÏ¶ş·Ö²éÕÒ
+æœªç»“åˆäºŒåˆ†æŸ¥æ‰¾
 Time Complexity: O(min(m))
 Space Complexity: O(1)
 

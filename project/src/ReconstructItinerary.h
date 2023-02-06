@@ -27,7 +27,7 @@ Another possible reconstruction is ["JFK","SFO","ATL","JFK","ATL","SFO"]. But it
 
 Approach:
 
-ÕâÀïĞèÒª·ÃÎÊÍêËùÓĞµÄ±ß¡££¨ÓÃ¹âËùÓĞµÄ»úÆ±£©
+è¿™é‡Œéœ€è¦è®¿é—®å®Œæ‰€æœ‰çš„è¾¹ã€‚ï¼ˆç”¨å…‰æ‰€æœ‰çš„æœºç¥¨ï¼‰
 Ref(DFS, recursive): https://leetcode.com/problems/reconstruct-itinerary/discuss/78768/Short-Ruby-Python-Java-C++
 Solution v1
 Ref(DFS, iterative): https://leetcode.com/problems/reconstruct-itinerary/discuss/78832/Short-C++-DFS-iterative-44ms-solution-with-explanation.-No-recursive-calls-no-backtracking.
@@ -54,14 +54,14 @@ public:
 		if (tickets.empty())
 			return result;
 
-		// ÓÃ multiset ±£´æ¿ÉÒÔµ½´ïµÄ»ú³¡£¬Ôò×Ô¶¯°´ÕÕ×ÖµäĞòÉıĞòÅÅÁĞ
+		// ç”¨ multiset ä¿å­˜å¯ä»¥åˆ°è¾¾çš„æœºåœºï¼Œåˆ™è‡ªåŠ¨æŒ‰ç…§å­—å…¸åºå‡åºæ’åˆ—
 		unordered_map<string, multiset<string>> um;		
 		for (auto & ticket : tickets)
 			um[ticket.first].insert(ticket.second);
 
 		dfs(string("JFK"), result, um);
 
-		// ÄæĞò·µ»Ø
+		// é€†åºè¿”å›
 		return vector<string>(result.rbegin(), result.rend());
 	}
 
@@ -73,7 +73,7 @@ public:
 			um[curr_pos].erase(um[curr_pos].begin());
 			dfs(next_pos, result, um);
 		}
-		// ËùÓĞ³ö±ß±»·ÃÎÊÍê£¬²ÅÂÖµ½µ±Ç°½Úµã
+		// æ‰€æœ‰å‡ºè¾¹è¢«è®¿é—®å®Œï¼Œæ‰è½®åˆ°å½“å‰èŠ‚ç‚¹
 		result.push_back(curr_pos);
 	}
 };
@@ -96,20 +96,20 @@ public:
 		while (!dfs.empty())
 		{
 			string top_airport = dfs.top();
-			// Èç¹û»¹ÓĞ³ö±ß
+			// å¦‚æœè¿˜æœ‰å‡ºè¾¹
 			if (!um[top_airport].empty())
 			{
-				// Ñ¡Ôñ×ÖµäĞò×îĞ¡µÄ³ö±ß£¬¼ÓÈëdfs£¬ÏÂÒ»´ÎÑ­»·½«»á·ÃÎÊ¸ÃĞÂ¼ÓÈëµÄµã£¨DFS£©
+				// é€‰æ‹©å­—å…¸åºæœ€å°çš„å‡ºè¾¹ï¼ŒåŠ å…¥dfsï¼Œä¸‹ä¸€æ¬¡å¾ªç¯å°†ä¼šè®¿é—®è¯¥æ–°åŠ å…¥çš„ç‚¹ï¼ˆDFSï¼‰
 				dfs.push(*um[top_airport].begin());
-				// ²¢´Ó³ö±ßÖĞÉ¾³ıÕâÒ»Ìõ
+				// å¹¶ä»å‡ºè¾¹ä¸­åˆ é™¤è¿™ä¸€æ¡
 				um[top_airport].erase(um[top_airport].begin());
 			}
-			// Èç¹ûÃ»ÓĞ³ö±ß
+			// å¦‚æœæ²¡æœ‰å‡ºè¾¹
 			else
 			{
-				// ½«½Úµã¼ÓÈë result
+				// å°†èŠ‚ç‚¹åŠ å…¥ result
 				result.push_back(top_airport);
-				// ½«¸Ã½Úµã´Ó dfs ÖĞµ¯³ö
+				// å°†è¯¥èŠ‚ç‚¹ä» dfs ä¸­å¼¹å‡º
 				dfs.pop();
 			}
 		}

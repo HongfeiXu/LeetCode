@@ -40,9 +40,9 @@ DFS
 Time: O(n)
 
 Approach_v2:
-Ë¼ÏëÓë·¨Ò»ÏàÍ¬£¬Ö»ÊÇÔö¼ÓÁËÒ»Ğ©ÅĞ¶ÏÓï¾ä£¬µ±È·¶¨×ÓÊ÷²»Æ½ºâÊ±£¬Ö±½Ó·µ»Ø-1±íÊ¾×ÓÊ÷²»Æ½ºâ
-dfsHeight º¯Êı¹¦ÄÜÎª£ºÈô¸ÃÊ÷Æ½ºâ£¬Ôò·µ»ØÊ÷µÄ¸ß¶È£¨´Ó¸ùµ½Ò¶×ÓµÄ½Úµã¸öÊı£©£¬·ñÔò£¬·µ»Ø-1±íÊ¾Ê÷²»Æ½ºâ¡£
-Ïà±È·¨Ò»£¬Ê¡È¥ÁË±äÁ¿ is_balanced 
+æ€æƒ³ä¸æ³•ä¸€ç›¸åŒï¼Œåªæ˜¯å¢åŠ äº†ä¸€äº›åˆ¤æ–­è¯­å¥ï¼Œå½“ç¡®å®šå­æ ‘ä¸å¹³è¡¡æ—¶ï¼Œç›´æ¥è¿”å›-1è¡¨ç¤ºå­æ ‘ä¸å¹³è¡¡
+dfsHeight å‡½æ•°åŠŸèƒ½ä¸ºï¼šè‹¥è¯¥æ ‘å¹³è¡¡ï¼Œåˆ™è¿”å›æ ‘çš„é«˜åº¦ï¼ˆä»æ ¹åˆ°å¶å­çš„èŠ‚ç‚¹ä¸ªæ•°ï¼‰ï¼Œå¦åˆ™ï¼Œè¿”å›-1è¡¨ç¤ºæ ‘ä¸å¹³è¡¡ã€‚
+ç›¸æ¯”æ³•ä¸€ï¼Œçœå»äº†å˜é‡ is_balanced 
 
 Time: O(n)
 
@@ -68,15 +68,15 @@ public:
 		return result;
 	}
 	
-	int dfs(TreeNode* root, bool& is_balanced)				// Çóµ±Ç°×ÓÊ÷¸ß¶È£¬²¢ÇÒÅĞ¶ÏÊÇ·ñÆ½ºâ£¬²»Æ½ºâÔòÉè is_balanced Îª false
+	int dfs(TreeNode* root, bool& is_balanced)				// æ±‚å½“å‰å­æ ‘é«˜åº¦ï¼Œå¹¶ä¸”åˆ¤æ–­æ˜¯å¦å¹³è¡¡ï¼Œä¸å¹³è¡¡åˆ™è®¾ is_balanced ä¸º false
 	{
 		if (root == nullptr)
 			return 0;
-		int height_left = dfs(root->left, is_balanced);		// ×ó×ÓÊ÷¸ß¶È
-		int height_right = dfs(root->right, is_balanced);	// ÓÒ×ÓÊ÷¸ß¶È
-		if (is_balanced && abs(height_right - height_left) > 1)	// Èô×óÓÒ×ÓÊ÷¸ß¶È²î > 1£¬Ôò is_balanced ÉèÎª false
+		int height_left = dfs(root->left, is_balanced);		// å·¦å­æ ‘é«˜åº¦
+		int height_right = dfs(root->right, is_balanced);	// å³å­æ ‘é«˜åº¦
+		if (is_balanced && abs(height_right - height_left) > 1)	// è‹¥å·¦å³å­æ ‘é«˜åº¦å·® > 1ï¼Œåˆ™ is_balanced è®¾ä¸º false
 			is_balanced = false;
-		return max(height_left, height_right) + 1;			// ·µ»Øµ±Ç°×ÓÊ÷µÄ¸ß¶È
+		return max(height_left, height_right) + 1;			// è¿”å›å½“å‰å­æ ‘çš„é«˜åº¦
 	}
 };
 
@@ -87,7 +87,7 @@ public:
 		return dfsHeight(root) != -1;
 	}
 
-	// Èô¸ÃÊ÷Æ½ºâ£¬Ôò·µ»ØÊ÷µÄ¸ß¶È£¨´Ó¸ùµ½Ò¶×ÓµÄ½Úµã¸öÊı£©£¬·ñÔò£¬·µ»Ø-1±íÊ¾Ê÷²»Æ½ºâ¡£
+	// è‹¥è¯¥æ ‘å¹³è¡¡ï¼Œåˆ™è¿”å›æ ‘çš„é«˜åº¦ï¼ˆä»æ ¹åˆ°å¶å­çš„èŠ‚ç‚¹ä¸ªæ•°ï¼‰ï¼Œå¦åˆ™ï¼Œè¿”å›-1è¡¨ç¤ºæ ‘ä¸å¹³è¡¡ã€‚
 	int dfsHeight(TreeNode* root)			
 	{
 		if (root == nullptr)

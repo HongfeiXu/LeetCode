@@ -33,12 +33,12 @@ Note:
 
 Approach:
 DP
-½»Ò×´ÎÊý²»ÏÞ£¬µ«¼ÓÈëÁË½»Ò×·ÑµÄÌõ¼þ£¬ÊÜ ¡¶309. Best Time to Buy and Sell Stock with Cooldown¡· µÄÆô·¢£¬ºÜÈÝÒ×Ð´³öÏÂÃæµÄ¶¨ÒåÒÔ¼°µÝÍÆÊ½
+äº¤æ˜“æ¬¡æ•°ä¸é™ï¼Œä½†åŠ å…¥äº†äº¤æ˜“è´¹çš„æ¡ä»¶ï¼Œå— ã€Š309. Best Time to Buy and Sell Stock with Cooldownã€‹ çš„å¯å‘ï¼Œå¾ˆå®¹æ˜“å†™å‡ºä¸‹é¢çš„å®šä¹‰ä»¥åŠé€’æŽ¨å¼
 buy[i] means till day i what is the maxProfit for any sequence end with buy.
 sell[i] means till day i what is the maxProfit for any sequence end with sell.
-µÝÍÆÊ½ÈçÏÂ£º
-buy[i] = max(sell[i-1] - prices[i], buy[i-1])			// ÈôÔÚiÌìÂòÈë£¬Ôò¼õÈ¥ÊÛ¼Û£¬Èô²»ÔÚiÌì³öÊÛ£¬ÔòÊÕÒæÎª buy[i-1]£¬È¡Á½ÕßÖÐ½Ï´óµÄ
-sell[i] = max(buy[i-1] + prices[i] - fee, sell[i-1])	// ÈôÔÚiÌì³öÊÛ£¬Ôò¼ÓÉÏÊÛ¼Û²¢¼õÈ¥½»Ò×·Ñ£¬buy[i-1]+prices[i]-fee£¬Èô²»ÔÚiÌì³öÊÛ£¬ÔòÊÕÒæÎª sell[i-1]£¬È¡Á½ÕßÖÐ½Ï´óµÄ
+é€’æŽ¨å¼å¦‚ä¸‹ï¼š
+buy[i] = max(sell[i-1] - prices[i], buy[i-1])			// è‹¥åœ¨iå¤©ä¹°å…¥ï¼Œåˆ™å‡åŽ»å”®ä»·ï¼Œè‹¥ä¸åœ¨iå¤©å‡ºå”®ï¼Œåˆ™æ”¶ç›Šä¸º buy[i-1]ï¼Œå–ä¸¤è€…ä¸­è¾ƒå¤§çš„
+sell[i] = max(buy[i-1] + prices[i] - fee, sell[i-1])	// è‹¥åœ¨iå¤©å‡ºå”®ï¼Œåˆ™åŠ ä¸Šå”®ä»·å¹¶å‡åŽ»äº¤æ˜“è´¹ï¼Œbuy[i-1]+prices[i]-feeï¼Œè‹¥ä¸åœ¨iå¤©å‡ºå”®ï¼Œåˆ™æ”¶ç›Šä¸º sell[i-1]ï¼Œå–ä¸¤è€…ä¸­è¾ƒå¤§çš„
 buy[0] = -prices[0]
 sell[0] = 0
 

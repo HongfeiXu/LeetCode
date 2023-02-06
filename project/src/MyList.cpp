@@ -1,6 +1,6 @@
 /*
 
-×Ô¶¨ÒåÀàĞÍ ListNode£¬ÓÃÀ´¹¹Ôìµ¥Á´±í
+è‡ªå®šä¹‰ç±»å‹ ListNodeï¼Œç”¨æ¥æ„é€ å•é“¾è¡¨
 
 */
 
@@ -24,7 +24,7 @@ ListNode* vectorToMyList(vector<int>::const_iterator b, vector<int>::const_itera
 	if (b == e)
 		return nullptr;
 	ListNode* head = new ListNode(*b);
-	ListNode* pre = head;	// Ö¸ÏòÁ´±íµÄ×îºóÒ»¸ö½Úµã
+	ListNode* pre = head;	// æŒ‡å‘é“¾è¡¨çš„æœ€åä¸€ä¸ªèŠ‚ç‚¹
 	++b;
 	while (b != e)
 	{

@@ -17,15 +17,15 @@ Given n = 3, there are a total of 5 unique BST's.
 
 Approach:
 
-¶ÔÓÚÊý×Ö 1...n£¬¿ÉÒÔÓÃÈÎºÎÊý×Ö×÷Îª¸ù½Úµã£¬È»ºó½«ÔÚ¹¹Ôì×ó×ÓÊ÷ºÍÓÒ×ÓÊ÷¡£
-¶ÔÓÚÈÎÒâ½Úµã×÷Îª¸ù£¬Èô×ó×ÓÊ÷ÓÐ a ÖÖ£¬ÓÒ×ÓÊ÷ÓÐ b ÖÖ£¬Ôò´ËÊ±¿ÉÒÔ¹¹³É a * b ÖÖÊ÷¡£½«ËùÓÐÇé¿öÇóºÍ¼´µÃµ½ 1...n µÄUBST¸öÊý¡£
-±íÊ¾ÈçÏÂ£º
+å¯¹äºŽæ•°å­— 1...nï¼Œå¯ä»¥ç”¨ä»»ä½•æ•°å­—ä½œä¸ºæ ¹èŠ‚ç‚¹ï¼Œç„¶åŽå°†åœ¨æž„é€ å·¦å­æ ‘å’Œå³å­æ ‘ã€‚
+å¯¹äºŽä»»æ„èŠ‚ç‚¹ä½œä¸ºæ ¹ï¼Œè‹¥å·¦å­æ ‘æœ‰ a ç§ï¼Œå³å­æ ‘æœ‰ b ç§ï¼Œåˆ™æ­¤æ—¶å¯ä»¥æž„æˆ a * b ç§æ ‘ã€‚å°†æ‰€æœ‰æƒ…å†µæ±‚å’Œå³å¾—åˆ° 1...n çš„UBSTä¸ªæ•°ã€‚
+è¡¨ç¤ºå¦‚ä¸‹ï¼š
 UB: Unique Binary Search Trees
 UB[n] = Sum{UB[i] * UB[n-i-1]}, i=0,...,n-1
-UB[0] = 1£¬¼´ÔÊÐíÄ³Ò»²à×ÓÊ÷Îª¿Õ
-µ±È»Èç¹û³õÊ¼ n == 0£¬ÔòÖ±½Ó·µ»Ø 0
+UB[0] = 1ï¼Œå³å…è®¸æŸä¸€ä¾§å­æ ‘ä¸ºç©º
+å½“ç„¶å¦‚æžœåˆå§‹ n == 0ï¼Œåˆ™ç›´æŽ¥è¿”å›ž 0
 
-Ê¹ÓÃ¶¯Ì¬¹æ»®·¨£¬×Ôµ×ÏòÉÏÇó½â³ö UB[1...n]
+ä½¿ç”¨åŠ¨æ€è§„åˆ’æ³•ï¼Œè‡ªåº•å‘ä¸Šæ±‚è§£å‡º UB[1...n]
 Time: O(n^2)
 Space: O(n)
 
@@ -48,10 +48,10 @@ public:
 		UB[0] = 1;
 		for (int i = 1; i <= n; ++i)
 		{
-			// Çói¸öÊý×Ö£¨1..i£©ËùÄÜ¹¹ÔìµÄ unique binary search trees µÄÊýÄ¿
+			// æ±‚iä¸ªæ•°å­—ï¼ˆ1..iï¼‰æ‰€èƒ½æž„é€ çš„ unique binary search trees çš„æ•°ç›®
 			for (int j = 1; j <= i; ++j)
 			{
-				// j Îª¸ù½Úµã£¬×ó×ÓÊ÷ÓÐ j-1 ¸ö½Úµã£¬ÓÒ×ÓÊ÷ÓÐ i-j ¸ö½Úµã
+				// j ä¸ºæ ¹èŠ‚ç‚¹ï¼Œå·¦å­æ ‘æœ‰ j-1 ä¸ªèŠ‚ç‚¹ï¼Œå³å­æ ‘æœ‰ i-j ä¸ªèŠ‚ç‚¹
 				UB[i] += UB[j - 1] * UB[i - j];
 			}
 		}

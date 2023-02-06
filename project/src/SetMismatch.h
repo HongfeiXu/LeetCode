@@ -21,9 +21,9 @@ The given array's numbers won't have any order.
 
 Approach:
 
-¹¹ÔìÒ»¸ö unordered_map
+æ„é€ ä¸€ä¸ª unordered_map
 key: nums[i]
-value: nums[i] ³öÏÖµÄ´ÎÊı
+value: nums[i] å‡ºç°çš„æ¬¡æ•°
 
 */
 

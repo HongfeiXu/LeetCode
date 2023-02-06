@@ -22,7 +22,7 @@ Input: "PPALLL"
 Output: False
 
 Approach:
-±éÀú
+éå†
 
 */
 

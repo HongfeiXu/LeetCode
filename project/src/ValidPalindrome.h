@@ -36,10 +36,10 @@ public:
 		{
 			if (isalnum(s[i]))
 			{
-				// Èç¹ûÊÇ×ÖÄ¸£¬´æÎª¶ÔÓ¦µÄĞ¡Ğ´×ÖÄ¸
+				// å¦‚æœæ˜¯å­—æ¯ï¼Œå­˜ä¸ºå¯¹åº”çš„å°å†™å­—æ¯
 				if (isalpha(s[i]))
 					pureAlphanumeric.push_back(tolower(s[i]));
-				// Èç¹ûÊÇÊı×Ö£¬Ö±½Ó±£´æ
+				// å¦‚æœæ˜¯æ•°å­—ï¼Œç›´æ¥ä¿å­˜
 				else
 					pureAlphanumeric.push_back(s[i]);
 			}

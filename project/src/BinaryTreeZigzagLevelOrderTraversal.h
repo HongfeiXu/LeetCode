@@ -52,7 +52,7 @@ public:
 			return result;
 		queue<TreeNode*> Q;
 		Q.push(root);
-		int level = 0;		// ¼ÇÂ¼µ±Ç°µÄ²ã´ÎÊı
+		int level = 0;		// è®°å½•å½“å‰çš„å±‚æ¬¡æ•°
 		while (!Q.empty())
 		{
 			int curr_layer_size = Q.size();
@@ -71,7 +71,7 @@ public:
 					Q.push(curr_node->right);
 			}
 			result.push_back(curr_layer_nodes);
-			++level;		// µİÔö²ã´ÎÊı
+			++level;		// é€’å¢å±‚æ¬¡æ•°
 		}
 		return result;
 	}

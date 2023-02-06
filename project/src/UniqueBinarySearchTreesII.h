@@ -20,23 +20,23 @@ Approach:
 
 Ref: https://leetcode.com/problems/unique-binary-search-trees-ii/discuss/31563
 
-µÝ¹éÊµÏÖ vector<TreeNode*> generateTree(int from, int to)
-¶ÔÓÚ 1...n ÖÐ£¬ÒÔ i Îª¸ù½ÚµãÊ±£¬
-µÝ¹é¹¹Ôì³öËùÓÐ¿ÉÄÜ 1...i-1 ×ó×ÓÊ÷£¬i...n ÓÒ×ÓÊ÷£¬
-È»ºóÈÎÈ¡Ò»¸ö×ó×ÓÊ÷ºÍÒ»¸öÓÒ×ÓÊ÷£¬ÔÙÌí¼ÓÒ»¸ö¸ù½Úµã£¬¹¹ÔìµÃµ½Ò»¸ö 1...n µÄÒÔ i Îª¸ù½ÚµãµÄ UBST¡£¿É¼û£¬Óë 96. Unique Binary Search Trees µÄË¼ÏëÊÇÏàÍ¨µÄ¡£
+é€’å½’å®žçŽ° vector<TreeNode*> generateTree(int from, int to)
+å¯¹äºŽ 1...n ä¸­ï¼Œä»¥ i ä¸ºæ ¹èŠ‚ç‚¹æ—¶ï¼Œ
+é€’å½’æž„é€ å‡ºæ‰€æœ‰å¯èƒ½ 1...i-1 å·¦å­æ ‘ï¼Œi...n å³å­æ ‘ï¼Œ
+ç„¶åŽä»»å–ä¸€ä¸ªå·¦å­æ ‘å’Œä¸€ä¸ªå³å­æ ‘ï¼Œå†æ·»åŠ ä¸€ä¸ªæ ¹èŠ‚ç‚¹ï¼Œæž„é€ å¾—åˆ°ä¸€ä¸ª 1...n çš„ä»¥ i ä¸ºæ ¹èŠ‚ç‚¹çš„ UBSTã€‚å¯è§ï¼Œä¸Ž 96. Unique Binary Search Trees çš„æ€æƒ³æ˜¯ç›¸é€šçš„ã€‚
 
-µÝ¹éµÄ·µ»ØÌõ¼þÊÇ£º
-Èô from > to£¬Ôò·µ»ØÒ»¸ö¿Õ½Úµã
-Èô from == to£¬Ôò·µ»ØÒ»¸öÒÔ from ÎªÖµµÄÒ¶×Ó½Úµã
+é€’å½’çš„è¿”å›žæ¡ä»¶æ˜¯ï¼š
+è‹¥ from > toï¼Œåˆ™è¿”å›žä¸€ä¸ªç©ºèŠ‚ç‚¹
+è‹¥ from == toï¼Œåˆ™è¿”å›žä¸€ä¸ªä»¥ from ä¸ºå€¼çš„å¶å­èŠ‚ç‚¹
 
-µ±È»£¬ÐèÒª×¢ÒâµÄÊÇ£¬ÕâÀïÓÉÓÚ¹¹Ôì×óÓÒ×ÓÊ÷µÄÊ±ºò£¬Ã»ÓÐ½øÐÐ¸´ÖÆ²Ù×÷£¬ËùÒÔ´æÔÚ¶à¸öÊ÷¹²ÓÃÏàÍ¬½ÚµãµÄÎÊÌâ¡£
+å½“ç„¶ï¼Œéœ€è¦æ³¨æ„çš„æ˜¯ï¼Œè¿™é‡Œç”±äºŽæž„é€ å·¦å³å­æ ‘çš„æ—¶å€™ï¼Œæ²¡æœ‰è¿›è¡Œå¤åˆ¶æ“ä½œï¼Œæ‰€ä»¥å­˜åœ¨å¤šä¸ªæ ‘å…±ç”¨ç›¸åŒèŠ‚ç‚¹çš„é—®é¢˜ã€‚
 
 Approach:
 MyApproach
 DP
 DP[n]:
 for(int k = 1; k <=n ; ++k)
-	DP[k-1] x DP[n-k]£¬¶Ô DP[n-k] ÖÐÃ¿Ò»¸öÊ÷µÄ½ÚµãÖµ + k
+	DP[k-1] x DP[n-k]ï¼Œå¯¹ DP[n-k] ä¸­æ¯ä¸€ä¸ªæ ‘çš„èŠ‚ç‚¹å€¼ + k
 	new TreeNode, DP[n].push_back()
 
 
@@ -55,7 +55,7 @@ struct TreeNode {
 
 class Solution {
 public:
-	// ¶Ô from...to ¹¹Ôì³ö UBST£¬·µ»ØËùÓÐ UBST
+	// å¯¹ from...to æž„é€ å‡º UBSTï¼Œè¿”å›žæ‰€æœ‰ UBST
 	vector<TreeNode*> generateTree(int from, int to)
 	{
 		vector<TreeNode*> ret;
@@ -65,22 +65,22 @@ public:
 			ret.push_back(new TreeNode(from));
 		else
 		{
-			// ÒÔ i Îª¸ù½Úµã
+			// ä»¥ i ä¸ºæ ¹èŠ‚ç‚¹
 			for (int i = from; i <= to; ++i)
 			{
-				// µÝ¹éÇó½âËùÓÐ¿ÉÄÜµÄ×ó×ÓÊ÷
+				// é€’å½’æ±‚è§£æ‰€æœ‰å¯èƒ½çš„å·¦å­æ ‘
 				vector<TreeNode*> left_subtree = generateTree(from, i - 1);
-				// µÝ¹éÇó½âËùÓÐ¿ÉÄÜµÄÓÒ×ÓÊ÷
+				// é€’å½’æ±‚è§£æ‰€æœ‰å¯èƒ½çš„å³å­æ ‘
 				vector<TreeNode*> right_subtree = generateTree(i + 1, to);
 
-				// ×ó×ÓÊ÷xÓÒ×ÓÊ÷£¬ÔÚ¼ÓÉÏ¸ù½Úµã£¬¹¹³ÉÒ»¸ö from...to µÄUBST
-				// ÕâÀïÓÃÁ½²ãÑ­»·ÊµÏÖÁË×óÓÒ×ÓÊ÷µÄ×éºÏ¡£
+				// å·¦å­æ ‘xå³å­æ ‘ï¼Œåœ¨åŠ ä¸Šæ ¹èŠ‚ç‚¹ï¼Œæž„æˆä¸€ä¸ª from...to çš„UBST
+				// è¿™é‡Œç”¨ä¸¤å±‚å¾ªçŽ¯å®žçŽ°äº†å·¦å³å­æ ‘çš„ç»„åˆã€‚
 				for (int j = 0; j < left_subtree.size(); ++j)
 				{
 					for (int k = 0; k < right_subtree.size(); ++k)
 					{
 						TreeNode* root = new TreeNode(i);
-						//ÏÂÃæµÄ²Ù×÷»áµ¼ÖÂ¹²ÓÃ×ÓÊ÷µÄÇé¿ö¡£ Èç¹ûÒªÇóÃ»ÓÐ¹²ÓÃ×ÓÊ÷µÄÇé¿ö£¬ÔòÐèÒª½øÐÐ¿½±´²Ù×÷¡£
+						//ä¸‹é¢çš„æ“ä½œä¼šå¯¼è‡´å…±ç”¨å­æ ‘çš„æƒ…å†µã€‚ å¦‚æžœè¦æ±‚æ²¡æœ‰å…±ç”¨å­æ ‘çš„æƒ…å†µï¼Œåˆ™éœ€è¦è¿›è¡Œæ‹·è´æ“ä½œã€‚
 						root->left = left_subtree[j];
 						root->right = right_subtree[k];
 						ret.push_back(root);
@@ -106,14 +106,14 @@ public:
 	{
 		if (n == 0)
 			return vector<TreeNode*>();
-		// dp[i] ±£´æ 1...i ËùÄÜÐÎ³ÉµÄËùÓÐ UBST
+		// dp[i] ä¿å­˜ 1...i æ‰€èƒ½å½¢æˆçš„æ‰€æœ‰ UBST
 		vector<vector<TreeNode*>> dp(n + 1, vector<TreeNode*>());
-		// dp[0] ÖÐ°üº¬Ò»¸ö¿ÕÖ¸Õë£¬ÓÃÀ´Éú³É¿Õ×ÓÊ÷
+		// dp[0] ä¸­åŒ…å«ä¸€ä¸ªç©ºæŒ‡é’ˆï¼Œç”¨æ¥ç”Ÿæˆç©ºå­æ ‘
 		dp[0].push_back(nullptr);
 		for (int i = 1; i <= n; ++i)
 		{
 			vector<TreeNode*> currI;
-			// ÒÔ j Îª¸ù½Úµã
+			// ä»¥ j ä¸ºæ ¹èŠ‚ç‚¹
 			for (int j = 1; j <= i; ++j)
 			{
 				for (int a = 0; a < dp[j - 1].size(); ++a)
@@ -121,7 +121,7 @@ public:
 					for (int b = 0; b < dp[i - j].size(); ++b)
 					{
 						TreeNode* root = new TreeNode(j);
-						TreeNode* left = copyAdd(dp[j - 1][a], 0);	 // ËùÓÐ×ÓÊ÷¾ùÓÉ dp ¿½±´µÃµ½£¬²»´æÔÚ¶à¸öÊ÷¹²ÓÃÏàÍ¬½ÚµãµÄÇé¿ö
+						TreeNode* left = copyAdd(dp[j - 1][a], 0);	 // æ‰€æœ‰å­æ ‘å‡ç”± dp æ‹·è´å¾—åˆ°ï¼Œä¸å­˜åœ¨å¤šä¸ªæ ‘å…±ç”¨ç›¸åŒèŠ‚ç‚¹çš„æƒ…å†µ
 						TreeNode* right = copyAdd(dp[i - j][b], j);	
 						root->left = left;
 						root->right = right;
@@ -134,10 +134,10 @@ public:
 		return dp[n];
 	}
 
-	// ¶Ô 1...n ÓÃ j ×÷Îª¸ù½Úµã£¬½«Æä·ÖÎª×ó×ÓÊ÷(1..j-1)£¬ÓÒ×ÓÊ÷(n-j)
-	// ×ó×ÓÊ÷µÄËùÓÐ¿ÉÄÜÇé¿öÎª dp[j-1]
-	// ÓÒ×ÓÊ÷ÐèÒª¶ÔÃ¿¸ö½Úµã¼ÓÈë offset£¬¼´ dp[n-j] + j(¶ÔÃ¿¸öÊ÷µÄÃ¿¸ö½Úµã + j)
-	// Ê¹ÓÃÇ°Ðò±éÀú·¨±éÀúÕû¸öÊ÷
+	// å¯¹ 1...n ç”¨ j ä½œä¸ºæ ¹èŠ‚ç‚¹ï¼Œå°†å…¶åˆ†ä¸ºå·¦å­æ ‘(1..j-1)ï¼Œå³å­æ ‘(n-j)
+	// å·¦å­æ ‘çš„æ‰€æœ‰å¯èƒ½æƒ…å†µä¸º dp[j-1]
+	// å³å­æ ‘éœ€è¦å¯¹æ¯ä¸ªèŠ‚ç‚¹åŠ å…¥ offsetï¼Œå³ dp[n-j] + j(å¯¹æ¯ä¸ªæ ‘çš„æ¯ä¸ªèŠ‚ç‚¹ + j)
+	// ä½¿ç”¨å‰åºéåŽ†æ³•éåŽ†æ•´ä¸ªæ ‘
 	TreeNode* copyAdd(TreeNode* ori_tree, int k)
 	{
 		if (ori_tree == nullptr)

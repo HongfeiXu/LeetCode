@@ -51,7 +51,7 @@ The meaning of i == ptn[pos[ptn[row[i]]]] is as follows:
 
 3. We then find the seat of his/her partner, which is given by pos[ptn[row[i]]].
 
-4. Lastly we find the seat next to his/her partner¡¯s seat, which is given by ptn[pos[ptn[row[i]]]].
+4. Lastly we find the seat next to his/her partnerâ€™s seat, which is given by ptn[pos[ptn[row[i]]]].
 
 Therefore, for each pivot index i, its expected index j is given by ptn[pos[ptn[row[i]]]]. 
 As long as i != j, we swap the two elements at index i and j, and continue until the placement requirement is satisfied. 

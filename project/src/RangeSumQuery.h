@@ -4,7 +4,7 @@
 
 303. Range Sum Query - Immutable
 
-Given an integer array nums, find the sum of the elements between indices i and j (i ¡Ü j), inclusive.
+Given an integer array nums, find the sum of the elements between indices i and j (i â‰¤ j), inclusive.
 
 Example:
 Given nums = [-2, 0, 3, -5, 2, -1]
@@ -18,10 +18,10 @@ You may assume that the array does not change.
 There are many calls to sumRange function.
 
 Approach:
-DP¹¹Ôìsum[0..n]£¬ÇÒ
+DPæž„é€ sum[0..n]ï¼Œä¸”
 	sum[i] = nums[0] + nums[1] + ... + nums[i-1] = s[i-1] + nums[i-1]
 	s[0] = 0
-Ôò sumRange(i,j) = sum[j + 1] - sum[i]
+åˆ™ sumRange(i,j) = sum[j + 1] - sum[i]
 
 */
 

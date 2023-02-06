@@ -39,13 +39,13 @@ and find a contiguous subarray giving maximum profit. If the difference falls be
 
 Approach v3:
 DP
-dp[i] ��¼�� prices[0...i] ����һ�ν��׻�õ�������棬�� min_price ���� prices[0...i] ����ͼ۸�
-��
+dp[i] 记录从 prices[0...i] 进行一次交易获得的最大收益，用 min_price 保存 prices[0...i] 的最低价格
+则
 dp[i+1] = max(dp[i], prices[i+1] - min_price)
 
 Approach v4:
-�൱��ʱ Approach v3 �� Space Optimized �汾
-ֻ��Ҫ����һ�����飬ͨ��һ��������¼��ǰ��ͼ۸�ͬʱ����˴ν������󣬲��뵱ǰ���ֵ�ȽϾͿ����ˡ�
+相当于时 Approach v3 的 Space Optimized 版本
+只需要遍历一次数组，通过一个变量记录当前最低价格，同时算出此次交易利润，并与当前最大值比较就可以了。
 
 */
 
@@ -91,8 +91,8 @@ public:
 		int len = prices.size();
 		if (len == 0)
 			return 0;
-		vector<int> dp(len, 0);			// dp[i] ��¼�� prices[0...i] ����һ�ν��׻�õ��������
-		int min_price = prices[0];		// �ͼ�����
+		vector<int> dp(len, 0);			// dp[i] 记录从 prices[0...i] 进行一次交易获得的最大收益
+		int min_price = prices[0];		// 低价买入
 		for (int i = 1; i < len; ++i)
 		{
 			dp[i] = max(dp[i - 1], prices[i] - min_price);
@@ -106,7 +106,7 @@ public:
 		int len = prices.size();
 		if (len == 0)
 			return 0;
-		int min_price = prices[0];		// �ͼ�����
+		int min_price = prices[0];		// 低价买入
 		int result = 0;
 		for (int i = 1; i < len; ++i)
 		{

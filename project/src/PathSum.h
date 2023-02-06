@@ -21,12 +21,12 @@ return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 
 Approach:
 DFS
-ÒòÎªÊÇÅÐ¶ÏÂú×ãÌõ¼þµÄ root-to-leaf µÄÂ·¾¶ÊÇ·ñ´æÔÚ£¬ËùÒÔÊ¹ÓÃDFS½øÐÐÉî¶ÈÓÅÏÈµÄ±éÀú±È½ÏºÏÊÊ
-µÝ¹éµÄÊµÏÖ
+å› ä¸ºæ˜¯åˆ¤æ–­æ»¡è¶³æ¡ä»¶çš„ root-to-leaf çš„è·¯å¾„æ˜¯å¦å­˜åœ¨ï¼Œæ‰€ä»¥ä½¿ç”¨DFSè¿›è¡Œæ·±åº¦ä¼˜å…ˆçš„éåŽ†æ¯”è¾ƒåˆé€‚
+é€’å½’çš„å®žçŽ°
 
 Approach_v2:
 preorder traverse
-»ùÓÚ stack µÄ·ÇµÝ¹éÊµÏÖ
+åŸºäºŽ stack çš„éžé€’å½’å®žçŽ°
 
 
 */
@@ -52,20 +52,20 @@ public:
 	bool dfs(TreeNode* root, int sum)
 	{
 		// base case
-		// Èôµ±Ç°½ÚµãÎª¿Õ½Úµã£¬·µ»Ø false
+		// è‹¥å½“å‰èŠ‚ç‚¹ä¸ºç©ºèŠ‚ç‚¹ï¼Œè¿”å›ž false
 		if (root == nullptr)
 			return false;
 
-		// Èô root->val < sum£¬Ôò¼ÌÐøÏòÏÂ±éÀú
+		// è‹¥ root->val < sumï¼Œåˆ™ç»§ç»­å‘ä¸‹éåŽ†
 		if (root->val != sum)
 			return dfs(root->left, sum - root->val) || dfs(root->right, sum - root->val);
-		// Èô root->val == sum
+		// è‹¥ root->val == sum
 		else
 		{
-			// ÇÒ¸Ã½ÚµãÎªÒ¶½Úµã£¬Ôò´æÔÚ root-to-leaf path Âú×ãÌõ¼þ
+			// ä¸”è¯¥èŠ‚ç‚¹ä¸ºå¶èŠ‚ç‚¹ï¼Œåˆ™å­˜åœ¨ root-to-leaf path æ»¡è¶³æ¡ä»¶
 			if (root->left == nullptr && root->right == nullptr)
 				return true;
-			// Èô¸Ã½Úµã²»ÊÇÒ¶½Úµã£¬Ôò¼ÌÐøÏòÏÂ±éÀú
+			// è‹¥è¯¥èŠ‚ç‚¹ä¸æ˜¯å¶èŠ‚ç‚¹ï¼Œåˆ™ç»§ç»­å‘ä¸‹éåŽ†
 			else
 				return dfs(root->left, sum - root->val) || dfs(root->right, sum - root->val);
 		}

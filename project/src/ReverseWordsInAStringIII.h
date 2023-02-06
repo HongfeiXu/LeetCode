@@ -13,11 +13,11 @@ Note: In the string, each word is separated by single space and there will not b
 
 
 Approach:
-Ê¹ÓÃ stringstream ½øĞĞµ¥´Ê·Ö¸î
+ä½¿ç”¨ stringstream è¿›è¡Œå•è¯åˆ†å‰²
 
 Approach2:
-À©Õ¹£º
-stringstream ²»ÄÜÖ±½ÓÊ¹ÓÃ¶ººÅÀ´·Ö¸îÒ»¾ä»°£¬¿É½áºÏ getline º¯Êı½øĞĞ½âÎö
+æ‰©å±•ï¼š
+stringstream ä¸èƒ½ç›´æ¥ä½¿ç”¨é€—å·æ¥åˆ†å‰²ä¸€å¥è¯ï¼Œå¯ç»“åˆ getline å‡½æ•°è¿›è¡Œè§£æ
 
 
 */
@@ -41,14 +41,14 @@ public:
 			result.append(string(temp.rbegin(), temp.rend()));
 			result.push_back(' ');
 		}
-		result.pop_back();		// µ¯³ö×îºóÒ»¸ö¿Õ¸ñ
+		result.pop_back();		// å¼¹å‡ºæœ€åä¸€ä¸ªç©ºæ ¼
 
 		return result;
 	}
 };
 
 
-// À©Õ¹ÄÚÈİ£ºÀûÓÃ stringstream + getline ÊµÏÖÒÔ¶ººÅÎª·Ö¸î·ûÊ±Óï¾äµÄ½âÎö
+// æ‰©å±•å†…å®¹ï¼šåˆ©ç”¨ stringstream + getline å®ç°ä»¥é€—å·ä¸ºåˆ†å‰²ç¬¦æ—¶è¯­å¥çš„è§£æ
 // 	cout << solution.reverseWords("hello,world,I,am,HongFei") << endl;
 
 class Solution_v2 {
@@ -65,7 +65,7 @@ public:
 			result.append(string(temp.rbegin(), temp.rend()));
 			result.push_back(' ');
 		}
-		result.pop_back();		// µ¯³ö×îºóÒ»¸ö¿Õ¸ñ
+		result.pop_back();		// å¼¹å‡ºæœ€åä¸€ä¸ªç©ºæ ¼
 
 		return result;
 	}

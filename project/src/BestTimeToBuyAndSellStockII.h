@@ -28,7 +28,7 @@ public:
 		
 		int max_profit = 0;
 
-		// �ҵ� prices �зǵݼ������ɶΣ��������룬��β������
+		// 找到 prices 中非递减的若干段，段首买入，段尾卖出。
 		while (start < prices.size() - 1)
 		{
 			if (prices[start] < prices[start + 1])
@@ -56,8 +56,8 @@ public:
 
 		int max_profit = 0;
 		
-		// ���� 7 1 5 6 2
-		// 1 �� 6 �����൱�� 5-1+6-5����ֻҪ��������ļ۸������ǵľͿ���ֱ�Ӽ��� max_profit �У��������ȷ�ġ�
+		// 对于 7 1 5 6 2
+		// 1 买 6 出，相当于 5-1+6-5，即只要相邻两天的价格是上涨的就可以直接加入 max_profit 中，结果是正确的。
 		for (int i = 1; i < prices.size(); i++)
 		{
 			max_profit += max(0, prices[i] - prices[i - 1]);
@@ -71,12 +71,12 @@ public:
 		int maxProfit = 0;
 		for (int i = 0; i < prices.size();)
 		{
-			// Ѱ�Ҽ�Сֵ
+			// 寻找极小值
 			int j = i;
 			while (j + 1 < prices.size() && prices[j] > prices[j + 1])
 				++j;
 			int k = j;
-			// Ѱ�Ҽ���ֵ
+			// 寻找极大值
 			while (k + 1 < prices.size() && prices[k] < prices[k + 1])
 				++k;
 			maxProfit += prices[k] - prices[j];

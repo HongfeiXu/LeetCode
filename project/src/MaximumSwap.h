@@ -117,14 +117,14 @@ public:
 		{
 			for (unsigned j = i + 1; j < numString.size(); j++)
 			{
-				swap(numString[i], numString[j]);	// ½»»»
+				swap(numString[i], numString[j]);	// äº¤æ¢
 				for (unsigned k = 0; k < numString.size(); k++)
 				{
-					// ´Ó¸ßÎ»µ½µÍÎ»£¬·¢ÏÖÓĞÒ»Î»Êı×Ö²»ÏàÍ¬
+					// ä»é«˜ä½åˆ°ä½ä½ï¼Œå‘ç°æœ‰ä¸€ä½æ•°å­—ä¸ç›¸åŒ
 					if (numString[k] != maxNumString[k])
 					{
-						// Èç¹ûĞÂµÄ numString ÕâÒ»Î»´óÓÚ maxNumString
-						// Ôò¸üĞÂ maxNumString
+						// å¦‚æœæ–°çš„ numString è¿™ä¸€ä½å¤§äº maxNumString
+						// åˆ™æ›´æ–° maxNumString
 						if (numString[k] > maxNumString[k])
 						{
 							maxNumString = numString;
@@ -132,7 +132,7 @@ public:
 						break;
 					}
 				}
-				swap(numString[i], numString[j]);	// ¸´Ô­
+				swap(numString[i], numString[j]);	// å¤åŸ
 			}
 		}
 		return stoi(maxNumString);
@@ -172,7 +172,7 @@ public:
 	int maximumSwap_v4(int num)
 	{
 		string numString(to_string(num));
-		int lastAppear[10];					// ¼ÇÂ¼Êı×Ö0~9ÔÚnumÖĞ×îºó³öÏÖµÄÎ»ÖÃ
+		int lastAppear[10];					// è®°å½•æ•°å­—0~9åœ¨numä¸­æœ€åå‡ºç°çš„ä½ç½®
 		memset(lastAppear, -1, sizeof(lastAppear));
 		for (unsigned i = 0; i < numString.size(); i++)
 		{

@@ -20,16 +20,16 @@ The number of ways decoding "12" is 2.
 ###########################################
 Approach:
 DP
-�۲죺
+观察：
 
 "123" => "12" + (3) => "12" + C
 		 "1" + (23) => A + W
 "12" => "1" + (2) => AB
 	 => (12) => L
-�� "123" => {ABC, LC, AW} NumOfDec("123") = 2 + 1���� NumOfDec[3] = 3
+故 "123" => {ABC, LC, AW} NumOfDec("123") = 2 + 1，即 NumOfDec[3] = 3
 
-����
-���ڴ�������ַ��� d[0...n-1]��
+所以
+对于待解码的字符串 d[0...n-1]，
 
 If n == 0
 	Return 0
@@ -44,36 +44,36 @@ If d[n-2]d[n-1] <= "26"
 Else If d[n-2]d[n-1] > "26"
 	NumOfDec[n] = NumOfDec[n-1]
 
-corner case: ��"0"�����
+corner case: 有"0"的情况
 If d[n-2]d[n-1] = "00"
 	Return 0
-If d[n-1] = "0"			// ��ʱ�޷����� d[n-1]����ֻ�ܿ� d[n-2]d[n-1] �ܷ����
+If d[n-1] = "0"			// 此时无法解码 d[n-1]，故只能看 d[n-2]d[n-1] 能否解码
 	NumOfDec[n] = NumOfDec[n-2]
-Else If d[n-2] == "0"	// ��ʱ�޷����� d[n-2]d[n-1]����ֻ�ܿ� d[n-1] �ܷ����
+Else If d[n-2] == "0"	// 此时无法解码 d[n-2]d[n-1]，故只能看 d[n-1] 能否解码
 	NumOfDec[n] = NumOfDec[n-1]
 
-����ʹ��DP����������⣬�߼��е㸴�ӡ�����
+可以使用DP方法进行求解，逻辑有点复杂。。。
 
 ###########################################
 Approach_v2:
 DP
-�ܽ����� Approach �ķ��������Եó�
+总结上面 Approach 的分析，可以得出
 
-d[i-2]d[i-1] ���Խ���������� "09" < d[i-2]d[i-1] <= "26"
-d[i-1] ���Խ���������� d[i-1] != '0'
+d[i-2]d[i-1] 可以解码的条件是 "09" < d[i-2]d[i-1] <= "26"
+d[i-1] 可以解码的条件是 d[i-1] != '0'
 
-�����У�
-�� d[i-2]d[i-1] ���Խ��룬��
+并且有：
+若 d[i-2]d[i-1] 可以解码，则
 	NumOfDec[i] += NumOfDec[i-2]
-�� d[i-1] ���Խ��룬��
+若 d[i-1] 可以解码，则
 	NumOfDec[i] += NumOfDec[i-1]
-������ NumOfDec[i] == 0���� d[i-2]d[i-1] �� d[i-1] ���޷����룬
-	���ַ����޷����룬ֱ�ӷ���0
+若最终 NumOfDec[i] == 0，即 d[i-2]d[i-1] 与 d[i-1] 都无法解码，
+	则字符串无法解码，直接返回0
 
 ###########################################
 Approach_v3:
 
-����������㵱ǰ NumOfDec[i] ֻҪ�õ� NumOfDec[i-2]��NumOfDec[i-1]�����Կ��Լ��ٿռ��ʹ�á�
+由于这里计算当前 NumOfDec[i] 只要用到 NumOfDec[i-2]、NumOfDec[i-1]，所以可以减少空间的使用。
 
 */
 
@@ -92,14 +92,14 @@ public:
 			return 0;
 
 		vector<int> NumOfDec(s.size() + 1, 0);
-		NumOfDec[0] = 1;	// ��ʵ�����壬���ڸ�������ļ��㣬ʡȥһ���жϹ��̣�������� i == 2 �� last2char <= "26" ʱ��NumOfDec[2] = NumOfDec[0] + NumOfDec[1] = 2
+		NumOfDec[0] = 1;	// 无实际意义，用于辅助下面的计算，省去一个判断过程，当下面的 i == 2 且 last2char <= "26" 时，NumOfDec[2] = NumOfDec[0] + NumOfDec[1] = 2
 		NumOfDec[1] = 1;
 		for (int i = 2; i <= s.size(); ++i)
 		{
 			string last2char = s.substr(i - 2, 2);
 			if (last2char <= "26")
 			{
-				if (last2char == "00")	// ���� "00" Ϊ�Ӵ�ʱ���޷�����
+				if (last2char == "00")	// 具有 "00" 为子串时，无法解析
 					return 0;
 				if (last2char[1] == '0')
 					NumOfDec[i] = NumOfDec[i - 2];
@@ -110,7 +110,7 @@ public:
 			}
 			else
 			{
-				if (last2char[1] == '0')	// ���� "30" �� "40" ���� > 26 �����Ϊ'0'���Ӵ�ʱ���޷�����
+				if (last2char[1] == '0')	// 具有 "30" 或 "40" 这种 > 26 且最后为'0'的子串时，无法解析
 					return 0;
 				else
 					NumOfDec[i] = NumOfDec[i - 1];
@@ -149,7 +149,7 @@ public:
 	{
 		if (s.empty() || s[0] == '0')
 			return 0;
-		vector<int> dp(2, 0);		// ��ʡ�ռ�
+		vector<int> dp(2, 0);		// 节省空间
 		dp[0] = dp[1] = 1;
 		for (int i = 2; i < s.size() + 1; ++i)
 		{

@@ -16,8 +16,8 @@ determine the maximum amount of money you can rob tonight without alerting the p
 Approach:
 
 DP
-Rob[i] (i = 0,...,num.size()-1) ±íÊ¾´ÓµÚ0¼ÒÇÀ½Ùµ½µÚi¼Ò£¨µÚi¼Ò±ØÐëÇÀ£©£¬ÔÚ²»¾ª¶¯¾¯²ìËùÄÜµÃµ½µÄ×î´óÊÕÒæ
-ÎªÁË»ñµÃ×î´óÊÕÒæ£¬µ±ÇÀ½ÙµÚi¼ÒÊ±£¬±ØÐëÇÀ½ÙµÚ i-2 ºÍ i-3 ÖÐµÄÒ»¼Ò£¬¹Ê£º
+Rob[i] (i = 0,...,num.size()-1) è¡¨ç¤ºä»Žç¬¬0å®¶æŠ¢åŠ«åˆ°ç¬¬iå®¶ï¼ˆç¬¬iå®¶å¿…é¡»æŠ¢ï¼‰ï¼Œåœ¨ä¸æƒŠåŠ¨è­¦å¯Ÿæ‰€èƒ½å¾—åˆ°çš„æœ€å¤§æ”¶ç›Š
+ä¸ºäº†èŽ·å¾—æœ€å¤§æ”¶ç›Šï¼Œå½“æŠ¢åŠ«ç¬¬iå®¶æ—¶ï¼Œå¿…é¡»æŠ¢åŠ«ç¬¬ i-2 å’Œ i-3 ä¸­çš„ä¸€å®¶ï¼Œæ•…ï¼š
 Rob[i] = max(Rob[i-2], Rob[i-3]) + num[i]
 if i < 0, Rob[i] = 0
 O(N) time, O(N) space
@@ -32,7 +32,7 @@ i = num[k] + e (money of this house + money robbed excluding the previous house)
 
 Exclude this house:
 e = max(i, e) (max of money robbed including the previous house or money robbed excluding the previous house)
-(note that i and e of the previous step, that¡¯s why we use tmp here to store the previous i when calculating e, to make O(1) space)
+(note that i and e of the previous step, thatâ€™s why we use tmp here to store the previous i when calculating e, to make O(1) space)
 
 */
 
@@ -57,13 +57,13 @@ public:
 				Rob[i] = max(Rob[i - 2], Rob[i - 3]) + nums[i];
 		}
 
-		// Ã»ÓÐÈË¼Ò
+		// æ²¡æœ‰äººå®¶
 		if (Rob.size() == 0)
 			return 0;
-		// Ö»ÓÐ1¼Ò
+		// åªæœ‰1å®¶
 		else if (Rob.size() == 1)
 			return Rob[0];
-		// ÓÐn(n>1)¼ÒÊ±£¬·µ»Ø Rob[n-1] Óë Rob[n-2] ÖÐµÄ½Ï´óÕß
+		// æœ‰n(n>1)å®¶æ—¶ï¼Œè¿”å›ž Rob[n-1] ä¸Ž Rob[n-2] ä¸­çš„è¾ƒå¤§è€…
 		else
 			return max(Rob[Rob.size() - 1], Rob[Rob.size() - 2]);
 	}
